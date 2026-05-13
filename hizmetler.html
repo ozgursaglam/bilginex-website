@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hizmetler — Bilginex</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #f0f2f5; --bg2: #f7f8fa; --surface: #fff;
+    --border: rgba(15,23,60,0.09); --border2: rgba(15,23,60,0.16);
+    --text: #0e1628; --text2: #485070; --text3: #9099b5;
+    --accent: #1d4ed8; --accent2: #2563eb; --accentlt: #eff4ff;
+    --orange: #ea580c; --orangelt: #fff7ed;
+    --teal: #0d9488; --teallt: #f0fdfa;
+    --purple: #7c3aed; --purplelt: #f5f3ff;
+    --amber: #d97706; --amberlt: #fffbeb;
+    --font-d: 'Syne', sans-serif; --font-b: 'DM Sans', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font-b); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 18px 60px; background: rgba(240,242,245,0.9); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); }
+  .nav-logo { font-family: var(--font-d); font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: var(--text); text-decoration: none; }
+  .nav-logo span { color: var(--orange); }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { color: var(--text2); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--text); font-weight: 500; }
+  .nav-cta { display: flex; gap: 10px; }
+  .btn-ghost { padding: 9px 20px; border: 1px solid var(--border2); background: transparent; color: var(--text); font-family: var(--font-b); font-size: 13px; font-weight: 500; border-radius: 7px; cursor: pointer; transition: background 0.2s; text-decoration: none; }
+  .btn-ghost:hover { background: var(--surface); }
+  .btn-primary { padding: 9px 22px; background: var(--accent2); border: none; color: #fff; font-family: var(--font-b); font-size: 13px; font-weight: 500; border-radius: 7px; cursor: pointer; transition: background 0.2s; text-decoration: none; }
+  .btn-primary:hover { background: var(--accent); }
+
+  /* PAGE HERO */
+  .page-hero { padding: 140px 60px 80px; background: var(--surface); border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+  .page-hero::before { content: ''; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(37,99,235,0.05), transparent 70%); }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text3); margin-bottom: 24px; }
+  .breadcrumb a { color: var(--text3); text-decoration: none; transition: color 0.2s; }
+  .breadcrumb a:hover { color: var(--accent2); }
+  .breadcrumb span { font-size: 11px; }
+  .page-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
+  .page-tag::before { content: ''; display: block; width: 20px; height: 1px; background: var(--teal); }
+  .page-title { font-family: var(--font-d); font-size: clamp(36px, 5vw, 60px); font-weight: 800; line-height: 1.05; letter-spacing: -2px; color: var(--text); max-width: 700px; }
+  .page-sub { margin-top: 20px; font-size: 17px; color: var(--text2); max-width: 560px; font-weight: 300; line-height: 1.75; }
+
+  /* SERVICE CARDS GRID */
+  .services-section { padding: 80px 60px 100px; }
+  .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 0; }
+
+  .service-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+    text-decoration: none;
+    display: block;
+  }
+  .service-card:hover { box-shadow: 0 12px 48px rgba(15,23,60,0.1); transform: translateY(-3px); border-color: var(--border2); }
+  .card-photo { width: 100%; height: 220px; object-fit: cover; display: block; }
+  .card-body { padding: 36px 36px 32px; }
+  .card-icon-row { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+  .card-icon { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+  .card-badge { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; }
+  .card-title { font-family: var(--font-d); font-size: 24px; font-weight: 700; color: var(--text); margin-bottom: 12px; letter-spacing: -0.5px; }
+  .card-desc { font-size: 14px; color: var(--text2); line-height: 1.75; font-weight: 300; margin-bottom: 24px; }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .tag { padding: 4px 12px; background: var(--bg); border: 1px solid var(--border2); border-radius: 100px; font-size: 11px; color: var(--text2); }
+  .card-cta { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--accent2); text-decoration: none; transition: gap 0.2s; }
+  .service-card:hover .card-cta { gap: 12px; }
+
+  /* ai */
+  .ai .card-icon { background: var(--accentlt); }
+  .ai .card-badge { background: var(--accentlt); color: var(--accent2); }
+  .ai .card-cta { color: var(--accent2); }
+  /* dijital */
+  .dijital .card-icon { background: var(--teallt); }
+  .dijital .card-badge { background: var(--teallt); color: var(--teal); }
+  .dijital .card-cta { color: var(--teal); }
+  /* egitim */
+  .egitim .card-icon { background: var(--purplelt); }
+  .egitim .card-badge { background: var(--purplelt); color: var(--purple); }
+  .egitim .card-cta { color: var(--purple); }
+  /* uzman */
+  .uzman .card-icon { background: var(--amberlt); }
+  .uzman .card-badge { background: var(--amberlt); color: var(--amber); }
+  .uzman .card-cta { color: var(--amber); }
+
+  /* WHY SECTION */
+  .why-section { background: var(--text); padding: 80px 60px; }
+  .why-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .why-title { font-family: var(--font-d); font-size: clamp(28px,3vw,42px); font-weight: 700; line-height: 1.1; letter-spacing: -1px; color: #fff; margin-bottom: 16px; }
+  .why-sub { font-size: 15px; color: rgba(255,255,255,0.55); font-weight: 300; line-height: 1.75; }
+  .why-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(255,255,255,0.06); border-radius: 16px; overflow: hidden; }
+  .why-stat { background: rgba(255,255,255,0.04); padding: 28px 32px; transition: background 0.2s; }
+  .why-stat:hover { background: rgba(255,255,255,0.07); }
+  .why-stat-num { font-family: var(--font-d); font-size: 36px; font-weight: 700; color: #fff; letter-spacing: -1px; line-height: 1; }
+  .why-stat-num span { color: var(--orange); }
+  .why-stat-label { font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 6px; font-weight: 300; }
+
+  /* CTA */
+  .cta-band { padding: 80px 60px; text-align: center; background: var(--accentlt); border-top: 1px solid rgba(37,99,235,0.1); }
+  .cta-title { font-family: var(--font-d); font-size: clamp(26px,3vw,40px); font-weight: 700; letter-spacing: -1px; color: var(--text); margin-bottom: 12px; }
+  .cta-sub { font-size: 16px; color: var(--text2); font-weight: 300; margin-bottom: 32px; }
+  .btn-large { padding: 14px 32px; font-size: 15px; font-weight: 500; border-radius: 8px; cursor: pointer; transition: all 0.25s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-b); }
+  .btn-large-primary { background: var(--accent2); border: none; color: #fff; box-shadow: 0 4px 20px rgba(37,99,235,0.2); }
+  .btn-large-primary:hover { background: var(--accent); transform: translateY(-1px); }
+
+  /* FOOTER */
+  footer { background: #0d1117; padding: 48px 60px 32px; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+  .footer-logo { font-family: var(--font-d); font-size: 18px; font-weight: 800; color: #fff; }
+  .footer-logo span { color: var(--orange); }
+  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); font-weight: 300; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: rgba(255,255,255,0.8); }
+
+  @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  .fade { animation: fadeUp 0.6s ease both; }
+  .d1 { animation-delay: 0.1s; } .d2 { animation-delay: 0.2s; } .d3 { animation-delay: 0.3s; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Bilgine<span>x</span></a>
+  <ul class="nav-links">
+    <li><a href="hizmetler.html" class="active">Hizmetler</a></li>
+    <li><a href="akademi.html">Akademi</a></li>
+    <li><a href="#">Çözümler</a></li>
+    <li><a href="#">Uzman Kadro</a></li>
+    <li><a href="#">Hakkımızda</a></li>
+    <li><a href="#">Blog</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="#" class="btn-ghost">Giriş Yap</a>
+    <a href="#" class="btn-primary">Demo Talep Et →</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="breadcrumb">
+    <a href="index.html">Ana Sayfa</a>
+    <span>›</span>
+    <span>Hizmetler</span>
+  </div>
+  <div class="page-tag fade">Hizmetlerimiz</div>
+  <h1 class="page-title fade d1">Teknolojinin her katmanında yanınızdayız</h1>
+  <p class="page-sub fade d2">AI entegrasyonundan dijital dönüşüme, teknoloji eğitiminden uzman kaynak kiralasına kadar kurumsal ihtiyaçlarınızın tamamını tek çatı altında karşılıyoruz.</p>
+</section>
+
+<section class="services-section">
+  <div class="services-grid">
+
+    <!-- AI -->
+    <a href="ai-entegrasyon.html" class="service-card ai">
+      <img class="card-photo" src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80" alt="AI Entegrasyon"/>
+      <div class="card-body">
+        <div class="card-icon-row">
+          <div class="card-icon">🤖</div>
+          <span class="card-badge">Yapay Zeka</span>
+        </div>
+        <div class="card-title">AI Entegrasyonu</div>
+        <div class="card-desc">Kurumsal süreçlerinize özel büyük dil modelleri, otomasyon sistemleri ve akıllı karar destek araçları tasarlıyor, uçtan uca entegre ediyoruz. Yapay zekayı gerçek iş değerine dönüştürüyoruz.</div>
+        <div class="card-tags">
+          <span class="tag">LLM Entegrasyonu</span>
+          <span class="tag">Süreç Otomasyonu</span>
+          <span class="tag">AI Chatbot</span>
+          <span class="tag">RAG Sistemleri</span>
+          <span class="tag">Veri Analizi</span>
+        </div>
+        <span class="card-cta">Detaylı İncele →</span>
+      </div>
+    </a>
+
+    <!-- Dijital Dönüşüm -->
+    <a href="dijital-donusum.html" class="service-card dijital">
+      <img class="card-photo" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80" alt="Dijital Dönüşüm"/>
+      <div class="card-body">
+        <div class="card-icon-row">
+          <div class="card-icon">🔄</div>
+          <span class="card-badge">Dönüşüm</span>
+        </div>
+        <div class="card-title">Dijital Dönüşüm</div>
+        <div class="card-desc">Mevcut iş süreçlerinizi analiz ederek kapsamlı dijital dönüşüm yol haritaları hazırlıyor, cloud geçişinden ERP entegrasyonuna kadar tüm süreci yönetiyoruz.</div>
+        <div class="card-tags">
+          <span class="tag">Süreç Analizi</span>
+          <span class="tag">Cloud Migration</span>
+          <span class="tag">ERP/CRM</span>
+          <span class="tag">Change Management</span>
+          <span class="tag">DevOps</span>
+        </div>
+        <span class="card-cta">Detaylı İncele →</span>
+      </div>
+    </a>
+
+    <!-- Teknoloji Eğitimi -->
+    <a href="teknoloji-egitimi.html" class="service-card egitim">
+      <img class="card-photo" src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80" alt="Teknoloji Eğitimleri"/>
+      <div class="card-body">
+        <div class="card-icon-row">
+          <div class="card-icon">🎓</div>
+          <span class="card-badge">Eğitim</span>
+        </div>
+        <div class="card-title">Teknoloji Eğitimleri</div>
+        <div class="card-desc">Canlı eğitimler, on-demand kurslar ve kurumsal sertifika programlarıyla ekiplerinizi güncel teknolojilere hazırlayan kapsamlı bir öğrenme ekosistemi sunuyoruz.</div>
+        <div class="card-tags">
+          <span class="tag">Canlı Bootcamp</span>
+          <span class="tag">Kurumsal Eğitim</span>
+          <span class="tag">Sertifikasyon</span>
+          <span class="tag">Mentorluk</span>
+          <span class="tag">Online Kurslar</span>
+        </div>
+        <span class="card-cta">Detaylı İncele →</span>
+      </div>
+    </a>
+
+    <!-- Uzman Kadro -->
+    <a href="uzman-kadro.html" class="service-card uzman">
+      <img class="card-photo" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" alt="Uzman Kaynak Kiralama"/>
+      <div class="card-body">
+        <div class="card-icon-row">
+          <div class="card-icon">👥</div>
+          <span class="card-badge">Kaynak</span>
+        </div>
+        <div class="card-title">Uzman Kaynak Kiralama</div>
+        <div class="card-desc">Projenizin ihtiyacına göre kıdemli yazılımcılar, veri bilimciler, DevOps uzmanları ve teknoloji mimarlarını esnek modellerle ekibinize dahil ediyoruz.</div>
+        <div class="card-tags">
+          <span class="tag">Staff Augmentation</span>
+          <span class="tag">Proje Bazlı</span>
+          <span class="tag">Dedicated Team</span>
+          <span class="tag">CTO-as-a-Service</span>
+          <span class="tag">Uzaktan / Hibrit</span>
+        </div>
+        <span class="card-cta">Detaylı İncele →</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<section class="why-section">
+  <div class="why-inner">
+    <div>
+      <h2 class="why-title">Neden şirketler Bilginex'i tercih ediyor?</h2>
+      <p class="why-sub">150'den fazla tamamlanan proje ve 98% müşteri memnuniyetiyle Türkiye'nin güvenilir teknoloji ortağıyız.</p>
+    </div>
+    <div class="why-stats">
+      <div class="why-stat">
+        <div class="why-stat-num">150<span>+</span></div>
+        <div class="why-stat-label">Tamamlanan Proje</div>
+      </div>
+      <div class="why-stat">
+        <div class="why-stat-num">80<span>+</span></div>
+        <div class="why-stat-label">Uzman Kadro</div>
+      </div>
+      <div class="why-stat">
+        <div class="why-stat-num">98<span>%</span></div>
+        <div class="why-stat-label">Müşteri Memnuniyeti</div>
+      </div>
+      <div class="why-stat">
+        <div class="why-stat-num">7<span>+</span></div>
+        <div class="why-stat-label">Yıllık Deneyim</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <h2 class="cta-title">Projenizi konuşalım</h2>
+  <p class="cta-sub">Hangi hizmete ihtiyaç duyduğunuzdan emin değil misiniz? Uzmanlarımız size en uygun çözümü birlikte belirlesin.</p>
+  <a href="#" class="btn-large btn-large-primary">Ücretsiz Keşif Görüşmesi →</a>
+</section>
+
+<footer>
+  <div class="footer-bottom">
+    <div class="footer-logo">Bilgine<span>x</span></div>
+    <div class="footer-links">
+      <a href="hizmetler.html">Hizmetler</a>
+      <a href="akademi.html">Akademi</a>
+      <a href="#">Hakkımızda</a>
+      <a href="#">İletişim</a>
+    </div>
+    <p class="footer-copy">© 2025 Bilginex Teknoloji A.Ş.</p>
+  </div>
+</footer>
+
+</body>
+</html>
