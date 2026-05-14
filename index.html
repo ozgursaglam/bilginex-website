@@ -225,11 +225,19 @@
   .test-role { font-size: 11px; color: var(--text3); margin-top: 2px; }
 
   /* ── LOGOS ── */
-  .logos-band { padding: 56px 60px; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .logos-label { text-align: center; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text3); margin-bottom: 32px; }
-  .logos-row { display: flex; justify-content: center; align-items: center; gap: 52px; flex-wrap: wrap; }
-  .logo-item { font-family: var(--font-d); font-size: 15px; font-weight: 700; color: var(--text3); transition: color 0.2s; }
-  .logo-item:hover { color: var(--text2); }
+  .logos-band { padding: 52px 0; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; }
+  .logos-label { text-align: center; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text3); margin-bottom: 32px; padding: 0 60px; }
+  .logos-track-wrap { overflow: hidden; position: relative; }
+  .logos-track-wrap::before, .logos-track-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; }
+  .logos-track-wrap::before { left: 0; background: linear-gradient(to right, var(--surface), transparent); }
+  .logos-track-wrap::after { right: 0; background: linear-gradient(to left, var(--surface), transparent); }
+  .logos-track { display: flex; align-items: center; gap: 56px; width: max-content; animation: logoScroll 30s linear infinite; }
+  .logos-track:hover { animation-play-state: paused; }
+  @keyframes logoScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .logo-item { display: flex; align-items: center; justify-content: center; flex-shrink: 0; opacity: 0.45; transition: opacity 0.2s; filter: grayscale(100%); }
+  .logo-item:hover { opacity: 0.75; }
+  .logo-text { font-family: var(--font-d); font-size: 16px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; white-space: nowrap; }
+  .logo-item img { height: 28px; width: auto; object-fit: contain; }
 
   /* ── CTA — city photo ── */
   .cta-section { position: relative; padding: 130px 60px; text-align: center; overflow: hidden; }
@@ -525,15 +533,40 @@
 
 <!-- LOGOS -->
 <div class="logos-band">
-  <div class="logos-label">Güvendikleri şirketler arasında</div>
-  <div class="logos-row">
-    <span class="logo-item">AKBANK</span>
-    <span class="logo-item">TURKCELL</span>
-    <span class="logo-item">MIGROS</span>
-    <span class="logo-item">ASELSAN</span>
-    <span class="logo-item">YAPI KREDİ</span>
-    <span class="logo-item">ENERJISA</span>
-    <span class="logo-item">LOGO</span>
+  <div class="logos-label">Teknoloji Dünyasının En Büyük İsimleri</div>
+  <div class="logos-track-wrap">
+    <div class="logos-track">
+      <span class="logo-item"><span class="logo-text">Microsoft</span></span>
+      <span class="logo-item"><span class="logo-text">AWS</span></span>
+      <span class="logo-item"><span class="logo-text">Google Cloud</span></span>
+      <span class="logo-item"><span class="logo-text">Cisco</span></span>
+      <span class="logo-item"><span class="logo-text">Oracle</span></span>
+      <span class="logo-item"><span class="logo-text">SAP</span></span>
+      <span class="logo-item"><span class="logo-text">VMware</span></span>
+      <span class="logo-item"><span class="logo-text">Red Hat</span></span>
+      <span class="logo-item"><span class="logo-text">UiPath</span></span>
+      <span class="logo-item"><span class="logo-text">PMI</span></span>
+      <span class="logo-item"><span class="logo-text">EC-Council</span></span>
+      <span class="logo-item"><span class="logo-text">ISACA</span></span>
+      <span class="logo-item"><span class="logo-text">Adobe</span></span>
+      <span class="logo-item"><span class="logo-text">Docker</span></span>
+      <span class="logo-item"><span class="logo-text">Kubernetes</span></span>
+      <span class="logo-item"><span class="logo-text">Microsoft</span></span>
+      <span class="logo-item"><span class="logo-text">AWS</span></span>
+      <span class="logo-item"><span class="logo-text">Google Cloud</span></span>
+      <span class="logo-item"><span class="logo-text">Cisco</span></span>
+      <span class="logo-item"><span class="logo-text">Oracle</span></span>
+      <span class="logo-item"><span class="logo-text">SAP</span></span>
+      <span class="logo-item"><span class="logo-text">VMware</span></span>
+      <span class="logo-item"><span class="logo-text">Red Hat</span></span>
+      <span class="logo-item"><span class="logo-text">UiPath</span></span>
+      <span class="logo-item"><span class="logo-text">PMI</span></span>
+      <span class="logo-item"><span class="logo-text">EC-Council</span></span>
+      <span class="logo-item"><span class="logo-text">ISACA</span></span>
+      <span class="logo-item"><span class="logo-text">Adobe</span></span>
+      <span class="logo-item"><span class="logo-text">Docker</span></span>
+      <span class="logo-item"><span class="logo-text">Kubernetes</span></span>
+    </div>
   </div>
 </div>
 
