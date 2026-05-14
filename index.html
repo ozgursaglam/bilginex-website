@@ -51,19 +51,27 @@
   .btn-primary { padding: 9px 22px; background: var(--accent2); border: none; color: #fff; font-family: var(--font-b); font-size: 13px; font-weight: 500; border-radius: 7px; cursor: pointer; transition: background 0.2s; text-decoration: none; }
   .btn-primary:hover { background: var(--accent); }
 
-  /* ── HERO — full-bleed photo ── */
+  /* ── HERO — gradient background ── */
   .hero {
     position: relative; min-height: 100vh;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     text-align: center; padding: 140px 40px 110px; overflow: hidden;
+    background: linear-gradient(135deg, #0a0f2e 0%, #1a1060 40%, #0d2060 100%);
   }
   .hero-photo {
     position: absolute; inset: 0; z-index: 0;
-    background: url('https://images.unsplash.com/photo-1639762681057-408e52192e55?w=1600&q=80') center/cover no-repeat;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 20%, rgba(99,102,241,0.25) 0%, transparent 65%),
+      radial-gradient(ellipse 60% 50% at 20% 80%, rgba(14,165,233,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 50% 50%, rgba(139,92,246,0.12) 0%, transparent 70%);
   }
   .hero-photo::after {
     content: ''; position: absolute; inset: 0;
-    background: linear-gradient(160deg, rgba(5,12,35,0.55) 0%, rgba(4,10,30,0.40) 50%, rgba(3,8,28,0.50) 100%);
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 100%);
   }
   .hero-content { position: relative; z-index: 1; }
   .hero-badge {
@@ -81,7 +89,7 @@
     line-height: 1.05; letter-spacing: -2.5px; color: #fff; max-width: 880px;
     animation: fadeUp 0.7s ease 0.1s both;
   }
-  .hero-title .accent { color: #fdba74; }
+  .hero-title .accent { color: #93c5fd; }
   .hero-title .teal   { color: #5eead4; }
   .hero-sub { margin-top: 24px; max-width: 540px; font-size: 17px; font-weight: 300; color: rgba(255,255,255,0.72); line-height: 1.75; animation: fadeUp 0.7s ease 0.2s both; }
   .hero-actions { margin-top: 40px; display: flex; gap: 14px; align-items: center; justify-content: center; animation: fadeUp 0.7s ease 0.3s both; }
@@ -116,8 +124,8 @@
   /* ── SERVICES — photo background ── */
   .services { position: relative; padding: 110px 60px; overflow: hidden; }
   .services-photo {
-    position: absolute; inset: 0; z-index: 0;
-    background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80') center/cover no-repeat;
+
+
   }
   .services-photo::after { content: ''; position: absolute; inset: 0; background: rgba(8,14,36,0.84); }
   .services-content { position: relative; z-index: 1; }
@@ -170,7 +178,7 @@
   /* ── AKADEMİ — photo background ── */
   .akademi { position: relative; padding: 110px 60px; overflow: hidden; }
   .akademi-photo {
-    position: absolute; inset: 0; z-index: 0;
+
     background: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1600&q=80') center/cover no-repeat;
   }
   .akademi-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(110deg, rgba(5,20,50,0.90) 0%, rgba(5,30,55,0.75) 55%, rgba(5,25,50,0.65) 100%); }
@@ -215,7 +223,7 @@
   /* ── CTA — city photo ── */
   .cta-section { position: relative; padding: 130px 60px; text-align: center; overflow: hidden; }
   .cta-photo {
-    position: absolute; inset: 0; z-index: 0;
+
     background: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1600&q=80') center/cover no-repeat;
   }
   .cta-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(17,24,60,0.90) 0%, rgba(10,20,55,0.85) 100%); }
