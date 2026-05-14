@@ -127,7 +127,7 @@
     box-shadow: 0 20px 60px rgba(15,23,60,0.12);
     padding: 36px 40px; min-width: 820px;
     opacity: 0; visibility: hidden; pointer-events: none;
-    transition: opacity 0.2s, transform 0.2s, visibility 0.2s 0.1s;
+    transition: opacity 0.15s, transform 0.15s, visibility 0.15s;
     transform: translateX(-50%) translateY(8px);
     z-index: 300;
   }
@@ -135,7 +135,7 @@
   .nav-links li.has-mega:focus-within .mega-menu {
     opacity: 1; visibility: visible; pointer-events: all;
     transform: translateX(-50%) translateY(0);
-    transition: opacity 0.2s, transform 0.2s, visibility 0s;
+    transition: opacity 0.15s, transform 0.15s, visibility 0s;
   }
   .mega-menu::before {
     content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%);
@@ -494,6 +494,56 @@
     <p class="footer-copy">© 2025 Bilginex Teknoloji A.Ş.</p>
   </div>
 </footer>
+
+
+<script>
+// Mega menü — anında geçiş
+(function() {
+  const items = document.querySelectorAll('.nav-links li.has-mega');
+  let timeout;
+
+  items.forEach(item => {
+    const menu = item.querySelector('.mega-menu');
+    if (!menu) return;
+
+    item.addEventListener('mouseenter', () => {
+      clearTimeout(timeout);
+      // Diğer tüm menüleri kapat
+      items.forEach(i => {
+        if (i !== item) {
+          const m = i.querySelector('.mega-menu');
+          if (m) { m.style.opacity='0'; m.style.visibility='hidden'; m.style.pointerEvents='none'; }
+        }
+      });
+      // Bu menüyü aç
+      menu.style.transition = 'none';
+      menu.style.opacity = '1';
+      menu.style.visibility = 'visible';
+      menu.style.pointerEvents = 'all';
+      menu.style.transform = 'translateX(-50%) translateY(0)';
+    });
+
+    item.addEventListener('mouseleave', () => {
+      timeout = setTimeout(() => {
+        menu.style.transition = 'opacity 0.15s, visibility 0.15s';
+        menu.style.opacity = '0';
+        menu.style.visibility = 'hidden';
+        menu.style.pointerEvents = 'none';
+      }, 80);
+    });
+
+    menu.addEventListener('mouseenter', () => clearTimeout(timeout));
+    menu.addEventListener('mouseleave', () => {
+      timeout = setTimeout(() => {
+        menu.style.transition = 'opacity 0.15s, visibility 0.15s';
+        menu.style.opacity = '0';
+        menu.style.visibility = 'hidden';
+        menu.style.pointerEvents = 'none';
+      }, 80);
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
