@@ -935,50 +935,36 @@ function filterCourses() {
 </script>
 
 <script>
-// Mega menü — anında geçiş
 (function() {
   const items = document.querySelectorAll('.nav-links li.has-mega');
-  let timeout;
+  let closeTimer;
+
+  function closeAll() {
+    items.forEach(i => {
+      const m = i.querySelector('.mega-menu');
+      if (m) { m.style.cssText = 'opacity:0;visibility:hidden;pointer-events:none;transform:translateX(-50%) translateY(4px);transition:none;'; }
+    });
+  }
+
+  function openMenu(item) {
+    clearTimeout(closeTimer);
+    closeAll();
+    const menu = item.querySelector('.mega-menu');
+    if (menu) menu.style.cssText = 'opacity:1;visibility:visible;pointer-events:all;transform:translateX(-50%) translateY(0);transition:none;';
+  }
+
+  function scheduleClose() {
+    closeTimer = setTimeout(closeAll, 100);
+  }
 
   items.forEach(item => {
+    item.addEventListener('mouseenter', () => openMenu(item));
+    item.addEventListener('mouseleave', scheduleClose);
     const menu = item.querySelector('.mega-menu');
-    if (!menu) return;
-
-    item.addEventListener('mouseenter', () => {
-      clearTimeout(timeout);
-      // Diğer tüm menüleri kapat
-      items.forEach(i => {
-        if (i !== item) {
-          const m = i.querySelector('.mega-menu');
-          if (m) { m.style.opacity='0'; m.style.visibility='hidden'; m.style.pointerEvents='none'; }
-        }
-      });
-      // Bu menüyü aç
-      menu.style.transition = 'none';
-      menu.style.opacity = '1';
-      menu.style.visibility = 'visible';
-      menu.style.pointerEvents = 'all';
-      menu.style.transform = 'translateX(-50%) translateY(0)';
-    });
-
-    item.addEventListener('mouseleave', () => {
-      timeout = setTimeout(() => {
-        menu.style.transition = 'opacity 0.15s, visibility 0.15s';
-        menu.style.opacity = '0';
-        menu.style.visibility = 'hidden';
-        menu.style.pointerEvents = 'none';
-      }, 80);
-    });
-
-    menu.addEventListener('mouseenter', () => clearTimeout(timeout));
-    menu.addEventListener('mouseleave', () => {
-      timeout = setTimeout(() => {
-        menu.style.transition = 'opacity 0.15s, visibility 0.15s';
-        menu.style.opacity = '0';
-        menu.style.visibility = 'hidden';
-        menu.style.pointerEvents = 'none';
-      }, 80);
-    });
+    if (menu) {
+      menu.addEventListener('mouseenter', () => clearTimeout(closeTimer));
+      menu.addEventListener('mouseleave', scheduleClose);
+    }
   });
 })();
 </script>
