@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Eğitim Detayı — Bilginex</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f0f2f5;--bg2:#f7f8fa;--surface:#fff;
+  --border:rgba(15,23,60,0.09);--border2:rgba(15,23,60,0.16);
+  --text:#0e1628;--text2:#485070;--text3:#9099b5;
+  --accent:#1d4ed8;--accent2:#2563eb;--accentlt:#eff4ff;
+  --teal:#0d9488;--teallt:#f0fdfa;
+  --orange:#ea580c;
+  --purple:#7c3aed;--purplelt:#f5f3ff;
+  --green:#059669;--greenlt:#f0fdf4;
+  --font-d:'Syne',sans-serif;--font-b:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--font-b);font-size:16px;line-height:1.6;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:18px 60px;background:rgba(240,242,245,0.92);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:var(--font-d);font-size:22px;font-weight:800;letter-spacing:-0.5px;color:var(--text);text-decoration:none;}
+.nav-logo span{color:#38bdf8;}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:14px;transition:color 0.2s;}
+.nav-links a:hover{color:var(--text);}
+.nav-cta{display:flex;gap:10px;}
+.btn-ghost{padding:9px 20px;border:1px solid var(--border2);background:transparent;color:var(--text);font-family:var(--font-b);font-size:13px;font-weight:500;border-radius:7px;cursor:pointer;transition:background 0.2s;text-decoration:none;}
+.btn-ghost:hover{background:var(--surface);}
+.btn-primary{padding:9px 22px;background:var(--accent2);border:none;color:#fff;font-family:var(--font-b);font-size:13px;font-weight:500;border-radius:7px;cursor:pointer;transition:background 0.2s;text-decoration:none;}
+.btn-primary:hover{background:var(--accent);}
+
+/* HERO */
+.hero{position:relative;padding:130px 60px 70px;overflow:hidden;background:linear-gradient(135deg,#0a0f2e 0%,#1a1060 40%,#0d2060 100%);}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 30%,rgba(99,102,241,0.2) 0%,transparent 65%),radial-gradient(ellipse 50% 40% at 10% 80%,rgba(14,165,233,0.15) 0%,transparent 60%);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);background-size:60px 60px;}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:start;}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:20px;}
+.breadcrumb a{color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;}
+.breadcrumb a:hover{color:rgba(255,255,255,0.75);}
+.hero-cat-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:100px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;background:rgba(56,189,248,0.15);border:1px solid rgba(56,189,248,0.25);color:#7dd3fc;}
+.hero-title{font-family:var(--font-d);font-size:clamp(28px,4vw,46px);font-weight:800;line-height:1.1;letter-spacing:-1px;color:#fff;margin-bottom:16px;}
+.hero-desc{font-size:16px;color:rgba(255,255,255,0.65);font-weight:300;line-height:1.75;margin-bottom:32px;max-width:600px;}
+.hero-meta{display:flex;gap:24px;flex-wrap:wrap;}
+.meta-item{display:flex;align-items:center;gap:8px;}
+.meta-icon{font-size:16px;}
+.meta-label{font-size:12px;color:rgba(255,255,255,0.4);display:block;}
+.meta-val{font-size:14px;font-weight:500;color:#fff;}
+.level-badge{display:inline-block;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:600;}
+.level-start{background:rgba(5,150,105,0.2);color:#34d399;border:1px solid rgba(5,150,105,0.3);}
+.level-mid{background:rgba(37,99,235,0.2);color:#93c5fd;border:1px solid rgba(37,99,235,0.3);}
+.level-adv{background:rgba(124,58,237,0.2);color:#c4b5fd;border:1px solid rgba(124,58,237,0.3);}
+
+/* KAYIT KARTI */
+.register-card{background:rgba(255,255,255,0.07);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:32px;position:sticky;top:90px;}
+.register-card-title{font-family:var(--font-d);font-size:18px;font-weight:700;color:#fff;margin-bottom:6px;}
+.register-card-sub{font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:24px;}
+.register-card-items{display:flex;flex-direction:column;gap:12px;margin-bottom:28px;}
+.register-item{display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.08);}
+.register-item:last-child{border-bottom:none;padding-bottom:0;}
+.register-item-label{font-size:13px;color:rgba(255,255,255,0.5);}
+.register-item-val{font-size:13px;font-weight:500;color:#fff;}
+.btn-register{width:100%;padding:14px;background:var(--accent2);border:none;color:#fff;font-family:var(--font-b);font-size:15px;font-weight:500;border-radius:10px;cursor:pointer;transition:all 0.25s;margin-bottom:12px;box-shadow:0 4px 20px rgba(37,99,235,0.35);}
+.btn-register:hover{background:var(--accent);transform:translateY(-1px);}
+.btn-info{width:100%;padding:13px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:#fff;font-family:var(--font-b);font-size:14px;font-weight:400;border-radius:10px;cursor:pointer;transition:all 0.25s;}
+.btn-info:hover{background:rgba(255,255,255,0.14);}
+.register-note{text-align:center;font-size:12px;color:rgba(255,255,255,0.35);margin-top:14px;}
+
+/* CONTENT */
+.content{padding:60px 60px 80px;display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:start;}
+.content-main{}
+.section-block{margin-bottom:48px;}
+.section-label{font-family:var(--font-d);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.section-label::before{content:'';display:block;width:20px;height:1px;background:var(--teal);}
+.section-title{font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--text);margin-bottom:12px;letter-spacing:-0.5px;}
+.section-text{font-size:15px;color:var(--text2);line-height:1.8;font-weight:300;}
+
+/* KONULAR */
+.topics-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;}
+.topic-item{display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:10px;transition:border-color 0.2s,box-shadow 0.2s;}
+.topic-item:hover{border-color:rgba(37,99,235,0.2);box-shadow:0 2px 12px rgba(37,99,235,0.07);}
+.topic-check{width:20px;height:20px;border-radius:50%;background:var(--accentlt);border:1px solid rgba(37,99,235,0.2);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--accent2);flex-shrink:0;}
+.topic-name{font-size:13px;font-weight:500;color:var(--text);}
+
+/* HEDEF KİTLE */
+.audience-list{display:flex;flex-direction:column;gap:10px;margin-top:16px;}
+.audience-item{display:flex;align-items:center;gap:12px;padding:14px 18px;background:var(--surface);border:1px solid var(--border);border-radius:10px;}
+.audience-icon{font-size:18px;}
+.audience-text{font-size:14px;color:var(--text2);font-weight:300;}
+
+/* SAĞ SIDEBAR */
+.content-sidebar{}
+.sidebar-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:20px;}
+.sidebar-card-title{font-family:var(--font-d);font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;}
+.sidebar-list{display:flex;flex-direction:column;gap:8px;}
+.sidebar-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text2);line-height:1.5;}
+.sidebar-dot{width:6px;height:6px;border-radius:50%;background:var(--accent2);margin-top:6px;flex-shrink:0;}
+.btn-sidebar{display:block;width:100%;padding:13px;text-align:center;border-radius:10px;font-family:var(--font-b);font-size:14px;font-weight:500;cursor:pointer;transition:all 0.25s;text-decoration:none;margin-bottom:10px;}
+.btn-sidebar-primary{background:var(--accent2);border:none;color:#fff;box-shadow:0 4px 16px rgba(37,99,235,0.2);}
+.btn-sidebar-primary:hover{background:var(--accent);transform:translateY(-1px);}
+.btn-sidebar-ghost{background:transparent;border:1px solid var(--border2);color:var(--text);}
+.btn-sidebar-ghost:hover{background:var(--bg2);}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(10,15,40,0.7);backdrop-filter:blur(6px);z-index:1000;display:none;align-items:center;justify-content:center;}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--surface);border-radius:20px;padding:40px;width:100%;max-width:520px;position:relative;box-shadow:0 24px 80px rgba(10,15,40,0.3);animation:modalIn 0.3s ease;}
+@keyframes modalIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.modal-close{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:transparent;cursor:pointer;font-size:16px;color:var(--text3);transition:all 0.2s;display:flex;align-items:center;justify-content:center;}
+.modal-close:hover{background:var(--bg);color:var(--text);}
+.modal-title{font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--text);margin-bottom:6px;}
+.modal-sub{font-size:14px;color:var(--text2);margin-bottom:28px;font-weight:300;}
+.form-group{margin-bottom:16px;}
+.form-label{display:block;font-size:13px;font-weight:500;color:var(--text);margin-bottom:6px;}
+.form-input,.form-select,.form-textarea{width:100%;padding:11px 14px;border:1px solid var(--border2);border-radius:8px;font-family:var(--font-b);font-size:14px;color:var(--text);background:var(--bg);outline:none;transition:border-color 0.2s,box-shadow 0.2s;}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--accent2);box-shadow:0 0 0 3px rgba(37,99,235,0.1);}
+.form-textarea{resize:vertical;min-height:90px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.btn-submit{width:100%;padding:14px;background:var(--accent2);border:none;color:#fff;font-family:var(--font-b);font-size:15px;font-weight:500;border-radius:10px;cursor:pointer;transition:all 0.25s;margin-top:8px;box-shadow:0 4px 20px rgba(37,99,235,0.25);}
+.btn-submit:hover{background:var(--accent);transform:translateY(-1px);}
+.success-msg{display:none;text-align:center;padding:20px;}
+.success-icon{font-size:48px;margin-bottom:12px;}
+.success-title{font-family:var(--font-d);font-size:20px;font-weight:700;color:var(--text);margin-bottom:8px;}
+.success-text{font-size:14px;color:var(--text2);font-weight:300;}
+
+/* NOT FOUND */
+.not-found{text-align:center;padding:120px 40px;}
+.not-found h2{font-family:var(--font-d);font-size:28px;color:var(--text);margin-bottom:12px;}
+.not-found p{color:var(--text2);margin-bottom:28px;}
+
+/* FOOTER */
+footer{background:#0d1117;padding:40px 60px 28px;}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;}
+.footer-logo{font-family:var(--font-d);font-size:18px;font-weight:800;color:#fff;text-decoration:none;}
+.footer-logo span{color:#38bdf8;}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.3);}
+.footer-links{display:flex;gap:24px;}
+.footer-links a{font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:rgba(255,255,255,0.8);}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Bilgine<span>x</span></a>
+  <ul class="nav-links">
+    <li><a href="hizmetler.html">Hizmetler</a></li>
+    <li><a href="akademi.html">Akademi</a></li>
+    <li><a href="#">Çözümler</a></li>
+    <li><a href="#">Uzman Kadro</a></li>
+    <li><a href="#">Hakkımızda</a></li>
+    <li><a href="#">Blog</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="#" class="btn-ghost">Giriş Yap</a>
+    <a href="#" class="btn-primary" onclick="openModal('register')">Kayıt Ol →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="heroSection">
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner" id="heroInner">
+    <!-- JS ile doldurulacak -->
+  </div>
+</section>
+
+<!-- CONTENT -->
+<div class="content" id="contentSection">
+  <!-- JS ile doldurulacak -->
+</div>
+
+<!-- MODAL: KAYIT OL -->
+<div class="modal-overlay" id="modalRegister">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('register')">✕</button>
+    <div id="registerForm">
+      <div class="modal-title">Eğitime Kayıt Ol</div>
+      <div class="modal-sub" id="registerModalSub">Bilgilerinizi doldurun, ekibimiz sizinle iletişime geçsin.</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Ad</label>
+          <input type="text" class="form-input" placeholder="Adınız"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Soyad</label>
+          <input type="text" class="form-input" placeholder="Soyadınız"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">E-posta</label>
+        <input type="email" class="form-input" placeholder="ornek@sirket.com"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Telefon</label>
+        <input type="tel" class="form-input" placeholder="+90 5XX XXX XX XX"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Şirket</label>
+        <input type="text" class="form-input" placeholder="Şirket adı (opsiyonel)"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Katılımcı Sayısı</label>
+        <select class="form-select">
+          <option>1 kişi (bireysel)</option>
+          <option>2–5 kişi</option>
+          <option>6–15 kişi</option>
+          <option>16–30 kişi</option>
+          <option>30+ kişi (kurumsal)</option>
+        </select>
+      </div>
+      <button class="btn-submit" onclick="submitForm('register')">Kayıt Talebini Gönder →</button>
+    </div>
+    <div class="success-msg" id="registerSuccess">
+      <div class="success-icon">✅</div>
+      <div class="success-title">Talebiniz alındı!</div>
+      <div class="success-text">Ekibimiz en kısa sürede sizinle iletişime geçecek. Bilginex Akademi'ye hoş geldiniz!</div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: DETAYLI BİLGİ AL -->
+<div class="modal-overlay" id="modalInfo">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('info')">✕</button>
+    <div id="infoForm">
+      <div class="modal-title">Detaylı Bilgi Al</div>
+      <div class="modal-sub">Eğitim içeriği, takvim ve fiyat bilgisi için formu doldurun.</div>
+      <div class="form-group">
+        <label class="form-label">Ad Soyad</label>
+        <input type="text" class="form-input" placeholder="Adınız Soyadınız"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">E-posta</label>
+        <input type="email" class="form-input" placeholder="ornek@sirket.com"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Telefon</label>
+        <input type="tel" class="form-input" placeholder="+90 5XX XXX XX XX"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Merak ettiğiniz konu</label>
+        <textarea class="form-textarea" placeholder="Eğitim içeriği, takvim, kurumsal fiyat... Aklınızdaki soruları yazın."></textarea>
+      </div>
+      <button class="btn-submit" onclick="submitForm('info')">Bilgi Talebi Gönder →</button>
+    </div>
+    <div class="success-msg" id="infoSuccess">
+      <div class="success-icon">📬</div>
+      <div class="success-title">Talebiniz alındı!</div>
+      <div class="success-text">Uzmanlarımız 1 iş günü içinde size detaylı bilgi iletecek.</div>
+    </div>
+  </div>
+</div>
+
+<!-- NOT FOUND -->
+<div class="not-found" id="notFound" style="display:none;">
+  <h2>Eğitim bulunamadı</h2>
+  <p>Aradığınız eğitim mevcut değil veya kaldırılmış olabilir.</p>
+  <a href="akademi.html" class="btn-primary" style="display:inline-block;">← Tüm Eğitimlere Dön</a>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <a href="index.html" class="footer-logo">Bilgine<span>x</span></a>
+    <div class="footer-links">
+      <a href="hizmetler.html">Hizmetler</a>
+      <a href="akademi.html">Akademi</a>
+      <a href="#">Hakkımızda</a>
+      <a href="#">İletişim</a>
+    </div>
+    <p class="footer-copy">© 2025 Bilginex Teknoloji A.Ş.</p>
+  </div>
+</footer>
+
+<script>
+// ── EĞİTİM VERİ TABANI ──────────────────────────────────────────────────────
+const egitimler = {
+  "yh-bb-001":{"title":"AZ-204 Developing Solutions for Microsoft Azure","cat":"Yazılım Hizmetleri","tech":"Bulut Bilişim","duration":"5 Gün","level":"Orta","desc":"Azure servisleri üzerinde çözüm geliştirme ve yönetim için uygulamalı ve güncel eğitim.","detail":"Bu eğitim, katılımcıların Azure servisleri üzerinde çözüm geliştirme ve yönetim konusunda orta seviye yetkinlik kazanmasını hedefler. Bulut servis mimarisi, güvenlik ayarları ve uygulamalı senaryolar ele alınır.","topics":["Azure Servis Mimarisi","Azure Storage ve Blob","Azure Functions","Azure API Management","Güvenlik ve Kimlik Doğrulama","Monitoring ve Logging"],"audience":["Azure geliştirici olmak isteyenler","Bulut çözümleri geliştiren yazılımcılar","Azure sertifikası hedefleyenler"]},
+  "yh-bb-002":{"title":"Copilot ile AI Temellerini Keşfet","cat":"Yazılım Hizmetleri","tech":"Yapay Zeka / Bulut","duration":"1 Gün","level":"Başlangıç","desc":"Copilot kullanım senaryoları ve verimli üretkenlik akışları için uygulamalı eğitim.","detail":"Copilot'u etkin kullanarak iş süreçlerini hızlandırma, prompt mühendisliği temelleri ve pratik kullanım örnekleri ele alınır.","topics":["AI Temelleri","Copilot Kullanım Senaryoları","Üretkenlik Akışları","Prompt Mühendisliği","Pratik Uygulamalar"],"audience":["Copilot'u öğrenmek isteyen herkes","Verimliliğini artırmak isteyen çalışanlar","Teknik olmayan profesyoneller"]},
+  "yh-bb-003":{"title":"MS-4007: Copilot for Microsoft 365 User Enablement Specialist","cat":"Yazılım Hizmetleri","tech":"Yapay Zeka / Bulut","duration":"1 Gün","level":"Başlangıç","desc":"Microsoft 365 uygulamalarında Copilot kullanımı için uzmanlaşma eğitimi.","detail":"Word, Excel, Teams ve Outlook'ta Copilot'u etkin kullanarak iş süreçlerini dönüştürme ve üretkenliği artırma.","topics":["Copilot in Word","Copilot in Excel","Copilot in Teams","Copilot in Outlook","Üretkenlik Senaryoları"],"audience":["Microsoft 365 kullanıcıları","İK ve operasyon ekipleri","Kurumsal Copilot yöneticileri"]},
+  "yh-yg-001":{"title":"Android Uygulama Geliştirme","cat":"Yazılım Hizmetleri","tech":"Yazılım Geliştirme","duration":"5 Gün","level":"Orta","desc":"Android mobil uygulama geliştirme için uygulamalı eğitim.","detail":"Android Studio, Kotlin, Activity/Fragment yaşam döngüsü, UI tasarımı, REST API entegrasyonu ve Play Store yayınlama süreçleri ele alınır.","topics":["Android Studio Kurulum","Activity ve Fragment","UI/UX Tasarımı","Veri Depolama","REST API Entegrasyonu","Yayınlama Süreci"],"audience":["Android geliştirici olmak isteyenler","Mobil uygulama meraklıları","Java/Kotlin bilgisi olanlar"]},
+  "yh-yg-013":{"title":"Java Programming","cat":"Yazılım Hizmetleri","tech":"Yazılım Geliştirme","duration":"5 Gün","level":"Orta","desc":"Java ile kurumsal yazılım geliştirme için kapsamlı eğitim.","detail":"Nesne yönelimli programlama, koleksiyonlar, exception handling, Java 8+ lambdalar ve stream API, çoklu iş parçacığı konularını kapsar.","topics":["OOP Temelleri","Koleksiyonlar ve Generics","Exception Handling","Java 8+ Özellikleri","Multithreading","Maven ve Build Araçları"],"audience":["Java öğrenmek isteyen yazılımcılar","Kariyer değiştirmek isteyenler","Temel programlama bilgisi olanlar"]},
+  "yh-yg-014":{"title":"JavaScript Programming","cat":"Yazılım Hizmetleri","tech":"Yazılım Geliştirme","duration":"5 Gün","level":"Orta","desc":"Modern JavaScript ile web geliştirme eğitimi.","detail":"ES6+, DOM manipülasyonu, asenkron programlama (Async/Await), Fetch API ve modüler JavaScript konularını kapsar.","topics":["ES6+ Özellikleri","DOM Manipülasyonu","Async/Await","Fetch API","Modüler JavaScript","Testing Temelleri"],"audience":["Web geliştirici adayları","Frontend geliştiriciler","Full-stack olmak isteyenler"]},
+  "yh-yg-047":{"title":"React ile Web Programlama","cat":"Yazılım Hizmetleri","tech":"Yazılım Geliştirme","duration":"5 Gün","level":"Orta","desc":"React ile modern web uygulaması geliştirme eğitimi.","detail":"React Hooks, Context API, Redux Toolkit, React Router ve test yazımı konularını kapsayan kapsamlı frontend eğitimi.","topics":["React Temelleri","Hooks (useState/useEffect)","Context API","Redux Toolkit","React Router","Testing (Jest/RTL)"],"audience":["JavaScript bilen yazılımcılar","Frontend geliştirici olmak isteyenler","React öğrenmek isteyen geliştiriciler"]},
+  "yh-yg-048":{"title":"React Native Eğitimi","cat":"Yazılım Hizmetleri","tech":"Yazılım Geliştirme","duration":"5 Gün","level":"Orta","desc":"React Native ile cross-platform mobil uygulama geliştirme eğitimi.","detail":"iOS ve Android için tek kod tabanı ile mobil uygulama geliştirme, navigasyon, state yönetimi ve native modül kullanımı.","topics":["React Native Kurulum","Navigasyon","Native Modüller","State Yönetimi","API Entegrasyonu","App Store/Play Store"],"audience":["React bilgisi olan geliştiriciler","Mobil uygulama geliştirmek isteyenler","Cross-platform çözüm arayanlar"]},
+  "yh-yg-045":{"title":"Python ile Makine Öğrenmesi","cat":"Yazılım Hizmetleri","tech":"Yapay Zeka","duration":"5 Gün","level":"Orta","desc":"Python ile ML modeli geliştirme ve üretim ortamına taşıma eğitimi.","detail":"Scikit-learn ile klasik ML algoritmaları, TensorFlow/Keras ile derin öğrenme, model değerlendirme ve MLOps temellerini kapsar.","topics":["ML Temelleri","Scikit-learn","Derin Öğrenme","TensorFlow/Keras","Model Değerlendirme","MLOps Temelleri"],"audience":["Python bilen veri analistleri","Yapay zeka alanına geçmek isteyenler","Veri bilimciler"]},
+  "yh-yg-043":{"title":"NodeJS Eğitimi","cat":"Yazılım Hizmetleri","tech":"Yazılım Geliştirme","duration":"5 Gün","level":"Orta","desc":"Node.js ile sunucu tarafı uygulama geliştirme eğitimi.","detail":"Express.js ile REST API geliştirme, veritabanı entegrasyonu, kimlik doğrulama ve üretim ortamı yönetimi.","topics":["Node.js Temelleri","Express.js","REST API Geliştirme","MongoDB/PostgreSQL","Authentication/JWT","Deploy ve DevOps"],"audience":["Backend geliştirici adayları","JavaScript geliştiricileri","Full-stack olmak isteyenler"]},
+  "yh-yg-058":{"title":"Angular Temel Seviye","cat":"Yazılım Hizmetleri","tech":"Yazılım Geliştirme","duration":"5 Gün","level":"Başlangıç","desc":"Angular ile enterprise SPA geliştirme temel eğitimi.","detail":"Angular CLI, Component tabanlı mimari, Directive ve Pipe, Service ve Dependency Injection, HTTP Client ve Routing konuları.","topics":["Angular CLI","Components ve Templates","Directives ve Pipes","Services ve DI","Routing","HTTP Client"],"audience":["TypeScript bilen geliştiriciler","Kurumsal web uygulaması geliştiricileri","React'tan Angular'a geçmek isteyenler"]},
+  "yh-yg-066":{"title":"Angular İleri Seviye","cat":"Yazılım Hizmetleri","tech":"Yazılım Geliştirme","duration":"5 Gün","level":"Orta","desc":"Angular ile gelişmiş kurumsal uygulama geliştirme eğitimi.","detail":"NgRx state management, Lazy Loading, performans optimizasyonu, custom direktif geliştirme ve micro frontend mimarisi.","topics":["NgRx State Management","Lazy Loading","Performance Optimizasyon","Custom Directives","Testing","Micro Frontend"],"audience":["Angular temel bilgisi olanlar","Senior frontend geliştiriciler","Angular mimarisi kurmak isteyenler"]},
+  "yh-yg-070":{"title":"Comprehensive Vue Eğitimi","cat":"Yazılım Hizmetleri","tech":"Yazılım Geliştirme","duration":"5 Gün","level":"Orta","desc":"Vue.js 3 ile modern reaktif web uygulaması geliştirme eğitimi.","detail":"Vue 3 Composition API, Pinia state yönetimi, Vue Router, component kütüphanesi kullanımı ve test stratejileri.","topics":["Vue 3 Temelleri","Composition API","Vuex/Pinia","Vue Router","Component Library","Test ve Deploy"],"audience":["JavaScript bilen web geliştiricileri","Vue öğrenmek isteyenler","React alternatifi arayanlar"]},
+  "yh-yg-037":{"title":"ASP.NET Core MVC","cat":"Yazılım Hizmetleri","tech":"Yazılım Geliştirme","duration":"5 Gün","level":"Orta","desc":"ASP.NET Core ile kurumsal web uygulaması geliştirme eğitimi.","detail":"MVC pattern, Entity Framework Core, Authentication/Authorization, REST API geliştirme ve Azure deployment.","topics":["ASP.NET Core Temelleri","MVC Pattern","Entity Framework Core","Authentication","REST API","Deployment"],"audience":["C# bilen yazılımcılar",".NET geliştirici adayları","Microsoft ekosistemi tercih edenler"]},
+  "yh-yg-085":{"title":"Microservices Using .NET Core","cat":"Yazılım Hizmetleri","tech":"Yazılım Geliştirme","duration":"5 Gün","level":"İleri","desc":"Mikroservis mimarisi ve .NET Core ile dağıtık sistem geliştirme eğitimi.","detail":"Mikroservis prensipleri, Docker containerization, Kubernetes orchestration, API Gateway ve event-driven mimari.","topics":["Mikroservis Mimarisi","Docker","Kubernetes","API Gateway","Event-Driven","Monitoring"],"audience":["Kıdemli .NET geliştiricileri","Mimari tasarım merak edenler","DevOps ile çalışan yazılımcılar"]},
+  "yh-yg-042":{"title":"Flutter ile Mobile Uygulama Geliştirme","cat":"Yazılım Hizmetleri","tech":"Yazılım Geliştirme","duration":"2 Gün","level":"Orta","desc":"Flutter ile iOS ve Android için cross-platform mobil uygulama geliştirme.","detail":"Dart dili temelleri, Flutter widget sistemi, state management, API entegrasyonu ve mağaza yayınlama süreçleri.","topics":["Dart Dili","Flutter Widget","State Management","Navigation","REST API","Mağaza Yayınlama"],"audience":["Mobil uygulama geliştirmek isteyenler","iOS ve Android için tek kod arayan geliştiriciler","Dart öğrenmek isteyenler"]},
+  "yh-yg-049":{"title":"UiPath Robotic Process Automation Development","cat":"Yazılım Hizmetleri","tech":"Yazılım Geliştirme","duration":"5 Gün","level":"İleri","desc":"UiPath ile kurumsal RPA çözümleri geliştirme eğitimi.","detail":"UiPath Studio ile otomasyon geliştirme, Orchestrator yönetimi, hata yönetimi ve ileri düzey otomasyon senaryoları.","topics":["UiPath Studio","Temel Aktiviteler","Veri Manipülasyonu","Orchestrator","Error Handling","Advanced Scenarios"],"audience":["İş süreç uzmanları","Yazılım geliştiriciler","RPA uzmanı olmak isteyenler"]},
+  "yh-yg-081":{"title":"Java Developer Bootcamp","cat":"Yazılım Hizmetleri","tech":"Yazılım Geliştirme","duration":"67 Gün","level":"Orta","desc":"Sıfırdan Java geliştiricisi olma bootcamp programı.","detail":"Java temelleri, OOP, Spring Framework, veritabanı yönetimi, REST API geliştirme ve gerçek proje deneyimi içeren yoğun bootcamp.","topics":["Java Temelleri","OOP","Spring Framework","Veritabanı","REST API","Gerçek Proje"],"audience":["Yazılım sektörüne girmek isteyenler","Kariyer değiştirmek isteyenler","Yazılım öğrenmeye meraklılar"]},
+  "yh-yg-061":{"title":".NET Developer Bootcamp","cat":"Yazılım Hizmetleri","tech":"Yazılım Geliştirme","duration":"55 Gün","level":"Orta","desc":"Sıfırdan .NET geliştiricisi olma bootcamp programı.","detail":"C# dili, OOP, ASP.NET Core, Entity Framework, Azure ve gerçek proje geliştirme deneyimi içeren kapsamlı bootcamp.","topics":["C# Temelleri","OOP","ASP.NET Core","Entity Framework","Azure","Gerçek Proje"],"audience":["Yazılım sektörüne girmek isteyenler","Microsoft teknolojileri öğrenmek isteyenler","Kariyer değiştirmek isteyenler"]},
+  "viy-mo-005":{"title":"Microsoft Excel Temel","cat":"Veri ve İş Yönetimi Çözümleri","tech":"Microsoft Office","duration":"2 Gün","level":"Başlangıç","desc":"Excel'in temel özelliklerini öğrenerek verimli çalışma eğitimi.","detail":"Veri girişi, temel formüller, grafik oluşturma, veri sıralama/filtreleme ve temel raporlama konuları pratik örneklerle ele alınır.","topics":["Temel Formüller","Hücre Biçimlendirme","Grafik Oluşturma","Veri Sıralama/Filtreleme","Temel Pivot Tablo","Yazdırma Ayarları"],"audience":["Excel'i hiç bilmeyenler","Temel Excel öğrenmek isteyenler","Ofis çalışanları"]},
+  "viy-mo-004":{"title":"Microsoft Excel İleri","cat":"Veri ve İş Yönetimi Çözümleri","tech":"Microsoft Office","duration":"2 Gün","level":"Orta","desc":"Excel ile ileri düzey veri analizi ve raporlama eğitimi.","detail":"İleri formüller, Power Query, dinamik Pivot tablolar, veri doğrulama ve dashboard oluşturma konuları.","topics":["İleri Formüller","Power Query","Pivot Tablo İleri","Veri Doğrulama","Makro Temelleri","Dashboard Oluşturma"],"audience":["Excel temel bilgisi olanlar","Veri analistleri","Raporlama uzmanları"]},
+  "viy-mo-028":{"title":"Microsoft Excel Expert","cat":"Veri ve İş Yönetimi Çözümleri","tech":"Microsoft Office","duration":"2 Gün","level":"İleri","desc":"Excel Expert düzeyinde veri analizi ve iş zekası eğitimi.","detail":"Power Pivot, DAX formülleri, Power BI entegrasyonu, VBA programlama ve kurumsal raporlama sistemleri.","topics":["Power Pivot","DAX Formülleri","Power BI Entegrasyonu","VBA Programlama","Kompleks Dashboard","Kurumsal Raporlama"],"audience":["Excel ileri kullanıcıları","BI uzmanı olmak isteyenler","Veri analistleri"]},
+  "viy-mo-038":{"title":"Power BI ile Veri Görselleştirme (Temel)","cat":"Veri ve İş Yönetimi Çözümleri","tech":"Power BI","duration":"2 Gün","level":"Başlangıç","desc":"Power BI ile interaktif raporlar ve dashboardlar oluşturma eğitimi.","detail":"Power BI Desktop kurulumu, veri bağlantıları, temel görseller, raporlama ve Power BI Service'e yayınlama.","topics":["Power BI Desktop","Veri Bağlantıları","Temel Görseller","Raporlama","Power BI Service","Dashboard Paylaşımı"],"audience":["Raporlama ihtiyacı olanlar","Veri analisti olmak isteyenler","Excel'den BI'a geçmek isteyenler"]},
+  "viy-mo-037":{"title":"Power BI ile Veri Görselleştirme (İleri)","cat":"Veri ve İş Yönetimi Çözümleri","tech":"Power BI","duration":"2 Gün","level":"Orta","desc":"Power BI ile gelişmiş analitik ve kurumsal raporlama eğitimi.","detail":"DAX ileri formüller, Row-Level Security, Custom Visuals, Dataflows ve Embedded Analytics konuları.","topics":["DAX İleri","Row-Level Security","Custom Visuals","Dataflows","Incremental Refresh","Embedded Analytics"],"audience":["Power BI temel bilgisi olanlar","BI geliştiriciler","Kurumsal raporlama uzmanları"]},
+  "viy-vyc-018":{"title":"SQL Server ile Veritabanı Sorgulama","cat":"Veri ve İş Yönetimi Çözümleri","tech":"Veri Yönetimi","duration":"3 Gün","level":"Orta","desc":"SQL Server ile veritabanı sorgulama ve yönetim eğitimi.","detail":"T-SQL temelleri, JOIN işlemleri, Stored Procedures, indexleme ve performans optimizasyonu konuları.","topics":["T-SQL Temelleri","JOIN İşlemleri","Stored Procedures","Indexleme","Performans İyileştirme","Backup/Restore"],"audience":["Veritabanı yöneticileri","SQL öğrenmek isteyenler","Veri analistleri"]},
+  "viy-vyc-007":{"title":"Herkes İçin Makine Öğrenmesi","cat":"Veri ve İş Yönetimi Çözümleri","tech":"Yapay Zeka / Veri","duration":"3 Gün","level":"Orta","desc":"Teknik olmayan profesyoneller için makine öğrenmesi eğitimi.","detail":"ML temel kavramları, iş hayatındaki uygulamaları ve AI stratejisi konularını teknik olmayan bir yaklaşımla ele alır.","topics":["ML Temel Kavramlar","Denetimli Öğrenme","Denetimsiz Öğrenme","Model Değerlendirme","İş Hayatında ML","AI Stratejisi"],"audience":["Teknik olmayan yöneticiler","İş analistleri","AI farkındalığı kazanmak isteyenler"]},
+  "viy-iyc-002":{"title":"Scrum Fundamentals","cat":"Veri ve İş Yönetimi Çözümleri","tech":"İş Yönetimi","duration":"2 Gün","level":"Başlangıç","desc":"Scrum ile çevik proje yönetimi temelleri eğitimi.","detail":"Scrum framework rolleri, törenleri ve artifaktlarını öğrenerek çevik ekiplerde etkin çalışma becerisi kazanma.","topics":["Scrum Temelleri","Sprint Planlama","Daily Scrum","Sprint Review","Retrospective","Product Backlog"],"audience":["Proje yöneticileri","Yazılım ekip üyeleri","Scrum'a geçmek isteyen ekipler"]},
+  "viy-iyc-023":{"title":"PMP® Exam Preparation – PMBOK® Guide 8. Baskı","cat":"Veri ve İş Yönetimi Çözümleri","tech":"İş Yönetimi","duration":"5 Gün","level":"Orta","desc":"PMP sertifikasyon sınavına kapsamlı hazırlık eğitimi.","detail":"PMBOK 8 yenilikleri, hem öngörücü hem çevik yaklaşımlar, risk ve paydaş yönetimi ile sınav stratejileri.","topics":["PMBOK 8 Yenilikleri","Öngörücü Yaklaşım","Çevik Yaklaşım","Risk Yönetimi","Paydaş Yönetimi","Sınav Stratejileri"],"audience":["Deneyimli proje yöneticileri","PMP sertifikası almak isteyenler","PMI üyeleri"]},
+  "viy-dt-003":{"title":"Adobe Photoshop CC","cat":"Veri ve İş Yönetimi Çözümleri","tech":"Dijital Tasarım","duration":"4 Gün","level":"Orta","desc":"Adobe Photoshop ile profesyonel grafik tasarım eğitimi.","detail":"Katman yönetimi, fotoğraf düzenleme, renk düzeltme, kompozisyon oluşturma ve çıktı hazırlama konuları.","topics":["Arayüz ve Araçlar","Katman Yönetimi","Fotoğraf Düzenleme","Renk Düzeltme","Kompozisyon","Çıktı Hazırlama"],"audience":["Grafik tasarımcılar","Sosyal medya uzmanları","Tasarım öğrenmek isteyenler"]},
+  "viy-bd-001":{"title":"Python ile Big Data","cat":"Veri ve İş Yönetimi Çözümleri","tech":"Big Data","duration":"5 Gün","level":"Orta","desc":"Python ile büyük veri işleme ve analitik eğitimi.","detail":"Pandas ile veri manipülasyonu, PySpark ile büyük veri işleme, Hadoop ekosistemi ve bulut big data servisleri.","topics":["Pandas İleri","PySpark","Hadoop Ekosistemi","Veri Boru Hatları","Streaming Data","Cloud Big Data"],"audience":["Veri mühendisleri","Python bilen analistler","Big Data uzmanı olmak isteyenler"]},
+  "ts-bg-001":{"title":"Certified Information Security Management (CISM)","cat":"Teknoloji Servisleri","tech":"Bilgi Güvenliği","duration":"5 Gün","level":"İleri","desc":"CISM sertifikasyon sınavına hazırlık eğitimi.","detail":"ISACA CISM sertifikasyonu için bilgi güvenliği yönetimi, risk yönetimi, olay müdahalesi ve uyumluluk konuları.","topics":["Bilgi Güvenliği Yönetimi","Risk Yönetimi","Olay Müdahalesi","Uyumluluk","Güvenlik Programı","CISM Sınavı"],"audience":["BT yöneticileri","Güvenlik uzmanları","CISM sertifikası almak isteyenler"]},
+  "ts-bg-003":{"title":"Certified Information Systems Security Professional (CISSP)","cat":"Teknoloji Servisleri","tech":"Bilgi Güvenliği","duration":"5 Gün","level":"İleri","desc":"CISSP sertifikasyon sınavına kapsamlı hazırlık eğitimi.","detail":"8 güvenlik alanını kapsayan (ISC)² CISSP sertifikasyon programı. Kriptografi, ağ güvenliği, kimlik yönetimi ve yazılım güvenliği.","topics":["Güvenlik ve Risk Yönetimi","Varlık Güvenliği","Kriptografi","Ağ Güvenliği","Kimlik Yönetimi","Yazılım Güvenliği"],"audience":["Kıdemli güvenlik uzmanları","BT mimarları","CISSP sertifikası almak isteyenler"]},
+  "ts-bg-019":{"title":"Sızma Testi (Penetration Test)","cat":"Teknoloji Servisleri","tech":"Bilgi Güvenliği","duration":"5 Gün","level":"İleri","desc":"Etik hacker ve penetrasyon testi eğitimi.","detail":"Keşif, zafiyet analizi, exploitation, web uygulama testleri, ağ penetrasyon ve profesyonel raporlama metodolojileri.","topics":["Keşif ve Tarama","Zafiyet Analizi","Exploitation","Web Uygulama Testleri","Ağ Penetrasyon","Raporlama"],"audience":["Güvenlik uzmanları","Etik hacker olmak isteyenler","BT güvenlik ekipleri"]},
+  "ts-bb-001":{"title":"AZ-104T00 Microsoft Azure Administrator","cat":"Teknoloji Servisleri","tech":"Bulut Bilişim","duration":"4 Gün","level":"Orta","desc":"Microsoft Azure yönetimi ve operasyonları eğitimi.","detail":"Azure kimlik yönetimi, sanal ağlar, depolama çözümleri, VM yönetimi ve izleme konuları.","topics":["Azure Kimlik Yönetimi","Sanal Ağlar","Depolama Çözümleri","VM Yönetimi","İzleme ve Yedekleme","Azure Policy"],"audience":["Sistem yöneticileri","Bulut uzmanı olmak isteyenler","AZ-104 sertifikası hedefleyenler"]},
+  "ts-bb-015":{"title":"AZ-900 Microsoft Azure Fundamentals","cat":"Teknoloji Servisleri","tech":"Bulut Bilişim","duration":"1 Gün","level":"Başlangıç","desc":"Microsoft Azure bulut platformuna giriş eğitimi.","detail":"Bulut kavramları, Azure servisleri, fiyatlandırma modelleri, güvenlik ve uyumluluk temelleri.","topics":["Bulut Kavramları","Azure Servisleri","Fiyatlandırma","Güvenlik","Uyumluluk","Azure Portal"],"audience":["Azure'a yeni başlayanlar","BT profesyonelleri","AZ-900 sertifikası almak isteyenler"]},
+  "ts-bthy-001":{"title":"ITIL v4 Foundation","cat":"Teknoloji Servisleri","tech":"BT Hizmet Yönetimi","duration":"3 Gün","level":"Başlangıç","desc":"BT hizmet yönetiminin temeli ITIL v4 Foundation eğitimi.","detail":"ITIL v4 framework kavramları, Servis Değer Sistemi, genel yönetim pratikleri ve ITIL Foundation sertifikasyon hazırlığı.","topics":["ITIL 4 Temelleri","Servis Değer Sistemi","Dört Boyut Modeli","Genel Yönetim Pratikleri","Teknik Pratikler","Sertifikasyon Hazırlık"],"audience":["BT hizmet yöneticileri","Servis masası ekipleri","ITIL sertifikası almak isteyenler"]},
+  "ts-lnx-005":{"title":"Linux System Administration I","cat":"Teknoloji Servisleri","tech":"Linux","duration":"5 Gün","level":"Orta","desc":"Linux sistem yönetimi temelleri eğitimi.","detail":"Linux kurulum, dosya sistemi yönetimi, kullanıcı ve grup yönetimi, süreç yönetimi ve ağ yapılandırması.","topics":["Linux Kurulum","Dosya Sistemi","Kullanıcı Yönetimi","Süreç Yönetimi","Ağ Yapılandırması","Shell Scripting"],"audience":["Sistem yöneticileri","Linux öğrenmek isteyenler","DevOps mühendisleri"]},
+  "ts-lnx-010":{"title":"Introduction to Linux 101","cat":"Teknoloji Servisleri","tech":"Linux","duration":"3 Gün","level":"Başlangıç","desc":"Linux işletim sistemine giriş eğitimi.","detail":"Linux temel komutlar, dosya sistemi, kullanıcı izinleri, metin editörleri ve paket yönetimi.","topics":["Linux Temelleri","Temel Komutlar","Dosya İzinleri","Metin Editörleri","Paket Yönetimi","Temel Ağ"],"audience":["Linux kullanmaya yeni başlayanlar","Windows'tan Linux'a geçenler","Teknoloji meraklıları"]},
+  "ts-sy-022":{"title":"Introduction to Containers with Docker","cat":"Teknoloji Servisleri","tech":"Sistem Yönetimi","duration":"2 Gün","level":"Başlangıç","desc":"Docker ile container teknolojisine giriş eğitimi.","detail":"Container kavramları, Docker kurulum ve kullanımı, Image yönetimi, Dockerfile yazımı ve Docker Compose.","topics":["Container Temelleri","Docker Kurulum","Image ve Container","Dockerfile","Docker Compose","Registry Yönetimi"],"audience":["Yazılım geliştiriciler","DevOps mühendisleri","Sistem yöneticileri"]},
+  "ts-sy-024":{"title":"Kubernetes Administration","cat":"Teknoloji Servisleri","tech":"Sistem Yönetimi","duration":"4 Gün","level":"İleri","desc":"Kubernetes container orkestrasyon platformu yönetim eğitimi.","detail":"Kubernetes cluster kurulumu, Pod ve Deployment yönetimi, Service/Networking, RBAC güvenlik ve monitoring.","topics":["Kubernetes Mimarisi","Pod ve Deployment","Service ve Networking","Storage","RBAC Güvenlik","Monitoring ve Logging"],"audience":["Docker bilen geliştiriciler","DevOps mühendisleri","Bulut mimarları"]},
+  "ts-san-001":{"title":"VMware vSphere: Install, Configure, Manage","cat":"Teknoloji Servisleri","tech":"Sanallaştırma","duration":"5 Gün","level":"Orta","desc":"VMware vSphere sanallaştırma platformu kurulum ve yönetim eğitimi.","detail":"ESXi kurulum, vCenter yönetimi, VM oluşturma, ağ ve depolama yapılandırması ve High Availability.","topics":["ESXi Kurulum","vCenter Yönetimi","VM Oluşturma","Ağ Yapılandırması","Depolama","High Availability"],"audience":["Sistem yöneticileri","Veri merkezi uzmanları","VMware sertifikası almak isteyenler"]}
+};
+
+// ── YARDIMCI FONKSİYONLAR ────────────────────────────────────────────────────
+function getLevelClass(level) {
+  if (level === 'Başlangıç') return 'level-start';
+  if (level === 'Orta') return 'level-mid';
+  return 'level-adv';
+}
+
+function openModal(type) {
+  document.getElementById('modal' + (type === 'register' ? 'Register' : 'Info')).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(type) {
+  document.getElementById('modal' + (type === 'register' ? 'Register' : 'Info')).classList.remove('open');
+  document.body.style.overflow = '';
+}
+function submitForm(type) {
+  const form = document.getElementById(type + 'Form');
+  const success = document.getElementById(type + 'Success');
+  form.style.display = 'none';
+  success.style.display = 'block';
+  setTimeout(() => closeModal(type), 3000);
+}
+
+// Modal dışı tıklama
+document.addEventListener('click', e => {
+  if (e.target.classList.contains('modal-overlay')) {
+    e.target.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+
+// ── SAYFA RENDER ─────────────────────────────────────────────────────────────
+function render() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+  const e = egitimler[id];
+
+  if (!e) {
+    document.getElementById('heroSection').style.display = 'none';
+    document.getElementById('contentSection').style.display = 'none';
+    document.getElementById('notFound').style.display = 'block';
+    return;
+  }
+
+  document.title = e.title + ' — Bilginex Akademi';
+
+  const lvlClass = getLevelClass(e.level);
+
+  // ── HERO ──
+  document.getElementById('heroInner').innerHTML = `
+    <div>
+      <div class="breadcrumb">
+        <a href="index.html">Ana Sayfa</a> <span>›</span>
+        <a href="akademi.html">Akademi</a> <span>›</span>
+        <span>${e.title}</span>
+      </div>
+      <div class="hero-cat-badge">${e.tech}</div>
+      <h1 class="hero-title">${e.title}</h1>
+      <p class="hero-desc">${e.desc}</p>
+      <div class="hero-meta">
+        <div class="meta-item">
+          <span class="meta-icon">⏱</span>
+          <div><span class="meta-label">Süre</span><span class="meta-val">${e.duration}</span></div>
+        </div>
+        <div class="meta-item">
+          <span class="meta-icon">📊</span>
+          <div><span class="meta-label">Seviye</span><span class="level-badge ${lvlClass}">${e.level}</span></div>
+        </div>
+        <div class="meta-item">
+          <span class="meta-icon">🗂</span>
+          <div><span class="meta-label">Kategori</span><span class="meta-val">${e.cat}</span></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="register-card">
+        <div class="register-card-title">Bu Eğitime Katıl</div>
+        <div class="register-card-sub">Hemen kayıt olun veya detaylı bilgi alın</div>
+        <div class="register-card-items">
+          <div class="register-item"><span class="register-item-label">Süre</span><span class="register-item-val">${e.duration}</span></div>
+          <div class="register-item"><span class="register-item-label">Seviye</span><span class="register-item-val">${e.level}</span></div>
+          <div class="register-item"><span class="register-item-label">Format</span><span class="register-item-val">Canlı / Online</span></div>
+          <div class="register-item"><span class="register-item-label">Sertifika</span><span class="register-item-val">✅ Bilginex Sertifikası</span></div>
+        </div>
+        <button class="btn-register" onclick="openModal('register')">Kayıt Ol →</button>
+        <button class="btn-info" onclick="openModal('info')">📬 Detaylı Bilgi Al</button>
+        <div class="register-note">İlk görüşme ücretsiz · Taahhüt yok</div>
+      </div>
+    </div>
+  `;
+
+  // ── CONTENT ──
+  const topicsHtml = e.topics.map(t => `
+    <div class="topic-item">
+      <div class="topic-check">✓</div>
+      <span class="topic-name">${t}</span>
+    </div>
+  `).join('');
+
+  const audienceHtml = e.audience.map(a => `
+    <div class="audience-item">
+      <span class="audience-icon">👤</span>
+      <span class="audience-text">${a}</span>
+    </div>
+  `).join('');
+
+  document.getElementById('contentSection').innerHTML = `
+    <div class="content-main">
+      <div class="section-block">
+        <div class="section-label">Eğitim Hakkında</div>
+        <div class="section-title">Ne Öğreneceksiniz?</div>
+        <p class="section-text">${e.detail}</p>
+      </div>
+      <div class="section-block">
+        <div class="section-label">Müfredat</div>
+        <div class="section-title">Kapsanan Konular</div>
+        <div class="topics-grid">${topicsHtml}</div>
+      </div>
+      <div class="section-block">
+        <div class="section-label">Hedef Kitle</div>
+        <div class="section-title">Bu Eğitim Kime Uygun?</div>
+        <div class="audience-list">${audienceHtml}</div>
+      </div>
+    </div>
+
+    <div class="content-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">📌 Eğitim Detayları</div>
+        <div class="sidebar-list">
+          <div class="sidebar-item"><div class="sidebar-dot"></div>Süre: ${e.duration}</div>
+          <div class="sidebar-item"><div class="sidebar-dot"></div>Seviye: ${e.level}</div>
+          <div class="sidebar-item"><div class="sidebar-dot"></div>Dil: Türkçe</div>
+          <div class="sidebar-item"><div class="sidebar-dot"></div>Format: Canlı eğitim / Online</div>
+          <div class="sidebar-item"><div class="sidebar-dot"></div>Sertifika: Bilginex Sertifikası</div>
+          <div class="sidebar-item"><div class="sidebar-dot"></div>Kurumsal grup indirimi mevcut</div>
+        </div>
+      </div>
+      <a class="btn-sidebar btn-sidebar-primary" href="#" onclick="openModal('register');return false;">🎓 Kayıt Ol</a>
+      <a class="btn-sidebar btn-sidebar-ghost" href="#" onclick="openModal('info');return false;">📬 Detaylı Bilgi Al</a>
+      <a class="btn-sidebar btn-sidebar-ghost" href="akademi.html">← Tüm Eğitimler</a>
+    </div>
+  `;
+
+  // Kayıt modal sub başlığını güncelle
+  document.getElementById('registerModalSub').textContent =
+    '"' + e.title + '" eğitimine kayıt için bilgilerinizi doldurun.';
+}
+
+render();
+</script>
+</body>
+</html>

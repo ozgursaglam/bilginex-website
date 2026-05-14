@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Akademi — Bilginex</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #f0f2f5; --bg2: #f7f8fa; --surface: #fff;
+  --border: rgba(15,23,60,0.09); --border2: rgba(15,23,60,0.16);
+  --text: #0e1628; --text2: #485070; --text3: #9099b5;
+  --accent: #1d4ed8; --accent2: #2563eb; --accentlt: #eff4ff;
+  --teal: #0d9488; --teallt: #f0fdfa;
+  --orange: #ea580c; --orangelt: #fff7ed;
+  --purple: #7c3aed; --purplelt: #f5f3ff;
+  --green: #059669; --greenlt: #f0fdf4;
+  --font-d: 'Syne', sans-serif; --font-b: 'DM Sans', sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--font-b); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 18px 60px; background: rgba(240,242,245,0.9); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); }
+.nav-logo { font-family: var(--font-d); font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: var(--text); text-decoration: none; }
+.nav-logo span { color: #38bdf8; }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { color: var(--text2); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--text); font-weight: 500; }
+.nav-cta { display: flex; gap: 10px; }
+.btn-ghost { padding: 9px 20px; border: 1px solid var(--border2); background: transparent; color: var(--text); font-family: var(--font-b); font-size: 13px; font-weight: 500; border-radius: 7px; cursor: pointer; transition: background 0.2s; text-decoration: none; }
+.btn-ghost:hover { background: var(--surface); }
+.btn-primary { padding: 9px 22px; background: var(--accent2); border: none; color: #fff; font-family: var(--font-b); font-size: 13px; font-weight: 500; border-radius: 7px; cursor: pointer; transition: background 0.2s; text-decoration: none; }
+.btn-primary:hover { background: var(--accent); }
+
+/* HERO */
+.hero { position: relative; padding: 140px 60px 80px; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #0a0f2e 0%, #1a1060 40%, #0d2060 100%); }
+.hero-glow { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 70% 20%, rgba(99,102,241,0.25) 0%, transparent 65%), radial-gradient(ellipse 60% 50% at 20% 80%, rgba(14,165,233,0.18) 0%, transparent 60%); }
+.hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 100%); }
+.hero-inner { position: relative; z-index: 1; max-width: 800px; }
+.breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 24px; }
+.breadcrumb a { color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+.breadcrumb a:hover { color: rgba(255,255,255,0.8); }
+.hero-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #5eead4; margin-bottom: 16px; }
+.hero-tag::before { content: ''; display: block; width: 20px; height: 1px; background: #5eead4; }
+.hero-title { font-family: var(--font-d); font-size: clamp(36px, 5vw, 60px); font-weight: 800; line-height: 1.05; letter-spacing: -2px; color: #fff; margin-bottom: 20px; }
+.hero-title span { color: #93c5fd; }
+.hero-sub { font-size: 17px; color: rgba(255,255,255,0.68); font-weight: 300; line-height: 1.75; max-width: 580px; margin-bottom: 36px; }
+.hero-stats { display: flex; gap: 40px; }
+.hero-stat-num { font-family: var(--font-d); font-size: 32px; font-weight: 700; color: #fff; line-height: 1; }
+.hero-stat-num span { color: #5eead4; }
+.hero-stat-label { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 4px; }
+
+/* SEARCH & FILTER */
+.search-section { background: var(--surface); border-bottom: 1px solid var(--border); padding: 28px 60px; position: sticky; top: 61px; z-index: 100; box-shadow: 0 4px 20px rgba(15,23,60,0.06); }
+.search-row { display: flex; gap: 16px; align-items: center; }
+.search-box { position: relative; flex: 1; max-width: 420px; }
+.search-box input { width: 100%; padding: 11px 16px 11px 42px; border: 1px solid var(--border2); border-radius: 8px; font-family: var(--font-b); font-size: 14px; color: var(--text); background: var(--bg); outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+.search-box input:focus { border-color: var(--accent2); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+.search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text3); font-size: 15px; }
+.filters { display: flex; gap: 8px; flex-wrap: wrap; flex: 1; }
+.filter-btn { padding: 8px 16px; border: 1px solid var(--border); background: var(--bg); color: var(--text2); font-family: var(--font-b); font-size: 13px; font-weight: 400; border-radius: 100px; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+.filter-btn:hover { border-color: var(--accent2); color: var(--accent2); }
+.filter-btn.active { background: var(--accent2); border-color: var(--accent2); color: #fff; font-weight: 500; }
+.results-count { font-size: 13px; color: var(--text3); white-space: nowrap; }
+
+/* CATEGORY SECTIONS */
+.catalog { padding: 48px 60px 80px; }
+.cat-section { margin-bottom: 56px; }
+.cat-header { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.cat-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.cat-title { font-family: var(--font-d); font-size: 20px; font-weight: 700; color: var(--text); }
+.cat-count { font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 100px; }
+
+/* Kategori renkleri */
+.cat-yazilim .cat-icon { background: var(--accentlt); }
+.cat-yazilim .cat-count { background: var(--accentlt); color: var(--accent2); }
+.cat-veri .cat-icon { background: var(--purplelt); }
+.cat-veri .cat-count { background: var(--purplelt); color: var(--purple); }
+.cat-teknoloji .cat-icon { background: var(--teallt); }
+.cat-teknoloji .cat-count { background: var(--teallt); color: var(--teal); }
+
+/* COURSE GRID */
+.course-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.course-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; cursor: pointer; display: flex; flex-direction: column; gap: 0; }
+.course-card:hover { border-color: rgba(37,99,235,0.25); box-shadow: 0 4px 20px rgba(37,99,235,0.1); transform: translateY(-2px); }
+.course-card.hidden { display: none; }
+.course-tech { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+.course-title { font-size: 13px; font-weight: 500; color: var(--text); line-height: 1.45; margin-bottom: 12px; flex: 1; }
+.course-meta { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+.course-duration { font-size: 11px; color: var(--text3); }
+.course-level { padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 600; }
+.level-start { background: var(--greenlt); color: var(--green); }
+.level-mid { background: var(--accentlt); color: var(--accent2); }
+.level-adv { background: var(--purplelt); color: var(--purple); }
+
+/* NO RESULTS */
+.no-results { text-align: center; padding: 60px 20px; display: none; }
+.no-results.show { display: block; }
+.no-results h3 { font-family: var(--font-d); font-size: 20px; color: var(--text); margin-bottom: 8px; }
+.no-results p { font-size: 14px; color: var(--text2); }
+
+/* CTA */
+.cta-band { background: var(--accent2); padding: 80px 60px; text-align: center; position: relative; overflow: hidden; }
+.cta-band::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 48px 48px; }
+.cta-inner { position: relative; z-index: 1; }
+.cta-title { font-family: var(--font-d); font-size: clamp(26px,3vw,40px); font-weight: 700; color: #fff; letter-spacing: -1px; margin-bottom: 12px; }
+.cta-sub { font-size: 16px; color: rgba(255,255,255,0.7); font-weight: 300; margin-bottom: 32px; }
+.btn-cta-white { padding: 14px 32px; font-size: 15px; font-weight: 500; border-radius: 8px; cursor: pointer; transition: all 0.25s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-b); background: #fff; border: 1px solid #fff; color: var(--accent); }
+.btn-cta-white:hover { background: #eff4ff; transform: translateY(-1px); }
+
+/* FOOTER */
+footer { background: #0d1117; padding: 48px 60px 32px; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+.footer-logo { font-family: var(--font-d); font-size: 18px; font-weight: 800; color: #fff; text-decoration: none; }
+.footer-logo span { color: #38bdf8; }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); font-weight: 300; }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: rgba(255,255,255,0.8); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Bilgine<span>x</span></a>
+  <ul class="nav-links">
+    <li><a href="hizmetler.html">Hizmetler</a></li>
+    <li><a href="akademi.html" class="active">Akademi</a></li>
+    <li><a href="#">Çözümler</a></li>
+    <li><a href="#">Uzman Kadro</a></li>
+    <li><a href="#">Hakkımızda</a></li>
+    <li><a href="#">Blog</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="#" class="btn-ghost">Giriş Yap</a>
+    <a href="#" class="btn-primary">Eğitim Talep Et →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Ana Sayfa</a> <span>›</span> <span>Akademi</span>
+    </div>
+    <div class="hero-tag">Bilginex Akademi</div>
+    <h1 class="hero-title">Geleceğin <span>teknoloji uzmanlarını</span> yetiştiriyoruz</h1>
+    <p class="hero-sub">350'den fazla uygulamalı eğitim programıyla ekiplerinizi ve kendinizi güncel teknolojilere hazırlayın. Yazılım, veri, bulut, siber güvenlik ve daha fazlası.</p>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">350<span>+</span></div>
+        <div class="hero-stat-label">Eğitim Programı</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">3<span></span></div>
+        <div class="hero-stat-label">Ana Kategori</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">%100</div>
+        <div class="hero-stat-label">Uygulamalı İçerik</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH & FILTER -->
+<div class="search-section">
+  <div class="search-row">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="Eğitim ara... (React, Azure, Python...)" oninput="filterCourses()"/>
+    </div>
+    <div class="filters">
+      <button class="filter-btn active" onclick="setFilter('all', this)">Tümü</button>
+      <button class="filter-btn" onclick="setFilter('Yazılım Hizmetleri', this)">Yazılım</button>
+      <button class="filter-btn" onclick="setFilter('Veri ve İş Yönetimi Çözümleri', this)">Veri & İş</button>
+      <button class="filter-btn" onclick="setFilter('Teknoloji Servisleri', this)">Teknoloji</button>
+      <button class="filter-btn" onclick="setFilter('Başlangıç', this)">Başlangıç</button>
+      <button class="filter-btn" onclick="setFilter('Orta', this)">Orta</button>
+      <button class="filter-btn" onclick="setFilter('İleri', this)">İleri</button>
+    </div>
+    <span class="results-count" id="resultsCount">350+ eğitim</span>
+  </div>
+</div>
+
+<!-- CATALOG -->
+<div class="catalog" id="catalog">
+
+  <!-- KATEGORİ 1: YAZILIM HİZMETLERİ -->
+  <div class="cat-section cat-yazilim" data-cat="Yazılım Hizmetleri">
+    <div class="cat-header">
+      <div class="cat-icon">💻</div>
+      <div>
+        <div class="cat-title">Yazılım Hizmetleri</div>
+      </div>
+      <span class="cat-count">110 Eğitim</span>
+    </div>
+    <div class="course-grid" id="grid-yazilim">
+      <!-- Bulut Bilişim -->
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-bb-001'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Bulut Bilişim">
+        <div class="course-tech">Bulut Bilişim</div>
+        <div class="course-title">AZ-204 Developing Solutions for Microsoft Azure</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-bb-002'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Başlangıç" data-tech="Bulut Bilişim">
+        <div class="course-tech">Yapay Zeka / Bulut</div>
+        <div class="course-title">Copilot ile AI Temellerini Keşfet</div>
+        <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-bb-003'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Başlangıç" data-tech="Bulut Bilişim">
+        <div class="course-tech">Yapay Zeka / Bulut</div>
+        <div class="course-title">MS-4007: Copilot for Microsoft 365 User Enablement Specialist</div>
+        <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
+      </div>
+      <!-- Yazılım Geliştirme -->
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-001'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">Android Uygulama Geliştirme</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-002'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">Building Database Driven Applications with JPA</div>
+        <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-013'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">Java Programming</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-014'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">JavaScript Programming</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-047'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">React ile Web Programlama</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-048'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">React Native Eğitimi</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-045'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">Python ile Makine Öğrenmesi</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">Python ile Web Programlama</div>
+        <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-043'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">NodeJS Eğitimi</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-058'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">Angular Temel Seviye</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-start">Başlangıç</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-066'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">Angular İleri Seviye</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">Vue.js Temel Seviye</div>
+        <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-start">Başlangıç</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-070'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">Comprehensive Vue Eğitimi</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-027'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">Spring Core Framework Training</div>
+        <div class="course-meta"><span class="course-duration">4 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-085'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="İleri" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">Microservices Using .NET Core</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-adv">İleri</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-sy-025'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="İleri" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">Docker Container ve Kubernetes ile Orkestrasyon</div>
+        <div class="course-meta"><span class="course-duration">4 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-037'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">ASP.NET Core MVC</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-042'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">Flutter ile Mobile Uygulama Geliştirme</div>
+        <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-049'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="İleri" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">UiPath - Robotic Process Automation Development</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-adv">İleri</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-081'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">Java Developer Bootcamp</div>
+        <div class="course-meta"><span class="course-duration">67 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-061'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">.NET Developer Bootcamp</div>
+        <div class="course-meta"><span class="course-duration">55 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-bb-004'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Başlangıç" data-tech="Yapay Zeka">
+        <div class="course-tech">Yapay Zeka</div>
+        <div class="course-title">AI 3016: Develop Generative AI Apps in Azure AI Foundry</div>
+        <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-034'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">Güvenli Yazılım Geliştirme</div>
+        <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-adv">İleri</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-072'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">Domain Driven Design</div>
+        <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-adv">İleri</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-005'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">Design Patterns and Enterprise Design Pattern</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-078'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">Introduction to Kafka Eğitimi</div>
+        <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-start">Başlangıç</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-029'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">Swift Programming for iPhone and iPad</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-103'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-tech">Yazılım Geliştirme</div>
+        <div class="course-title">Python (Programlama Dili)</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-sp-001'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="SharePoint">
+        <div class="course-tech">SharePoint</div>
+        <div class="course-title">MS 20488A Developing Microsoft SharePoint Server 2013</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KATEGORİ 2: VERİ VE İŞ YÖNETİMİ -->
+  <div class="cat-section cat-veri" data-cat="Veri ve İş Yönetimi Çözümleri">
+    <div class="cat-header">
+      <div class="cat-icon">📊</div>
+      <div>
+        <div class="cat-title">Veri ve İş Yönetimi Çözümleri</div>
+      </div>
+      <span class="cat-count">165 Eğitim</span>
+    </div>
+    <div class="course-grid" id="grid-veri">
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-mo-005'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Microsoft Office">
+        <div class="course-tech">Microsoft Office</div>
+        <div class="course-title">Microsoft Excel Temel</div>
+        <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-start">Başlangıç</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-mo-004'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Microsoft Office">
+        <div class="course-tech">Microsoft Office</div>
+        <div class="course-title">Microsoft Excel İleri</div>
+        <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-mo-028'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="İleri" data-tech="Microsoft Office">
+        <div class="course-tech">Microsoft Office</div>
+        <div class="course-title">Microsoft Excel Expert</div>
+        <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-adv">İleri</span></div>
+      </div>
+      <div class="course-card" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Microsoft Office">
+        <div class="course-tech">Microsoft Office</div>
+        <div class="course-title">Microsoft Excel Makro (VBA)</div>
+        <div class="course-meta"><span class="course-duration">4 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-mo-038'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Power BI">
+        <div class="course-tech">Power BI</div>
+        <div class="course-title">Power BI ile Veri Görselleştirme (Temel)</div>
+        <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-start">Başlangıç</span></div>
+      </div>
+      <div class="course-card" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Power BI">
+        <div class="course-tech">Power BI</div>
+        <div class="course-title">Power BI ile Veri Görselleştirme (İleri Düzey)</div>
+        <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-mo-036'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Power BI">
+        <div class="course-tech">Power BI</div>
+        <div class="course-title">PL-300 Data Analysis with Power BI</div>
+        <div class="course-meta"><span class="course-duration">4 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-mo-010'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Microsoft Office">
+        <div class="course-tech">Microsoft Office</div>
+        <div class="course-title">Excel Dashboard Raporlama</div>
+        <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-mo-015'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Microsoft Office">
+        <div class="course-tech">Microsoft Office</div>
+        <div class="course-title">İleri Excel ile Veri Analizi ve Modelleme</div>
+        <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-mo-014'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Başlangıç" data-tech="Microsoft Office">
+        <div class="course-tech">Yapay Zeka / Ofis</div>
+        <div class="course-title">Microsoft Copilot (Yapay Zeka ile Ofis Hayatınızı Dönüştürün!)</div>
+        <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-mo-041'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Başlangıç" data-tech="Microsoft Office">
+        <div class="course-tech">Yapay Zeka / Ofis</div>
+        <div class="course-title">Copilot ile Excel Eğitimi</div>
+        <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-vyc-018'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Veri Yönetimi">
+        <div class="course-tech">Veri Yönetimi</div>
+        <div class="course-title">SQL Server ile Veritabanı Sorgulama</div>
+        <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-vyc-019'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="İleri" data-tech="Veri Yönetimi">
+        <div class="course-tech">Veri Yönetimi</div>
+        <div class="course-title">Advanced SQL Eğitimi</div>
+        <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-adv">İleri</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-vyc-027'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Başlangıç" data-tech="Veri Yönetimi">
+        <div class="course-tech">Veri Yönetimi</div>
+        <div class="course-title">Temel PostgreSQL Eğitimi</div>
+        <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-start">Başlangıç</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-vyc-012'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Veri Yönetimi">
+        <div class="course-tech">Veri Yönetimi</div>
+        <div class="course-title">Oracle 21c Database: Introduction to SQL</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-start">Başlangıç</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-vyc-007'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Veri Yönetimi">
+        <div class="course-tech">Yapay Zeka / Veri</div>
+        <div class="course-title">Herkes İçin Makine Öğrenmesi</div>
+        <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-vyc-001'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="İleri" data-tech="Veri Yönetimi">
+        <div class="course-tech">Yapay Zeka / Veri</div>
+        <div class="course-title">DP-100T01: Data Science Solution on Azure</div>
+        <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-adv">İleri</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-mo-039'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Veri Yönetimi">
+        <div class="course-tech">Veri Yönetimi</div>
+        <div class="course-title">Tableau ile Veri Görselleştirme</div>
+        <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-vyc-024'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Veri Yönetimi">
+        <div class="course-tech">Veri Yönetimi</div>
+        <div class="course-title">İş Zekası ve Veri Analizi Uzmanı Bootcamp</div>
+        <div class="course-meta"><span class="course-duration">60 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-iyc-002'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Başlangıç" data-tech="İş Yönetimi">
+        <div class="course-tech">İş Yönetimi</div>
+        <div class="course-title">Scrum Fundamentals</div>
+        <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-start">Başlangıç</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-iyc-023'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="İş Yönetimi">
+        <div class="course-tech">İş Yönetimi</div>
+        <div class="course-title">PMP® Exam Preparation – PMBOK® Guide 8. Baskı</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-iyc-011'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="İş Yönetimi">
+        <div class="course-tech">İş Yönetimi</div>
+        <div class="course-title">PMI-ACP Agile Certified Practitioner Hazırlık</div>
+        <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-iyc-020'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="İş Yönetimi">
+        <div class="course-tech">İş Yönetimi</div>
+        <div class="course-title">EXIN LSSA Lean Six Sigma Green Belt</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-iyc-001'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Başlangıç" data-tech="İş Yönetimi">
+        <div class="course-tech">İş Analizi</div>
+        <div class="course-title">İş Analizinin Temelleri</div>
+        <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-start">Başlangıç</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-kgv-010'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Kişisel Gelişim">
+        <div class="course-tech">Kişisel Gelişim</div>
+        <div class="course-title">Etkin Yöneticilik ve Liderlik</div>
+        <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-kgv-001'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Kişisel Gelişim">
+        <div class="course-tech">Kişisel Gelişim</div>
+        <div class="course-title">Profesyonel Satış Teknikleri ve İkna Yöntemleri</div>
+        <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-sm-002'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Sosyal Medya">
+        <div class="course-tech">Sosyal Medya</div>
+        <div class="course-title">Sosyal Medya Pazarlaması ve Reklam Yönetimi</div>
+        <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-dt-003'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Dijital Tasarım">
+        <div class="course-tech">Dijital Tasarım</div>
+        <div class="course-title">Adobe Photoshop CC</div>
+        <div class="course-meta"><span class="course-duration">4 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-dt-001'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Dijital Tasarım">
+        <div class="course-tech">Dijital Tasarım</div>
+        <div class="course-title">Adobe Illustrator CC</div>
+        <div class="course-meta"><span class="course-duration">4 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-bd-001'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Big Data">
+        <div class="course-tech">Big Data</div>
+        <div class="course-title">Python ile Big Data</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-bd-002'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Big Data">
+        <div class="course-tech">Big Data</div>
+        <div class="course-title">Big Data Analysis with Spark</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KATEGORİ 3: TEKNOLOJİ SERVİSLERİ -->
+  <div class="cat-section cat-teknoloji" data-cat="Teknoloji Servisleri">
+    <div class="cat-header">
+      <div class="cat-icon">🛡️</div>
+      <div>
+        <div class="cat-title">Teknoloji Servisleri</div>
+      </div>
+      <span class="cat-count">75 Eğitim</span>
+    </div>
+    <div class="course-grid" id="grid-teknoloji">
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-bg-001'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="İleri" data-tech="Bilgi Güvenliği">
+        <div class="course-tech">Bilgi Güvenliği</div>
+        <div class="course-title">Certified Information Security Management (CISM)</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-adv">İleri</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-bg-003'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="İleri" data-tech="Bilgi Güvenliği">
+        <div class="course-tech">Bilgi Güvenliği</div>
+        <div class="course-title">Certified Information Systems Security Professional (CISSP)</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-adv">İleri</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-bg-019'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="İleri" data-tech="Bilgi Güvenliği">
+        <div class="course-tech">Bilgi Güvenliği</div>
+        <div class="course-title">Sızma Testi (Penetration Test)</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-adv">İleri</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-bg-014'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="İleri" data-tech="Bilgi Güvenliği">
+        <div class="course-tech">Bilgi Güvenliği</div>
+        <div class="course-title">Bilişim Sistemleri Adli Analizi</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-adv">İleri</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-bg-013'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="Orta" data-tech="Bilgi Güvenliği">
+        <div class="course-tech">Bilgi Güvenliği</div>
+        <div class="course-title">ISO 27001 Bilgi Güvenliği Yönetim Sistemi</div>
+        <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-bg-021'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="İleri" data-tech="Bilgi Güvenliği">
+        <div class="course-tech">Bilgi Güvenliği</div>
+        <div class="course-title">Zararlı Yazılım Analiz Yöntemleri</div>
+        <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-adv">İleri</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-bb-001'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="Orta" data-tech="Bulut Bilişim">
+        <div class="course-tech">Bulut Bilişim</div>
+        <div class="course-title">AZ-104T00 Microsoft Azure Administrator</div>
+        <div class="course-meta"><span class="course-duration">4 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-bb-002'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="İleri" data-tech="Bulut Bilişim">
+        <div class="course-tech">Bulut Bilişim</div>
+        <div class="course-title">AZ-400: Designing Microsoft DevOps Solutions</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-adv">İleri</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-bb-015'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="Başlangıç" data-tech="Bulut Bilişim">
+        <div class="course-tech">Bulut Bilişim</div>
+        <div class="course-title">AZ-900 Microsoft Azure Fundamentals</div>
+        <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-bthy-001'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="Başlangıç" data-tech="BT Hizmet Yönetimi">
+        <div class="course-tech">BT Hizmet Yönetimi</div>
+        <div class="course-title">Bilişim Teknolojisi Altyapı Kütüphanesi v4 Foundation (ITIL)</div>
+        <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-start">Başlangıç</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-sy-011'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="Orta" data-tech="Sistem Yönetimi">
+        <div class="course-tech">Sistem Yönetimi</div>
+        <div class="course-title">Windows Server 2022 Administration</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-sy-022'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="Başlangıç" data-tech="Sistem Yönetimi">
+        <div class="course-tech">Sistem Yönetimi</div>
+        <div class="course-title">Introduction to Containers with Docker</div>
+        <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-start">Başlangıç</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-sy-024'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="İleri" data-tech="Sistem Yönetimi">
+        <div class="course-tech">Sistem Yönetimi</div>
+        <div class="course-title">Kubernetes Administration</div>
+        <div class="course-meta"><span class="course-duration">4 Gün</span><span class="course-level level-adv">İleri</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-sy-025'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="Orta" data-tech="Sistem Yönetimi">
+        <div class="course-tech">Sistem Yönetimi</div>
+        <div class="course-title">Docker Container ve Kubernetes ile Orkestrasyon</div>
+        <div class="course-meta"><span class="course-duration">4 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-sy-016'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="Orta" data-tech="Sistem Yönetimi">
+        <div class="course-tech">Sistem Yönetimi</div>
+        <div class="course-title">Microsoft Intune</div>
+        <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-lnx-005'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="Orta" data-tech="Linux">
+        <div class="course-tech">Linux</div>
+        <div class="course-title">Linux System Administration I</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-lnx-005'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="İleri" data-tech="Linux">
+        <div class="course-tech">Linux</div>
+        <div class="course-title">Linux System Administration II</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-adv">İleri</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-lnx-010'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="Başlangıç" data-tech="Linux">
+        <div class="course-tech">Linux</div>
+        <div class="course-title">Introduction to Linux 101</div>
+        <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-start">Başlangıç</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-lnx-007'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="Orta" data-tech="Linux">
+        <div class="course-tech">Linux</div>
+        <div class="course-title">Red Hat System Administration I</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-sy-015'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="Orta" data-tech="Sistem Yönetimi">
+        <div class="course-tech">Sistem Yönetimi</div>
+        <div class="course-title">Sistem Uzmanı Bootcamp</div>
+        <div class="course-meta"><span class="course-duration">41 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-san-001'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="Orta" data-tech="Sanallaştırma">
+        <div class="course-tech">Sanallaştırma</div>
+        <div class="course-title">VMware vSphere: Install, Configure, Manage</div>
+        <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-bthy-009'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="Orta" data-tech="Sistem Yönetimi">
+        <div class="course-tech">DevOps</div>
+        <div class="course-title">DevOps Bootcamp</div>
+        <div class="course-meta"><span class="course-duration">27 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-sy-001'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="Orta" data-tech="Sistem Yönetimi">
+        <div class="course-tech">Sistem Yönetimi</div>
+        <div class="course-title">Enterprise Monitoring with Zabbix 7.0</div>
+        <div class="course-meta"><span class="course-duration">4 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-bb-005'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="Orta" data-tech="Bulut Bilişim">
+        <div class="course-tech">Bulut Bilişim</div>
+        <div class="course-title">MS-700T00-A: Managing Microsoft Teams</div>
+        <div class="course-meta"><span class="course-duration">4 Gün</span><span class="course-level level-mid">Orta</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="no-results" id="noResults">
+    <h3>Eğitim bulunamadı</h3>
+    <p>Farklı bir arama terimi veya filtre deneyin.</p>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="cta-inner">
+    <h2 class="cta-title">Kurumsal eğitim planınızı birlikte tasarlayalım</h2>
+    <p class="cta-sub">Ekibinizin ihtiyaçlarına özel program oluşturalım. Özel grup indirimleri ve esnek takvim seçenekleri için bizimle iletişime geçin.</p>
+    <a href="#" class="btn-cta-white">Kurumsal Teklif Al →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-bottom">
+    <a href="index.html" class="footer-logo">Bilgine<span>x</span></a>
+    <div class="footer-links">
+      <a href="hizmetler.html">Hizmetler</a>
+      <a href="akademi.html">Akademi</a>
+      <a href="#">Hakkımızda</a>
+      <a href="#">İletişim</a>
+    </div>
+    <p class="footer-copy">© 2025 Bilginex Teknoloji A.Ş.</p>
+  </div>
+</footer>
+
+<script>
+let activeFilter = 'all';
+
+function setFilter(filter, btn) {
+  activeFilter = filter;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  filterCourses();
+}
+
+function filterCourses() {
+  const query = document.getElementById('searchInput').value.toLowerCase();
+  const cards = document.querySelectorAll('.course-card');
+  let visible = 0;
+
+  cards.forEach(card => {
+    const title = card.querySelector('.course-title').textContent.toLowerCase();
+    const tech = card.querySelector('.course-tech').textContent.toLowerCase();
+    const cat = card.dataset.cat;
+    const level = card.dataset.level;
+
+    const matchSearch = !query || title.includes(query) || tech.includes(query);
+    let matchFilter = true;
+
+    if (activeFilter !== 'all') {
+      if (['Başlangıç','Orta','İleri'].includes(activeFilter)) {
+        matchFilter = level === activeFilter;
+      } else {
+        matchFilter = cat === activeFilter;
+      }
+    }
+
+    if (matchSearch && matchFilter) {
+      card.classList.remove('hidden');
+      visible++;
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+
+  // Kategori bölümlerini gizle/göster
+  document.querySelectorAll('.cat-section').forEach(section => {
+    const visibleCards = section.querySelectorAll('.course-card:not(.hidden)').length;
+    section.style.display = visibleCards === 0 ? 'none' : '';
+  });
+
+  document.getElementById('resultsCount').textContent = visible + ' eğitim';
+  const noResults = document.getElementById('noResults');
+  noResults.classList.toggle('show', visible === 0);
+}
+</script>
+</body>
+</html>
