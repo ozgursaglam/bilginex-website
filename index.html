@@ -59,11 +59,11 @@
   }
   .hero-photo {
     position: absolute; inset: 0; z-index: 0;
-    background: url('https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=1600&q=80') center/cover no-repeat;
+    background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80') center/cover no-repeat;
   }
   .hero-photo::after {
     content: ''; position: absolute; inset: 0;
-    background: linear-gradient(160deg, rgba(8,18,50,0.68) 0%, rgba(6,16,46,0.58) 50%, rgba(4,14,44,0.64) 100%);
+    background: linear-gradient(160deg, rgba(8,18,50,0.48) 0%, rgba(6,16,46,0.38) 50%, rgba(4,14,44,0.44) 100%);
   }
   .hero-content { position: relative; z-index: 1; }
   .hero-badge {
@@ -122,6 +122,7 @@
   .services-photo::after { content: ''; position: absolute; inset: 0; background: rgba(8,14,36,0.84); }
   .services-content { position: relative; z-index: 1; }
   .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
+  .services-header > div { display: flex; flex-direction: column; align-items: flex-start; }
   .services-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
   .service-card {
     background: rgba(255,255,255,0.06);
@@ -255,14 +256,14 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Bilgine<span>x</span></a>
+  <a href="index.html" class="nav-logo">Bilgine<span>x</span></a>
   <ul class="nav-links">
-    <li><a href="#">Hizmetler</a></li>
-    <li><a href="#">Akademi</a></li>
+    <li><a href="hizmetler.html">Hizmetler</a></li>
+    <li><a href="akademi.html">Akademi</a></li>
     <li><a href="#">Çözümler</a></li>
-    <li><a href="#">Uzman Kadro</a></li>
-    <li><a href="#">Hakkımızda</a></li>
-    <li><a href="#">Blog</a></li>
+    <li><a href="uzman-kadro.html">Uzman Kadro</a></li>
+    <li><a href="hakkimizda.html">Hakkımızda</a></li>
+    <li><a href="blog.html">Blog</a></li>
   </ul>
   <div class="nav-cta">
     <a href="#" class="btn-ghost">Giriş Yap</a>
@@ -287,7 +288,7 @@
       AI entegrasyonu, dijital dönüşüm, teknoloji eğitimleri ve uzman kaynak kiralama hizmetleriyle şirketinizi bir üst seviyeye taşıyoruz.
     </p>
     <div class="hero-actions">
-      <a href="#" class="btn-hero">Hizmetleri Keşfet →</a>
+      <a href="hizmetler.html" class="btn-hero">Hizmetleri Keşfet →</a>
       <a href="#" class="btn-hero-ghost">Demo İzle ▶</a>
     </div>
     <div class="hero-scroll">
@@ -323,12 +324,10 @@
 <section class="services">
   <div class="services-photo"></div>
   <div class="services-content">
-    <div class="services-header">
-      <div>
-        <div class="section-tag light">Hizmetlerimiz</div>
-        <h2 class="section-title white">Teknolojinin her katmanında yanınızdayız</h2>
-      </div>
-      <a href="#" style="color:#93c5fd; text-decoration:none; font-size:14px; white-space:nowrap;">Tümünü gör →</a>
+    <div style="text-align:center; margin-bottom:48px;">
+      <div class="section-tag light" style="justify-content:center;">Hizmetlerimiz</div>
+      <h2 class="section-title white" style="max-width:100%; margin:0 auto;">Teknolojinin her katmanında yanınızdayız</h2>
+      <a href="hizmetler.html" style="display:inline-block; margin-top:16px; color:#93c5fd; text-decoration:none; font-size:14px;">Tüm hizmetleri gör →</a>
     </div>
     <div class="services-grid">
       <div class="service-card">
@@ -437,7 +436,7 @@
         <div class="check-item"><span class="tick">✓</span> Kurumsal ekip paketleri ve özel program tasarımı</div>
         <div class="check-item"><span class="tick">✓</span> Bilginex sertifikası — sektörde tanınan belge</div>
       </div>
-      <a href="#" class="btn-hero-teal" style="margin-top:36px;">Akademiyi Keşfet →</a>
+      <a href="akademi.html" class="btn-hero-teal" style="margin-top:36px;">Akademiyi Keşfet →</a>
     </div>
     <div class="course-grid">
       <div class="course-card">
@@ -537,35 +536,35 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <div class="logo">Bilgine<span>x</span></div>
+      <a href="index.html" style="text-decoration:none;" class="logo">Bilgine<span>x</span></a>
       <p>Teknoloji eğitimi, AI entegrasyonu, dijital dönüşüm ve uzman kaynak kiralama alanlarında Türkiye'nin öncü teknoloji ortağı.</p>
     </div>
     <div class="footer-col">
       <h4>Hizmetler</h4>
       <ul>
-        <li><a href="#">AI Entegrasyonu</a></li>
-        <li><a href="#">Dijital Dönüşüm</a></li>
-        <li><a href="#">Danışmanlık</a></li>
-        <li><a href="#">Teknik Destek</a></li>
+        <li><a href="ai-entegrasyon.html">AI Entegrasyonu</a></li>
+        <li><a href="dijital-donusum.html">Dijital Dönüşüm</a></li>
+        <li><a href="hizmetler.html">Danışmanlık</a></li>
+        <li><a href="hizmetler.html">Teknik Destek</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Akademi</h4>
       <ul>
-        <li><a href="#">Tüm Kurslar</a></li>
-        <li><a href="#">Canlı Eğitimler</a></li>
-        <li><a href="#">Sertifikalar</a></li>
-        <li><a href="#">Kurumsal Paket</a></li>
+        <li><a href="akademi.html">Tüm Kurslar</a></li>
+        <li><a href="akademi.html">Canlı Eğitimler</a></li>
+        <li><a href="akademi.html">Sertifikalar</a></li>
+        <li><a href="akademi.html">Kurumsal Paket</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Şirket</h4>
       <ul>
-        <li><a href="#">Hakkımızda</a></li>
-        <li><a href="#">Ekibimiz</a></li>
-        <li><a href="#">Kariyer</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">İletişim</a></li>
+        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+        <li><a href="hakkimizda.html">Ekibimiz</a></li>
+        <li><a href="kariyer.html">Kariyer</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
       </ul>
     </div>
   </div>
