@@ -144,23 +144,23 @@
   .services-header > div { display: flex; flex-direction: column; align-items: flex-start; }
   .services-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
   .service-card {
-    background: #ffffff;
-    border: 1px solid rgba(37,99,235,0.1);
+    background: #1e2a4a;
+    border: 1px solid rgba(255,255,255,0.08);
     border-radius: 16px; padding: 40px; position: relative;
     transition: background 0.25s, border-color 0.25s, transform 0.25s, box-shadow 0.25s;
     overflow: hidden;
-    box-shadow: 0 2px 12px rgba(37,99,235,0.06);
+    box-shadow: 0 4px 20px rgba(10,15,40,0.15);
   }
-  .service-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent2), var(--teal)); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
-  .service-card:hover { background: #f8faff; border-color: rgba(37,99,235,0.25); transform: translateY(-3px); box-shadow: 0 8px 32px rgba(37,99,235,0.12); }
+  .service-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #38bdf8, #2dd4bf); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
+  .service-card:hover { background: #243055; border-color: rgba(56,189,248,0.25); transform: translateY(-3px); box-shadow: 0 12px 36px rgba(10,15,40,0.25); }
   .service-card:hover::after { transform: scaleX(1); }
-  .service-icon { width: 48px; height: 48px; border-radius: 12px; background: #eff4ff; border: 1px solid rgba(37,99,235,0.15); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 20px; }
-  .service-title { font-family: var(--font-d); font-size: 19px; font-weight: 700; color: #0e1628; margin-bottom: 10px; }
-  .service-desc { font-size: 14px; color: #485070; line-height: 1.75; font-weight: 300; margin-bottom: 24px; }
+  .service-icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(56,189,248,0.12); border: 1px solid rgba(56,189,248,0.2); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 20px; }
+  .service-title { font-family: var(--font-d); font-size: 19px; font-weight: 700; color: #f0f4ff; margin-bottom: 10px; }
+  .service-desc { font-size: 14px; color: rgba(200,210,240,0.75); line-height: 1.75; font-weight: 300; margin-bottom: 24px; }
   .service-tags { display: flex; flex-wrap: wrap; gap: 7px; }
-  .tag { padding: 4px 11px; background: #f0f4ff; border: 1px solid rgba(37,99,235,0.12); border-radius: 100px; font-size: 11px; color: #2563eb; font-weight: 500; }
-  .service-arrow { position: absolute; bottom: 40px; right: 40px; width: 30px; height: 30px; border-radius: 50%; border: 1px solid rgba(37,99,235,0.2); display: flex; align-items: center; justify-content: center; color: #9099b5; font-size: 15px; transition: all 0.2s; }
-  .service-card:hover .service-arrow { background: var(--accent2); border-color: var(--accent2); color: white; }
+  .tag { padding: 4px 11px; background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.18); border-radius: 100px; font-size: 11px; color: #7dd3fc; font-weight: 500; }
+  .service-arrow { position: absolute; bottom: 40px; right: 40px; width: 30px; height: 30px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.35); font-size: 15px; transition: all 0.2s; }
+  .service-card:hover .service-arrow { background: #38bdf8; border-color: #38bdf8; color: white; }
 
   /* ── WHY — light bg ── */
   .why { background: var(--surface); padding: 110px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
@@ -458,34 +458,34 @@
       <a href="akademi.html" class="btn-hero-teal" style="margin-top:36px;">Akademiyi Keşfet →</a>
     </div>
     <div class="course-grid">
-      <div class="course-card">
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-bb-002'">
         <div class="course-cat">Yapay Zeka</div>
-        <div class="course-name">Kurumsal AI Stratejisi &amp; LLM Entegrasyonu</div>
-        <div class="course-meta"><span>32 saat</span><span class="course-level level-adv">İleri</span></div>
+        <div class="course-name">Copilot ile AI Temellerini Keşfet</div>
+        <div class="course-meta"><span>1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
       </div>
-      <div class="course-card">
-        <div class="course-cat">Veri Bilimi</div>
-        <div class="course-name">Python ile Veri Analizi Temelleri</div>
-        <div class="course-meta"><span>24 saat</span><span class="course-level level-start">Başlangıç</span></div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-045'">
+        <div class="course-cat">Yapay Zeka / Veri</div>
+        <div class="course-name">Python ile Makine Öğrenmesi</div>
+        <div class="course-meta"><span>5 Gün</span><span class="course-level level-mid">Orta</span></div>
       </div>
-      <div class="course-card">
-        <div class="course-cat">Cloud</div>
-        <div class="course-name">AWS Solutions Architect Hazırlık</div>
-        <div class="course-meta"><span>40 saat</span><span class="course-level level-mid">Orta</span></div>
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-bb-001'">
+        <div class="course-cat">Bulut Bilişim</div>
+        <div class="course-name">AZ-104 Microsoft Azure Administrator</div>
+        <div class="course-meta"><span>4 Gün</span><span class="course-level level-mid">Orta</span></div>
       </div>
-      <div class="course-card">
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-085'">
         <div class="course-cat">Yazılım</div>
-        <div class="course-name">Modern Microservices &amp; DevOps Pratikleri</div>
-        <div class="course-meta"><span>36 saat</span><span class="course-level level-adv">İleri</span></div>
+        <div class="course-name">Microservices Using .NET Core</div>
+        <div class="course-meta"><span>5 Gün</span><span class="course-level level-adv">İleri</span></div>
       </div>
-      <div class="course-card">
+      <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-bg-019'">
         <div class="course-cat">Siber Güvenlik</div>
-        <div class="course-name">Kurumsal Siber Güvenlik Temelleri</div>
-        <div class="course-meta"><span>20 saat</span><span class="course-level level-start">Başlangıç</span></div>
+        <div class="course-name">Sızma Testi (Penetration Test)</div>
+        <div class="course-meta"><span>5 Gün</span><span class="course-level level-adv">İleri</span></div>
       </div>
-      <div class="course-card" style="border-style:dashed; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px;">
+      <div class="course-card" onclick="location.href='akademi.html'" style="border-style:dashed; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px;">
         <span style="font-size:24px; color:rgba(255,255,255,0.25);">+</span>
-        <span style="font-size:12px; color:rgba(255,255,255,0.35); text-align:center;">45 kurs daha<br/>keşfet</span>
+        <span style="font-size:12px; color:rgba(255,255,255,0.35); text-align:center;">350 kurs daha<br/>keşfet</span>
       </div>
     </div>
   </div>
