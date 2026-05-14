@@ -41,7 +41,7 @@
     border-bottom: 1px solid var(--border);
   }
   .nav-logo { font-family: var(--font-d); font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: var(--text); text-decoration: none; }
-  .nav-logo span { color: #ea580c; }
+  .nav-logo span { color: #0284c7; }
   .nav-links { display: flex; gap: 32px; list-style: none; }
   .nav-links a { color: var(--text2); text-decoration: none; font-size: 14px; transition: color 0.2s; }
   .nav-links a:hover { color: var(--text); }
@@ -86,12 +86,12 @@
   .hero-badge-dot { width: 20px; height: 20px; background: var(--accent2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: white; }
   .hero-title {
     font-family: var(--font-d); font-size: clamp(44px, 6vw, 80px); font-weight: 800;
-    line-height: 1.05; letter-spacing: -2.5px; color: #fff; max-width: 880px;
+    line-height: 1.05; letter-spacing: -2.5px; color: #fff; max-width: 880px; margin-left: auto; margin-right: auto;
     animation: fadeUp 0.7s ease 0.1s both;
   }
   .hero-title .accent { color: #93c5fd; }
   .hero-title .teal   { color: #5eead4; }
-  .hero-sub { margin-top: 24px; max-width: 540px; font-size: 17px; font-weight: 300; color: rgba(255,255,255,0.72); line-height: 1.75; animation: fadeUp 0.7s ease 0.2s both; }
+  .hero-sub { margin-top: 24px; max-width: 540px; margin-left: auto; margin-right: auto; font-size: 17px; font-weight: 300; color: rgba(255,255,255,0.72); line-height: 1.75; animation: fadeUp 0.7s ease 0.2s both; }
   .hero-actions { margin-top: 40px; display: flex; gap: 14px; align-items: center; justify-content: center; animation: fadeUp 0.7s ease 0.3s both; }
   .btn-hero { padding: 14px 30px; background: var(--accent2); border: none; color: #fff; font-family: var(--font-b); font-size: 15px; font-weight: 500; border-radius: 8px; cursor: pointer; transition: all 0.25s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 24px rgba(37,99,235,0.4); }
   .btn-hero:hover { background: var(--accent); transform: translateY(-1px); }
@@ -104,10 +104,10 @@
   /* ── STATS ── */
   .stats-wrap { padding: 0 60px; position: relative; z-index: 10; margin-top: -36px; }
   .stats-inner { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; display: grid; grid-template-columns: repeat(4,1fr); overflow: hidden; box-shadow: 0 8px 40px rgba(15,23,60,0.1); }
-  .stat-item { padding: 30px 36px; border-right: 1px solid var(--border); transition: background 0.2s; }
+  .stat-item { padding: 36px 40px; border-right: 1px solid var(--border); transition: background 0.2s; }
   .stat-item:hover { background: var(--bg2); }
   .stat-item:last-child { border-right: none; }
-  .stat-number { font-family: var(--font-d); font-size: 38px; font-weight: 700; color: var(--text); line-height: 1; letter-spacing: -1px; }
+  .stat-number { font-family: var(--font-d); font-size: 52px; font-weight: 700; color: var(--text); line-height: 1; letter-spacing: -2px; }
   .stat-number span { color: var(--accent2); }
   .stat-label { margin-top: 6px; font-size: 13px; color: var(--text2); font-weight: 300; }
 
@@ -122,33 +122,44 @@
   .section-sub.white { color: rgba(255,255,255,0.68); }
 
   /* ── SERVICES — photo background ── */
-  .services { position: relative; padding: 110px 60px; overflow: hidden; }
-  .services-photo {
-
-
+  .services {
+    position: relative; padding: 110px 60px; overflow: hidden;
+    background: #f8faff;
   }
-  .services-photo::after { content: ''; position: absolute; inset: 0; background: rgba(8,14,36,0.84); }
+  .services-photo {
+    position: absolute; inset: 0; z-index: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(56,189,248,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(45,212,191,0.07) 0%, transparent 50%),
+      linear-gradient(rgba(37,99,235,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(37,99,235,0.04) 1px, transparent 1px);
+    background-size: auto, auto, 48px 48px, 48px 48px;
+  }
+  .services-photo::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(248,250,255,0.3) 0%, rgba(248,250,255,0.1) 100%);
+  }
   .services-content { position: relative; z-index: 1; }
   .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
   .services-header > div { display: flex; flex-direction: column; align-items: flex-start; }
   .services-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
   .service-card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.12);
-    backdrop-filter: blur(16px);
+    background: #ffffff;
+    border: 1px solid rgba(37,99,235,0.1);
     border-radius: 16px; padding: 40px; position: relative;
-    transition: background 0.25s, border-color 0.25s, transform 0.25s;
+    transition: background 0.25s, border-color 0.25s, transform 0.25s, box-shadow 0.25s;
     overflow: hidden;
+    box-shadow: 0 2px 12px rgba(37,99,235,0.06);
   }
   .service-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent2), var(--teal)); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
-  .service-card:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.22); transform: translateY(-2px); }
+  .service-card:hover { background: #f8faff; border-color: rgba(37,99,235,0.25); transform: translateY(-3px); box-shadow: 0 8px 32px rgba(37,99,235,0.12); }
   .service-card:hover::after { transform: scaleX(1); }
-  .service-icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 20px; }
-  .service-title { font-family: var(--font-d); font-size: 19px; font-weight: 700; color: #fff; margin-bottom: 10px; }
-  .service-desc { font-size: 14px; color: rgba(255,255,255,0.62); line-height: 1.75; font-weight: 300; margin-bottom: 24px; }
+  .service-icon { width: 48px; height: 48px; border-radius: 12px; background: #eff4ff; border: 1px solid rgba(37,99,235,0.15); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 20px; }
+  .service-title { font-family: var(--font-d); font-size: 19px; font-weight: 700; color: #0e1628; margin-bottom: 10px; }
+  .service-desc { font-size: 14px; color: #485070; line-height: 1.75; font-weight: 300; margin-bottom: 24px; }
   .service-tags { display: flex; flex-wrap: wrap; gap: 7px; }
-  .tag { padding: 4px 11px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); border-radius: 100px; font-size: 11px; color: rgba(255,255,255,0.6); }
-  .service-arrow { position: absolute; bottom: 40px; right: 40px; width: 30px; height: 30px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); font-size: 15px; transition: all 0.2s; }
+  .tag { padding: 4px 11px; background: #f0f4ff; border: 1px solid rgba(37,99,235,0.12); border-radius: 100px; font-size: 11px; color: #2563eb; font-weight: 500; }
+  .service-arrow { position: absolute; bottom: 40px; right: 40px; width: 30px; height: 30px; border-radius: 50%; border: 1px solid rgba(37,99,235,0.2); display: flex; align-items: center; justify-content: center; color: #9099b5; font-size: 15px; transition: all 0.2s; }
   .service-card:hover .service-arrow { background: var(--accent2); border-color: var(--accent2); color: white; }
 
   /* ── WHY — light bg ── */
@@ -242,7 +253,7 @@
   footer { background: #0d1117; padding: 64px 60px 40px; }
   .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 48px; }
   .footer-brand .logo { font-family: var(--font-d); font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 14px; }
-  .footer-brand .logo span { color: #ea580c; }
+  .footer-brand .logo span { color: #0284c7; }
   .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.38); line-height: 1.75; font-weight: 300; max-width: 260px; }
   .footer-col h4 { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.28); margin-bottom: 18px; }
   .footer-col ul { list-style: none; }
@@ -264,7 +275,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="nav-logo">Bilgine<span>x</span></a>
+  <a href="index.html" class="nav-logo">Bilgin<span>ex</span></a>
   <ul class="nav-links">
     <li><a href="hizmetler.html">Hizmetler</a></li>
     <li><a href="akademi.html">Akademi</a></li>
@@ -310,20 +321,20 @@
 <div class="stats-wrap">
   <div class="stats-inner">
     <div class="stat-item">
-      <div class="stat-number">150<span>+</span></div>
-      <div class="stat-label">Tamamlanan Proje</div>
+      <div class="stat-number" style="color:#1e40af;">350<span style="color:#059669;">+</span></div>
+      <div class="stat-label">Uygulamalı İçerik</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">80<span>+</span></div>
-      <div class="stat-label">Uzman Kadro</div>
+      <div class="stat-number" style="color:#1e40af;"><span style="color:#059669;">%</span>100</div>
+      <div class="stat-label">Memnuniyet Garantisi</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">2.400<span>+</span></div>
-      <div class="stat-label">Eğitim Mezunu</div>
+      <div class="stat-number" style="color:#1e40af;">25</div>
+      <div class="stat-label">Global Teknoloji Ekosistemi</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">98<span>%</span></div>
-      <div class="stat-label">Müşteri Memnuniyeti</div>
+      <div class="stat-number" style="color:#1e40af;">12</div>
+      <div class="stat-label">Kişilik Özel Gruplar</div>
     </div>
   </div>
 </div>
@@ -333,9 +344,9 @@
   <div class="services-photo"></div>
   <div class="services-content">
     <div style="text-align:center; margin-bottom:48px;">
-      <div class="section-tag light" style="justify-content:center;">Hizmetlerimiz</div>
-      <h2 class="section-title white" style="max-width:100%; margin:0 auto;">Teknolojinin her katmanında yanınızdayız</h2>
-      <a href="hizmetler.html" style="display:inline-block; margin-top:16px; color:#93c5fd; text-decoration:none; font-size:14px;">Tüm hizmetleri gör →</a>
+      <div class="section-tag" style="justify-content:center;">Hizmetlerimiz</div>
+      <h2 class="section-title" style="max-width:100%; margin:0 auto; color:#0e1628;">Teknolojinin her katmanında yanınızdayız</h2>
+      <a href="hizmetler.html" style="display:inline-block; margin-top:16px; color:#2563eb; text-decoration:none; font-size:14px;">Tüm hizmetleri gör →</a>
     </div>
     <div class="services-grid">
       <div class="service-card">
@@ -544,7 +555,7 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="index.html" style="text-decoration:none;" class="logo">Bilgine<span>x</span></a>
+      <a href="index.html" style="text-decoration:none;" class="logo">Bilgin<span>ex</span></a>
       <p>Teknoloji eğitimi, AI entegrasyonu, dijital dönüşüm ve uzman kaynak kiralama alanlarında Türkiye'nin öncü teknoloji ortağı.</p>
     </div>
     <div class="footer-col">
@@ -582,5 +593,46 @@
   </div>
 </footer>
 
+
+<script>
+function countUp(el, target, prefix, suffix, duration) {
+  let start = 0;
+  const increment = target / (duration / 16);
+  const timer = setInterval(() => {
+    start += increment;
+    if (start >= target) {
+      start = target;
+      clearInterval(timer);
+    }
+    el.textContent = prefix + Math.floor(start) + suffix;
+  }, 16);
+}
+
+function initCounters() {
+  const counters = [
+    { selector: '.stat-item:nth-child(1) .stat-number', target: 350, prefix: '', suffix: '+' },
+    { selector: '.stat-item:nth-child(2) .stat-number', target: 100, prefix: '%', suffix: '' },
+    { selector: '.stat-item:nth-child(3) .stat-number', target: 25,  prefix: '', suffix: '' },
+    { selector: '.stat-item:nth-child(4) .stat-number', target: 12,  prefix: '', suffix: '' },
+  ];
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        counters.forEach(c => {
+          const el = document.querySelector(c.selector);
+          if (el) countUp(el, c.target, c.prefix, c.suffix, 1800);
+        });
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const statsWrap = document.querySelector('.stats-wrap');
+  if (statsWrap) observer.observe(statsWrap);
+}
+
+document.addEventListener('DOMContentLoaded', initCounters);
+</script>
 </body>
 </html>
