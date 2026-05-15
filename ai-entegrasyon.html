@@ -181,6 +181,10 @@
   /* Mega menu için nav overflow visible */
   nav { overflow: visible !important; }
 
+  /* mega-col-title hover */
+
+  .mega-col-title a { color: inherit; text-decoration: none; }
+  .mega-col-title a:hover { color: var(--accent2); }
 </style>
 </head>
 <body>
@@ -195,7 +199,7 @@
       <div class="mega-menu">
         <div class="mega-grid mega-grid-4">
           <div class="mega-col">
-            <div class="mega-col-title">AI Entegrasyonu</div>
+            <div class="mega-col-title"><a href="ai-entegrasyon.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">AI Entegrasyonu</a></div>
             <a href="ai-entegrasyon.html" class="mega-link">
               <span><span class="mega-link-name">LLM & Chatbot Geliştirme</span><span class="mega-link-desc">Kurumsal AI asistanları</span></span>
             </a>
@@ -207,7 +211,7 @@
             </a>
           </div>
           <div class="mega-col">
-            <div class="mega-col-title">Dijital Dönüşüm</div>
+            <div class="mega-col-title"><a href="dijital-donusum.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Dijital Dönüşüm</a></div>
             <a href="dijital-donusum.html" class="mega-link">
               <span><span class="mega-link-name">Dijital Yol Haritası</span><span class="mega-link-desc">Strateji ve planlama</span></span>
             </a>
@@ -219,7 +223,7 @@
             </a>
           </div>
           <div class="mega-col">
-            <div class="mega-col-title">Teknoloji Eğitimleri</div>
+            <div class="mega-col-title"><a href="akademi.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Teknoloji Eğitimleri</a></div>
             <a href="akademi.html" class="mega-link">
               <span><span class="mega-link-name">Yazılım Geliştirme</span><span class="mega-link-desc">Java, Python, React, .NET</span></span>
             </a>
@@ -231,7 +235,7 @@
             </a>
           </div>
           <div class="mega-col">
-            <div class="mega-col-title">Uzman Kaynak Kiralama</div>
+            <div class="mega-col-title"><a href="uzman-kadro.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Uzman Kaynak Kiralama</a></div>
             <a href="uzman-kadro.html" class="mega-link">
               <span><span class="mega-link-name">Staff Augmentation</span><span class="mega-link-desc">Projeye özel uzman desteği</span></span>
             </a>
@@ -256,7 +260,7 @@
       <div class="mega-menu" style="min-width:900px;">
         <div class="mega-grid mega-grid-3">
           <div class="mega-col">
-            <div class="mega-col-title">Yazılım Hizmetleri</div>
+            <div class="mega-col-title"><a href="akademi.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Yazılım Hizmetleri</a></div>
             <a href="akademi.html" onclick="sessionStorage.setItem('filter','Bulut Bilişim')" class="mega-link">
               <span><span class="mega-link-name">Bulut Bilişim</span><span class="mega-link-desc">3 eğitim</span></span>
             </a>
@@ -268,7 +272,7 @@
             </a>
           </div>
           <div class="mega-col">
-            <div class="mega-col-title">Veri ve İş Yönetimi</div>
+            <div class="mega-col-title"><a href="akademi.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Veri ve İş Yönetimi</a></div>
             <a href="akademi.html" onclick="sessionStorage.setItem('filter','Big Data')" class="mega-link">
               <span><span class="mega-link-name">Big Data</span><span class="mega-link-desc">2 eğitim</span></span>
             </a>
@@ -295,7 +299,7 @@
             </a>
           </div>
           <div class="mega-col">
-            <div class="mega-col-title">Teknoloji Servisleri</div>
+            <div class="mega-col-title"><a href="akademi.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Teknoloji Servisleri</a></div>
             <a href="akademi.html" onclick="sessionStorage.setItem('filter','BT Hizmet Yönetimi')" class="mega-link">
               <span><span class="mega-link-name">BT Hizmet Yönetimi</span><span class="mega-link-desc">14 eğitim</span></span>
             </a>
@@ -512,23 +516,30 @@
 (function() {
   const items = document.querySelectorAll('.nav-links li.has-mega');
   let closeTimer;
+  let currentOpen = null;
 
   function closeAll() {
     items.forEach(i => {
       const m = i.querySelector('.mega-menu');
       if (m) { m.style.cssText = 'opacity:0;visibility:hidden;pointer-events:none;transform:translateX(-50%) translateY(4px);transition:none;'; }
     });
+    currentOpen = null;
   }
 
   function openMenu(item) {
     clearTimeout(closeTimer);
-    closeAll();
+    // Başka menü açıksa anında değiştir, değilse normal aç
+    if (currentOpen && currentOpen !== item) {
+      const prevMenu = currentOpen.querySelector('.mega-menu');
+      if (prevMenu) prevMenu.style.cssText = 'opacity:0;visibility:hidden;pointer-events:none;transform:translateX(-50%) translateY(4px);transition:none;';
+    }
     const menu = item.querySelector('.mega-menu');
     if (menu) menu.style.cssText = 'opacity:1;visibility:visible;pointer-events:all;transform:translateX(-50%) translateY(0);transition:none;';
+    currentOpen = item;
   }
 
   function scheduleClose() {
-    closeTimer = setTimeout(closeAll, 100);
+    closeTimer = setTimeout(closeAll, 200);
   }
 
   items.forEach(item => {
@@ -536,10 +547,16 @@
     item.addEventListener('mouseleave', scheduleClose);
     const menu = item.querySelector('.mega-menu');
     if (menu) {
-      menu.addEventListener('mouseenter', () => clearTimeout(closeTimer));
+      menu.addEventListener('mouseenter', () => {
+        clearTimeout(closeTimer);
+        currentOpen = item;
+      });
       menu.addEventListener('mouseleave', scheduleClose);
     }
   });
+
+  // Nav dışına çıkınca kapat
+  document.addEventListener('mouseleave', closeAll);
 })();
 </script>
 
