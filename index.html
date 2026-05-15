@@ -282,26 +282,41 @@
   .nav-links li { position: relative; }
   .nav-links li.has-mega > a::after { content: ' ▾'; font-size: 10px; opacity: 0.6; }
   .mega-menu {
-    position: absolute; top: calc(100% + 4px); left: 50%; transform: translateX(-50%);
-    background: #fff; border: 1px solid var(--border); border-radius: 16px;
+    position: fixed;
+    top: auto;
+    left: 0;
+    transform: none;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
     box-shadow: 0 20px 60px rgba(15,23,60,0.12);
-    padding: 36px 40px; min-width: 820px;
-    opacity: 0; visibility: hidden; pointer-events: none;
-    transition: opacity 0.15s, transform 0.15s, visibility 0.15s;
-    transform: translateX(-50%) translateY(8px);
+    padding: 32px 36px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
     z-index: 300;
+    transition: none;
+  }
+  .mega-menu::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    height: 20px;
   }
   .nav-links li.has-mega:hover .mega-menu,
   .nav-links li.has-mega:focus-within .mega-menu {
     opacity: 1; visibility: visible; pointer-events: all;
-    transform: translateX(-50%) translateY(0);
+    transform: translateY(0);
     transition: opacity 0.15s, transform 0.15s, visibility 0s;
   }
-  .mega-menu::before {
-    content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%);
+  .mega-arrow {
+    position: absolute; top: -6px; left: 50%;
     width: 12px; height: 12px; background: #fff;
     border-left: 1px solid var(--border); border-top: 1px solid var(--border);
     transform: translateX(-50%) rotate(45deg);
+    pointer-events: none;
   }
   /* Görünmez köprü — mouse gap'ten geçerken menüyü açık tutar */
   .mega-menu::after {
@@ -314,7 +329,7 @@
   .mega-col:first-child { padding-left: 0; }
   .mega-col:last-child { border-right: none; }
   .mega-col-title {
-    font-family: var(--font-d); font-size: 15px; font-weight: 700;
+    font-family: var(--font-d); font-size:19px; font-weight: 700;
     color: var(--text); letter-spacing: -0.2px; margin-bottom: 16px;
     padding-bottom: 12px; border-bottom: 2px solid var(--border);
   }
@@ -326,15 +341,15 @@
   }
   .mega-link:hover .mega-link-name { color: var(--accent2); }
   .mega-link-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-  .mega-link-name { font-size: 14px; font-weight: 400; color: var(--text2); display: block; line-height: 1.4; }
-  .mega-link-desc { font-size: 11px; color: var(--text3); display: block; margin-top: 2px; font-weight: 300; }
+  .mega-link-name { font-size: 15px; font-weight: 400; color: var(--text2); display: block; line-height: 1.25; }
+  .mega-link-desc { font-size: 13px; color: var(--text3); display: block; margin-top: 0; font-weight: 300; line-height: 1.3; }
   .mega-footer {
     margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border);
     display: flex; justify-content: space-between; align-items: center;
   }
-  .mega-footer-text { font-size: 12px; color: var(--text3); font-weight: 300; }
+  .mega-footer-text { font-size: 14px; color: var(--text3); font-weight: 300; }
   .mega-footer-link {
-    font-size: 12px; font-weight: 500; color: var(--accent2);
+    font-size: 14px; font-weight: 500; color: var(--accent2);
     text-decoration: none; transition: color 0.2s;
   }
   .mega-footer-link:hover { color: var(--accent); }
@@ -344,6 +359,24 @@
 
   .mega-col-title a { color: inherit; text-decoration: none; }
   .mega-col-title a:hover { color: var(--accent2); }
+  .mega-link { padding: 3px 0 !important; }
+  .mega-link-name { font-size: 15px !important; line-height: 1.2 !important; }
+  .mega-link-desc { font-size: 12px !important; line-height: 1.2 !important; margin-top: 0 !important; }
+  .mega-col { padding: 0 20px !important; }
+  .mega-col-title { margin-bottom: 10px !important; padding-bottom: 8px !important; }
+
+  /* mega-spacing-fix */
+  .mega-link { padding: 8px 0 !important; }
+  .mega-link-name { font-size: 15px !important; font-weight: 500 !important; line-height: 1.4 !important; color: var(--text) !important; }
+  .mega-link-desc { font-size: 12px !important; line-height: 1.4 !important; margin-top: 2px !important; color: var(--text3) !important; }
+  .mega-col { padding: 0 28px !important; }
+  .mega-col-title { font-size: 13px !important; font-weight: 700 !important; letter-spacing: 0.06em !important; text-transform: uppercase !important; color: var(--text2) !important; margin-bottom: 12px !important; padding-bottom: 0 !important; border-bottom: none !important; white-space: nowrap !important; }
+  .mega-col-title a { color: var(--text2) !important; }
+  .mega-col-title a:hover { color: var(--text) !important; }
+  .mega-menu { padding: 32px 36px !important; }
+  .mega-footer { margin-top: 24px !important; padding-top: 16px !important; }
+  .mega-footer-text { font-size: 13px !important; }
+  .mega-footer-link { font-size: 13px !important; font-weight: 600 !important; }
 </style>
 </head>
 <body>
@@ -356,7 +389,7 @@
     <!-- HİZMETLER -->
     <li class="has-mega">
       <a href="hizmetler.html">Hizmetler</a>
-      <div class="mega-menu">
+      <div class="mega-menu"><div class="mega-arrow"></div>
         <div class="mega-grid mega-grid-4">
           <div class="mega-col">
             <div class="mega-col-title"><a href="ai-entegrasyon.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">AI Entegrasyonu</a></div>
@@ -382,15 +415,18 @@
               <span><span class="mega-link-name">ERP/CRM Entegrasyonu</span><span class="mega-link-desc">Sistem birleştirme ve optimizasyon</span></span>
             </a>
           </div>
-          <div class="mega-col">
-            <div class="mega-col-title"><a href="akademi.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Teknoloji Eğitimleri</a></div>
-            <a href="akademi.html" class="mega-link">
+                              <div class="mega-col">
+            <div class="mega-col-title"><a href="akademi.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#0e1628'" onmouseout="this.style.color='inherit'">Teknoloji Eğitimleri</a></div>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Yapay Zeka')" class="mega-link">
+              <span><span class="mega-link-name" style="color:#38bdf8;font-weight:600;">Yapay Zeka</span><span class="mega-link-desc">Copilot, Azure AI, ML, Generative AI</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Yazılım Geliştirme')" class="mega-link">
               <span><span class="mega-link-name">Yazılım Geliştirme</span><span class="mega-link-desc">Java, Python, React, .NET</span></span>
             </a>
-            <a href="akademi.html" class="mega-link">
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Bulut Bilişim')" class="mega-link">
               <span><span class="mega-link-name">Bulut & Güvenlik</span><span class="mega-link-desc">Azure, AWS, CISSP, ISO 27001</span></span>
             </a>
-            <a href="akademi.html" class="mega-link">
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','İş Yönetimi Çözümleri')" class="mega-link">
               <span><span class="mega-link-name">İş Yönetimi</span><span class="mega-link-desc">PMP, Scrum, Agile, ITIL</span></span>
             </a>
           </div>
@@ -417,7 +453,7 @@
     <!-- AKADEMİ -->
     <li class="has-mega">
       <a href="akademi.html">Akademi</a>
-      <div class="mega-menu" style="min-width:900px;">
+      <div class="mega-menu" style="min-width:900px;"><div class="mega-arrow"></div>
         <div class="mega-grid mega-grid-3">
           <div class="mega-col">
             <div class="mega-col-title"><a href="akademi.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Yazılım Hizmetleri</a></div>
@@ -870,23 +906,61 @@ document.addEventListener('DOMContentLoaded', initCounters);
   let closeTimer;
   let currentOpen = null;
 
+  function positionMenu(item, menu) {
+    const navEl = document.querySelector('nav');
+    const navRect = navEl.getBoundingClientRect();
+    const itemRect = item.getBoundingClientRect();
+    const menuWidth = menu.offsetWidth || 860;
+    const viewportWidth = window.innerWidth;
+    const pad = 16;
+
+    // Nav altına yerleştir
+    const top = navRect.bottom + 4;
+
+    // Item merkezine göre ortala
+    let left = itemRect.left + itemRect.width / 2 - menuWidth / 2;
+    if (left + menuWidth > viewportWidth - pad) left = viewportWidth - menuWidth - pad;
+    if (left < pad) left = pad;
+
+    menu.style.top = top + 'px';
+    menu.style.left = left + 'px';
+    menu.style.transform = 'none';
+
+    // Ok'u item merkezine hizala
+    const arrow = menu.querySelector('.mega-arrow');
+    if (arrow) {
+      const itemCenter = itemRect.left + itemRect.width / 2;
+      const arrowLeft = itemCenter - left;
+      arrow.style.left = arrowLeft + 'px';
+      arrow.style.transform = 'translateX(-50%) rotate(45deg)';
+    }
+  }
+
   function closeAll() {
     items.forEach(i => {
       const m = i.querySelector('.mega-menu');
-      if (m) { m.style.cssText = 'opacity:0;visibility:hidden;pointer-events:none;transform:translateX(-50%) translateY(4px);transition:none;'; }
+      if (m) { m.style.opacity='0'; m.style.visibility='hidden'; m.style.pointerEvents='none'; }
     });
     currentOpen = null;
   }
 
   function openMenu(item) {
     clearTimeout(closeTimer);
-    // Başka menü açıksa anında değiştir, değilse normal aç
-    if (currentOpen && currentOpen !== item) {
-      const prevMenu = currentOpen.querySelector('.mega-menu');
-      if (prevMenu) prevMenu.style.cssText = 'opacity:0;visibility:hidden;pointer-events:none;transform:translateX(-50%) translateY(4px);transition:none;';
-    }
+    items.forEach(i => {
+      if (i !== item) {
+        const m = i.querySelector('.mega-menu');
+        if (m) { m.style.opacity='0'; m.style.visibility='hidden'; m.style.pointerEvents='none'; }
+      }
+    });
     const menu = item.querySelector('.mega-menu');
-    if (menu) menu.style.cssText = 'opacity:1;visibility:visible;pointer-events:all;transform:translateX(-50%) translateY(0);transition:none;';
+    if (menu) {
+      menu.style.visibility = 'hidden';
+      menu.style.opacity = '0';
+      positionMenu(item, menu);
+      menu.style.visibility = 'visible';
+      menu.style.opacity = '1';
+      menu.style.pointerEvents = 'all';
+    }
     currentOpen = item;
   }
 
@@ -899,16 +973,13 @@ document.addEventListener('DOMContentLoaded', initCounters);
     item.addEventListener('mouseleave', scheduleClose);
     const menu = item.querySelector('.mega-menu');
     if (menu) {
-      menu.addEventListener('mouseenter', () => {
-        clearTimeout(closeTimer);
-        currentOpen = item;
-      });
+      menu.addEventListener('mouseenter', () => { clearTimeout(closeTimer); currentOpen = item; });
       menu.addEventListener('mouseleave', scheduleClose);
     }
   });
 
-  // Nav dışına çıkınca kapat
   document.addEventListener('mouseleave', closeAll);
+  window.addEventListener('resize', () => { if (currentOpen) openMenu(currentOpen); });
 })();
 </script>
 
