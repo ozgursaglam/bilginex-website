@@ -112,7 +112,7 @@
   .stat-label { margin-top: 6px; font-size: 13px; color: var(--text2); font-weight: 300; }
 
   /* ── COMMON ── */
-  .section-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
+  .section-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
   .section-tag::before { content: ''; display: block; width: 20px; height: 1px; background: var(--teal); }
   .section-tag.light { color: #5eead4; }
   .section-tag.light::before { background: #5eead4; }
@@ -155,7 +155,7 @@
   .service-card:hover { background: #243055; border-color: rgba(56,189,248,0.25); transform: translateY(-3px); box-shadow: 0 12px 36px rgba(10,15,40,0.25); }
   .service-card:hover::after { transform: scaleX(1); }
   .service-icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(56,189,248,0.12); border: 1px solid rgba(56,189,248,0.2); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 20px; }
-  .service-title { font-family: var(--font-d); font-size: 19px; font-weight: 700; color: #f0f4ff; margin-bottom: 10px; }
+  .service-title { font-family: var(--font-d); font-size: 26px; font-weight: 700; color: #f0f4ff; margin-bottom: 10px; letter-spacing: -0.5px; }
   .service-desc { font-size: 14px; color: rgba(200,210,240,0.75); line-height: 1.75; font-weight: 300; margin-bottom: 24px; }
   .service-tags { display: flex; flex-wrap: wrap; gap: 7px; }
   .tag { padding: 4px 11px; background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.18); border-radius: 100px; font-size: 11px; color: #7dd3fc; font-weight: 500; }
@@ -550,11 +550,10 @@
     <div style="text-align:center; margin-bottom:48px;">
       <div class="section-tag" style="justify-content:center;">Hizmetlerimiz</div>
       <h2 class="section-title" style="max-width:100%; margin:0 auto; color:#0e1628;">Teknolojinin her katmanında yanınızdayız</h2>
-      <a href="hizmetler.html" style="display:inline-block; margin-top:16px; color:#2563eb; text-decoration:none; font-size:14px;">Tüm hizmetleri gör →</a>
+      <a href="hizmetler.html" style="display:inline-block; margin-top:16px; color:#2563eb; text-decoration:none; font-size:17px; font-weight:500;">Tüm hizmetleri gör →</a>
     </div>
     <div class="services-grid">
       <div class="service-card" onclick="location.href='ai-entegrasyon.html'" style="cursor:pointer;">
-        <div class="service-icon">🤖</div>
         <div class="service-title">AI Entegrasyonu</div>
         <div class="service-desc">Kurumsal süreçlerinize özel büyük dil modelleri, otomasyon sistemleri ve akıllı karar destek araçları geliştiriyoruz.</div>
         <div class="service-tags">
@@ -563,7 +562,6 @@
         <div class="service-arrow">→</div>
       </div>
       <div class="service-card" onclick="location.href='dijital-donusum.html'" style="cursor:pointer;">
-        <div class="service-icon">🔄</div>
         <div class="service-title">Dijital Dönüşüm</div>
         <div class="service-desc">Mevcut iş süreçlerinizi analiz ederek kapsamlı dijital dönüşüm yol haritaları hazırlıyor, uçtan uca uygulama süreçlerini yönetiyoruz.</div>
         <div class="service-tags">
@@ -572,7 +570,6 @@
         <div class="service-arrow">→</div>
       </div>
       <div class="service-card" onclick="location.href='teknoloji-egitimi.html'" style="cursor:pointer;">
-        <div class="service-icon">🎓</div>
         <div class="service-title">Teknoloji Eğitimleri</div>
         <div class="service-desc">Canlı eğitimler, on-demand kurslar ve sertifika programlarıyla ekiplerinizi gelecekteki teknolojilere hazırlıyoruz.</div>
         <div class="service-tags">
@@ -581,7 +578,6 @@
         <div class="service-arrow">→</div>
       </div>
       <div class="service-card" onclick="location.href='uzman-kadro.html'" style="cursor:pointer;">
-        <div class="service-icon">👥</div>
         <div class="service-title">Uzman Kaynak Kiralama</div>
         <div class="service-desc">Projenizin ihtiyacına göre kıdemli yazılımcılar, veri bilimciler ve teknoloji mimarlarını esnek modellerle ekibinize katıyoruz.</div>
         <div class="service-tags">
@@ -597,7 +593,8 @@
 <div class="why">
   <div>
     <div class="section-tag">Neden Bilginex?</div>
-    <h2 class="section-title">Teknoloji danışmanlığını yeniden tanımlıyoruz</h2>
+    <h2 class="section-title">Teknolojiyi anlıyoruz.
+İşinizi daha iyi anlıyoruz.</h2>
     <p class="section-sub">Strateji kurar, teknolojiyi hayata geçirir, sonuçları ölçeriz. Dönüşüm bir proje değil — ortaklıktır.</p>
     <div class="why-points">
       <div class="why-point">
@@ -774,8 +771,8 @@
     <h2 class="cta-title">Dönüşüm yolculuğunuz bir görüşmeyle başlıyor.</h2>
     <p class="cta-sub">İhtiyaçlarınızı anlayalım, size özel bir yol haritası çizelim. İlk görüşme ücretsiz ve taahhütsüz.</p>
     <div class="cta-actions">
-      <a href="#" class="btn-cta-white">Ücretsiz Görüşme Al →</a>
-      <a href="#" class="btn-cta-outline">Referansları İncele</a>
+      <a href="#" class="btn-cta-white" onclick="document.getElementById('modalGorusme').classList.add('open');document.body.style.overflow='hidden';return false;">Görüşme Al →</a>
+      <a href="hakkimizda.html#referanslar" class="btn-cta-outline">Referansları İncele</a>
     </div>
   </div>
 </section>
@@ -897,6 +894,96 @@ document.addEventListener('DOMContentLoaded', initCounters);
     }
   });
 })();
+</script>
+
+
+<!-- GÖRÜŞME MODAL -->
+<div class="modal-overlay" id="modalGorusme" style="position:fixed;inset:0;background:rgba(10,15,40,0.75);backdrop-filter:blur(6px);z-index:1000;display:none;align-items:center;justify-content:center;">
+  <div style="background:#fff;border-radius:20px;padding:44px;width:100%;max-width:520px;position:relative;box-shadow:0 24px 80px rgba(10,15,40,0.3);animation:modalIn 0.3s ease;margin:20px;">
+    <button onclick="document.getElementById('modalGorusme').classList.remove('open');document.body.style.overflow='';" style="position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;border:1px solid #e5e7eb;background:transparent;cursor:pointer;font-size:16px;color:#9099b5;display:flex;align-items:center;justify-content:center;">✕</button>
+    
+    <div id="gorusmeForm">
+      <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:#0e1628;margin-bottom:6px;">Ücretsiz Görüşme Talep Et</div>
+      <div style="font-size:14px;color:#485070;margin-bottom:28px;font-weight:300;">Ekibimiz 1 iş günü içinde sizinle iletişime geçecek.</div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+        <div>
+          <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">Ad</label>
+          <input type="text" placeholder="Adınız" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
+        </div>
+        <div>
+          <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">Soyad</label>
+          <input type="text" placeholder="Soyadınız" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
+        </div>
+      </div>
+
+      <div style="margin-bottom:14px;">
+        <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">E-posta</label>
+        <input type="email" placeholder="ornek@sirket.com" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
+      </div>
+
+      <div style="margin-bottom:14px;">
+        <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">Telefon</label>
+        <input type="tel" placeholder="+90 5XX XXX XX XX" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
+      </div>
+
+      <div style="margin-bottom:14px;">
+        <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">Şirket</label>
+        <input type="text" placeholder="Şirket adı" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
+      </div>
+
+      <div style="margin-bottom:20px;">
+        <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">Görüşmek istediğiniz konu</label>
+        <select style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;">
+          <option>AI Entegrasyonu</option>
+          <option>Dijital Dönüşüm</option>
+          <option>Teknoloji Eğitimleri</option>
+          <option>Uzman Kaynak Kiralama</option>
+          <option>Diğer</option>
+        </select>
+      </div>
+
+      <button onclick="
+  var inputs = document.querySelectorAll('#gorusmeForm input, #gorusmeForm select');
+  var valid = true;
+  inputs.forEach(function(inp) {
+    if (!inp.value.trim()) {
+      inp.style.borderColor = '#ef4444';
+      inp.style.background = '#fef2f2';
+      valid = false;
+    } else {
+      inp.style.borderColor = '#d1d5db';
+      inp.style.background = '#f7f8fa';
+    }
+  });
+  if (valid) {
+    document.getElementById('gorusmeForm').style.display='none';
+    document.getElementById('gorusmeSuccess').style.display='block';
+  }
+" style="width:100%;padding:14px;background:#2563eb;border:none;color:#fff;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;border-radius:10px;cursor:pointer;box-shadow:0 4px 20px rgba(37,99,235,0.25);">Görüşme Talebini Gönder →</button>
+      <div style="text-align:center;font-size:12px;color:#9099b5;margin-top:12px;">İlk görüşme tamamen ücretsiz ve taahhütsüz</div>
+    </div>
+
+    <div id="gorusmeSuccess" style="display:none;text-align:center;padding:20px 0;">
+      <div style="font-size:52px;margin-bottom:16px;">✅</div>
+      <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:#0e1628;margin-bottom:8px;">Talebiniz alındı!</div>
+      <div style="font-size:14px;color:#485070;font-weight:300;">Ekibimiz 1 iş günü içinde sizinle iletişime geçecek. Teşekkürler!</div>
+    </div>
+  </div>
+</div>
+
+<style>
+.modal-overlay.open { display: flex !important; }
+@keyframes modalIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+</style>
+
+<script>
+document.getElementById('modalGorusme').addEventListener('click', function(e) {
+  if (e.target === this) {
+    this.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
 </script>
 
 </body>
