@@ -78,14 +78,29 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-b);font-size:
 .deger-text{font-size:14px;color:rgba(255,255,255,0.75);line-height:1.75;font-weight:300;}
 
 /* EKİP */
-.ekip{background:var(--bg);}
-.ekip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:60px;}
-.ekip-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;text-align:center;transition:border-color 0.2s,box-shadow 0.2s,transform 0.2s;}
-.ekip-card:hover{border-color:rgba(37,99,235,0.2);box-shadow:0 8px 32px rgba(37,99,235,0.08);transform:translateY(-2px);}
-.ekip-avatar{width:80px;height:80px;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:22px;font-weight:700;color:#fff;}
-.ekip-name{font-family:var(--font-d);font-size:16px;font-weight:700;color:var(--text);margin-bottom:4px;}
-.ekip-role{font-size:13px;color:var(--teal);font-weight:500;margin-bottom:10px;}
-.ekip-bio{font-size:13px;color:var(--text2);line-height:1.65;font-weight:300;}
+.kurucu{background:var(--bg);}
+.kurucu-grid{display:grid;grid-template-columns:420px 1fr;gap:72px;align-items:start;margin-top:60px;}
+.kurucu-left{position:sticky;top:100px;}
+.kurucu-avatar-wrap{position:relative;margin-bottom:32px;}
+.kurucu-avatar{width:180px;height:180px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#38bdf8);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:48px;font-weight:800;color:#fff;margin-bottom:24px;box-shadow:0 20px 60px rgba(37,99,235,0.25);}
+.kurucu-name{font-family:var(--font-d);font-size:26px;font-weight:800;color:var(--text);letter-spacing:-0.5px;margin-bottom:4px;}
+.kurucu-unvan{font-size:14px;color:var(--teal);font-weight:600;margin-bottom:20px;}
+.kurucu-bilgi{display:flex;flex-direction:column;gap:12px;}
+.kurucu-bilgi-item{display:flex;align-items:flex-start;gap:10px;padding:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:10px;}
+.kurucu-bilgi-icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+.kurucu-bilgi-text{font-size:13px;color:var(--text2);font-weight:300;line-height:1.5;}
+.kurucu-bilgi-text strong{color:var(--text);font-weight:500;}
+.kurucu-right{}
+.kurucu-mesaj{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:48px;margin-bottom:32px;position:relative;}
+.kurucu-mesaj::before{content:'"';position:absolute;top:24px;left:36px;font-family:Georgia,serif;font-size:80px;color:var(--accent2);opacity:0.15;line-height:1;}
+.kurucu-mesaj-text{font-size:17px;color:var(--text);line-height:1.85;font-weight:300;font-style:italic;margin-bottom:20px;}
+.kurucu-mesaj-text strong{font-style:normal;font-weight:600;color:var(--text);}
+.kurucu-imza{font-family:var(--font-d);font-size:15px;font-weight:700;color:var(--accent2);}
+.kurucu-exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.kurucu-exp-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 24px;}
+.kurucu-exp-sirket{font-family:var(--font-d);font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;}
+.kurucu-exp-rol{font-size:13px;color:var(--text2);font-weight:300;}
+.kurucu-exp-yil{font-size:11px;color:var(--teal);font-weight:600;margin-top:6px;}
 
 /* REFERANSLAR */
 .referanslar{background:var(--surface);}
@@ -102,10 +117,12 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-b);font-size:
 /* SERTİFİKALAR */
 .sertifikalar{background:var(--bg);}
 .sert-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:60px;}
-.sert-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px 20px;text-align:center;transition:border-color 0.2s,box-shadow 0.2s;}
-.sert-card:hover{border-color:rgba(37,99,235,0.2);box-shadow:0 4px 20px rgba(37,99,235,0.08);}
-.sert-logo{font-size:32px;margin-bottom:12px;}
-.sert-name{font-family:var(--font-d);font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.sert-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:60px;}
+.sert-card{background:#f8faff;border:1px solid rgba(37,99,235,0.08);border-radius:14px;padding:28px 16px;text-align:center;transition:border-color 0.25s,box-shadow 0.25s,transform 0.25s;}
+.sert-card:hover{border-color:rgba(37,99,235,0.2);box-shadow:0 8px 28px rgba(37,99,235,0.1);transform:translateY(-3px);}
+.sert-logo{height:40px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;}
+.sert-logo img{max-height:36px;max-width:100px;width:auto;object-fit:contain;filter:none;}
+.sert-name{font-family:var(--font-d);font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;}
 .sert-type{font-size:12px;color:var(--text3);}
 
 /* CTA */
@@ -344,6 +361,21 @@ footer{background:#0d1117;padding:48px 60px 32px;}
   .mega-footer { margin-top: 24px !important; padding-top: 16px !important; }
   .mega-footer-text { font-size: 13px !important; }
   .mega-footer-link { font-size: 13px !important; font-weight: 600 !important; }
+
+
+  /* ── KURUM ŞERİDİ ── */
+  .kurumlar-band { padding: 48px 0; background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; }
+  .kurumlar-label { text-align: center; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text3); margin-bottom: 28px; padding: 0 60px; }
+  .kurumlar-track-wrap { overflow: hidden; position: relative; }
+  .kurumlar-track-wrap::before, .kurumlar-track-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 100px; z-index: 2; }
+  .kurumlar-track-wrap::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
+  .kurumlar-track-wrap::after { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
+  .kurumlar-track { display: flex; align-items: center; gap: 0; width: max-content; animation: kurumScroll 120s linear infinite; }
+  .kurumlar-track:hover { animation-play-state: paused; }
+  @keyframes kurumScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .kurum-item { display: inline-flex; align-items: center; padding: 0 32px; border-right: 1px solid var(--border); white-space: nowrap; }
+  .kurum-item:last-child { border-right: none; }
+  .kurum-text { font-family: var(--font-d); font-size: 14px; font-weight: 600; color: var(--text2); letter-spacing: -0.2px; }
 
 </style>
 </head>
@@ -671,36 +703,35 @@ footer{background:#0d1117;padding:48px 60px 32px;}
 </section>
 
 <!-- EKİP -->
-<section class="section ekip" id="ekip">
+<section class="section kurucu" id="ekip">
   <div class="section-inner">
-    <div class="section-tag">Liderlik Kadromuz</div>
-    <h2 class="section-title">Arkamızdaki güç</h2>
-    <p class="section-sub">Alanında uzman, deneyimli ve tutkulu profesyonellerden oluşan ekibimiz, her projede en iyi sonucu hedefler.</p>
-    <div class="ekip-grid">
-      <div class="ekip-card">
-        <div class="ekip-avatar" style="background:linear-gradient(135deg,#2563eb,#38bdf8);">ÖS</div>
-        <div class="ekip-name">F. Özgür Sağlam</div>
-        <div class="ekip-role">Kurucu & CEO</div>
-        <div class="ekip-bio">Bilişim sektöründe 25 yılı aşkın deneyime sahip. BilgeAdam Teknoloji'de Kurumsal İş Geliştirme ve Satış Müdürlüğü görevlerinin ardından Bilginex'i kurdu. MBA mezunu, kurumsal iş geliştirme, ihale ve proje yönetimi uzmanı.</div>
+    <div class="section-tag">Kurucumuz</div>
+    <h2 class="section-title">Kurucu & CEO</h2>
+    <div style="display:grid;grid-template-columns:220px 1fr;gap:60px;align-items:start;margin-top:48px;">
+
+      <!-- SOL: Avatar + İsim -->
+      <div style="text-align:center;">
+        <div class="kurucu-avatar" style="background:linear-gradient(135deg,#2563eb,#38bdf8);margin:0 auto 20px;">ÖS</div>
+        <div class="kurucu-name">F. Özgür Sağlam</div>
+        <div class="kurucu-unvan">Kurucu & CEO · Bilginex</div>
       </div>
-      <div class="ekip-card">
-        <div class="ekip-avatar" style="background:linear-gradient(135deg,#0d9488,#34d399);">SK</div>
-        <div class="ekip-name">Selin Kaya</div>
-        <div class="ekip-role">CTO</div>
-        <div class="ekip-bio">Yapay zeka entegrasyonu, veri analitiği ve bulut teknolojileri alanında uzmanlaşmış, kurumsal AI yol haritaları geliştiriyor.</div>
+
+      <!-- SAĞ: Sadece metin -->
+      <div>
+        <p style="font-size:16px;color:var(--text2);line-height:1.85;font-weight:300;margin-bottom:20px;">
+          Bilgisayar Mühendisi olan ve MBA yüksek lisans derecesine sahip olan Özgür Sağlam, bilişim ve telekomünikasyon sektörlerinde <strong style="color:var(--text);font-weight:500;">25 yılı aşkın deneyime sahiptir.</strong> Kariyeri boyunca kurumsal satış, iş geliştirme, stratejik müşteri yönetimi, ihale süreçleri, ekip yönetimi ve teknoloji odaklı proje geliştirme alanlarında görev almıştır.
+        </p>
+        <p style="font-size:16px;color:var(--text2);line-height:1.85;font-weight:300;margin-bottom:20px;">
+          BilgeAdam Teknoloji | BGTS bünyesinde <strong style="color:var(--text);font-weight:500;">Kurumsal İş Geliştirme ve Satış Müdürü, Ankara Şube Müdürü ve Merkez Satış Müdürü</strong> görevlerinde bulunmuştur. BilgeAdam Teknoloji öncesinde Vodafone ve Borusan Telekom çözüm ortaklığı bünyesinde Kurumsal Satış Müdürü, Sabancı Telekom çözüm ortaklığı bünyesinde Satış Müdürü, Turkcell çözüm ortaklığı bünyesinde ise Mağaza Yöneticisi olarak görev yapmıştır.
+        </p>
+        <p style="font-size:16px;color:var(--text2);line-height:1.85;font-weight:300;margin-bottom:20px;">
+          Özgür Sağlam'ın uzmanlık alanları arasında dijital dönüşüm, proje yönetimi, satış stratejisi ve gelir yönetimi, pazar analizi, kilit müşteri yönetimi, ekip liderliği, CRM süreçleri, müzakere, sunum, iş geliştirme ve networking yer almaktadır.
+        </p>
+        <p style="font-size:16px;color:var(--text2);line-height:1.85;font-weight:300;">
+          Profesyonel çalışmalarının yanı sıra <strong style="color:var(--text);font-weight:500;">TSSF/CMAS 1 Yıldız Dalış Eğitmeni</strong> olan Özgür Sağlam; tenis ve kayak sporlarıyla ilgilenmekte olup İngilizce bilmektedir.
+        </p>
       </div>
-      <div class="ekip-card">
-        <div class="ekip-avatar" style="background:linear-gradient(135deg,#7c3aed,#c084fc);">MÖ</div>
-        <div class="ekip-name">Mert Özer</div>
-        <div class="ekip-role">Akademi Direktörü</div>
-        <div class="ekip-bio">Teknoloji gelişim programları ve kurumsal yetkinlik planlaması konusunda uzman; 350+ eğitim programının mimarı.</div>
-      </div>
-      <div class="ekip-card">
-        <div class="ekip-avatar" style="background:linear-gradient(135deg,#ea580c,#fb923c);">ZD</div>
-        <div class="ekip-name">Zeynep Demir</div>
-        <div class="ekip-role">İş Geliştirme Direktörü</div>
-        <div class="ekip-bio">Dijital dönüşüm süreçleri ve kurumsal iş geliştirme alanında deneyimli; büyük ölçekli projelerin koordinasyonunu üstleniyor.</div>
-      </div>
+
     </div>
   </div>
 </section>
@@ -751,56 +782,76 @@ footer{background:#0d1117;padding:48px 60px 32px;}
   </div>
 </section>
 
+<!-- ÇALIŞTIĞIMIZ KURUMLAR -->
+<div class="kurumlar-band">
+  <div class="kurumlar-label">Referanslarımız</div>
+  <div class="kurumlar-track-wrap">
+    <div class="kurumlar-track">
+      <span class="kurum-item"><span class="kurum-text">Bilkent Üniversitesi</span></span><span class="kurum-item"><span class="kurum-text">TÜRKSAT A.Ş.</span></span><span class="kurum-item"><span class="kurum-text">Netaş Telekomünikasyon</span></span><span class="kurum-item"><span class="kurum-text">T.C. Millî Savunma Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">T.C. Çalışma ve Sosyal Güvenlik Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Savunma Sanayii Başkanlığı (SSB)</span></span><span class="kurum-item"><span class="kurum-text">Ziraat Bankası</span></span><span class="kurum-item"><span class="kurum-text">Türkiye Finans</span></span><span class="kurum-item"><span class="kurum-text">Hacettepe Üniversitesi</span></span><span class="kurum-item"><span class="kurum-text">T.C. Cumhurbaşkanlığı Dijital Dönüşüm Ofisi</span></span><span class="kurum-item"><span class="kurum-text">T.C. Sanayi ve Teknoloji Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">TÜBİTAK BİLGEM</span></span><span class="kurum-item"><span class="kurum-text">Ankara Büyükşehir Belediyesi</span></span><span class="kurum-item"><span class="kurum-text">Gazi Üniversitesi</span></span><span class="kurum-item"><span class="kurum-text">Jandarma Genel Komutanlığı</span></span><span class="kurum-item"><span class="kurum-text">STM Savunma Teknolojileri</span></span><span class="kurum-item"><span class="kurum-text">T.C. Adalet Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Bilgi Teknolojileri ve İletişim Kurumu (BTK)</span></span><span class="kurum-item"><span class="kurum-text">Vodafone Türkiye</span></span><span class="kurum-item"><span class="kurum-text">T.C. Hazine ve Maliye Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Emniyet Genel Müdürlüğü</span></span><span class="kurum-item"><span class="kurum-text">T.C. Dışişleri Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">ASELSAN A.Ş.</span></span><span class="kurum-item"><span class="kurum-text">TÜBİTAK</span></span><span class="kurum-item"><span class="kurum-text">ROKETSAN A.Ş.</span></span><span class="kurum-item"><span class="kurum-text">KOSGEB</span></span><span class="kurum-item"><span class="kurum-text">T.C. Milli Eğitim Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">FNSS Savunma Sistemleri</span></span><span class="kurum-item"><span class="kurum-text">Sermaye Piyasası Kurulu (SPK)</span></span><span class="kurum-item"><span class="kurum-text">PTT A.Ş.</span></span><span class="kurum-item"><span class="kurum-text">T.C. Türkiye Büyük Millet Meclisi</span></span><span class="kurum-item"><span class="kurum-text">Türkiye İş Kurumu (İŞKUR)</span></span><span class="kurum-item"><span class="kurum-text">Türk Telekom</span></span><span class="kurum-item"><span class="kurum-text">Bankacılık Düzenleme ve Denetleme Kurumu (BDDK)</span></span><span class="kurum-item"><span class="kurum-text">T.C. Aile ve Sosyal Hizmetler Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Ziraat Teknoloji</span></span><span class="kurum-item"><span class="kurum-text">Orta Doğu Teknik Üniversitesi (ODTÜ)</span></span><span class="kurum-item"><span class="kurum-text">TÜRKSAT A.Ş.</span></span><span class="kurum-item"><span class="kurum-text">T.C. Kültür ve Turizm Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">TÜBİTAK SAGE</span></span><span class="kurum-item"><span class="kurum-text">Vakıfbank</span></span><span class="kurum-item"><span class="kurum-text">T.C. İçişleri Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Sosyal Güvenlik Kurumu (SGK)</span></span><span class="kurum-item"><span class="kurum-text">HAVELSAN A.Ş.</span></span><span class="kurum-item"><span class="kurum-text">T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Ankara Üniversitesi</span></span><span class="kurum-item"><span class="kurum-text">Meteksan Savunma</span></span><span class="kurum-item"><span class="kurum-text">T.C. Ulaştırma ve Altyapı Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Halkbank</span></span><span class="kurum-item"><span class="kurum-text">T.C. Tarım ve Orman Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">T.C. Gençlik ve Spor Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">T.C. Ticaret Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">T.C. Cumhurbaşkanlığı</span></span><span class="kurum-item"><span class="kurum-text">Turkcell</span></span><span class="kurum-item"><span class="kurum-text">T.C. Sağlık Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">T.C. Enerji ve Tabii Kaynaklar Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">TUSAŞ (TAI)</span></span><span class="kurum-item"><span class="kurum-text">Bilkent Üniversitesi</span></span><span class="kurum-item"><span class="kurum-text">TÜRKSAT A.Ş.</span></span><span class="kurum-item"><span class="kurum-text">Netaş Telekomünikasyon</span></span><span class="kurum-item"><span class="kurum-text">T.C. Millî Savunma Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">T.C. Çalışma ve Sosyal Güvenlik Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Savunma Sanayii Başkanlığı (SSB)</span></span><span class="kurum-item"><span class="kurum-text">Ziraat Bankası</span></span><span class="kurum-item"><span class="kurum-text">Türkiye Finans</span></span><span class="kurum-item"><span class="kurum-text">Hacettepe Üniversitesi</span></span><span class="kurum-item"><span class="kurum-text">T.C. Cumhurbaşkanlığı Dijital Dönüşüm Ofisi</span></span><span class="kurum-item"><span class="kurum-text">T.C. Sanayi ve Teknoloji Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">TÜBİTAK BİLGEM</span></span><span class="kurum-item"><span class="kurum-text">Ankara Büyükşehir Belediyesi</span></span><span class="kurum-item"><span class="kurum-text">Gazi Üniversitesi</span></span><span class="kurum-item"><span class="kurum-text">Jandarma Genel Komutanlığı</span></span><span class="kurum-item"><span class="kurum-text">STM Savunma Teknolojileri</span></span><span class="kurum-item"><span class="kurum-text">T.C. Adalet Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Bilgi Teknolojileri ve İletişim Kurumu (BTK)</span></span><span class="kurum-item"><span class="kurum-text">Vodafone Türkiye</span></span><span class="kurum-item"><span class="kurum-text">T.C. Hazine ve Maliye Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Emniyet Genel Müdürlüğü</span></span><span class="kurum-item"><span class="kurum-text">T.C. Dışişleri Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">ASELSAN A.Ş.</span></span><span class="kurum-item"><span class="kurum-text">TÜBİTAK</span></span><span class="kurum-item"><span class="kurum-text">ROKETSAN A.Ş.</span></span><span class="kurum-item"><span class="kurum-text">KOSGEB</span></span><span class="kurum-item"><span class="kurum-text">T.C. Milli Eğitim Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">FNSS Savunma Sistemleri</span></span><span class="kurum-item"><span class="kurum-text">Sermaye Piyasası Kurulu (SPK)</span></span><span class="kurum-item"><span class="kurum-text">PTT A.Ş.</span></span><span class="kurum-item"><span class="kurum-text">T.C. Türkiye Büyük Millet Meclisi</span></span><span class="kurum-item"><span class="kurum-text">Türkiye İş Kurumu (İŞKUR)</span></span><span class="kurum-item"><span class="kurum-text">Türk Telekom</span></span><span class="kurum-item"><span class="kurum-text">Bankacılık Düzenleme ve Denetleme Kurumu (BDDK)</span></span><span class="kurum-item"><span class="kurum-text">T.C. Aile ve Sosyal Hizmetler Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Ziraat Teknoloji</span></span><span class="kurum-item"><span class="kurum-text">Orta Doğu Teknik Üniversitesi (ODTÜ)</span></span><span class="kurum-item"><span class="kurum-text">TÜRKSAT A.Ş.</span></span><span class="kurum-item"><span class="kurum-text">T.C. Kültür ve Turizm Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">TÜBİTAK SAGE</span></span><span class="kurum-item"><span class="kurum-text">Vakıfbank</span></span><span class="kurum-item"><span class="kurum-text">T.C. İçişleri Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Sosyal Güvenlik Kurumu (SGK)</span></span><span class="kurum-item"><span class="kurum-text">HAVELSAN A.Ş.</span></span><span class="kurum-item"><span class="kurum-text">T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Ankara Üniversitesi</span></span><span class="kurum-item"><span class="kurum-text">Meteksan Savunma</span></span><span class="kurum-item"><span class="kurum-text">T.C. Ulaştırma ve Altyapı Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Halkbank</span></span><span class="kurum-item"><span class="kurum-text">T.C. Tarım ve Orman Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">T.C. Gençlik ve Spor Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">T.C. Ticaret Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">T.C. Cumhurbaşkanlığı</span></span><span class="kurum-item"><span class="kurum-text">Turkcell</span></span><span class="kurum-item"><span class="kurum-text">T.C. Sağlık Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">T.C. Enerji ve Tabii Kaynaklar Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">TUSAŞ (TAI)</span></span>
+    </div>
+  </div>
+</div>
+
 <!-- SERTİFİKALAR -->
 <section class="section sertifikalar" id="sertifikalar">
   <div class="section-inner">
-    <div class="section-tag">Yetkili Ortaklıklar</div>
-    <h2 class="section-title">Global teknoloji devleriyle<br/>sertifikalı ortaklık</h2>
-    <p class="section-sub">Dünyanın önde gelen teknoloji şirketleriyle kurduğumuz yetkili ortaklıklar, sunduğumuz hizmet ve eğitimlerin kalitesini garantiler.</p>
-    <div class="sert-grid">
+    <div class="section-tag">Teknoloji Ekosistemi</div>
+    <h2 class="section-title">Dünya standartlarında<br/>teknoloji ekosistemi</h2>
+    <p class="section-sub">Eğitimlerimizde ve çözümlerimizde yer alan global teknoloji markaları.</p>
+        <div class="sert-grid">
+      <!-- Microsoft -->
       <div class="sert-card">
-        <div class="sert-logo">🔷</div>
+        <div class="sert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft"/></div>
         <div class="sert-name">Microsoft</div>
-        <div class="sert-type">Gold Partner</div>
       </div>
+      <!-- AWS -->
       <div class="sert-card">
-        <div class="sert-logo">☁️</div>
+        <div class="sert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS"/></div>
         <div class="sert-name">AWS</div>
-        <div class="sert-type">Authorized Training Partner</div>
       </div>
+      <!-- Google Cloud -->
       <div class="sert-card">
-        <div class="sert-logo">🌐</div>
+        <div class="sert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Google-cloud-platform.svg" alt="Google Cloud"/></div>
         <div class="sert-name">Google Cloud</div>
-        <div class="sert-type">Partner</div>
       </div>
+      <!-- Cisco -->
       <div class="sert-card">
-        <div class="sert-logo">🔴</div>
-        <div class="sert-name">Red Hat</div>
-        <div class="sert-type">Training Partner</div>
-      </div>
-      <div class="sert-card">
-        <div class="sert-logo">🟠</div>
-        <div class="sert-name">Oracle</div>
-        <div class="sert-type">Authorized Education Center</div>
-      </div>
-      <div class="sert-card">
-        <div class="sert-logo">🔵</div>
+        <div class="sert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Cisco"/></div>
         <div class="sert-name">Cisco</div>
-        <div class="sert-type">Learning Partner</div>
       </div>
+      <!-- Oracle -->
       <div class="sert-card">
-        <div class="sert-logo">🟣</div>
+        <div class="sert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg" alt="Oracle"/></div>
+        <div class="sert-name">Oracle</div>
+      </div>
+      <!-- SAP -->
+      <div class="sert-card">
+        <div class="sert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" alt="SAP"/></div>
+        <div class="sert-name">SAP</div>
+      </div>
+      <!-- VMware -->
+      <div class="sert-card">
+        <div class="sert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Vmware.svg" alt="VMware"/></div>
         <div class="sert-name">VMware</div>
-        <div class="sert-type">Authorized Training Center</div>
       </div>
+      <!-- Red Hat -->
       <div class="sert-card">
-        <div class="sert-logo">⚙️</div>
+        <div class="sert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Red_Hat_logo.svg" alt="Red Hat"/></div>
+        <div class="sert-name">Red Hat</div>
+      </div>
+      <!-- PMI -->
+      <div class="sert-card">
+        <div class="sert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/PMI_Logo.svg" alt="PMI"/></div>
         <div class="sert-name">PMI</div>
-        <div class="sert-type">Registered Education Provider</div>
+      </div>
+      <!-- Docker -->
+      <div class="sert-card">
+        <div class="sert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg" alt="Docker"/></div>
+        <div class="sert-name">Docker</div>
       </div>
     </div>
-  </div>
-</section>
+    </div>
+  </section>
 
 <!-- CTA -->
 <section class="cta">
