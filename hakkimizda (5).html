@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hakkımızda — Bilginex</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f0f2f5;--bg2:#f7f8fa;--surface:#fff;
+  --border:rgba(15,23,60,0.09);--border2:rgba(15,23,60,0.16);
+  --text:#0e1628;--text2:#485070;--text3:#9099b5;
+  --accent:#1d4ed8;--accent2:#2563eb;--accentlt:#eff4ff;
+  --teal:#0d9488;--teallt:#f0fdfa;
+  --green:#059669;--greenlt:#f0fdf4;
+  --purple:#7c3aed;--purplelt:#f5f3ff;
+  --font-d:'Syne',sans-serif;--font-b:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--font-b);font-size:16px;line-height:1.6;overflow-x:hidden;}
+
+.hero{position:relative;padding:140px 60px 90px;overflow:hidden;background:linear-gradient(135deg,#0a0f2e 0%,#1a1060 40%,#0d2060 100%);}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 20%,rgba(99,102,241,0.2) 0%,transparent 65%),radial-gradient(ellipse 50% 40% at 10% 80%,rgba(14,165,233,0.15) 0%,transparent 60%);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);background-size:60px 60px;}
+.hero-inner{position:relative;z-index:1;max-width:760px;}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#5eead4;margin-bottom:16px;}
+.hero-tag::before{content:'';display:block;width:20px;height:1px;background:#5eead4;}
+.hero-title{font-family:var(--font-d);font-size:clamp(36px,5vw,58px);font-weight:800;line-height:1.05;letter-spacing:-2px;color:#fff;margin-bottom:20px;}
+.hero-title span{color:#93c5fd;}
+.hero-sub{font-size:17px;color:rgba(255,255,255,0.65);font-weight:300;line-height:1.75;max-width:580px;margin-bottom:40px;}
+.hero-stats{display:flex;gap:48px;}
+.stat-num{font-family:var(--font-d);font-size:36px;font-weight:700;color:#fff;line-height:1;}
+.stat-num span{color:#5eead4;}
+.stat-label{font-size:13px;color:rgba(255,255,255,0.45);margin-top:4px;}
+
+/* SECTION ORTAK */
+.section{padding:90px 60px;}
+.section-inner{max-width:1200px;margin:0 auto;}
+.section-tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;}
+.section-tag::before{content:'';display:block;width:20px;height:1px;background:var(--teal);}
+.section-title{font-family:var(--font-d);font-size:clamp(28px,3.5vw,44px);font-weight:800;line-height:1.1;letter-spacing:-1.5px;color:var(--text);margin-bottom:16px;}
+.section-sub{font-size:16px;color:var(--text2);font-weight:300;line-height:1.8;max-width:640px;}
+
+/* HİKAYE */
+.hikaye{background:var(--surface);}
+.hikaye-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:60px;}
+.hikaye-text p{font-size:16px;color:var(--text2);line-height:1.85;font-weight:300;margin-bottom:20px;}
+.hikaye-text p:last-child{margin-bottom:0;}
+.hikaye-text strong{color:var(--text);font-weight:500;}
+.hikaye-visual{position:relative;}
+.hikaye-img{width:100%;height:380px;object-fit:cover;border-radius:16px;}
+.hikaye-badge{position:absolute;bottom:-24px;left:32px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 28px;box-shadow:0 8px 32px rgba(15,23,60,0.1);}
+.hikaye-badge-num{font-family:var(--font-d);font-size:36px;font-weight:800;color:var(--accent2);line-height:1;}
+.hikaye-badge-text{font-size:13px;color:var(--text2);margin-top:4px;}
+
+/* VİZYON MİSYON */
+.vizyon{background:var(--bg);}
+.vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:60px;}
+.vm-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:48px;position:relative;overflow:hidden;}
+.vm-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.vm-card.vizyon-card::before{background:linear-gradient(90deg,var(--accent2),#818cf8);}
+.vm-card.misyon-card::before{background:linear-gradient(90deg,var(--teal),#34d399);}
+.vm-icon{font-size:36px;margin-bottom:20px;}
+  .vm-icon-wrap{margin-bottom:24px;display:inline-block;}
+.vm-title{font-family:var(--font-d);font-size:24px;font-weight:700;color:var(--text);margin-bottom:16px;letter-spacing:-0.5px;}
+.vm-text{font-size:15px;color:var(--text2);line-height:1.85;font-weight:300;}
+
+/* DEĞERLER */
+.degerler{background:var(--surface);}
+.degerler-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px;}
+.deger-card{border-radius:18px;padding:36px;transition:transform 0.25s,box-shadow 0.25s,filter 0.25s;cursor:default;}
+.deger-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.15);filter:brightness(1.08);}
+.deger-icon{display:none;}
+.deger-title{font-family:var(--font-d);font-size:18px;font-weight:700;color:#fff;margin-bottom:8px;}
+.deger-text{font-size:14px;color:rgba(255,255,255,0.75);line-height:1.75;font-weight:300;}
+
+/* EKİP */
+.kurucu{background:var(--bg);}
+.kurucu-grid{display:grid;grid-template-columns:420px 1fr;gap:72px;align-items:start;margin-top:60px;}
+.kurucu-left{position:sticky;top:100px;}
+.kurucu-avatar-wrap{position:relative;margin-bottom:32px;}
+.kurucu-avatar{width:180px;height:180px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#38bdf8);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:48px;font-weight:800;color:#fff;margin-bottom:24px;box-shadow:0 20px 60px rgba(37,99,235,0.25);}
+.kurucu-name{font-family:var(--font-d);font-size:26px;font-weight:800;color:var(--text);letter-spacing:-0.5px;margin-bottom:4px;}
+.kurucu-unvan{font-size:14px;color:var(--teal);font-weight:600;margin-bottom:20px;}
+.kurucu-bilgi{display:flex;flex-direction:column;gap:12px;}
+.kurucu-bilgi-item{display:flex;align-items:flex-start;gap:10px;padding:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:10px;}
+.kurucu-bilgi-icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+.kurucu-bilgi-text{font-size:13px;color:var(--text2);font-weight:300;line-height:1.5;}
+.kurucu-bilgi-text strong{color:var(--text);font-weight:500;}
+.kurucu-right{}
+.kurucu-mesaj{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:48px;margin-bottom:32px;position:relative;}
+.kurucu-mesaj::before{content:'"';position:absolute;top:24px;left:36px;font-family:Georgia,serif;font-size:80px;color:var(--accent2);opacity:0.15;line-height:1;}
+.kurucu-mesaj-text{font-size:17px;color:var(--text);line-height:1.85;font-weight:300;font-style:italic;margin-bottom:20px;}
+.kurucu-mesaj-text strong{font-style:normal;font-weight:600;color:var(--text);}
+.kurucu-imza{font-family:var(--font-d);font-size:15px;font-weight:700;color:var(--accent2);}
+.kurucu-exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.kurucu-exp-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 24px;}
+.kurucu-exp-sirket{font-family:var(--font-d);font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;}
+.kurucu-exp-rol{font-size:13px;color:var(--text2);font-weight:300;}
+.kurucu-exp-yil{font-size:11px;color:var(--teal);font-weight:600;margin-top:6px;}
+
+/* REFERANSLAR */
+.referanslar{background:var(--surface);}
+.ref-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px;}
+.ref-card{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:32px;position:relative;}
+.ref-quote{font-size:32px;color:var(--accent2);line-height:1;margin-bottom:16px;font-family:serif;}
+.ref-text{font-size:15px;color:var(--text2);line-height:1.8;font-weight:300;margin-bottom:24px;font-style:italic;}
+.ref-divider{height:1px;background:var(--border);margin-bottom:20px;}
+.ref-avatar{display:flex;align-items:center;gap:12px;}
+.ref-initials{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;}
+.ref-name{font-size:14px;font-weight:600;color:var(--text);}
+.ref-company{font-size:12px;color:var(--text3);}
+
+/* SERTİFİKALAR */
+.sertifikalar{background:var(--bg);}
+.sert-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-top:60px;width:100%;}
+.sert-card{background:#f8faff;border:1px solid rgba(37,99,235,0.08);border-radius:12px;padding:14px 8px;text-align:center;transition:border-color 0.25s,box-shadow 0.25s,transform 0.25s;min-width:0;overflow:hidden;}
+.sert-card:hover{border-color:rgba(37,99,235,0.2);box-shadow:0 8px 28px rgba(37,99,235,0.1);transform:translateY(-3px);}
+.sert-logo{height:38px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;}
+.sert-logo img{max-height:34px;max-width:90%;width:auto;height:auto;object-fit:contain;}
+.sert-name{font-family:var(--font-d);font-size:11px;font-weight:700;color:var(--text);margin-bottom:2px;}
+.sert-type{font-size:12px;color:var(--text3);}
+
+/* CTA */
+.cta{background:var(--accent2);padding:90px 60px;text-align:center;position:relative;overflow:hidden;}
+.cta::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:48px 48px;}
+.cta-inner{position:relative;z-index:1;}
+.cta-title{font-family:var(--font-d);font-size:clamp(26px,3vw,42px);font-weight:700;color:#fff;letter-spacing:-1px;margin-bottom:12px;}
+.cta-sub{font-size:16px;color:rgba(255,255,255,0.7);font-weight:300;margin-bottom:32px;}
+.btn-cta-white{padding:14px 32px;font-size:15px;font-weight:500;border-radius:8px;cursor:pointer;transition:all 0.25s;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-b);background:#fff;border:1px solid #fff;color:var(--accent);margin:0 8px;}
+.btn-cta-white:hover{background:#eff4ff;transform:translateY(-1px);}
+.btn-cta-outline{padding:14px 32px;font-size:15px;font-weight:500;border-radius:8px;cursor:pointer;transition:all 0.25s;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-b);background:transparent;border:1px solid rgba(255,255,255,0.4);color:#fff;margin:0 8px;}
+.btn-cta-outline:hover{background:rgba(255,255,255,0.1);transform:translateY(-1px);}
+
+/* FOOTER */
+  footer { background: #0d1117; padding: 64px 60px 40px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 48px; }
+  .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.38); line-height: 1.75; font-weight: 300; max-width: 260px; margin-top:12px; }
+  .footer-col h4 { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.28); margin-bottom: 18px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.48); text-decoration: none; font-weight: 300; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: rgba(255,255,255,0.85); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; justify-content: space-between; }
+  .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.28); font-weight: 300; }
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;}
+.footer-logo{font-family:var(--font-d);font-size:20px;font-weight:800;letter-spacing:-0.5px;color:#fff;text-decoration:none;}
+.footer-logo span{color:#fff;}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.3);}
+.footer-links{display:flex;gap:24px;}
+.footer-links a{font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:rgba(255,255,255,0.8);}
+
+  /* ── MEGA MENU ── */
+  .nav-links li { position: relative; }
+  .nav-links li.has-mega > a::after { content: ' ▾'; font-size: 10px; opacity: 0.6; }
+  .mega-menu {
+    position: fixed;
+    top: auto;
+    left: 0;
+    transform: none;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(15,23,60,0.12);
+    padding: 32px 36px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 300;
+    transition: none;
+  }
+  .mega-menu::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    height: 20px;
+  }
+  .nav-links li.has-mega:hover .mega-menu,
+  .nav-links li.has-mega:focus-within .mega-menu {
+    opacity: 1; visibility: visible; pointer-events: all;
+    transform: translateY(0);
+    transition: opacity 0.15s, transform 0.15s, visibility 0s;
+  }
+  .mega-arrow {
+    position: absolute; top: -6px; left: 50%;
+    width: 12px; height: 12px; background: #fff;
+    border-left: 1px solid var(--border); border-top: 1px solid var(--border);
+    transform: translateX(-50%) rotate(45deg);
+    pointer-events: none;
+  }
+  /* mega-spacing-fix */
+  .mega-link { padding: 8px 0 !important; }
+  .mega-link-name { font-size: 15px !important; font-weight: 500 !important; line-height: 1.4 !important; color: var(--text) !important; }
+  .mega-link-desc { font-size: 12px !important; line-height: 1.4 !important; margin-top: 2px !important; color: var(--text3) !important; }
+  .mega-col { padding: 0 28px !important; }
+  .mega-col-title { font-size: 13px !important; font-weight: 700 !important; letter-spacing: 0.06em !important; text-transform: uppercase !important; color: var(--text2) !important; margin-bottom: 12px !important; padding-bottom: 0 !important; border-bottom: none !important; white-space: nowrap !important; }
+  .mega-col-title a { color: var(--text2) !important; }
+  .mega-col-title a:hover { color: var(--text) !important; }
+  .mega-menu { padding: 32px 36px !important; }
+  .mega-footer { margin-top: 24px !important; padding-top: 16px !important; }
+  .mega-footer-text { font-size: 13px !important; }
+  .mega-footer-link { font-size: 13px !important; font-weight: 600 !important; }
+
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 60px;
+    background: rgba(240,242,245,0.88);
+    backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: var(--font-d); font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: var(--text); text-decoration: none; }
+  .nav-logo span{color:#1a56db;}
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { color: var(--text2); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta { display: flex; gap: 10px; }
+  .btn-ghost { padding: 9px 20px; border: 1px solid var(--border2); background: transparent; color: var(--text); font-family: var(--font-b); font-size: 13px; font-weight: 500; border-radius: 7px; cursor: pointer; transition: background 0.2s; text-decoration: none; }
+  .btn-ghost:hover { background: var(--surface); }
+  .btn-primary { padding: 9px 22px; background: var(--accent2); border: none; color: #fff; font-family: var(--font-b); font-size: 13px; font-weight: 500; border-radius: 7px; cursor: pointer; transition: background 0.2s; text-decoration: none; }
+  .btn-primary:hover { background: var(--accent); }
+  /* ── MEGA MENU ── */
+  /* ── MEGA MENU ── */
+  .nav-links li { position: relative; }
+  .nav-links li.has-mega > a::after { content: ' ▾'; font-size: 10px; opacity: 0.6; }
+  .mega-menu {
+    position: fixed;
+    top: auto;
+    left: 0;
+    transform: none;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(15,23,60,0.12);
+    padding: 32px 36px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 300;
+    transition: none;
+  }
+  .mega-menu::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    height: 20px;
+  }
+  .nav-links li.has-mega:hover .mega-menu,
+  .nav-links li.has-mega:focus-within .mega-menu {
+    opacity: 1; visibility: visible; pointer-events: all;
+    transform: translateY(0);
+    transition: opacity 0.15s, transform 0.15s, visibility 0s;
+  }
+  .mega-arrow {
+    position: absolute; top: -6px; left: 50%;
+    width: 12px; height: 12px; background: #fff;
+    border-left: 1px solid var(--border); border-top: 1px solid var(--border);
+    transform: translateX(-50%) rotate(45deg);
+    pointer-events: none;
+  }
+  /* Görünmez köprü — mouse gap'ten geçerken menüyü açık tutar */
+  .mega-menu::after {
+    content: ''; position: absolute; top: -20px; left: 0; right: 0; height: 20px;
+  }
+  .mega-grid { display: grid; gap: 0; align-items: start; }
+  .mega-grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .mega-grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .mega-col { padding: 0 28px; border-right: 1px solid var(--border); }
+  .mega-col:first-child { padding-left: 0; }
+  .mega-col:last-child { border-right: none; }
+  .mega-col-title {
+    font-family: var(--font-d); font-size:19px; font-weight: 700;
+    color: var(--text); letter-spacing: -0.2px; margin-bottom: 16px;
+    padding-bottom: 12px; border-bottom: 2px solid var(--border);
+  }
+  .mega-col-title span { color: #38bdf8; }
+  .mega-link {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 8px 0; text-decoration: none;
+    transition: all 0.15s; border-radius: 6px;
+  }
+  .mega-link:hover .mega-link-name { color: var(--accent2); }
+  .mega-link-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .mega-link-name { font-size: 15px; font-weight: 400; color: var(--text2); display: block; line-height: 1.25; }
+  .mega-link-desc { font-size: 13px; color: var(--text3); display: block; margin-top: 0; font-weight: 300; line-height: 1.3; }
+  .mega-footer {
+    margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .mega-footer-text { font-size: 14px; color: var(--text3); font-weight: 300; }
+  .mega-footer-link {
+    font-size: 14px; font-weight: 500; color: var(--accent2);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .mega-footer-link:hover { color: var(--accent); }
+  .mega-arrow {
+    position: absolute; top: -6px; left: 50%;
+    width: 12px; height: 12px; background: #fff;
+    border-left: 1px solid var(--border); border-top: 1px solid var(--border);
+    transform: translateX(-50%) rotate(45deg);
+    pointer-events: none;
+  }
+  /* Görünmez köprü — mouse gap'ten geçerken menüyü açık tutar */
+  .mega-menu::after {
+    content: ''; position: absolute; top: -20px; left: 0; right: 0; height: 20px;
+  }
+  .mega-grid { display: grid; gap: 0; align-items: start; }
+  .mega-grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .mega-grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .mega-col { padding: 0 28px; border-right: 1px solid var(--border); }
+  .mega-col:first-child { padding-left: 0; }
+  .mega-col:last-child { border-right: none; }
+  .mega-col-title {
+    font-family: var(--font-d); font-size:19px; font-weight: 700;
+    color: var(--text); letter-spacing: -0.2px; margin-bottom: 16px;
+    padding-bottom: 12px; border-bottom: 2px solid var(--border);
+  }
+  .mega-col-title span { color: #38bdf8; }
+  .mega-link {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 8px 0; text-decoration: none;
+    transition: all 0.15s; border-radius: 6px;
+  }
+  .mega-link:hover .mega-link-name { color: var(--accent2); }
+  .mega-link-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .mega-link-name { font-size: 15px; font-weight: 400; color: var(--text2); display: block; line-height: 1.25; }
+  .mega-link-desc { font-size: 13px; color: var(--text3); display: block; margin-top: 0; font-weight: 300; line-height: 1.3; }
+  .mega-footer {
+    margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .mega-footer-text { font-size: 14px; color: var(--text3); font-weight: 300; }
+  .mega-footer-link {
+    font-size: 14px; font-weight: 500; color: var(--accent2);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .mega-footer-link:hover { color: var(--accent); }
+  /* Mega menu için nav overflow visible */
+  nav { overflow: visible !important; }
+  /* mega-col-title hover */
+
+  .mega-col-title a { color: inherit; text-decoration: none; }
+  .mega-col-title a:hover { color: var(--accent2); }
+  .mega-link { padding: 3px 0 !important; }
+  .mega-link-name { font-size: 15px !important; line-height: 1.2 !important; }
+  .mega-link-desc { font-size: 12px !important; line-height: 1.2 !important; margin-top: 0 !important; }
+  .mega-col { padding: 0 20px !important; }
+  .mega-col-title { margin-bottom: 10px !important; padding-bottom: 8px !important; }
+
+  /* mega-spacing-fix */
+  .mega-link { padding: 8px 0 !important; }
+  .mega-link-name { font-size: 15px !important; font-weight: 500 !important; line-height: 1.4 !important; color: var(--text) !important; }
+  .mega-link-desc { font-size: 12px !important; line-height: 1.4 !important; margin-top: 2px !important; color: var(--text3) !important; }
+  .mega-col { padding: 0 28px !important; }
+  .mega-col-title { font-size: 13px !important; font-weight: 700 !important; letter-spacing: 0.06em !important; text-transform: uppercase !important; color: var(--text2) !important; margin-bottom: 12px !important; padding-bottom: 0 !important; border-bottom: none !important; white-space: nowrap !important; }
+  .mega-col-title a { color: var(--text2) !important; }
+  .mega-col-title a:hover { color: var(--text) !important; }
+  .mega-menu { padding: 32px 36px !important; }
+  .mega-footer { margin-top: 24px !important; padding-top: 16px !important; }
+  .mega-footer-text { font-size: 13px !important; }
+  .mega-footer-link { font-size: 13px !important; font-weight: 600 !important; }
+
+
+  /* ── KURUM ŞERİDİ ── */
+  .kurumlar-band { padding: 48px 0; background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; }
+  .kurumlar-label { text-align: center; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text3); margin-bottom: 28px; padding: 0 60px; }
+  .kurumlar-track-wrap { overflow: hidden; position: relative; }
+  .kurumlar-track-wrap::before, .kurumlar-track-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 100px; z-index: 2; }
+  .kurumlar-track-wrap::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
+  .kurumlar-track-wrap::after { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
+  .kurumlar-track { display: flex; align-items: center; gap: 0; width: max-content; animation: kurumScroll 120s linear infinite; }
+  .kurumlar-track:hover { animation-play-state: paused; }
+  @keyframes kurumScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .kurum-item { display: inline-flex; align-items: center; padding: 0 32px; border-right: 1px solid var(--border); white-space: nowrap; }
+  .kurum-item:last-child { border-right: none; }
+  .kurum-text { font-family: var(--font-d); font-size: 14px; font-weight: 600; color: var(--text2); letter-spacing: -0.2px; }
+
+
+  /* SOSYAL MEDYA İKONLARI */
+  .footer-social{display:flex;align-items:center;gap:10px;}
+  .social-icon-btn{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);transition:all 0.25s;text-decoration:none;flex-shrink:0;}
+  .social-icon-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,0.3);}
+  .social-icon-btn.li:hover{background:#0A66C2;border-color:#0A66C2;}
+  .social-icon-btn.tw:hover{background:#000;border-color:#333;}
+  .social-icon-btn.ig:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-color:transparent;}
+  .social-icon-btn.yt:hover{background:#FF0000;border-color:#FF0000;}
+  .social-icon-btn svg{width:17px;height:17px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Bilgi<span>nex</span></a>
+  <ul class="nav-links">
+
+    <!-- HİZMETLER -->
+    <li class="has-mega">
+      <a href="hizmetler.html">Hizmetler</a>
+      <div class="mega-menu"><div class="mega-arrow"></div>
+        <div class="mega-grid mega-grid-4">
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="ai-entegrasyon.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">AI Entegrasyonu</a></div>
+            <a href="ai-entegrasyon.html" class="mega-link">
+              <span><span class="mega-link-name">LLM & Chatbot Geliştirme</span><span class="mega-link-desc">Kurumsal AI asistanları</span></span>
+            </a>
+            <a href="ai-entegrasyon.html" class="mega-link">
+              <span><span class="mega-link-name">Süreç Otomasyonu</span><span class="mega-link-desc">RPA ve AI ile verimlilik</span></span>
+            </a>
+            <a href="ai-entegrasyon.html" class="mega-link">
+              <span><span class="mega-link-name">RAG & Veri Sistemleri</span><span class="mega-link-desc">Kurumsal veri entegrasyonu</span></span>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="dijital-donusum.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Dijital Dönüşüm</a></div>
+            <a href="dijital-donusum.html" class="mega-link">
+              <span><span class="mega-link-name">Dijital Yol Haritası</span><span class="mega-link-desc">Strateji ve planlama</span></span>
+            </a>
+            <a href="dijital-donusum.html" class="mega-link">
+              <span><span class="mega-link-name">Cloud Migration</span><span class="mega-link-desc">Azure, AWS, GCP geçişleri</span></span>
+            </a>
+            <a href="dijital-donusum.html" class="mega-link">
+              <span><span class="mega-link-name">ERP/CRM Entegrasyonu</span><span class="mega-link-desc">Sistem birleştirme ve optimizasyon</span></span>
+            </a>
+          </div>
+                              <div class="mega-col">
+            <div class="mega-col-title"><a href="akademi.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#0e1628'" onmouseout="this.style.color='inherit'">Teknoloji Eğitimleri</a></div>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Yapay Zeka')" class="mega-link">
+              <span><span class="mega-link-name" style="color:#38bdf8;font-weight:600;">Yapay Zeka</span><span class="mega-link-desc">Copilot, Azure AI, ML, Generative AI</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Yazılım Geliştirme')" class="mega-link">
+              <span><span class="mega-link-name">Yazılım Geliştirme</span><span class="mega-link-desc">Java, Python, React, .NET</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Bulut Bilişim')" class="mega-link">
+              <span><span class="mega-link-name">Bulut & Güvenlik</span><span class="mega-link-desc">Azure, AWS, CISSP, ISO 27001</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','İş Yönetimi Çözümleri')" class="mega-link">
+              <span><span class="mega-link-name">İş Yönetimi</span><span class="mega-link-desc">PMP, Scrum, Agile, ITIL</span></span>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="uzman-kadro.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Uzman Kaynak Kiralama</a></div>
+            <a href="uzman-kadro.html" class="mega-link">
+              <span><span class="mega-link-name">Staff Augmentation</span><span class="mega-link-desc">Projeye özel uzman desteği</span></span>
+            </a>
+            <a href="uzman-kadro.html" class="mega-link">
+              <span><span class="mega-link-name">Dedicated Team</span><span class="mega-link-desc">Tam zamanlı ekip kurulumu</span></span>
+            </a>
+            <a href="uzman-kadro.html" class="mega-link">
+              <span><span class="mega-link-name">CTO-as-a-Service</span><span class="mega-link-desc">Teknoloji liderliği hizmeti</span></span>
+            </a>
+          </div>
+        </div>
+        <div class="mega-footer">
+          <span class="mega-footer-text">Tüm hizmetlerimizi keşfedin</span>
+          <a href="hizmetler.html" class="mega-footer-link">Tüm Hizmetler →</a>
+        </div>
+      </div>
+    </li>
+
+    <!-- AKADEMİ -->
+    <li class="has-mega">
+      <a href="akademi.html">Akademi</a>
+      <div class="mega-menu" style="min-width:900px;"><div class="mega-arrow"></div>
+        <div class="mega-grid mega-grid-3">
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="akademi.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Yazılım Hizmetleri</a></div>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Bulut Bilişim')" class="mega-link">
+              <span><span class="mega-link-name">Bulut Bilişim</span><span class="mega-link-desc">3 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','SharePoint')" class="mega-link">
+              <span><span class="mega-link-name">SharePoint</span><span class="mega-link-desc">1 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Yazılım Geliştirme')" class="mega-link">
+              <span><span class="mega-link-name">Yazılım Geliştirme</span><span class="mega-link-desc">110 eğitim</span></span>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="akademi.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Veri ve İş Yönetimi</a></div>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Big Data')" class="mega-link">
+              <span><span class="mega-link-name">Big Data</span><span class="mega-link-desc">2 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Bulut Bilişim')" class="mega-link">
+              <span><span class="mega-link-name">Bulut Bilişim</span><span class="mega-link-desc">1 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Dijital Tasarım')" class="mega-link">
+              <span><span class="mega-link-name">Dijital Tasarım</span><span class="mega-link-desc">8 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Kişisel Gelişim ve Vizyon')" class="mega-link">
+              <span><span class="mega-link-name">Kişisel Gelişim ve Vizyon</span><span class="mega-link-desc">26 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Microsoft Office')" class="mega-link">
+              <span><span class="mega-link-name">Microsoft Office</span><span class="mega-link-desc">43 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Sosyal Medya')" class="mega-link">
+              <span><span class="mega-link-name">Sosyal Medya</span><span class="mega-link-desc">2 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Veri Yönetimi Çözümleri')" class="mega-link">
+              <span><span class="mega-link-name">Veri Yönetimi Çözümleri</span><span class="mega-link-desc">41 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','İş Yönetimi Çözümleri')" class="mega-link">
+              <span><span class="mega-link-name">İş Yönetimi Çözümleri</span><span class="mega-link-desc">25 eğitim</span></span>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="akademi.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Teknoloji Servisleri</a></div>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','BT Hizmet Yönetimi')" class="mega-link">
+              <span><span class="mega-link-name">BT Hizmet Yönetimi</span><span class="mega-link-desc">14 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Bilgi Güvenliği')" class="mega-link">
+              <span><span class="mega-link-name">Bilgi Güvenliği</span><span class="mega-link-desc">23 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Bulut Bilişim')" class="mega-link">
+              <span><span class="mega-link-name">Bulut Bilişim</span><span class="mega-link-desc">15 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Linux')" class="mega-link">
+              <span><span class="mega-link-name">Linux</span><span class="mega-link-desc">10 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Sanallaştırma')" class="mega-link">
+              <span><span class="mega-link-name">Sanallaştırma</span><span class="mega-link-desc">1 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Sistem Yönetimi')" class="mega-link">
+              <span><span class="mega-link-name">Sistem Yönetimi</span><span class="mega-link-desc">25 eğitim</span></span>
+            </a>
+          </div>
+        </div>
+        <div class="mega-footer">
+          <span class="mega-footer-text">350 eğitim programı mevcut</span>
+          <a href="akademi.html" class="mega-footer-link">Tüm Eğitimler →</a>
+        </div>
+      </div>
+    </li>
+
+    <li><a href="#">Çözümler</a></li>
+    <li><a href="uzman-kadro.html">Uzman Kadro</a></li>
+        <!-- HAKKIMIZDA -->
+    <li class="has-mega">
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <div class="mega-menu"><div class="mega-arrow"></div>
+        <div class="mega-grid mega-grid-3">
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="hakkimizda.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#0e1628'" onmouseout="this.style.color='inherit'">Biz Kimiz?</a></div>
+            <a href="hakkimizda.html#hikaye" class="mega-link">
+              <span><span class="mega-link-name">Şirket Hikayemiz</span><span class="mega-link-desc">Kuruluş felsefemiz ve yolculuğumuz</span></span>
+            </a>
+            <a href="hakkimizda.html#vizyon" class="mega-link">
+              <span><span class="mega-link-name">Vizyon & Misyon</span><span class="mega-link-desc">Nereye gittiğimiz ve neden</span></span>
+            </a>
+            <a href="hakkimizda.html#degerler" class="mega-link">
+              <span><span class="mega-link-name">Değerlerimiz</span><span class="mega-link-desc">Bizi biz yapan prensipler</span></span>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="hakkimizda.html#ekip" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#0e1628'" onmouseout="this.style.color='inherit'">Kurumsal</a></div>
+            <a href="hakkimizda.html#ekip" class="mega-link">
+              <span><span class="mega-link-name">Kuruluş Vizyonu ve Liderlik</span><span class="mega-link-desc">Kurucu & CEO</span></span>
+            </a>
+            <a href="hakkimizda.html#referanslar" class="mega-link">
+              <span><span class="mega-link-name">Müşteri Görüşleri</span><span class="mega-link-desc">Referanslarımız</span></span>
+            </a>
+            <a href="hakkimizda.html#sertifikalar" class="mega-link">
+              <span><span class="mega-link-name">Teknoloji Ekosistemi</span><span class="mega-link-desc">Global teknoloji markaları</span></span>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">Bize Ulaşın</div>
+            <a href="iletisim.html" class="mega-link">
+              <span><span class="mega-link-name">İletişim</span><span class="mega-link-desc">Görüşme talep edin</span></span>
+            </a>
+            <a href="hakkimizda.html" class="mega-link">
+              <span><span class="mega-link-name" style="color:#38bdf8;font-weight:600;">Kariyer</span><span class="mega-link-desc">Ekibimize katılın</span></span>
+            </a>
+          </div>
+        </div>
+        <div class="mega-footer">
+          <span class="mega-footer-text">Bilginex hakkında daha fazla bilgi edinin</span>
+          <a href="hakkimizda.html" class="mega-footer-link">Hakkımızda →</a>
+        </div>
+      </div>
+    </li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="#" class="btn-ghost">Giriş Yap</a>
+    <a href="#" class="btn-primary">Demo Talep Et →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Hakkımızda</div>
+    <h1 class="hero-title">Yeni nesil <span>teknoloji gelişim</span> platformu</h1>
+    <p class="hero-sub">Kurumların ve profesyonellerin teknoloji, yetkinlik ve dijital dönüşüm ihtiyaçlarına uçtan uca çözümler sunan stratejik teknoloji çözüm ortağınız.</p>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">30<span>+</span></div>
+        <div class="stat-label">Yıllık Sektör Deneyimi</div>
+      </div>
+      <div>
+        <div class="stat-num">350<span>+</span></div>
+        <div class="stat-label">Eğitim Programı</div>
+      </div>
+      <div>
+        <div class="stat-num">%100</div>
+        <div class="stat-label">Ölçülebilir Dönüşüm</div>
+      </div>
+      <div>
+        <div class="stat-num">7<span>+</span></div>
+        <div class="stat-label">Kritik Teknoloji Alanı</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HİKAYE -->
+<section class="section hikaye" id="hikaye">
+  <div class="section-inner">
+    <div class="section-tag">Kimiz?</div>
+    <h2 class="section-title">Deneyim, vizyon ve<br/>teknolojinin buluşma noktası</h2>
+    <div class="hikaye-grid">
+      <div class="hikaye-text">
+        <p>Bilginex, kurumların ve profesyonellerin teknoloji, yetkinlik ve dijital dönüşüm ihtiyaçlarına uçtan uca çözümler sunmak amacı ile kurulmuş yeni nesil bir teknoloji gelişim ve danışmanlık platformudur.</p>
+        <p>Kuruluş felsefemizin temelinde; teknoloji alanında <strong>30 yıla yaklaşan sektör deneyimi</strong>, kurumsal gelişim yönetimi, iş geliştirme, teknoloji danışmanlığı ve dijital dönüşüm süreçlerinde edinilmiş güçlü bir saha tecrübesi yer almaktadır.</p>
+        <p>Yapay zeka, veri analitiği, yazılım geliştirme, DevOps, siber güvenlik, bulut teknolojileri, otomasyon ve dijital dönüşüm gibi kritik alanlarda; <strong>kurumların ihtiyaçlarına özel danışmanlık hizmetleri, gelişim programları ve teknoloji odaklı çözüm yaklaşımları</strong> tasarlarız.</p>
+      </div>
+      <div class="hikaye-visual">
+        <img class="hikaye-img" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=80" alt="Bilginex Ekip"/>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VİZYON & MİSYON -->
+<section class="section vizyon" id="vizyon">
+  <div class="section-inner">
+    <div class="section-tag">Yön Vericilerimiz</div>
+    <h2 class="section-title">Vizyonumuz & Misyonumuz</h2>
+    <div class="vm-grid">
+      <div class="vm-card vizyon-card">
+        <div class="vm-icon-wrap">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="24" fill="rgba(37,99,235,0.12)"/>
+            <circle cx="24" cy="24" r="10" stroke="#2563eb" stroke-width="2" fill="none"/>
+            <circle cx="24" cy="24" r="4" fill="#2563eb"/>
+            <line x1="24" y1="10" x2="24" y2="6" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+            <line x1="24" y1="42" x2="24" y2="38" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+            <line x1="10" y1="24" x2="6" y2="24" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+            <line x1="42" y1="24" x2="38" y2="24" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+            <line x1="14.1" y1="14.1" x2="11.3" y2="11.3" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+            <line x1="36.7" y1="36.7" x2="33.9" y2="33.9" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="vm-title">Vizyonumuz</div>
+        <div class="vm-text">Global teknoloji trendlerini, yerel sektör ihtiyaçlarını ve kurumsal dönüşüm beklentilerini bir araya getirerek kurumların rekabet gücünü artıran, profesyonellerin yetkinlik gelişimini hızlandıran ve sürdürülebilir teknoloji kabiliyetleri oluşturan lider platform olmak.</div>
+      </div>
+      <div class="vm-card misyon-card">
+        <div class="vm-icon-wrap">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="24" fill="rgba(13,148,136,0.12)"/>
+            <circle cx="24" cy="24" r="14" stroke="#0d9488" stroke-width="2" fill="none"/>
+            <circle cx="24" cy="24" r="8" stroke="#0d9488" stroke-width="2" fill="none"/>
+            <circle cx="24" cy="24" r="3" fill="#0d9488"/>
+            <line x1="24" y1="6" x2="24" y2="16" stroke="#0d9488" stroke-width="2" stroke-linecap="round"/>
+            <line x1="24" y1="32" x2="24" y2="42" stroke="#0d9488" stroke-width="2" stroke-linecap="round"/>
+            <line x1="6" y1="24" x2="16" y2="24" stroke="#0d9488" stroke-width="2" stroke-linecap="round"/>
+            <line x1="32" y1="24" x2="42" y2="24" stroke="#0d9488" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="vm-title">Misyonumuz</div>
+        <div class="vm-text">Kurumların kısa, orta ve uzun vadeli teknoloji hedeflerini anlayarak; insan kaynağı gelişimi, teknoloji yetkinlik planlaması, dijital dönüşüm yol haritaları, AI entegrasyonu, danışmanlık ve iş geliştirme süreçlerinde stratejik çözüm ortağı olarak konumlanmak.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEĞERLER -->
+<section class="section degerler" id="degerler">
+  <div class="section-inner">
+    <div class="section-tag">Temel Değerlerimiz</div>
+    <h2 class="section-title">Bizi biz yapan değerler</h2>
+    <div class="degerler-grid">
+      <div class="deger-card" style="background:linear-gradient(135deg,#3b82f6,#60a5fa);border:1px solid rgba(96,165,250,0.6);">
+        <div class="deger-title">Stratejik Ortaklık</div>
+        <div class="deger-text">Kurumların iş hedeflerini, mevcut süreçlerini ve teknolojik altyapılarını birlikte değerlendirerek uygulanabilir, sürdürülebilir dönüşüm modelleri oluştururuz.</div>
+      </div>
+      <div class="deger-card" style="background:linear-gradient(135deg,#14b8a6,#2dd4bf);border:1px solid rgba(45,212,191,0.6);">
+        <div class="deger-title">Ölçülebilir Sonuç</div>
+        <div class="deger-text">İhtiyaç analizinden uygulama takibine, ölçme-değerlendirme süreçlerinden kurumsal raporlamaya kadar tüm aşamalarda yüksek kalite standartlarını esas alırız.</div>
+      </div>
+      <div class="deger-card" style="background:linear-gradient(135deg,#fb923c,#f97316);border:1px solid rgba(251,146,60,0.6);">
+        <div class="deger-title">Yapay Zeka Önceliği</div>
+        <div class="deger-text">Yapay zekanın kurumların tüm iş süreçlerine doğru, güvenli ve ölçülebilir değer üretecek şekilde entegre edilmesi öncelikli odak alanımızdır.</div>
+      </div>
+      <div class="deger-card" style="background:linear-gradient(135deg,#a855f7,#7c3aed);border:1px solid rgba(168,85,247,0.6);">
+        <div class="deger-title">Uçtan Uca Yaklaşım</div>
+        <div class="deger-text">Yalnızca teknoloji sunmak ya da bilgi aktarmak değil; kurumların tüm süreçlerini bütünsel bir bakış açısıyla ele alarak kalıcı dönüşüm sağlarız.</div>
+      </div>
+      <div class="deger-card" style="background:linear-gradient(135deg,#fbbf24,#f59e0b);border:1px solid rgba(251,191,36,0.6);">
+        <div class="deger-title">Geleceğe Hazırlık</div>
+        <div class="deger-text">Geleceğe hazır kurumlar ve profesyoneller; doğru teknoloji vizyonu, doğru danışmanlık yaklaşımı ve doğru uygulama disipliniyle bugünden inşa edilir.</div>
+      </div>
+      <div class="deger-card" style="background:linear-gradient(135deg,#22d3ee,#0891b2);border:1px solid rgba(34,211,238,0.6);">
+        <div class="deger-title">Kalite & Sürdürülebilirlik</div>
+        <div class="deger-text">Uzman seçimi ve metodoloji yönetiminden uygulama takibine kadar tüm aşamalarda uluslararası kalite standartlarını esas alırız.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EKİP -->
+<section class="section kurucu" id="ekip">
+  <div class="section-inner">
+    <div class="section-tag">Kurumsal</div>
+    <h2 class="section-title">Kurucu & CEO</h2>
+    <div style="display:grid;grid-template-columns:220px 1fr;gap:60px;align-items:start;margin-top:48px;">
+
+      <!-- SOL: Avatar + İsim -->
+      <div style="text-align:center;">
+        <div class="kurucu-avatar" style="background:linear-gradient(135deg,#2563eb,#38bdf8);margin:0 auto 20px;">ÖS</div>
+        <div class="kurucu-name">Özgür Sağlam</div>
+        <div class="kurucu-unvan">Kurucu & CEO · Bilginex</div>
+      </div>
+
+      <!-- SAĞ: Sadece metin -->
+      <div>
+        <p style="font-size:16px;color:var(--text2);line-height:1.85;font-weight:300;margin-bottom:20px;"><strong>Özgür Sağlam</strong>, Bilgisayar Mühendisi olup MBA yüksek lisans derecesine sahiptir. Bilişim ve telekomünikasyon sektörlerinde 25 yılı aşkın deneyime sahip olan Sağlam, kariyeri boyunca kurumsal satış, iş geliştirme, stratejik müşteri yönetimi, ihale süreçleri, ekip yönetimi ve teknoloji odaklı proje geliştirme alanlarında önemli görevler üstlenmiştir.</p>
+          <p style="font-size:16px;color:var(--text2);line-height:1.85;font-weight:300;margin-bottom:20px;">BilgeAdam Teknoloji | BGTS bünyesinde <strong>Kurumsal İş Geliştirme ve Satış Müdürü</strong>, <strong>Ankara Şube Müdürü</strong> ve <strong>Merkez Satış Müdürü</strong> olarak görev yapmış; aynı zamanda bilişim ekosistemine katkı sağlayan mesleki çalışmaları kapsamında <strong>Türkiye Bilişim Derneği üyesi</strong> olarak yer almaktadır. BilgeAdam Teknoloji öncesinde ise Vodafone ve Borusan Telekom çözüm ortaklığı bünyesinde <strong>Kurumsal Satış Müdürü</strong>, Sabancı Telekom çözüm ortaklığı bünyesinde <strong>Satış Müdürü</strong>, Turkcell çözüm ortaklığı bünyesinde ise <strong>Mağaza Yöneticisi</strong> olarak çalışmıştır.</p>
+          <p style="font-size:16px;color:var(--text2);line-height:1.85;font-weight:300;margin-bottom:20px;">Özgür Sağlam'ın uzmanlık alanları arasında <strong>dijital dönüşüm, proje yönetimi, satış stratejisi ve gelir yönetimi, pazar analizi, kilit müşteri yönetimi, ekip liderliği, CRM süreçleri, müzakere, sunum, iş geliştirme ve networking</strong> yer almaktadır.</p>
+          <p style="font-size:16px;color:var(--text2);line-height:1.85;font-weight:300;">Profesyonel çalışmalarının yanı sıra <strong>TSSF/CMAS 1 Yıldız Dalış Eğitmeni</strong> olan Özgür Sağlam; tenis ve kayak sporlarıyla ilgilenmekte, ayrıca İngilizce bilmektedir.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- REFERANSLAR -->
+<section class="section referanslar" id="referanslar" id="referanslar">
+  <div class="section-inner">
+    <div class="section-tag">Müşteri Görüşleri</div>
+    <h2 class="section-title">Müşterilerimiz ne diyor?</h2>
+    <div class="ref-grid">
+      <div class="ref-card">
+        <div class="ref-quote">"</div>
+        <div class="ref-text">Bilginex ekibi, AI chatbot projemizde hem teknik derinliği hem de iş süreçlerimize hakimiyetiyle fark yarattı. Destek maliyetlerimiz %40 düştü.</div>
+        <div class="ref-divider"></div>
+        <div class="ref-avatar">
+          <div class="ref-initials" style="background:linear-gradient(135deg,#2563eb,#818cf8);">AY</div>
+          <div>
+            <div class="ref-name">Ahmet Yıldız</div>
+            <div class="ref-company">CTO, FinTech Startup</div>
+          </div>
+        </div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-quote">"</div>
+        <div class="ref-text">Akademi kurumsal eğitim programı sayesinde 120 kişilik ekibimizin cloud yetkinliği 6 ayda tamamen yenilendi. Olağanüstü bir organizasyon.</div>
+        <div class="ref-divider"></div>
+        <div class="ref-avatar">
+          <div class="ref-initials" style="background:linear-gradient(135deg,#0d9488,#34d399);">SK</div>
+          <div>
+            <div class="ref-name">Selin Kaya</div>
+            <div class="ref-company">Dijital Dönüşüm Müdürü, Holding</div>
+          </div>
+        </div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-quote">"</div>
+        <div class="ref-text">Uzman kaynak kiralama modeliyle 3 kıdemli backend developer'ı 2 haftada kadromuza kattık. Kalite çıtası beklentilerimizin üzerindeydi.</div>
+        <div class="ref-divider"></div>
+        <div class="ref-avatar">
+          <div class="ref-initials" style="background:linear-gradient(135deg,#7c3aed,#c084fc);">MÖ</div>
+          <div>
+            <div class="ref-name">Mert Özer</div>
+            <div class="ref-company">Kurucu, E-ticaret Girişimi</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÇALIŞTIĞIMIZ KURUMLAR -->
+<div class="kurumlar-band">
+  <div class="kurumlar-label">Referanslarımız</div>
+  <div class="kurumlar-track-wrap">
+    <div class="kurumlar-track">
+      <span class="kurum-item"><span class="kurum-text">Bilkent Üniversitesi</span></span><span class="kurum-item"><span class="kurum-text">TÜRKSAT A.Ş.</span></span><span class="kurum-item"><span class="kurum-text">Netaş Telekomünikasyon</span></span><span class="kurum-item"><span class="kurum-text">T.C. Millî Savunma Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">T.C. Çalışma ve Sosyal Güvenlik Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Savunma Sanayii Başkanlığı (SSB)</span></span><span class="kurum-item"><span class="kurum-text">Ziraat Bankası</span></span><span class="kurum-item"><span class="kurum-text">Türkiye Finans</span></span><span class="kurum-item"><span class="kurum-text">Hacettepe Üniversitesi</span></span><span class="kurum-item"><span class="kurum-text">T.C. Cumhurbaşkanlığı Dijital Dönüşüm Ofisi</span></span><span class="kurum-item"><span class="kurum-text">T.C. Sanayi ve Teknoloji Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">TÜBİTAK BİLGEM</span></span><span class="kurum-item"><span class="kurum-text">Ankara Büyükşehir Belediyesi</span></span><span class="kurum-item"><span class="kurum-text">Gazi Üniversitesi</span></span><span class="kurum-item"><span class="kurum-text">Jandarma Genel Komutanlığı</span></span><span class="kurum-item"><span class="kurum-text">STM Savunma Teknolojileri</span></span><span class="kurum-item"><span class="kurum-text">T.C. Adalet Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Bilgi Teknolojileri ve İletişim Kurumu (BTK)</span></span><span class="kurum-item"><span class="kurum-text">Vodafone Türkiye</span></span><span class="kurum-item"><span class="kurum-text">T.C. Hazine ve Maliye Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Emniyet Genel Müdürlüğü</span></span><span class="kurum-item"><span class="kurum-text">T.C. Dışişleri Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">ASELSAN A.Ş.</span></span><span class="kurum-item"><span class="kurum-text">TÜBİTAK</span></span><span class="kurum-item"><span class="kurum-text">ROKETSAN A.Ş.</span></span><span class="kurum-item"><span class="kurum-text">KOSGEB</span></span><span class="kurum-item"><span class="kurum-text">T.C. Milli Eğitim Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">FNSS Savunma Sistemleri</span></span><span class="kurum-item"><span class="kurum-text">Sermaye Piyasası Kurulu (SPK)</span></span><span class="kurum-item"><span class="kurum-text">PTT A.Ş.</span></span><span class="kurum-item"><span class="kurum-text">T.C. Türkiye Büyük Millet Meclisi</span></span><span class="kurum-item"><span class="kurum-text">Türkiye İş Kurumu (İŞKUR)</span></span><span class="kurum-item"><span class="kurum-text">Türk Telekom</span></span><span class="kurum-item"><span class="kurum-text">Bankacılık Düzenleme ve Denetleme Kurumu (BDDK)</span></span><span class="kurum-item"><span class="kurum-text">T.C. Aile ve Sosyal Hizmetler Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Ziraat Teknoloji</span></span><span class="kurum-item"><span class="kurum-text">Orta Doğu Teknik Üniversitesi (ODTÜ)</span></span><span class="kurum-item"><span class="kurum-text">TÜRKSAT A.Ş.</span></span><span class="kurum-item"><span class="kurum-text">T.C. Kültür ve Turizm Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">TÜBİTAK SAGE</span></span><span class="kurum-item"><span class="kurum-text">Vakıfbank</span></span><span class="kurum-item"><span class="kurum-text">T.C. İçişleri Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Sosyal Güvenlik Kurumu (SGK)</span></span><span class="kurum-item"><span class="kurum-text">HAVELSAN A.Ş.</span></span><span class="kurum-item"><span class="kurum-text">T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Ankara Üniversitesi</span></span><span class="kurum-item"><span class="kurum-text">Meteksan Savunma</span></span><span class="kurum-item"><span class="kurum-text">T.C. Ulaştırma ve Altyapı Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Halkbank</span></span><span class="kurum-item"><span class="kurum-text">T.C. Tarım ve Orman Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">T.C. Gençlik ve Spor Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">T.C. Ticaret Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">T.C. Cumhurbaşkanlığı</span></span><span class="kurum-item"><span class="kurum-text">Turkcell</span></span><span class="kurum-item"><span class="kurum-text">T.C. Sağlık Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">T.C. Enerji ve Tabii Kaynaklar Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">TUSAŞ (TAI)</span></span><span class="kurum-item"><span class="kurum-text">Bilkent Üniversitesi</span></span><span class="kurum-item"><span class="kurum-text">TÜRKSAT A.Ş.</span></span><span class="kurum-item"><span class="kurum-text">Netaş Telekomünikasyon</span></span><span class="kurum-item"><span class="kurum-text">T.C. Millî Savunma Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">T.C. Çalışma ve Sosyal Güvenlik Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Savunma Sanayii Başkanlığı (SSB)</span></span><span class="kurum-item"><span class="kurum-text">Ziraat Bankası</span></span><span class="kurum-item"><span class="kurum-text">Türkiye Finans</span></span><span class="kurum-item"><span class="kurum-text">Hacettepe Üniversitesi</span></span><span class="kurum-item"><span class="kurum-text">T.C. Cumhurbaşkanlığı Dijital Dönüşüm Ofisi</span></span><span class="kurum-item"><span class="kurum-text">T.C. Sanayi ve Teknoloji Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">TÜBİTAK BİLGEM</span></span><span class="kurum-item"><span class="kurum-text">Ankara Büyükşehir Belediyesi</span></span><span class="kurum-item"><span class="kurum-text">Gazi Üniversitesi</span></span><span class="kurum-item"><span class="kurum-text">Jandarma Genel Komutanlığı</span></span><span class="kurum-item"><span class="kurum-text">STM Savunma Teknolojileri</span></span><span class="kurum-item"><span class="kurum-text">T.C. Adalet Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Bilgi Teknolojileri ve İletişim Kurumu (BTK)</span></span><span class="kurum-item"><span class="kurum-text">Vodafone Türkiye</span></span><span class="kurum-item"><span class="kurum-text">T.C. Hazine ve Maliye Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Emniyet Genel Müdürlüğü</span></span><span class="kurum-item"><span class="kurum-text">T.C. Dışişleri Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">ASELSAN A.Ş.</span></span><span class="kurum-item"><span class="kurum-text">TÜBİTAK</span></span><span class="kurum-item"><span class="kurum-text">ROKETSAN A.Ş.</span></span><span class="kurum-item"><span class="kurum-text">KOSGEB</span></span><span class="kurum-item"><span class="kurum-text">T.C. Milli Eğitim Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">FNSS Savunma Sistemleri</span></span><span class="kurum-item"><span class="kurum-text">Sermaye Piyasası Kurulu (SPK)</span></span><span class="kurum-item"><span class="kurum-text">PTT A.Ş.</span></span><span class="kurum-item"><span class="kurum-text">T.C. Türkiye Büyük Millet Meclisi</span></span><span class="kurum-item"><span class="kurum-text">Türkiye İş Kurumu (İŞKUR)</span></span><span class="kurum-item"><span class="kurum-text">Türk Telekom</span></span><span class="kurum-item"><span class="kurum-text">Bankacılık Düzenleme ve Denetleme Kurumu (BDDK)</span></span><span class="kurum-item"><span class="kurum-text">T.C. Aile ve Sosyal Hizmetler Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Ziraat Teknoloji</span></span><span class="kurum-item"><span class="kurum-text">Orta Doğu Teknik Üniversitesi (ODTÜ)</span></span><span class="kurum-item"><span class="kurum-text">TÜRKSAT A.Ş.</span></span><span class="kurum-item"><span class="kurum-text">T.C. Kültür ve Turizm Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">TÜBİTAK SAGE</span></span><span class="kurum-item"><span class="kurum-text">Vakıfbank</span></span><span class="kurum-item"><span class="kurum-text">T.C. İçişleri Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Sosyal Güvenlik Kurumu (SGK)</span></span><span class="kurum-item"><span class="kurum-text">HAVELSAN A.Ş.</span></span><span class="kurum-item"><span class="kurum-text">T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Ankara Üniversitesi</span></span><span class="kurum-item"><span class="kurum-text">Meteksan Savunma</span></span><span class="kurum-item"><span class="kurum-text">T.C. Ulaştırma ve Altyapı Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">Halkbank</span></span><span class="kurum-item"><span class="kurum-text">T.C. Tarım ve Orman Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">T.C. Gençlik ve Spor Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">T.C. Ticaret Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">T.C. Cumhurbaşkanlığı</span></span><span class="kurum-item"><span class="kurum-text">Turkcell</span></span><span class="kurum-item"><span class="kurum-text">T.C. Sağlık Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">T.C. Enerji ve Tabii Kaynaklar Bakanlığı</span></span><span class="kurum-item"><span class="kurum-text">TUSAŞ (TAI)</span></span>
+    </div>
+  </div>
+</div>
+<!-- SERTİFİKALAR -->
+<section class="section sertifikalar" id="sertifikalar">
+  <div class="section-inner">
+    <div class="section-tag">Teknoloji Ekosistemi</div>
+    <h2 class="section-title">Dünya standartlarında<br/>teknoloji ekosistemi</h2>
+    <p class="section-sub">Eğitimlerimizde ve çözümlerimizde yer alan global teknoloji markaları.</p>
+                <div class="sert-grid">
+      <!-- Microsoft -->
+      <div class="sert-card">
+        <div class="sert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft"/></div>
+        <div class="sert-name">Microsoft</div>
+      </div>
+      <!-- AWS -->
+      <div class="sert-card">
+        <div class="sert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS"/></div>
+        <div class="sert-name">AWS</div>
+      </div>
+      <!-- Google Cloud -->
+      <div class="sert-card">
+        <div class="sert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Google-cloud-platform.svg" alt="Google Cloud"/></div>
+        <div class="sert-name">Google Cloud</div>
+      </div>
+      <!-- Cisco -->
+      <div class="sert-card">
+        <div class="sert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Cisco"/></div>
+        <div class="sert-name">Cisco</div>
+      </div>
+      <!-- Oracle -->
+      <div class="sert-card">
+        <div class="sert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg" alt="Oracle"/></div>
+        <div class="sert-name">Oracle</div>
+      </div>
+      <!-- SAP -->
+      <div class="sert-card">
+        <div class="sert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" alt="SAP"/></div>
+        <div class="sert-name">SAP</div>
+      </div>
+      <!-- VMware -->
+      <div class="sert-card">
+        <div class="sert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Vmware.svg" alt="VMware"/></div>
+        <div class="sert-name">VMware</div>
+      </div>
+      <!-- Red Hat -->
+      <div class="sert-card">
+        <div class="sert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Red_Hat_logo.svg" alt="Red Hat"/></div>
+        <div class="sert-name">Red Hat</div>
+      </div>
+      <!-- PMP -->
+      <div class="sert-card">
+        <div class="sert-logo"><img src="data:image/png;base64,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" alt="PMP"/></div>
+        <div class="sert-name">PMP</div>
+      </div>
+      <!-- Docker -->
+      <div class="sert-card">
+        <div class="sert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg" alt="Docker"/></div>
+        <div class="sert-name">Docker</div>
+      </div>
+      <!-- OpenAI -->
+      <div class="sert-card">
+        <div class="sert-logo"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><path fill="#000" d="M37.5 17.3a10.4 10.4 0 0 0-.9-8.5 10.6 10.6 0 0 0-11.4-5.1A10.4 10.4 0 0 0 17.4 1a10.6 10.6 0 0 0-10.1 7.3 10.4 10.4 0 0 0-6.9 5 10.6 10.6 0 0 0 1.3 12.4 10.4 10.4 0 0 0 .9 8.5 10.6 10.6 0 0 0 11.4 5.1A10.4 10.4 0 0 0 21.8 43a10.6 10.6 0 0 0 10.1-7.4 10.4 10.4 0 0 0 6.9-5 10.6 10.6 0 0 0-1.3-13.3zM21.8 40.3a7.9 7.9 0 0 1-5-1.8l.2-.1 8.3-4.8a1.4 1.4 0 0 0 .7-1.2V20.6l3.5 2a.1.1 0 0 1 .1.1v9.7a7.9 7.9 0 0 1-7.8 7.9zm-16.9-7.3A7.9 7.9 0 0 1 3.8 27l.2.1 8.3 4.8a1.4 1.4 0 0 0 1.4 0l10.1-5.8v4a.1.1 0 0 1-.1.1l-8.4 4.9a7.9 7.9 0 0 1-10.4-2.1zm-2.2-18.3a7.9 7.9 0 0 1 4.1-3.5v9.9a1.4 1.4 0 0 0 .7 1.2l10.1 5.8-3.5 2a.1.1 0 0 1-.1 0L5.7 25a7.9 7.9 0 0 1-3-10.3zm28.7 6.8-10.1-5.9 3.5-2a.1.1 0 0 1 .1 0l8.3 4.8a7.9 7.9 0 0 1-1.2 14.2v-9.9a1.4 1.4 0 0 0-.6-1.2zm3.5-5.3-.2-.1-8.3-4.8a1.4 1.4 0 0 0-1.4 0L15 17.1v-4a.1.1 0 0 1 .1-.1l8.3-4.8a7.9 7.9 0 0 1 11.5 8.3zm-21.9 7.2-3.5-2a.1.1 0 0 1-.1-.1v-9.7a7.9 7.9 0 0 1 13-6.1l-.2.1-8.3 4.8a1.4 1.4 0 0 0-.7 1.2l-.2 11.8zm1.9-4.1 4.5-2.6 4.5 2.6v5.1l-4.5 2.6-4.5-2.6V19.3z"/></svg></div>
+        <div class="sert-name">OpenAI</div>
+      </div>
+      <!-- Kubernetes -->
+      <div class="sert-card">
+        <div class="sert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" alt="Kubernetes"/></div>
+        <div class="sert-name">Kubernetes</div>
+      </div>
+      <!-- Linux -->
+      <div class="sert-card">
+        <div class="sert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" alt="Linux"/></div>
+        <div class="sert-name">Linux</div>
+      </div>
+      <!-- ITIL -->
+      <div class="sert-card">
+        <div class="sert-logo" style="display:flex;align-items:center;justify-content:center;"><svg width="90" height="36" viewBox="0 0 130 50" xmlns="http://www.w3.org/2000/svg"><rect width="130" height="50" rx="4" fill="#009FDA"/><text x="65" y="34" font-family="Arial,sans-serif" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">ITIL</text></svg></div>
+        <div class="sert-name">ITIL</div>
+      </div>
+      <!-- Microsoft Azure -->
+      <div class="sert-card">
+        <div class="sert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg" alt="Azure"/></div>
+        <div class="sert-name">Microsoft Azure</div>
+      </div>
+      <!-- Anthropic -->
+      <div class="sert-card">
+        <div class="sert-logo" style="display:flex;align-items:center;justify-content:center;"><svg width="100" height="36" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="50" rx="6" fill="#CC785C"/><text x="100" y="34" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">Anthropic</text></svg></div>
+        <div class="sert-name">Anthropic</div>
+      </div>
+      <!-- Google Gemini -->
+      <div class="sert-card">
+        <div class="sert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" alt="Google Gemini"/></div>
+        <div class="sert-name">Google Gemini</div>
+      </div>
+      <!-- Microsoft Copilot -->
+      <div class="sert-card">
+        <div class="sert-logo" style="display:flex;align-items:center;justify-content:center;">
+          <svg width="44" height="44" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="cg1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0078D4"/><stop offset="100%" stop-color="#00BCF2"/></linearGradient>
+              <linearGradient id="cg2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7FBA00"/><stop offset="100%" stop-color="#00B4D8"/></linearGradient>
+              <linearGradient id="cg3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FF8C00"/><stop offset="100%" stop-color="#FFD700"/></linearGradient>
+              <linearGradient id="cg4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F02C2C"/><stop offset="100%" stop-color="#FF8C00"/></linearGradient>
+            </defs>
+            <path d="M16 2 C8.3 2 2 8.3 2 16 C2 19.5 3.3 22.7 5.4 25.2 L16 16 Z" fill="url(#cg1)"/>
+            <path d="M16 2 C23.7 2 30 8.3 30 16 C30 19.5 28.7 22.7 26.6 25.2 L16 16 Z" fill="url(#cg2)"/>
+            <path d="M5.4 25.2 C7.9 28.2 11.7 30 16 30 L16 16 Z" fill="url(#cg4)"/>
+            <path d="M26.6 25.2 C24.1 28.2 20.3 30 16 30 L16 16 Z" fill="url(#cg3)"/>
+            <circle cx="16" cy="16" r="6" fill="white" opacity="0.9"/>
+          </svg>
+        </div>
+        <div class="sert-name">Microsoft Copilot</div>
+      </div>
+      <!-- Hugging Face -->
+      <div class="sert-card">
+        <div class="sert-logo"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face"/></div>
+        <div class="sert-name">Hugging Face</div>
+      </div>
+      <!-- LangChain -->
+      <div class="sert-card">
+        <div class="sert-logo" style="display:flex;align-items:center;justify-content:center;"><svg width="100" height="36" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="50" rx="6" fill="#1C3C3C"/><text x="100" y="34" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#00FF9C" text-anchor="middle">LangChain</text></svg></div>
+        <div class="sert-name">LangChain</div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner">
+    <h2 class="cta-title">Dönüşüm yolculuğunuz bugün başlıyor</h2>
+    <p class="cta-sub">Kurumunuzun teknoloji, yetkinlik ve dönüşüm hedeflerini birlikte değerlendirelim. İlk görüşme ücretsiz ve taahhütsüz.</p>
+    <a href="#" class="btn-cta-white">Görüşme Al →</a>
+    <a href="hizmetler.html" class="btn-cta-outline">Hizmetlerimiz</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo">Bilgi<span>nex</span></a>
+      <p>Teknoloji eğitimi, AI entegrasyonu, dijital dönüşüm ve uzman kaynak kiralama alanlarında Türkiye'nin öncü teknoloji ortağı.</p>
+      <div class="footer-social" style="margin-top:16px;">
+        <a href="https://linkedin.com/company/bilginex" target="_blank" class="social-icon-btn li" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="#fff"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://twitter.com/bilginex" target="_blank" class="social-icon-btn tw" title="Twitter / X">
+          <svg viewBox="0 0 24 24" fill="#fff"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.857L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+        </a>
+        <a href="https://instagram.com/bilginex" target="_blank" class="social-icon-btn ig" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        </a>
+        <a href="https://youtube.com/@bilginex" target="_blank" class="social-icon-btn yt" title="YouTube">
+          <svg viewBox="0 0 24 24" fill="#fff"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Hizmetler</h4>
+      <ul>
+        <li><a href="ai-entegrasyon.html">AI Entegrasyonu</a></li>
+        <li><a href="dijital-donusum.html">Dijital Dönüşüm</a></li>
+        <li><a href="teknoloji-egitimi.html">Teknoloji Eğitimleri</a></li>
+        <li><a href="uzman-kadro.html">Uzman Kadro</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Akademi</h4>
+      <ul>
+        <li><a href="akademi.html">Tüm Kurslar</a></li>
+        <li><a href="akademi.html">Canlı Eğitimler</a></li>
+        <li><a href="akademi.html">Sertifikalar</a></li>
+        <li><a href="akademi.html">Kurumsal Paket</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Şirket</h4>
+      <ul>
+        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+        <li><a href="hakkimizda.html#ekip">Kurumsal</a></li>
+        <li><a href="hakkimizda.html">Kariyer</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Bilginex Teknoloji A.Ş. Tüm hakları saklıdır.</p>
+    <p>İstanbul · Ankara · İzmir</p>
+  </div>
+</footer>
+
+
+<script>
+(function() {
+  const items = document.querySelectorAll('.nav-links li.has-mega');
+  let closeTimer;
+  let currentOpen = null;
+
+  function positionMenu(item, menu) {
+    const navEl = document.querySelector('nav');
+    const navRect = navEl.getBoundingClientRect();
+    const itemRect = item.getBoundingClientRect();
+    const menuWidth = menu.offsetWidth || 860;
+    const viewportWidth = window.innerWidth;
+    const pad = 16;
+
+    // Nav altına yerleştir
+    const top = navRect.bottom + 4;
+
+    // Item merkezine göre ortala
+    let left = itemRect.left + itemRect.width / 2 - menuWidth / 2;
+    if (left + menuWidth > viewportWidth - pad) left = viewportWidth - menuWidth - pad;
+    if (left < pad) left = pad;
+
+    menu.style.top = top + 'px';
+    menu.style.left = left + 'px';
+    menu.style.transform = 'none';
+
+    // Ok'u item merkezine hizala
+    const arrow = menu.querySelector('.mega-arrow');
+    if (arrow) {
+      const itemCenter = itemRect.left + itemRect.width / 2;
+      const arrowLeft = itemCenter - left;
+      arrow.style.left = arrowLeft + 'px';
+      arrow.style.transform = 'translateX(-50%) rotate(45deg)';
+    }
+  }
+
+  function closeAll() {
+    items.forEach(i => {
+      const m = i.querySelector('.mega-menu');
+      if (m) { m.style.opacity='0'; m.style.visibility='hidden'; m.style.pointerEvents='none'; }
+    });
+    currentOpen = null;
+  }
+
+  function openMenu(item) {
+    clearTimeout(closeTimer);
+    items.forEach(i => {
+      if (i !== item) {
+        const m = i.querySelector('.mega-menu');
+        if (m) { m.style.opacity='0'; m.style.visibility='hidden'; m.style.pointerEvents='none'; }
+      }
+    });
+    const menu = item.querySelector('.mega-menu');
+    if (menu) {
+      menu.style.visibility = 'hidden';
+      menu.style.opacity = '0';
+      positionMenu(item, menu);
+      menu.style.visibility = 'visible';
+      menu.style.opacity = '1';
+      menu.style.pointerEvents = 'all';
+    }
+    currentOpen = item;
+  }
+
+  function scheduleClose() {
+    closeTimer = setTimeout(closeAll, 200);
+  }
+
+  items.forEach(item => {
+    item.addEventListener('mouseenter', () => openMenu(item));
+    item.addEventListener('mouseleave', scheduleClose);
+    const menu = item.querySelector('.mega-menu');
+    if (menu) {
+      menu.addEventListener('mouseenter', () => { clearTimeout(closeTimer); currentOpen = item; });
+      menu.addEventListener('mouseleave', scheduleClose);
+    }
+  });
+
+  document.addEventListener('mouseleave', closeAll);
+  window.addEventListener('resize', () => { if (currentOpen) openMenu(currentOpen); });
+})();
+</script>
+</body>
+</html>
