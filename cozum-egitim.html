@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Eğitim Çözümleri — Bilginex</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f0f2f5;--bg2:#f7f8fa;--surface:#fff;
+  --border:rgba(15,23,60,0.09);--border2:rgba(15,23,60,0.16);
+  --text:#0e1628;--text2:#485070;--text3:#9099b5;
+  --accent:#1d4ed8;--accent2:#2563eb;--accentlt:#eff4ff;
+  --teal:#0d9488;--teallt:#f0fdfa;
+  --font-d:'Syne',sans-serif;--font-b:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--font-b);font-size:16px;line-height:1.6;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:18px 60px;background:rgba(240,242,245,0.92);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);overflow:visible;}
+.nav-logo{font-family:var(--font-d);font-size:22px;font-weight:800;letter-spacing:-0.5px;color:var(--text);text-decoration:none;}
+.nav-logo span{color:#1a56db;}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:14px;transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--text);font-weight:500;}
+.nav-cta{display:flex;gap:10px;}
+.btn-ghost{padding:9px 20px;border:1px solid var(--border2);background:transparent;color:var(--text);font-family:var(--font-b);font-size:13px;font-weight:500;border-radius:7px;cursor:pointer;transition:background 0.2s;text-decoration:none;}
+.btn-ghost:hover{background:var(--surface);}
+.btn-primary{padding:9px 22px;background:var(--accent2);border:none;color:#fff;font-family:var(--font-b);font-size:13px;font-weight:500;border-radius:7px;cursor:pointer;transition:background 0.2s;text-decoration:none;}
+.btn-primary:hover{background:var(--accent);}
+/* ── MEGA MENU ── */
+  .nav-links li { position: relative; }
+  .nav-links li.has-mega > a::after { content: ' ▾'; font-size: 10px; opacity: 0.6; }
+  .mega-menu {
+    position: fixed;
+    top: auto;
+    left: 0;
+    transform: none;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(15,23,60,0.12);
+    padding: 32px 36px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 300;
+    transition: none;
+  }
+  .mega-menu::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    height: 20px;
+  }
+  .nav-links li.has-mega:hover .mega-menu,
+  .nav-links li.has-mega:focus-within .mega-menu {
+    opacity: 1; visibility: visible; pointer-events: all;
+    transform: translateY(0);
+    transition: opacity 0.15s, transform 0.15s, visibility 0s;
+  }
+  .mega-arrow {
+    position: absolute; top: -6px; left: 50%;
+    width: 12px; height: 12px; background: #fff;
+    border-left: 1px solid var(--border); border-top: 1px solid var(--border);
+    transform: translateX(-50%) rotate(45deg);
+    pointer-events: none;
+  }
+  /* Görünmez köprü — mouse gap'ten geçerken menüyü açık tutar */
+  .mega-menu::after {
+    content: ''; position: absolute; top: -20px; left: 0; right: 0; height: 20px;
+  }
+  .mega-grid { display: grid; gap: 0; align-items: start; }
+  .mega-grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .mega-grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .mega-col { padding: 0 28px; border-right: 1px solid var(--border); }
+  .mega-col:first-child { padding-left: 0; }
+  .mega-col:last-child { border-right: none; }
+  .mega-col-title {
+    font-family: var(--font-d); font-size:19px; font-weight: 700;
+    color: var(--text); letter-spacing: -0.2px; margin-bottom: 16px;
+    padding-bottom: 12px; border-bottom: 2px solid var(--border);
+  }
+  .mega-col-title span { color: #38bdf8; }
+  .mega-link {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 8px 0; text-decoration: none;
+    transition: all 0.15s; border-radius: 6px;
+  }
+  .mega-link:hover .mega-link-name { color: var(--accent2); }
+  .mega-link-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .mega-link-name { font-size: 15px; font-weight: 400; color: var(--text2); display: block; line-height: 1.25; }
+  .mega-link-desc { font-size: 13px; color: var(--text3); display: block; margin-top: 0; font-weight: 300; line-height: 1.3; }
+  .mega-footer {
+    margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .mega-footer-text { font-size: 14px; color: var(--text3); font-weight: 300; }
+  .mega-footer-link {
+    font-size: 14px; font-weight: 500; color: var(--accent2);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .mega-footer-link:hover { color: var(--accent); }
+  /* Mega menu için nav overflow visible */
+  nav { overflow: visible !important; }
+  /* mega-col-title hover */
+
+  .mega-col-title a { color: inherit; text-decoration: none; }
+  .mega-col-title a:hover { color: var(--accent2); }
+  .mega-link { padding: 3px 0 !important; }
+  .mega-link-name { font-size: 15px !important; line-height: 1.2 !important; }
+  .mega-link-desc { font-size: 12px !important; line-height: 1.2 !important; margin-top: 0 !important; }
+  .mega-col { padding: 0 20px !important; }
+  .mega-col-title { margin-bottom: 10px !important; padding-bottom: 8px !important; }
+
+  /* mega-spacing-fix */
+  .mega-link { padding: 8px 0 !important; }
+  .mega-link-name { font-size: 15px !important; font-weight: 500 !important; line-height: 1.4 !important; color: var(--text) !important; }
+  .mega-link-desc { font-size: 12px !important; line-height: 1.4 !important; margin-top: 2px !important; color: var(--text3) !important; }
+  .mega-col { padding: 0 28px !important; }
+  .mega-col-title { font-size: 13px !important; font-weight: 700 !important; letter-spacing: 0.06em !important; text-transform: uppercase !important; color: var(--text2) !important; margin-bottom: 12px !important; padding-bottom: 0 !important; border-bottom: none !important; white-space: nowrap !important; }
+  .mega-col-title a { color: var(--text2) !important; }
+  .mega-col-title a:hover { color: var(--text) !important; }
+  .mega-menu { padding: 32px 36px !important; }
+  .mega-footer { margin-top: 24px !important; padding-top: 16px !important; }
+  .mega-footer-text { font-size: 13px !important; }
+  .mega-footer-link { font-size: 13px !important; font-weight: 600 !important; }
+
+  /* SOSYAL MEDYA İKONLARI */
+  .footer-social{display:flex;align-items:center;gap:10px;}
+  .social-icon-btn{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);transition:all 0.25s;text-decoration:none;flex-shrink:0;}
+  .social-icon-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,0.3);}
+  .social-icon-btn.li:hover{background:#0A66C2;border-color:#0A66C2;}
+  .social-icon-btn.tw:hover{background:#000;border-color:#333;}
+  .social-icon-btn.ig:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-color:transparent;}
+  .social-icon-btn.yt:hover{background:#FF0000;border-color:#FF0000;}
+  .social-icon-btn svg{width:17px;height:17px;}
+/* SOSYAL MEDYA İKONLARI */
+  .footer-social{display:flex;align-items:center;gap:10px;}
+  .social-icon-btn{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);transition:all 0.25s;text-decoration:none;flex-shrink:0;}
+  .social-icon-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,0.3);}
+  .social-icon-btn.li:hover{background:#0A66C2;border-color:#0A66C2;}
+  .social-icon-btn.tw:hover{background:#000;border-color:#333;}
+  .social-icon-btn.ig:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-color:transparent;}
+  .social-icon-btn.yt:hover{background:#FF0000;border-color:#FF0000;}
+  .social-icon-btn svg{width:17px;height:17px;}
+.hero{position:relative;padding:140px 60px 80px;overflow:hidden;background:linear-gradient(135deg,#0a0f2e 0%,#1a1060 40%,#0d2060 100%);}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 80% 20%,rgba(99,102,241,0.2) 0%,transparent 65%);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);background-size:60px 60px;}
+.hero-inner{position:relative;z-index:1;max-width:700px;}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#5eead4;margin-bottom:16px;}
+.hero-tag::before{content:'';display:block;width:20px;height:1px;background:#5eead4;}
+.hero-title{font-family:var(--font-d);font-size:clamp(32px,5vw,52px);font-weight:800;line-height:1.05;letter-spacing:-2px;color:#fff;margin-bottom:20px;}
+.hero-title span{color:#93c5fd;}
+.hero-sub{font-size:16px;color:rgba(255,255,255,0.65);font-weight:300;line-height:1.75;max-width:540px;margin-bottom:32px;}
+.hero-breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:24px;}
+.hero-breadcrumb a{color:rgba(255,255,255,0.6);text-decoration:none;}
+.hero-breadcrumb a:hover{color:#fff;}
+.hero-breadcrumb span{color:rgba(255,255,255,0.3);}
+.sektor-detay{padding:80px 60px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:start;}
+.sektor-main{}
+.sektor-aciklama{font-size:17px;color:var(--text2);line-height:1.85;font-weight:300;margin-bottom:40px;}
+.sektor-cozumler-baslik{font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--text);margin-bottom:24px;letter-spacing:-0.5px;}
+.sektor-cozumler{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:48px;}
+.sektor-cozum-item{display:flex;align-items:flex-start;gap:10px;padding:16px;background:var(--surface);border:1px solid var(--border);border-radius:10px;}
+.check{width:22px;height:22px;border-radius:50%;background:var(--teallt);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.check svg{width:12px;height:12px;}
+.sektor-cozum-item span{font-size:14px;color:var(--text);font-weight:400;line-height:1.5;}
+.sektor-cta-group{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-sektor{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--accent2);color:#fff;font-family:var(--font-b);font-size:15px;font-weight:500;border-radius:8px;text-decoration:none;transition:all 0.2s;}
+.btn-sektor:hover{background:var(--accent);transform:translateY(-1px);}
+.btn-sektor-ghost{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border:1px solid var(--border2);color:var(--text);font-family:var(--font-b);font-size:15px;font-weight:400;border-radius:8px;text-decoration:none;transition:all 0.2s;}
+.btn-sektor-ghost:hover{background:var(--surface);border-color:var(--accent2);}
+.sektor-sidebar{position:sticky;top:100px;}
+.sidebar-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:20px;}
+.sidebar-card-header{padding:4px 0 0;}
+.sidebar-card-body{padding:24px;}
+.sidebar-ikon{font-size:40px;text-align:center;display:block;margin-bottom:12px;}
+.sidebar-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
+.sidebar-stat{background:var(--bg);border-radius:10px;padding:14px;text-align:center;}
+.sidebar-stat-val{font-family:var(--font-d);font-size:22px;font-weight:800;color:var(--text);display:block;}
+.sidebar-stat-lbl{font-size:11px;color:var(--text3);margin-top:3px;display:block;}
+.sidebar-kurum-baslik{font-size:12px;font-weight:600;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;}
+.sidebar-kurum-list{display:flex;flex-wrap:wrap;gap:6px;}
+.sidebar-kurum-badge{font-size:11px;color:var(--text2);background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:4px 10px;}
+.diger-sektorler{padding:0 60px 80px;max-width:1200px;margin:0 auto;}
+.diger-baslik{font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--text);margin-bottom:24px;letter-spacing:-0.5px;}
+.diger-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.diger-kart{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 24px;text-decoration:none;display:flex;align-items:center;gap:14px;transition:all 0.2s;}
+.diger-kart:hover{border-color:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,99,235,0.1);}
+.diger-kart-ikon{font-size:28px;flex-shrink:0;}
+.diger-kart-adi{font-family:var(--font-d);font-size:14px;font-weight:700;color:var(--text);margin-bottom:2px;}
+.diger-kart-desc{font-size:12px;color:var(--text3);font-weight:300;}
+.cta{background:var(--accent2);padding:72px 60px;text-align:center;position:relative;overflow:hidden;}
+.cta::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:48px 48px;}
+.cta-inner{position:relative;z-index:1;}
+.cta-title{font-family:var(--font-d);font-size:clamp(22px,3vw,36px);font-weight:700;color:#fff;letter-spacing:-1px;margin-bottom:10px;}
+.cta-sub{font-size:15px;color:rgba(255,255,255,0.7);font-weight:300;margin-bottom:28px;}
+.btn-cta-white{padding:13px 30px;font-size:14px;font-weight:500;border-radius:8px;cursor:pointer;transition:all 0.25s;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-b);background:#fff;border:1px solid #fff;color:var(--accent);}
+.btn-cta-white:hover{background:#eff4ff;}
+footer { background: #0d1117; padding: 64px 60px 40px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 48px; }
+  .footer-brand .logo { font-family: var(--font-d); font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 14px; }
+  .footer-brand .logo span { color: #0284c7; }
+  .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.38); line-height: 1.75; font-weight: 300; max-width: 260px; }
+  .footer-col h4 { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.28); margin-bottom: 18px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.48); text-decoration: none; font-weight: 300; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: rgba(255,255,255,0.85); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Bilgi<span>nex</span></a>
+  <ul class="nav-links">
+
+    <!-- HİZMETLER -->
+    <li class="has-mega">
+      <a href="hizmetler.html">Hizmetler</a>
+      <div class="mega-menu"><div class="mega-arrow"></div>
+        <div class="mega-grid mega-grid-4">
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="ai-entegrasyon.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">AI Entegrasyonu</a></div>
+            <a href="ai-entegrasyon.html" class="mega-link">
+              <span><span class="mega-link-name">LLM & Chatbot Geliştirme</span><span class="mega-link-desc">Kurumsal AI asistanları</span></span>
+            </a>
+            <a href="ai-entegrasyon.html" class="mega-link">
+              <span><span class="mega-link-name">Süreç Otomasyonu</span><span class="mega-link-desc">RPA ve AI ile verimlilik</span></span>
+            </a>
+            <a href="ai-entegrasyon.html" class="mega-link">
+              <span><span class="mega-link-name">RAG & Veri Sistemleri</span><span class="mega-link-desc">Kurumsal veri entegrasyonu</span></span>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="dijital-donusum.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Dijital Dönüşüm</a></div>
+            <a href="dijital-donusum.html" class="mega-link">
+              <span><span class="mega-link-name">Dijital Yol Haritası</span><span class="mega-link-desc">Strateji ve planlama</span></span>
+            </a>
+            <a href="dijital-donusum.html" class="mega-link">
+              <span><span class="mega-link-name">Cloud Migration</span><span class="mega-link-desc">Azure, AWS, GCP geçişleri</span></span>
+            </a>
+            <a href="dijital-donusum.html" class="mega-link">
+              <span><span class="mega-link-name">ERP/CRM Entegrasyonu</span><span class="mega-link-desc">Sistem birleştirme ve optimizasyon</span></span>
+            </a>
+          </div>
+                              <div class="mega-col">
+            <div class="mega-col-title"><a href="akademi.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#0e1628'" onmouseout="this.style.color='inherit'">Teknoloji Eğitimleri</a></div>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Yapay Zeka')" class="mega-link">
+              <span><span class="mega-link-name" style="color:#38bdf8;font-weight:600;">Yapay Zeka</span><span class="mega-link-desc">Copilot, Azure AI, ML, Generative AI</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Yazılım Geliştirme')" class="mega-link">
+              <span><span class="mega-link-name">Yazılım Geliştirme</span><span class="mega-link-desc">Java, Python, React, .NET</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Bulut Bilişim')" class="mega-link">
+              <span><span class="mega-link-name">Bulut & Güvenlik</span><span class="mega-link-desc">Azure, AWS, CISSP, ISO 27001</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','İş Yönetimi Çözümleri')" class="mega-link">
+              <span><span class="mega-link-name">İş Yönetimi</span><span class="mega-link-desc">PMP, Scrum, Agile, ITIL</span></span>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="uzman-kadro.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Uzman Kaynak Kiralama</a></div>
+            <a href="uzman-kadro.html" class="mega-link">
+              <span><span class="mega-link-name">Staff Augmentation</span><span class="mega-link-desc">Projeye özel uzman desteği</span></span>
+            </a>
+            <a href="uzman-kadro.html" class="mega-link">
+              <span><span class="mega-link-name">Dedicated Team</span><span class="mega-link-desc">Tam zamanlı ekip kurulumu</span></span>
+            </a>
+            <a href="uzman-kadro.html" class="mega-link">
+              <span><span class="mega-link-name">CTO-as-a-Service</span><span class="mega-link-desc">Teknoloji liderliği hizmeti</span></span>
+            </a>
+          </div>
+        </div>
+        <div class="mega-footer">
+          <span class="mega-footer-text">Tüm hizmetlerimizi keşfedin</span>
+          <a href="hizmetler.html" class="mega-footer-link">Tüm Hizmetler →</a>
+        </div>
+      </div>
+    </li>
+
+    <!-- AKADEMİ -->
+    <li class="has-mega">
+      <a href="akademi.html">Akademi</a>
+      <div class="mega-menu" style="min-width:900px;"><div class="mega-arrow"></div>
+        <div class="mega-grid mega-grid-3">
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="akademi.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Yazılım Hizmetleri</a></div>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Bulut Bilişim')" class="mega-link">
+              <span><span class="mega-link-name">Bulut Bilişim</span><span class="mega-link-desc">3 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','SharePoint')" class="mega-link">
+              <span><span class="mega-link-name">SharePoint</span><span class="mega-link-desc">1 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Yazılım Geliştirme')" class="mega-link">
+              <span><span class="mega-link-name">Yazılım Geliştirme</span><span class="mega-link-desc">110 eğitim</span></span>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="akademi.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Veri ve İş Yönetimi</a></div>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Big Data')" class="mega-link">
+              <span><span class="mega-link-name">Big Data</span><span class="mega-link-desc">2 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Bulut Bilişim')" class="mega-link">
+              <span><span class="mega-link-name">Bulut Bilişim</span><span class="mega-link-desc">1 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Dijital Tasarım')" class="mega-link">
+              <span><span class="mega-link-name">Dijital Tasarım</span><span class="mega-link-desc">8 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Kişisel Gelişim ve Vizyon')" class="mega-link">
+              <span><span class="mega-link-name">Kişisel Gelişim ve Vizyon</span><span class="mega-link-desc">26 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Microsoft Office')" class="mega-link">
+              <span><span class="mega-link-name">Microsoft Office</span><span class="mega-link-desc">43 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Sosyal Medya')" class="mega-link">
+              <span><span class="mega-link-name">Sosyal Medya</span><span class="mega-link-desc">2 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Veri Yönetimi Çözümleri')" class="mega-link">
+              <span><span class="mega-link-name">Veri Yönetimi Çözümleri</span><span class="mega-link-desc">41 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','İş Yönetimi Çözümleri')" class="mega-link">
+              <span><span class="mega-link-name">İş Yönetimi Çözümleri</span><span class="mega-link-desc">25 eğitim</span></span>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="akademi.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Teknoloji Servisleri</a></div>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','BT Hizmet Yönetimi')" class="mega-link">
+              <span><span class="mega-link-name">BT Hizmet Yönetimi</span><span class="mega-link-desc">14 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Bilgi Güvenliği')" class="mega-link">
+              <span><span class="mega-link-name">Bilgi Güvenliği</span><span class="mega-link-desc">23 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Bulut Bilişim')" class="mega-link">
+              <span><span class="mega-link-name">Bulut Bilişim</span><span class="mega-link-desc">15 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Linux')" class="mega-link">
+              <span><span class="mega-link-name">Linux</span><span class="mega-link-desc">10 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Sanallaştırma')" class="mega-link">
+              <span><span class="mega-link-name">Sanallaştırma</span><span class="mega-link-desc">1 eğitim</span></span>
+            </a>
+            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Sistem Yönetimi')" class="mega-link">
+              <span><span class="mega-link-name">Sistem Yönetimi</span><span class="mega-link-desc">25 eğitim</span></span>
+            </a>
+          </div>
+        </div>
+        <div class="mega-footer">
+          <span class="mega-footer-text">350 eğitim programı mevcut</span>
+          <a href="akademi.html" class="mega-footer-link">Tüm Eğitimler →</a>
+        </div>
+      </div>
+    </li>
+
+        <!-- ÇÖZÜMLER -->
+    <li class="has-mega">
+      <a href="cozumler.html">Çözümler</a>
+      <div class="mega-menu"><div class="mega-arrow"></div>
+        <div class="mega-grid mega-grid-3">
+          <div class="mega-col">
+            <div class="mega-col-title">Kamu & Güvenlik</div>
+            <a href="cozum-kamu.html" class="mega-link">
+              <span><span class="mega-link-name">Kamu & Devlet</span><span class="mega-link-desc">Dijital dönüşüm ve yetkinlik</span></span>
+            </a>
+            <a href="cozum-savunma.html" class="mega-link">
+              <span><span class="mega-link-name">Savunma Sanayi</span><span class="mega-link-desc">Kritik teknoloji yetkinliği</span></span>
+            </a>
+            <a href="cozum-saglik.html" class="mega-link">
+              <span><span class="mega-link-name">Sağlık</span><span class="mega-link-desc">Dijital sağlık ekosistemi</span></span>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">Finans & Teknoloji</div>
+            <a href="cozum-finans.html" class="mega-link">
+              <span><span class="mega-link-name">Finans & Bankacılık</span><span class="mega-link-desc">Fintech dönüşümü</span></span>
+            </a>
+            <a href="cozum-telekom.html" class="mega-link">
+              <span><span class="mega-link-name">Telekom & Teknoloji</span><span class="mega-link-desc">Telekom ekosistemi yetkinliği</span></span>
+            </a>
+            <a href="cozum-enerji.html" class="mega-link">
+              <span><span class="mega-link-name">Enerji & Sanayi</span><span class="mega-link-desc">Endüstri 4.0 dönüşümü</span></span>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">Diğer</div>
+            <a href="cozum-egitim.html" class="mega-link">
+              <span><span class="mega-link-name">Eğitim</span><span class="mega-link-desc">EdTech ve akademik dönüşüm</span></span>
+            </a>
+            <a href="cozumler.html" class="mega-link">
+              <span><span class="mega-link-name" style="color:#38bdf8;font-weight:600;">Tüm Çözümler</span><span class="mega-link-desc">Tüm sektörleri keşfedin</span></span>
+            </a>
+          </div>
+        </div>
+        <div class="mega-footer">
+          <span class="mega-footer-text">Sektörünüze özel çözüm için</span>
+          <a href="iletisim.html" class="mega-footer-link">Görüşme Talep Et →</a>
+        </div>
+      </div>
+    </li>
+    <li><a href="uzman-kadro.html">Uzman Kadro</a></li>
+        <!-- HAKKIMIZDA -->
+    <li class="has-mega">
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <div class="mega-menu"><div class="mega-arrow"></div>
+        <div class="mega-grid mega-grid-3">
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="hakkimizda.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#0e1628'" onmouseout="this.style.color='inherit'">Biz Kimiz?</a></div>
+            <a href="hakkimizda.html#hikaye" class="mega-link">
+              <span><span class="mega-link-name">Şirket Hikayemiz</span><span class="mega-link-desc">Kuruluş felsefemiz ve yolculuğumuz</span></span>
+            </a>
+            <a href="hakkimizda.html#vizyon" class="mega-link">
+              <span><span class="mega-link-name">Vizyon & Misyon</span><span class="mega-link-desc">Nereye gittiğimiz ve neden</span></span>
+            </a>
+            <a href="hakkimizda.html#degerler" class="mega-link">
+              <span><span class="mega-link-name">Değerlerimiz</span><span class="mega-link-desc">Bizi biz yapan prensipler</span></span>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title"><a href="hakkimizda.html#ekip" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#0e1628'" onmouseout="this.style.color='inherit'">Kurumsal</a></div>
+            <a href="hakkimizda.html#ekip" class="mega-link">
+              <span><span class="mega-link-name">Kuruluş Vizyonu ve Liderlik</span><span class="mega-link-desc">Kurucu & CEO</span></span>
+            </a>
+            <a href="hakkimizda.html#referanslar" class="mega-link">
+              <span><span class="mega-link-name">Müşteri Görüşleri</span><span class="mega-link-desc">Referanslarımız</span></span>
+            </a>
+            <a href="hakkimizda.html#sertifikalar" class="mega-link">
+              <span><span class="mega-link-name">Teknoloji Ekosistemi</span><span class="mega-link-desc">Global teknoloji markaları</span></span>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">Bize Ulaşın</div>
+            <a href="iletisim.html" class="mega-link">
+              <span><span class="mega-link-name">İletişim</span><span class="mega-link-desc">Görüşme talep edin</span></span>
+            </a>
+            <a href="hakkimizda.html" class="mega-link">
+              <span><span class="mega-link-name" style="color:#38bdf8;font-weight:600;">Kariyer</span><span class="mega-link-desc">Ekibimize katılın</span></span>
+            </a>
+          </div>
+        </div>
+        <div class="mega-footer">
+          <span class="mega-footer-text">Bilginex hakkında daha fazla bilgi edinin</span>
+          <a href="hakkimizda.html" class="mega-footer-link">Hakkımızda →</a>
+        </div>
+      </div>
+    </li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="#" class="btn-ghost">Giriş Yap</a>
+    <a href="#" class="btn-primary">Demo Talep Et →</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-breadcrumb">
+      <a href="index.html">Ana Sayfa</a>
+      <span>/</span>
+      <a href="cozumler.html">Çözümler</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,0.7);">Eğitim</span>
+    </div>
+    <div class="hero-tag">Eğitim</div>
+    <h1 class="hero-title">Eğitimde teknoloji liderliği</h1>
+    <p class="hero-sub">Üniversiteler, MEB bağlı kurumlar ve özel eğitim kuruluşları için EdTech dönüşümü, dijital öğrenme platformları, yapay z...</p>
+  </div>
+</section>
+
+<div class="sektor-detay">
+  <div class="sektor-main">
+    <p class="sektor-aciklama">Üniversiteler, MEB bağlı kurumlar ve özel eğitim kuruluşları için EdTech dönüşümü, dijital öğrenme platformları, yapay zeka destekli eğitim sistemleri ve akademik personel geliştirme programları tasarlıyoruz.</p>
+    <h2 class="sektor-cozumler-baslik">Sunduğumuz Çözümler</h2>
+    <div class="sektor-cozumler">
+      <div class="sektor-cozum-item">
+        <div class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#0d9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span>Kurumsal dijital öğrenme platformları</span>
+      </div>
+      <div class="sektor-cozum-item">
+        <div class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#0d9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span>Akademik personel teknoloji eğitimleri</span>
+      </div>
+      <div class="sektor-cozum-item">
+        <div class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#0d9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span>Yapay zeka destekli eğitim sistemleri</span>
+      </div>
+      <div class="sektor-cozum-item">
+        <div class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#0d9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span>Öğrenci başarı analitiği çözümleri</span>
+      </div>
+      <div class="sektor-cozum-item">
+        <div class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#0d9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span>Uzaktan eğitim altyapısı danışmanlığı</span>
+      </div>
+      <div class="sektor-cozum-item">
+        <div class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#0d9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span>Müfredat güncelleme ve teknoloji entegrasyonu</span>
+      </div>
+    </div>
+    <div class="sektor-cta-group">
+      <a href="iletisim.html" class="btn-sektor">Görüşme Talep Et →</a>
+      <a href="akademi.html" class="btn-sektor-ghost">Eğitim Kataloğu</a>
+    </div>
+  </div>
+
+  <div class="sektor-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-card-header" style="height:4px;background:linear-gradient(90deg,#7c3aed,#c084fc);"></div>
+      <div class="sidebar-card-body">
+        <span class="sidebar-ikon">🎓</span>
+        <div class="sidebar-stat-grid"><div class="sidebar-stat"><span class="sidebar-stat-val">10+</span><span class="sidebar-stat-lbl">Üniversite</span></div><div class="sidebar-stat"><span class="sidebar-stat-val">3.000+</span><span class="sidebar-stat-lbl">Akademisyen</span></div><div class="sidebar-stat"><span class="sidebar-stat-val">50+</span><span class="sidebar-stat-lbl">Program</span></div><div class="sidebar-stat"><span class="sidebar-stat-val">%97</span><span class="sidebar-stat-lbl">Memnuniyet</span></div></div>
+        <div class="sidebar-kurum-baslik">Çalıştığımız Kurumlar</div>
+        <div class="sidebar-kurum-list"><span class="sidebar-kurum-badge">ODTÜ</span><span class="sidebar-kurum-badge">Hacettepe Ü.</span><span class="sidebar-kurum-badge">Gazi Ü.</span><span class="sidebar-kurum-badge">Ankara Ü.</span><span class="sidebar-kurum-badge">Bilkent</span></div>
+      </div>
+    </div>
+    <div class="sidebar-card">
+      <div class="sidebar-card-body">
+        <div class="sidebar-kurum-baslik">Hızlı İletişim</div>
+        <p style="font-size:13px;color:var(--text2);font-weight:300;margin-bottom:14px;line-height:1.6;">Eğitim alanında size özel çözüm için hemen ulaşın.</p>
+        <a href="iletisim.html" style="display:block;text-align:center;padding:11px;background:var(--accent2);color:#fff;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;">Bize Yazın →</a>
+        <a href="tel:+905336570404" style="display:block;text-align:center;padding:11px;border:1px solid var(--border2);color:var(--text);border-radius:8px;font-size:13px;font-weight:400;text-decoration:none;margin-top:8px;">+90 533 657 04 04</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="diger-sektorler">
+  <h2 class="diger-baslik">Diğer Sektörel Çözümler</h2>
+  <div class="diger-grid">
+      <a href="cozum-kamu.html" class="diger-kart">
+        <span class="diger-kart-ikon">🏛️</span>
+        <div>
+          <div class="diger-kart-adi">Kamu & Devlet</div>
+          <div class="diger-kart-desc">Dijital devlet için güçlü alty...</div>
+        </div>
+      </a>
+      <a href="cozum-savunma.html" class="diger-kart">
+        <span class="diger-kart-ikon">🛡️</span>
+        <div>
+          <div class="diger-kart-adi">Savunma Sanayi</div>
+          <div class="diger-kart-desc">Kritik teknoloji yetkinliği...</div>
+        </div>
+      </a>
+      <a href="cozum-finans.html" class="diger-kart">
+        <span class="diger-kart-ikon">🏦</span>
+        <div>
+          <div class="diger-kart-adi">Finans & Bankacılık</div>
+          <div class="diger-kart-desc">Fintech dönüşümünde güvenilir ...</div>
+        </div>
+      </a>
+      <a href="cozum-saglik.html" class="diger-kart">
+        <span class="diger-kart-ikon">🏥</span>
+        <div>
+          <div class="diger-kart-adi">Sağlık</div>
+          <div class="diger-kart-desc">Dijital sağlık ekosistemi...</div>
+        </div>
+      </a>
+      <a href="cozum-telekom.html" class="diger-kart">
+        <span class="diger-kart-ikon">📡</span>
+        <div>
+          <div class="diger-kart-adi">Telekom & Teknoloji</div>
+          <div class="diger-kart-desc">Telekom ekosisteminde yetkinli...</div>
+        </div>
+      </a>
+      <a href="cozum-enerji.html" class="diger-kart">
+        <span class="diger-kart-ikon">⚡</span>
+        <div>
+          <div class="diger-kart-adi">Enerji & Sanayi</div>
+          <div class="diger-kart-desc">Endüstri 4.0 ile rekabet avant...</div>
+        </div>
+      </a>
+  </div>
+</div>
+
+<section class="cta">
+  <div class="cta-inner">
+    <h2 class="cta-title">Eğitim için özel teklif alın</h2>
+    <p class="cta-sub">İlk görüşme ücretsiz ve taahhütsüz. Kurumunuzun ihtiyaçlarını birlikte değerlendirelim.</p>
+    <a href="iletisim.html" class="btn-cta-white">Görüşme Talep Et →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo">Bilgi<span>nex</span></a>
+      <p>Teknoloji eğitimi, AI entegrasyonu, dijital dönüşüm ve uzman kaynak kiralama alanlarında Türkiye'nin öncü teknoloji ortağı.</p>
+      <div class="footer-social" style="margin-top:16px;">
+        <a href="https://linkedin.com/company/bilginex" target="_blank" class="social-icon-btn li" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="#fff"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="#" target="_blank" class="social-icon-btn tw" title="Twitter / X">
+          <svg viewBox="0 0 24 24" fill="#fff"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.857L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+        </a>
+        <a href="#" target="_blank" class="social-icon-btn ig" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        </a>
+        <a href="#" target="_blank" class="social-icon-btn yt" title="YouTube">
+          <svg viewBox="0 0 24 24" fill="#fff"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Hizmetler</h4>
+      <ul>
+        <li><a href="ai-entegrasyon.html">AI Entegrasyonu</a></li>
+        <li><a href="dijital-donusum.html">Dijital Dönüşüm</a></li>
+        <li><a href="teknoloji-egitimi.html">Teknoloji Eğitimleri</a></li>
+        <li><a href="uzman-kadro.html">Uzman Kadro</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Akademi</h4>
+      <ul>
+        <li><a href="akademi.html">Tüm Kurslar</a></li>
+        <li><a href="akademi.html">Canlı Eğitimler</a></li>
+        <li><a href="akademi.html">Sertifikalar</a></li>
+        <li><a href="akademi.html">Kurumsal Paket</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Şirket</h4>
+      <ul>
+        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+        <li><a href="hakkimizda.html#ekip">Kurumsal</a></li>
+        <li><a href="hakkimizda.html">Kariyer</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Bilginex Teknoloji A.Ş. Tüm hakları saklıdır.</p>
+    <p>İstanbul · Ankara · İzmir</p>
+  </div>
+</footer>
+<script>
+(function() {
+  const items = document.querySelectorAll('.nav-links li.has-mega');
+  let closeTimer;
+  let currentOpen = null;
+
+  function positionMenu(item, menu) {
+    const navEl = document.querySelector('nav');
+    const navRect = navEl.getBoundingClientRect();
+    const itemRect = item.getBoundingClientRect();
+    const menuWidth = menu.offsetWidth || 860;
+    const viewportWidth = window.innerWidth;
+    const pad = 16;
+
+    // Nav altına yerleştir
+    const top = navRect.bottom + 4;
+
+    // Item merkezine göre ortala
+    let left = itemRect.left + itemRect.width / 2 - menuWidth / 2;
+    if (left + menuWidth > viewportWidth - pad) left = viewportWidth - menuWidth - pad;
+    if (left < pad) left = pad;
+
+    menu.style.top = top + 'px';
+    menu.style.left = left + 'px';
+    menu.style.transform = 'none';
+
+    // Ok'u item merkezine hizala
+    const arrow = menu.querySelector('.mega-arrow');
+    if (arrow) {
+      const itemCenter = itemRect.left + itemRect.width / 2;
+      const arrowLeft = itemCenter - left;
+      arrow.style.left = arrowLeft + 'px';
+      arrow.style.transform = 'translateX(-50%) rotate(45deg)';
+    }
+  }
+
+  function closeAll() {
+    items.forEach(i => {
+      const m = i.querySelector('.mega-menu');
+      if (m) { m.style.opacity='0'; m.style.visibility='hidden'; m.style.pointerEvents='none'; }
+    });
+    currentOpen = null;
+  }
+
+  function openMenu(item) {
+    clearTimeout(closeTimer);
+    items.forEach(i => {
+      if (i !== item) {
+        const m = i.querySelector('.mega-menu');
+        if (m) { m.style.opacity='0'; m.style.visibility='hidden'; m.style.pointerEvents='none'; }
+      }
+    });
+    const menu = item.querySelector('.mega-menu');
+    if (menu) {
+      menu.style.visibility = 'hidden';
+      menu.style.opacity = '0';
+      positionMenu(item, menu);
+      menu.style.visibility = 'visible';
+      menu.style.opacity = '1';
+      menu.style.pointerEvents = 'all';
+    }
+    currentOpen = item;
+  }
+
+  function scheduleClose() {
+    closeTimer = setTimeout(closeAll, 200);
+  }
+
+  items.forEach(item => {
+    item.addEventListener('mouseenter', () => openMenu(item));
+    item.addEventListener('mouseleave', scheduleClose);
+    const menu = item.querySelector('.mega-menu');
+    if (menu) {
+      menu.addEventListener('mouseenter', () => { clearTimeout(closeTimer); currentOpen = item; });
+      menu.addEventListener('mouseleave', scheduleClose);
+    }
+  });
+
+  document.addEventListener('mouseleave', closeAll);
+  window.addEventListener('resize', () => { if (currentOpen) openMenu(currentOpen); });
+})();
+</script>
+</body>
+</html>
