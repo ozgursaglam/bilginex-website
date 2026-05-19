@@ -63,10 +63,9 @@
   }
   .service-card:hover { box-shadow: 0 12px 48px rgba(15,23,60,0.1); transform: translateY(-3px); border-color: var(--border2); }
   .card-photo { width: 100%; height: 220px; object-fit: cover; display: block; }
+  .card-photo-svg { width: 100%; height: 220px; display: block; }
   .card-body { padding: 36px 36px 32px; }
-  .card-icon-row { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
-  .card-icon { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
-  .card-badge { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; }
+  .card-badge { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; margin-bottom: 20px; display: inline-block; }
   .card-title { font-family: var(--font-d); font-size: 24px; font-weight: 700; color: var(--text); margin-bottom: 12px; letter-spacing: -0.5px; }
   .card-desc { font-size: 14px; color: var(--text2); line-height: 1.75; font-weight: 300; margin-bottom: 24px; }
   .card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
@@ -388,7 +387,51 @@
       </div>
     </li>
 
-    <li><a href="#">Çözümler</a></li>
+        <!-- ÇÖZÜMLER -->
+    <li class="has-mega">
+      <a href="cozumler.html">Çözümler</a>
+      <div class="mega-menu"><div class="mega-arrow"></div>
+        <div class="mega-grid mega-grid-3">
+          <div class="mega-col">
+            <div class="mega-col-title">Kamu & Güvenlik</div>
+            <a href="cozum-kamu.html" class="mega-link">
+              <span><span class="mega-link-name">Kamu & Devlet</span><span class="mega-link-desc">Dijital dönüşüm ve yetkinlik</span></span>
+            </a>
+            <a href="cozum-savunma.html" class="mega-link">
+              <span><span class="mega-link-name">Savunma Sanayi</span><span class="mega-link-desc">Kritik teknoloji yetkinliği</span></span>
+            </a>
+            <a href="cozum-saglik.html" class="mega-link">
+              <span><span class="mega-link-name">Sağlık</span><span class="mega-link-desc">Dijital sağlık ekosistemi</span></span>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">Finans & Teknoloji</div>
+            <a href="cozum-finans.html" class="mega-link">
+              <span><span class="mega-link-name">Finans & Bankacılık</span><span class="mega-link-desc">Fintech dönüşümü</span></span>
+            </a>
+            <a href="cozum-telekom.html" class="mega-link">
+              <span><span class="mega-link-name">Telekom & Teknoloji</span><span class="mega-link-desc">Telekom ekosistemi yetkinliği</span></span>
+            </a>
+            <a href="cozum-enerji.html" class="mega-link">
+              <span><span class="mega-link-name">Enerji & Sanayi</span><span class="mega-link-desc">Endüstri 4.0 dönüşümü</span></span>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">Diğer</div>
+            <a href="cozum-egitim.html" class="mega-link">
+              <span><span class="mega-link-name">Eğitim</span><span class="mega-link-desc">EdTech ve akademik dönüşüm</span></span>
+            </a>
+            <a href="cozumler.html" class="mega-link">
+              <span><span class="mega-link-name" style="color:#38bdf8;font-weight:600;">Tüm Çözümler</span><span class="mega-link-desc">Tüm sektörleri keşfedin</span></span>
+            </a>
+          </div>
+        </div>
+        <div class="mega-footer">
+          <span class="mega-footer-text">Sektörünüze özel çözüm için</span>
+          <a href="iletisim.html" class="mega-footer-link">Görüşme Talep Et →</a>
+        </div>
+      </div>
+    </li>
     <li><a href="uzman-kadro.html">Uzman Kadro</a></li>
         <!-- HAKKIMIZDA -->
     <li class="has-mega">
@@ -456,15 +499,11 @@
 
 <section class="services-section">
   <div class="services-grid">
-
-    <!-- AI -->
+    <!-- AI Entegrasyonu -->
     <a href="ai-entegrasyon.html" class="service-card ai">
-      <img class="card-photo" src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80" alt="AI Entegrasyon"/>
+      <img class="card-photo" src="https://plus.unsplash.com/premium_photo-1676637656166-cb7b3a43b81a?w=800&q=80" alt="AI Entegrasyon"/>
       <div class="card-body">
-        <div class="card-icon-row">
-          <div class="card-icon">🤖</div>
-          <span class="card-badge">Yapay Zeka</span>
-        </div>
+        <span class="card-badge">Yapay Zeka</span>
         <div class="card-title">AI Entegrasyonu</div>
         <div class="card-desc">Kurumsal süreçlerinize özel büyük dil modelleri, otomasyon sistemleri ve akıllı karar destek araçları tasarlıyor, uçtan uca entegre ediyoruz. Yapay zekayı gerçek iş değerine dönüştürüyoruz.</div>
         <div class="card-tags">
@@ -480,12 +519,9 @@
 
     <!-- Dijital Dönüşüm -->
     <a href="dijital-donusum.html" class="service-card dijital">
-      <img class="card-photo" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80" alt="Dijital Dönüşüm"/>
+      <img class="card-photo" src="https://plus.unsplash.com/premium_photo-1661411311489-46be8dfc82bd?w=800&q=80" alt="Dijital Dönüşüm"/>
       <div class="card-body">
-        <div class="card-icon-row">
-          <div class="card-icon">🔄</div>
-          <span class="card-badge">Dönüşüm</span>
-        </div>
+        <span class="card-badge">Dönüşüm</span>
         <div class="card-title">Dijital Dönüşüm</div>
         <div class="card-desc">Mevcut iş süreçlerinizi analiz ederek kapsamlı dijital dönüşüm yol haritaları hazırlıyor, cloud geçişinden ERP entegrasyonuna kadar tüm süreci yönetiyoruz.</div>
         <div class="card-tags">
@@ -499,35 +535,29 @@
       </div>
     </a>
 
-    <!-- Teknoloji Eğitimi -->
+    <!-- Teknoloji Eğitimleri -->
     <a href="teknoloji-egitimi.html" class="service-card egitim">
-      <img class="card-photo" src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80" alt="Teknoloji Eğitimleri"/>
+      <img class="card-photo" src="https://images.unsplash.com/photo-1677078611286-4d023c913878?w=800&q=80" alt="Teknoloji Eğitimleri"/>
       <div class="card-body">
-        <div class="card-icon-row">
-          <div class="card-icon">🎓</div>
-          <span class="card-badge">Eğitim</span>
-        </div>
+        <span class="card-badge">Eğitim</span>
         <div class="card-title">Teknoloji Eğitimleri</div>
-        <div class="card-desc">Canlı eğitimler, on-demand kurslar ve kurumsal sertifika programlarıyla ekiplerinizi güncel teknolojilere hazırlayan kapsamlı bir öğrenme ekosistemi sunuyoruz.</div>
+        <div class="card-desc">Kurumunuzun ihtiyaçlarına özel tasarlanmış, sertifikalı eğitim programlarıyla ekibinizin teknoloji yetkinliğini kalıcı olarak geliştiriyoruz.</div>
         <div class="card-tags">
-          <span class="tag">Canlı Bootcamp</span>
           <span class="tag">Kurumsal Eğitim</span>
           <span class="tag">Sertifikasyon</span>
+          <span class="tag">Canlı Bootcamp</span>
+          <span class="tag">E-Learning</span>
           <span class="tag">Mentorluk</span>
-          <span class="tag">Online Kurslar</span>
         </div>
         <span class="card-cta">Detaylı İncele →</span>
       </div>
     </a>
 
-    <!-- Uzman Kadro -->
+    <!-- Uzman Kaynak Kiralama -->
     <a href="uzman-kadro.html" class="service-card uzman">
-      <img class="card-photo" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" alt="Uzman Kaynak Kiralama"/>
+      <img class="card-photo" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80" alt="Uzman Kaynak Kiralama"/>
       <div class="card-body">
-        <div class="card-icon-row">
-          <div class="card-icon">👥</div>
-          <span class="card-badge">Kaynak</span>
-        </div>
+        <span class="card-badge">Kaynak</span>
         <div class="card-title">Uzman Kaynak Kiralama</div>
         <div class="card-desc">Projenizin ihtiyacına göre kıdemli yazılımcılar, veri bilimciler, DevOps uzmanları ve teknoloji mimarlarını esnek modellerle ekibinize dahil ediyoruz.</div>
         <div class="card-tags">
@@ -540,7 +570,6 @@
         <span class="card-cta">Detaylı İncele →</span>
       </div>
     </a>
-
   </div>
 </section>
 
