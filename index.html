@@ -389,6 +389,41 @@
   .social-icon-btn.ig:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-color:transparent;}
   .social-icon-btn.yt:hover{background:#FF0000;border-color:#FF0000;}
   .social-icon-btn svg{width:17px;height:17px;}
+
+  /* ── DEMO MODAL ── */
+  .demo-overlay { display:none; position:fixed; inset:0; background:rgba(5,10,30,0.85); z-index:9999; align-items:center; justify-content:center; backdrop-filter:blur(8px); }
+  .demo-overlay.active { display:flex; }
+  .demo-modal { background:#0d1525; border:1px solid rgba(56,189,248,0.2); border-radius:20px; width:90%; max-width:820px; overflow:hidden; position:relative; }
+  .demo-modal-header { display:flex; align-items:center; justify-content:space-between; padding:20px 28px; border-bottom:1px solid rgba(255,255,255,0.07); }
+  .demo-modal-title { font-family:var(--font-d); font-size:16px; font-weight:700; color:#fff; display:flex; align-items:center; gap:10px; }
+  .demo-modal-title span { width:8px; height:8px; border-radius:50%; background:#22c55e; display:inline-block; animation:pulse 1.5s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+  .demo-close { width:32px; height:32px; border-radius:50%; border:1px solid rgba(255,255,255,0.15); background:transparent; color:rgba(255,255,255,0.5); cursor:pointer; font-size:18px; display:flex; align-items:center; justify-content:center; transition:all 0.2s; }
+  .demo-close:hover { background:rgba(255,255,255,0.1); color:#fff; }
+  .demo-screen { position:relative; height:420px; overflow:hidden; }
+  .demo-slide { position:absolute; inset:0; opacity:0; transition:opacity 0.6s ease; padding:40px 48px; display:flex; flex-direction:column; justify-content:center; }
+  .demo-slide.active { opacity:1; }
+  .demo-slide-tag { font-size:10px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#5eead4; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .demo-slide-tag::before { content:''; display:block; width:14px; height:1px; background:#5eead4; }
+  .demo-slide-num { font-size:11px; color:rgba(255,255,255,0.25); margin-bottom:8px; }
+  .demo-slide h2 { font-family:var(--font-d); font-size:clamp(22px,3vw,32px); font-weight:800; color:#fff; letter-spacing:-1px; line-height:1.1; margin-bottom:14px; }
+  .demo-slide h2 span { color:#93c5fd; }
+  .demo-slide p { font-size:14px; color:rgba(255,255,255,0.55); line-height:1.75; max-width:480px; margin-bottom:24px; }
+  .demo-slide-features { display:flex; flex-wrap:wrap; gap:8px; }
+  .demo-feature { padding:5px 14px; background:rgba(37,99,235,0.15); border:1px solid rgba(37,99,235,0.3); border-radius:100px; font-size:12px; color:#93c5fd; }
+  .demo-slide-visual { position:absolute; right:40px; top:50%; transform:translateY(-50%); width:200px; }
+  .demo-footer { display:flex; align-items:center; justify-content:space-between; padding:16px 28px; border-top:1px solid rgba(255,255,255,0.07); }
+  .demo-dots { display:flex; gap:8px; }
+  .demo-dot { width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.15); cursor:pointer; transition:all 0.2s; border:none; }
+  .demo-dot.active { background:#2563eb; width:24px; border-radius:4px; }
+  .demo-nav { display:flex; gap:8px; }
+  .demo-btn { padding:8px 20px; border-radius:7px; font-size:13px; font-weight:500; cursor:pointer; transition:all 0.2s; font-family:var(--font-b); }
+  .demo-btn-ghost { background:transparent; border:1px solid rgba(255,255,255,0.15); color:rgba(255,255,255,0.6); }
+  .demo-btn-ghost:hover { border-color:rgba(255,255,255,0.3); color:#fff; }
+  .demo-btn-primary { background:#2563eb; border:1px solid #2563eb; color:#fff; }
+  .demo-btn-primary:hover { background:#1d4ed8; }
+  .demo-progress { height:2px; background:rgba(255,255,255,0.07); }
+  .demo-progress-bar { height:100%; background:linear-gradient(90deg,#2563eb,#38bdf8); transition:width 0.1s linear; }
 </style>
 </head>
 <body>
@@ -652,7 +687,7 @@
     </p>
     <div class="hero-actions">
       <a href="hizmetler.html" class="btn-hero">Hizmetleri Keşfet →</a>
-      <a href="#" class="btn-hero-ghost">Demo İzle ▶</a>
+      <button class="btn-hero-ghost" onclick="openDemoModal()" style="cursor:pointer;border:none;font-family:var(--font-b);">▶ Demo İzle</button>
     </div>
     <div class="hero-scroll">
       <div class="scroll-line"></div>
@@ -917,6 +952,174 @@
 </section>
 
 <!-- FOOTER -->
+
+<!-- DEMO MODAL -->
+<div class="demo-overlay" id="demoOverlay" onclick="if(event.target===this)closeDemoModal()">
+  <div class="demo-modal">
+    <div class="demo-modal-header">
+      <div class="demo-modal-title"><span></span> Bilginex Platform Turu</div>
+      <button class="demo-close" onclick="closeDemoModal()">✕</button>
+    </div>
+    <div class="demo-progress"><div class="demo-progress-bar" id="demoProgress" style="width:0%"></div></div>
+    <div class="demo-screen">
+
+      <!-- Slide 1 -->
+      <div class="demo-slide active" style="background:linear-gradient(135deg,#0a0f2e,#1a1060);">
+        <div class="demo-slide-tag">AI Entegrasyonu</div>
+        <div class="demo-slide-num">01 / 05</div>
+        <h2>Yapay zekayı işinize <span>entegre edin</span></h2>
+        <p>Kurumsal süreçlerinize özel büyük dil modelleri, otomasyon sistemleri ve akıllı karar destek araçları geliştiriyoruz.</p>
+        <div class="demo-slide-features">
+          <span class="demo-feature">LLM Entegrasyonu</span>
+          <span class="demo-feature">AI Chatbot</span>
+          <span class="demo-feature">RAG Sistemleri</span>
+          <span class="demo-feature">Süreç Otomasyonu</span>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="demo-slide" style="background:linear-gradient(135deg,#062350,#073d3a);">
+        <div class="demo-slide-tag">Dijital Dönüşüm</div>
+        <div class="demo-slide-num">02 / 05</div>
+        <h2>İş süreçlerinizi <span>dönüştürün</span></h2>
+        <p>Mevcut iş süreçlerinizi analiz ederek kapsamlı dijital dönüşüm yol haritaları hazırlıyor, cloud geçişinden ERP entegrasyonuna kadar tüm süreci yönetiyoruz.</p>
+        <div class="demo-slide-features">
+          <span class="demo-feature">Cloud Migration</span>
+          <span class="demo-feature">ERP/CRM</span>
+          <span class="demo-feature">DevOps</span>
+          <span class="demo-feature">Change Management</span>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="demo-slide" style="background:linear-gradient(135deg,#1a0a2e,#2d1060);">
+        <div class="demo-slide-tag">Teknoloji Eğitimleri</div>
+        <div class="demo-slide-num">03 / 05</div>
+        <h2>Ekibinizi <span>geleceğe</span> hazırlayın</h2>
+        <p>Canlı eğitimler, on-demand kurslar ve sertifika programlarıyla ekiplerinizi gelecekteki teknolojilere hazırlıyoruz. 350+ uygulamalı içerik.</p>
+        <div class="demo-slide-features">
+          <span class="demo-feature">Canlı Bootcamp</span>
+          <span class="demo-feature">Sertifikasyon</span>
+          <span class="demo-feature">E-Learning</span>
+          <span class="demo-feature">Mentorluk</span>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="demo-slide" style="background:linear-gradient(135deg,#0c0a05,#2d1a04);">
+        <div class="demo-slide-tag">Uzman Kaynak Kiralama</div>
+        <div class="demo-slide-num">04 / 05</div>
+        <h2>Doğru uzmanı <span>doğru anda</span> bulun</h2>
+        <p>Projenizin ihtiyacına göre kıdemli yazılımcılar, veri bilimciler ve teknoloji mimarlarını esnek modellerle ekibinize katıyoruz.</p>
+        <div class="demo-slide-features">
+          <span class="demo-feature">Staff Augmentation</span>
+          <span class="demo-feature">Dedicated Team</span>
+          <span class="demo-feature">CTO-as-a-Service</span>
+          <span class="demo-feature">350+ Uzman</span>
+        </div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="demo-slide" style="background:linear-gradient(135deg,#0a0f2e,#0d2060);">
+        <div class="demo-slide-tag">Sektörel Çözümler</div>
+        <div class="demo-slide-num">05 / 05</div>
+        <h2>Her sektöre <span>özel çözüm</span></h2>
+        <p>Kamu, savunma, finans, sağlık, eğitim, telekom ve enerji sektörlerine özel teknoloji dönüşüm programları ve danışmanlık hizmetleri sunuyoruz.</p>
+        <div class="demo-slide-features">
+          <span class="demo-feature">Kamu & Devlet</span>
+          <span class="demo-feature">Savunma</span>
+          <span class="demo-feature">Finans</span>
+          <span class="demo-feature">Sağlık</span>
+          <span class="demo-feature">+3 Sektör</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="demo-footer">
+      <div class="demo-dots">
+        <button class="demo-dot active" onclick="goSlide(0)"></button>
+        <button class="demo-dot" onclick="goSlide(1)"></button>
+        <button class="demo-dot" onclick="goSlide(2)"></button>
+        <button class="demo-dot" onclick="goSlide(3)"></button>
+        <button class="demo-dot" onclick="goSlide(4)"></button>
+      </div>
+      <div class="demo-nav">
+        <button class="demo-btn demo-btn-ghost" onclick="prevSlide()">← Geri</button>
+        <button class="demo-btn demo-btn-primary" id="demoNextBtn" onclick="nextSlide()">İleri →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+var demoSlide = 0;
+var demoTotal = 5;
+var demoTimer = null;
+var demoProgressTimer = null;
+var demoProgress = 0;
+var AUTO_DURATION = 5000;
+
+function openDemoModal() {
+  document.getElementById('demoOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  goSlide(0);
+  startAutoPlay();
+}
+function closeDemoModal() {
+  document.getElementById('demoOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+  stopAutoPlay();
+}
+function goSlide(n) {
+  var slides = document.querySelectorAll('.demo-slide');
+  var dots = document.querySelectorAll('.demo-dot');
+  slides.forEach(function(s){ s.classList.remove('active'); });
+  dots.forEach(function(d){ d.classList.remove('active'); });
+  demoSlide = n;
+  slides[n].classList.add('active');
+  dots[n].classList.add('active');
+  document.getElementById('demoNextBtn').textContent = n === demoTotal-1 ? 'Görüşme Al →' : 'İleri →';
+  resetProgress();
+}
+function nextSlide() {
+  if(demoSlide === demoTotal-1) {
+    closeDemoModal();
+    var modal = document.getElementById('demoModal');
+    if(modal) modal.classList.add('active');
+    return;
+  }
+  goSlide(demoSlide + 1);
+}
+function prevSlide() {
+  if(demoSlide > 0) goSlide(demoSlide - 1);
+}
+function resetProgress() {
+  clearInterval(demoProgressTimer);
+  demoProgress = 0;
+  document.getElementById('demoProgress').style.width = '0%';
+  demoProgressTimer = setInterval(function(){
+    demoProgress += 100 / (AUTO_DURATION / 100);
+    document.getElementById('demoProgress').style.width = Math.min(demoProgress, 100) + '%';
+  }, 100);
+}
+function startAutoPlay() {
+  stopAutoPlay();
+  demoTimer = setInterval(function(){
+    if(demoSlide < demoTotal - 1) goSlide(demoSlide + 1);
+    else stopAutoPlay();
+  }, AUTO_DURATION);
+  resetProgress();
+}
+function stopAutoPlay() {
+  clearInterval(demoTimer);
+  clearInterval(demoProgressTimer);
+}
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closeDemoModal();
+  if(e.key === 'ArrowRight') nextSlide();
+  if(e.key === 'ArrowLeft') prevSlide();
+});
+</script>
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
