@@ -1084,8 +1084,7 @@ function goSlide(n) {
 function nextSlide() {
   if(demoSlide === demoTotal-1) {
     closeDemoModal();
-    var modal = document.getElementById('demoModal');
-    if(modal) modal.classList.add('active');
+    window.location.href = 'iletisim.html';
     return;
   }
   goSlide(demoSlide + 1);
