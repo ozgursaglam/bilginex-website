@@ -237,6 +237,14 @@
   .social-icon-btn.ig:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-color:transparent;}
   .social-icon-btn.yt:hover{background:#FF0000;border-color:#FF0000;}
   .social-icon-btn svg{width:17px;height:17px;}
+
+  /* ── ANİMASYONLAR ── */
+  .aos { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .aos.visible { opacity: 1; transform: translateY(0); }
+  .aos-left { opacity: 0; transform: translateX(-28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .aos-left.visible { opacity: 1; transform: translateX(0); }
+  .aos-right { opacity: 0; transform: translateX(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .aos-right.visible { opacity: 1; transform: translateX(0); }
 </style>
 </head>
 <body>
@@ -382,7 +390,51 @@
       </div>
     </li>
 
-    <li><a href="#">Çözümler</a></li>
+        <!-- ÇÖZÜMLER -->
+    <li class="has-mega">
+      <a href="cozumler.html">Çözümler</a>
+      <div class="mega-menu"><div class="mega-arrow"></div>
+        <div class="mega-grid mega-grid-3">
+          <div class="mega-col">
+            <div class="mega-col-title">Kamu & Güvenlik</div>
+            <a href="cozum-kamu.html" class="mega-link">
+              <span><span class="mega-link-name">Kamu & Devlet</span><span class="mega-link-desc">Dijital dönüşüm ve yetkinlik</span></span>
+            </a>
+            <a href="cozum-savunma.html" class="mega-link">
+              <span><span class="mega-link-name">Savunma Sanayi</span><span class="mega-link-desc">Kritik teknoloji yetkinliği</span></span>
+            </a>
+            <a href="cozum-saglik.html" class="mega-link">
+              <span><span class="mega-link-name">Sağlık</span><span class="mega-link-desc">Dijital sağlık ekosistemi</span></span>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">Finans & Teknoloji</div>
+            <a href="cozum-finans.html" class="mega-link">
+              <span><span class="mega-link-name">Finans & Bankacılık</span><span class="mega-link-desc">Fintech dönüşümü</span></span>
+            </a>
+            <a href="cozum-telekom.html" class="mega-link">
+              <span><span class="mega-link-name">Telekom & Teknoloji</span><span class="mega-link-desc">Telekom ekosistemi yetkinliği</span></span>
+            </a>
+            <a href="cozum-enerji.html" class="mega-link">
+              <span><span class="mega-link-name">Enerji & Sanayi</span><span class="mega-link-desc">Endüstri 4.0 dönüşümü</span></span>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">Diğer</div>
+            <a href="cozum-egitim.html" class="mega-link">
+              <span><span class="mega-link-name">Eğitim</span><span class="mega-link-desc">EdTech ve akademik dönüşüm</span></span>
+            </a>
+            <a href="cozumler.html" class="mega-link">
+              <span><span class="mega-link-name" style="color:#38bdf8;font-weight:600;">Tüm Çözümler</span><span class="mega-link-desc">Tüm sektörleri keşfedin</span></span>
+            </a>
+          </div>
+        </div>
+        <div class="mega-footer">
+          <span class="mega-footer-text">Sektörünüze özel çözüm için</span>
+          <a href="iletisim.html" class="mega-footer-link">Görüşme Talep Et →</a>
+        </div>
+      </div>
+    </li>
     <li><a href="uzman-kadro.html">Uzman Kadro</a></li>
         <!-- HAKKIMIZDA -->
     <li class="has-mega">
@@ -459,7 +511,7 @@
 <!-- USE CASES -->
 <section class="section section-alt">
   <div class="section-tag">Kullanım Alanları</div>
-  <h2 class="section-title">Hangi süreçleri dönüştürüyoruz?</h2>
+  <h2 class="section-title aos">Hangi süreçleri dönüştürüyoruz?</h2>
   <p class="section-sub">Her sektörde karşılaşılan operasyonel sorunlara AI ile akıllı çözümler geliştiriyoruz.</p>
   <div class="use-cases-grid">
     <div class="use-card">
@@ -498,7 +550,7 @@
 <!-- PROCESS -->
 <section class="section">
   <div class="section-tag">Sürecimiz</div>
-  <h2 class="section-title">Projelerinizi nasıl hayata geçiriyoruz?</h2>
+  <h2 class="section-title aos">Projelerinizi nasıl hayata geçiriyoruz?</h2>
   <div class="process-grid">
     <div class="process-step">
       <div class="process-num">1</div>
@@ -531,7 +583,7 @@
     </div>
     <div>
       <div class="section-tag">Neden Bilginex AI?</div>
-      <h2 class="section-title">Sadece araç kurmuyoruz, iş değeri yaratıyoruz</h2>
+      <h2 class="section-title aos">Sadece araç kurmuyoruz, iş değeri yaratıyoruz</h2>
       <div class="benefits-list">
         <div class="benefit-item">
           <div class="benefit-icon">🏢</div>

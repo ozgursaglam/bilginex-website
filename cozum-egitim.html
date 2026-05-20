@@ -213,6 +213,14 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
   .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.48); text-decoration: none; font-weight: 300; transition: color 0.2s; }
   .footer-col ul li a:hover { color: rgba(255,255,255,0.85); }
   .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; justify-content: space-between; }
+
+  /* ── ANİMASYONLAR ── */
+  .aos { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .aos.visible { opacity: 1; transform: translateY(0); }
+  .aos-left { opacity: 0; transform: translateX(-28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .aos-left.visible { opacity: 1; transform: translateX(0); }
+  .aos-right { opacity: 0; transform: translateX(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .aos-right.visible { opacity: 1; transform: translateX(0); }
 </style>
 </head>
 <body>
@@ -510,7 +518,7 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
   </div>
 
   <div class="sektor-sidebar">
-    <div class="sidebar-card">
+    <div class="sidebar-card aos">
       <div class="sidebar-card-header" style="height:4px;background:linear-gradient(90deg,#7c3aed,#c084fc);"></div>
       <div class="sidebar-card-body">
         <span class="sidebar-ikon">🎓</span>
@@ -519,7 +527,7 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
         <div class="sidebar-kurum-list"><span class="sidebar-kurum-badge">ODTÜ</span><span class="sidebar-kurum-badge">Hacettepe Ü.</span><span class="sidebar-kurum-badge">Gazi Ü.</span><span class="sidebar-kurum-badge">Ankara Ü.</span><span class="sidebar-kurum-badge">Bilkent</span></div>
       </div>
     </div>
-    <div class="sidebar-card">
+    <div class="sidebar-card aos">
       <div class="sidebar-card-body">
         <div class="sidebar-kurum-baslik">Hızlı İletişim</div>
         <p style="font-size:13px;color:var(--text2);font-weight:300;margin-bottom:14px;line-height:1.6;">Eğitim alanında size özel çözüm için hemen ulaşın.</p>
@@ -533,42 +541,42 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
 <div class="diger-sektorler">
   <h2 class="diger-baslik">Diğer Sektörel Çözümler</h2>
   <div class="diger-grid">
-      <a href="cozum-kamu.html" class="diger-kart">
+      <a href="cozum-kamu.html" class="diger-kart aos">
         <span class="diger-kart-ikon">🏛️</span>
         <div>
           <div class="diger-kart-adi">Kamu & Devlet</div>
           <div class="diger-kart-desc">Dijital devlet için güçlü alty...</div>
         </div>
       </a>
-      <a href="cozum-savunma.html" class="diger-kart">
+      <a href="cozum-savunma.html" class="diger-kart aos">
         <span class="diger-kart-ikon">🛡️</span>
         <div>
           <div class="diger-kart-adi">Savunma Sanayi</div>
           <div class="diger-kart-desc">Kritik teknoloji yetkinliği...</div>
         </div>
       </a>
-      <a href="cozum-finans.html" class="diger-kart">
+      <a href="cozum-finans.html" class="diger-kart aos">
         <span class="diger-kart-ikon">🏦</span>
         <div>
           <div class="diger-kart-adi">Finans & Bankacılık</div>
           <div class="diger-kart-desc">Fintech dönüşümünde güvenilir ...</div>
         </div>
       </a>
-      <a href="cozum-saglik.html" class="diger-kart">
+      <a href="cozum-saglik.html" class="diger-kart aos">
         <span class="diger-kart-ikon">🏥</span>
         <div>
           <div class="diger-kart-adi">Sağlık</div>
           <div class="diger-kart-desc">Dijital sağlık ekosistemi...</div>
         </div>
       </a>
-      <a href="cozum-telekom.html" class="diger-kart">
+      <a href="cozum-telekom.html" class="diger-kart aos">
         <span class="diger-kart-ikon">📡</span>
         <div>
           <div class="diger-kart-adi">Telekom & Teknoloji</div>
           <div class="diger-kart-desc">Telekom ekosisteminde yetkinli...</div>
         </div>
       </a>
-      <a href="cozum-enerji.html" class="diger-kart">
+      <a href="cozum-enerji.html" class="diger-kart aos">
         <span class="diger-kart-ikon">⚡</span>
         <div>
           <div class="diger-kart-adi">Enerji & Sanayi</div>

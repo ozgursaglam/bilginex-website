@@ -267,6 +267,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
   .social-icon-btn.ig:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-color:transparent;}
   .social-icon-btn.yt:hover{background:#FF0000;border-color:#FF0000;}
   .social-icon-btn svg{width:17px;height:17px;}
+
+  /* ── ANİMASYONLAR ── */
+  .aos { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .aos.visible { opacity: 1; transform: translateY(0); }
+  .aos-left { opacity: 0; transform: translateX(-28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .aos-left.visible { opacity: 1; transform: translateX(0); }
+  .aos-right { opacity: 0; transform: translateX(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .aos-right.visible { opacity: 1; transform: translateX(0); }
 </style>
 </head>
 <body>
@@ -412,7 +420,51 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
       </div>
     </li>
 
-    <li><a href="#">Çözümler</a></li>
+        <!-- ÇÖZÜMLER -->
+    <li class="has-mega">
+      <a href="cozumler.html">Çözümler</a>
+      <div class="mega-menu"><div class="mega-arrow"></div>
+        <div class="mega-grid mega-grid-3">
+          <div class="mega-col">
+            <div class="mega-col-title">Kamu & Güvenlik</div>
+            <a href="cozum-kamu.html" class="mega-link">
+              <span><span class="mega-link-name">Kamu & Devlet</span><span class="mega-link-desc">Dijital dönüşüm ve yetkinlik</span></span>
+            </a>
+            <a href="cozum-savunma.html" class="mega-link">
+              <span><span class="mega-link-name">Savunma Sanayi</span><span class="mega-link-desc">Kritik teknoloji yetkinliği</span></span>
+            </a>
+            <a href="cozum-saglik.html" class="mega-link">
+              <span><span class="mega-link-name">Sağlık</span><span class="mega-link-desc">Dijital sağlık ekosistemi</span></span>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">Finans & Teknoloji</div>
+            <a href="cozum-finans.html" class="mega-link">
+              <span><span class="mega-link-name">Finans & Bankacılık</span><span class="mega-link-desc">Fintech dönüşümü</span></span>
+            </a>
+            <a href="cozum-telekom.html" class="mega-link">
+              <span><span class="mega-link-name">Telekom & Teknoloji</span><span class="mega-link-desc">Telekom ekosistemi yetkinliği</span></span>
+            </a>
+            <a href="cozum-enerji.html" class="mega-link">
+              <span><span class="mega-link-name">Enerji & Sanayi</span><span class="mega-link-desc">Endüstri 4.0 dönüşümü</span></span>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">Diğer</div>
+            <a href="cozum-egitim.html" class="mega-link">
+              <span><span class="mega-link-name">Eğitim</span><span class="mega-link-desc">EdTech ve akademik dönüşüm</span></span>
+            </a>
+            <a href="cozumler.html" class="mega-link">
+              <span><span class="mega-link-name" style="color:#38bdf8;font-weight:600;">Tüm Çözümler</span><span class="mega-link-desc">Tüm sektörleri keşfedin</span></span>
+            </a>
+          </div>
+        </div>
+        <div class="mega-footer">
+          <span class="mega-footer-text">Sektörünüze özel çözüm için</span>
+          <a href="iletisim.html" class="mega-footer-link">Görüşme Talep Et →</a>
+        </div>
+      </div>
+    </li>
     <li><a href="uzman-kadro.html">Uzman Kadro</a></li>
         <!-- HAKKIMIZDA -->
     <li class="has-mega">
@@ -547,7 +599,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
   <div class="side-panel">
 
     <!-- İLETİŞİM BİLGİLERİ -->
-    <div class="info-card">
+    <div class="info-card aos">
       <div class="info-card-title">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         İletişim Bilgileri
@@ -595,7 +647,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
     </div>
 
     <!-- ÇALIŞMA SAATLERİ -->
-    <div class="info-card">
+    <div class="info-card aos">
       <div class="info-card-title"><span>🕐</span> Çalışma Saatleri</div>
       <div class="hours-grid">
         <div class="hours-item">
@@ -610,7 +662,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
     </div>
 
     <!-- SOSYAL MEDYA -->
-    <div class="info-card">
+    <div class="info-card aos">
       <div class="info-card-title">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
         Sosyal Medya

@@ -242,6 +242,14 @@
   .social-icon-btn.ig:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-color:transparent;}
   .social-icon-btn.yt:hover{background:#FF0000;border-color:#FF0000;}
   .social-icon-btn svg{width:17px;height:17px;}
+
+  /* ── ANİMASYONLAR ── */
+  .aos { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .aos.visible { opacity: 1; transform: translateY(0); }
+  .aos-left { opacity: 0; transform: translateX(-28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .aos-left.visible { opacity: 1; transform: translateX(0); }
+  .aos-right { opacity: 0; transform: translateX(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .aos-right.visible { opacity: 1; transform: translateX(0); }
 </style>
 </head>
 <body>
@@ -500,7 +508,7 @@
 <section class="services-section">
   <div class="services-grid">
     <!-- AI Entegrasyonu -->
-    <a href="ai-entegrasyon.html" class="service-card ai">
+    <a href="ai-entegrasyon.html" class="service-card aos ai">
       <img class="card-photo" src="https://plus.unsplash.com/premium_photo-1676637656166-cb7b3a43b81a?w=800&q=80" alt="AI Entegrasyon"/>
       <div class="card-body">
         <span class="card-badge">Yapay Zeka</span>
@@ -518,7 +526,7 @@
     </a>
 
     <!-- Dijital Dönüşüm -->
-    <a href="dijital-donusum.html" class="service-card dijital">
+    <a href="dijital-donusum.html" class="service-card aos dijital">
       <img class="card-photo" src="https://plus.unsplash.com/premium_photo-1661411311489-46be8dfc82bd?w=800&q=80" alt="Dijital Dönüşüm"/>
       <div class="card-body">
         <span class="card-badge">Dönüşüm</span>
@@ -536,7 +544,7 @@
     </a>
 
     <!-- Teknoloji Eğitimleri -->
-    <a href="teknoloji-egitimi.html" class="service-card egitim">
+    <a href="teknoloji-egitimi.html" class="service-card aos egitim">
       <img class="card-photo" src="https://images.unsplash.com/photo-1677078611286-4d023c913878?w=800&q=80" alt="Teknoloji Eğitimleri"/>
       <div class="card-body">
         <span class="card-badge">Eğitim</span>
@@ -554,7 +562,7 @@
     </a>
 
     <!-- Uzman Kaynak Kiralama -->
-    <a href="uzman-kadro.html" class="service-card uzman">
+    <a href="uzman-kadro.html" class="service-card aos uzman">
       <img class="card-photo" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80" alt="Uzman Kaynak Kiralama"/>
       <div class="card-body">
         <span class="card-badge">Kaynak</span>

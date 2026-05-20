@@ -225,6 +225,14 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
   .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.48); text-decoration: none; font-weight: 300; transition: color 0.2s; }
   .footer-col ul li a:hover { color: rgba(255,255,255,0.85); }
   .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; justify-content: space-between; }
+
+  /* ── ANİMASYONLAR ── */
+  .aos { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .aos.visible { opacity: 1; transform: translateY(0); }
+  .aos-left { opacity: 0; transform: translateX(-28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .aos-left.visible { opacity: 1; transform: translateX(0); }
+  .aos-right { opacity: 0; transform: translateX(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .aos-right.visible { opacity: 1; transform: translateX(0); }
 </style>
 </head>
 <body>
@@ -485,7 +493,7 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
 
   <!-- 1. KAMU & DEVLET -->
   <div class="sektor-item" id="kamu">
-    <div class="sektor-content">
+    <div class="sektor-content aos-left">
       <div class="sektor-tag">Kamu & Devlet</div>
       <h2 class="sektor-baslik">Dijital devlet için güçlü altyapı</h2>
       <p class="sektor-aciklama">Bakanlıklar, kamu kurumları ve belediyeler için dijital dönüşüm, teknoloji yetkinliği ve kurumsal kapasite geliştirme hizmetleri sunuyoruz. E-devlet süreçleri, veri yönetimi ve siber güvenlik alanlarında kapsamlı destek sağlıyoruz.</p>
@@ -535,7 +543,7 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
 
   <!-- 2. SAVUNMA SANAYİ -->
   <div class="sektor-item reverse" id="savunma">
-    <div class="sektor-content">
+    <div class="sektor-content aos-left">
       <div class="sektor-tag">Savunma Sanayi</div>
       <h2 class="sektor-baslik">Kritik teknoloji yetkinliği</h2>
       <p class="sektor-aciklama">Savunma sanayi kuruluşları için özelleştirilmiş yazılım geliştirme, siber güvenlik, yapay zeka ve gömülü sistem eğitimleri sunuyoruz. Millî savunma ekosistemi için insan kaynağı geliştirme programları tasarlıyoruz.</p>
@@ -585,7 +593,7 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
 
   <!-- 3. FİNANS & BANKACILIK -->
   <div class="sektor-item" id="finans">
-    <div class="sektor-content">
+    <div class="sektor-content aos-left">
       <div class="sektor-tag">Finans & Bankacılık</div>
       <h2 class="sektor-baslik">Fintech dönüşümünde güvenilir ortak</h2>
       <p class="sektor-aciklama">Bankalar, finans kuruluşları ve sigorta şirketleri için dijital bankacılık, veri analitiği, yapay zeka entegrasyonu ve regülasyon uyum süreçlerinde kapsamlı danışmanlık ve eğitim hizmetleri sunuyoruz.</p>
@@ -634,7 +642,7 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
 
   <!-- 4. SAĞLIK -->
   <div class="sektor-item reverse" id="saglik">
-    <div class="sektor-content">
+    <div class="sektor-content aos-left">
       <div class="sektor-tag">Sağlık</div>
       <h2 class="sektor-baslik">Dijital sağlık ekosistemi</h2>
       <p class="sektor-aciklama">Hastaneler, sağlık bakanlığı birimleri ve sağlık teknolojisi şirketleri için dijital sağlık dönüşümü, yapay zeka tabanlı tanı destekleri ve sağlık bilişimi eğitimleri sunuyoruz.</p>
@@ -682,7 +690,7 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
 
   <!-- 5. EĞİTİM -->
   <div class="sektor-item" id="egitim">
-    <div class="sektor-content">
+    <div class="sektor-content aos-left">
       <div class="sektor-tag">Eğitim</div>
       <h2 class="sektor-baslik">Eğitimde teknoloji liderliği</h2>
       <p class="sektor-aciklama">Üniversiteler, MEB bağlı kurumlar ve özel eğitim kuruluşları için EdTech dönüşümü, dijital öğrenme platformları, yapay zeka destekli eğitim sistemleri ve akademik personel geliştirme programları tasarlıyoruz.</p>
@@ -732,7 +740,7 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
 
   <!-- 6. TELEKOM & TEKNOLOJİ -->
   <div class="sektor-item reverse" id="telekom">
-    <div class="sektor-content">
+    <div class="sektor-content aos-left">
       <div class="sektor-tag">Telekom & Teknoloji</div>
       <h2 class="sektor-baslik">Telekom ekosisteminde yetkinlik</h2>
       <p class="sektor-aciklama">Telekomünikasyon şirketleri ve teknoloji firmaları için ağ altyapısı, bulut teknolojileri, yazılım geliştirme ve dijital servis dönüşümü alanlarında danışmanlık ve eğitim hizmetleri sunuyoruz.</p>
@@ -781,7 +789,7 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
 
   <!-- 7. ENERJİ & SANAYİ -->
   <div class="sektor-item" id="enerji">
-    <div class="sektor-content">
+    <div class="sektor-content aos-left">
       <div class="sektor-tag">Enerji & Sanayi</div>
       <h2 class="sektor-baslik">Endüstri 4.0 ile rekabet avantajı</h2>
       <p class="sektor-aciklama">Enerji şirketleri ve sanayi kuruluşları için Endüstri 4.0 dönüşümü, IoT entegrasyonu, büyük veri analitiği ve akıllı fabrika çözümleri geliştiriyoruz. Dijital ikiz ve otomasyon alanlarında kapsamlı danışmanlık sunuyoruz.</p>

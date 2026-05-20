@@ -389,6 +389,14 @@
   .social-icon-btn.ig:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-color:transparent;}
   .social-icon-btn.yt:hover{background:#FF0000;border-color:#FF0000;}
   .social-icon-btn svg{width:17px;height:17px;}
+
+  /* ── ANİMASYONLAR ── */
+  .aos { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .aos.visible { opacity: 1; transform: translateY(0); }
+  .aos-left { opacity: 0; transform: translateX(-28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .aos-left.visible { opacity: 1; transform: translateX(0); }
+  .aos-right { opacity: 0; transform: translateX(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .aos-right.visible { opacity: 1; transform: translateX(0); }
 </style>
 </head>
 <body>
@@ -689,11 +697,11 @@
   <div class="services-content">
     <div style="text-align:center; margin-bottom:48px;">
       <div class="section-tag" style="justify-content:center;">Hizmetlerimiz</div>
-      <h2 class="section-title" style="max-width:100%; margin:0 auto; color:#0e1628;">Teknolojinin her katmanında yanınızdayız</h2>
+      <h2 class="section-title aos" style="max-width:100%; margin:0 auto; color:#0e1628;">Teknolojinin her katmanında yanınızdayız</h2>
       <a href="hizmetler.html" style="display:inline-block; margin-top:16px; color:#2563eb; text-decoration:none; font-size:17px; font-weight:500;">Tüm hizmetleri gör →</a>
     </div>
     <div class="services-grid">
-      <div class="service-card" onclick="location.href='ai-entegrasyon.html'" style="cursor:pointer;">
+      <div class="service-card aos"" onclick="location.href='ai-entegrasyon.html'" style="cursor:pointer;">
         <div class="service-title">AI Entegrasyonu</div>
         <div class="service-desc">Kurumsal süreçlerinize özel büyük dil modelleri, otomasyon sistemleri ve akıllı karar destek araçları geliştiriyoruz.</div>
         <div class="service-tags">
@@ -701,7 +709,7 @@
         </div>
         <div class="service-arrow">→</div>
       </div>
-      <div class="service-card" onclick="location.href='dijital-donusum.html'" style="cursor:pointer;">
+      <div class="service-card aos"" onclick="location.href='dijital-donusum.html'" style="cursor:pointer;">
         <div class="service-title">Dijital Dönüşüm</div>
         <div class="service-desc">Mevcut iş süreçlerinizi analiz ederek kapsamlı dijital dönüşüm yol haritaları hazırlıyor, uçtan uca uygulama süreçlerini yönetiyoruz.</div>
         <div class="service-tags">
@@ -709,7 +717,7 @@
         </div>
         <div class="service-arrow">→</div>
       </div>
-      <div class="service-card" onclick="location.href='teknoloji-egitimi.html'" style="cursor:pointer;">
+      <div class="service-card aos"" onclick="location.href='teknoloji-egitimi.html'" style="cursor:pointer;">
         <div class="service-title">Teknoloji Eğitimleri</div>
         <div class="service-desc">Canlı eğitimler, on-demand kurslar ve sertifika programlarıyla ekiplerinizi gelecekteki teknolojilere hazırlıyoruz.</div>
         <div class="service-tags">
@@ -717,7 +725,7 @@
         </div>
         <div class="service-arrow">→</div>
       </div>
-      <div class="service-card" onclick="location.href='uzman-kadro.html'" style="cursor:pointer;">
+      <div class="service-card aos"" onclick="location.href='uzman-kadro.html'" style="cursor:pointer;">
         <div class="service-title">Uzman Kaynak Kiralama</div>
         <div class="service-desc">Projenizin ihtiyacına göre kıdemli yazılımcılar, veri bilimciler ve teknoloji mimarlarını esnek modellerle ekibinize katıyoruz.</div>
         <div class="service-tags">
@@ -733,7 +741,7 @@
 <div class="why">
   <div>
     <div class="section-tag">Neden Bilginex?</div>
-    <h2 class="section-title">Doğru teknolojiyi, doğru noktada işinize entegre ediyoruz.</h2>
+    <h2 class="section-title aos">Doğru teknolojiyi, doğru noktada işinize entegre ediyoruz.</h2>
     <p class="section-sub">Strateji kurar, teknolojiyi hayata geçirir, sonuçları ölçeriz. Dönüşüm bir proje değil — ortaklıktır.</p>
     <div class="why-points">
       <div class="why-point">
@@ -834,7 +842,7 @@
 <!-- TESTIMONIALS -->
 <section class="testimonials">
   <div class="section-tag">Müşteri Görüşleri</div>
-  <h2 class="section-title">Projeler biter, ortaklık sürer</h2>
+  <h2 class="section-title aos">Projeler biter, ortaklık sürer</h2>
   <div class="test-grid">
     <div class="test-card">
       <div class="test-stars">★★★★★</div>

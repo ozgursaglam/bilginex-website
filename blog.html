@@ -226,6 +226,14 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
   .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.48); text-decoration: none; font-weight: 300; transition: color 0.2s; }
   .footer-col ul li a:hover { color: rgba(255,255,255,0.85); }
   .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; justify-content: space-between; }
+
+  /* ── ANİMASYONLAR ── */
+  .aos { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .aos.visible { opacity: 1; transform: translateY(0); }
+  .aos-left { opacity: 0; transform: translateX(-28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .aos-left.visible { opacity: 1; transform: translateX(0); }
+  .aos-right { opacity: 0; transform: translateX(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .aos-right.visible { opacity: 1; transform: translateX(0); }
 </style>
 </head>
 <body>
@@ -518,7 +526,7 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
 <!-- BLOG KARTLARI -->
 <div class="blog-grid-wrap">
   <div class="blog-grid" id="blogGrid">
-          <div class="blog-kart" data-kat="Dijital Dönüşüm">
+          <div class="blog-kart aos" data-kat="Dijital Dönüşüm">
             <div class="blog-kart-gorseli" style="background:linear-gradient(135deg,#2563eb,#0ea5e9);">
               <span class="blog-kart-ikon">🏛️</span>
             </div>
@@ -535,7 +543,7 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
               </div>
             </div>
           </div>
-          <div class="blog-kart" data-kat="Siber Güvenlik">
+          <div class="blog-kart aos" data-kat="Siber Güvenlik">
             <div class="blog-kart-gorseli" style="background:linear-gradient(135deg,#dc2626,#f97316);">
               <span class="blog-kart-ikon">🔒</span>
             </div>
@@ -552,7 +560,7 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
               </div>
             </div>
           </div>
-          <div class="blog-kart" data-kat="Teknoloji & Yazılım">
+          <div class="blog-kart aos" data-kat="Teknoloji & Yazılım">
             <div class="blog-kart-gorseli" style="background:linear-gradient(135deg,#0d9488,#059669);">
               <span class="blog-kart-ikon">📊</span>
             </div>
@@ -569,7 +577,7 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
               </div>
             </div>
           </div>
-          <div class="blog-kart" data-kat="Proje Yönetimi">
+          <div class="blog-kart aos" data-kat="Proje Yönetimi">
             <div class="blog-kart-gorseli" style="background:linear-gradient(135deg,#ea580c,#f59e0b);">
               <span class="blog-kart-ikon">📋</span>
             </div>
@@ -586,7 +594,7 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
               </div>
             </div>
           </div>
-          <div class="blog-kart" data-kat="Yapay Zeka & AI">
+          <div class="blog-kart aos" data-kat="Yapay Zeka & AI">
             <div class="blog-kart-gorseli" style="background:linear-gradient(135deg,#6d28d9,#7c3aed);">
               <span class="blog-kart-ikon">🧠</span>
             </div>
@@ -603,7 +611,7 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
               </div>
             </div>
           </div>
-          <div class="blog-kart" data-kat="Eğitim & Kariyer">
+          <div class="blog-kart aos" data-kat="Eğitim & Kariyer">
             <div class="blog-kart-gorseli" style="background:linear-gradient(135deg,#0891b2,#0284c7);">
               <span class="blog-kart-ikon">🎓</span>
             </div>
@@ -620,7 +628,7 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
               </div>
             </div>
           </div>
-          <div class="blog-kart" data-kat="Siber Güvenlik">
+          <div class="blog-kart aos" data-kat="Siber Güvenlik">
             <div class="blog-kart-gorseli" style="background:linear-gradient(135deg,#b91c1c,#dc2626);">
               <span class="blog-kart-ikon">☁️</span>
             </div>
@@ -637,7 +645,7 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
               </div>
             </div>
           </div>
-          <div class="blog-kart" data-kat="Proje Yönetimi">
+          <div class="blog-kart aos" data-kat="Proje Yönetimi">
             <div class="blog-kart-gorseli" style="background:linear-gradient(135deg,#c2410c,#ea580c);">
               <span class="blog-kart-ikon">🛡️</span>
             </div>
@@ -654,7 +662,7 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
               </div>
             </div>
           </div>
-          <div class="blog-kart" data-kat="Eğitim & Kariyer">
+          <div class="blog-kart aos" data-kat="Eğitim & Kariyer">
             <div class="blog-kart-gorseli" style="background:linear-gradient(135deg,#0e7490,#0891b2);">
               <span class="blog-kart-ikon">💻</span>
             </div>
