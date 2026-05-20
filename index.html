@@ -703,6 +703,7 @@
 <!-- HERO — Dijital dünya / uzaydan şehir ışıkları -->
 <section class="hero">
   <div class="hero-photo"></div>
+  <canvas id="heroCanvas" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
   <div class="hero-content">
     <div class="hero-badge">
       <span class="hero-badge-dot">✦</span>
@@ -710,7 +711,7 @@
     </div>
     <h1 class="hero-title">
       Geleceği inşa eden<br/>
-      <span class="hero-rotating-wrap"><span class="hero-rotating" id="heroRotating">teknoloji</span></span> ile<br/>
+      <span class="accent">teknoloji</span> ile<br/>
       <span class="teal">büyüyün.</span>
     </h1>
     <p class="hero-sub">
@@ -1327,23 +1328,78 @@ document.addEventListener('DOMContentLoaded', initCounters);
   run();
 })();
 
-// HERO ROTATING TEXT
+
+// HERO PARTICLE NETWORK
 (function(){
-  var words = ['teknoloji', 'AI çözümleri', 'dönüşüm', 'uzmanlık'];
-  var idx = 0;
-  var el = document.getElementById('heroRotating');
-  if(!el) return;
-  setInterval(function(){
-    idx = (idx + 1) % words.length;
-    el.classList.remove('enter');
-    el.classList.add('exit');
-    setTimeout(function(){
-      el.textContent = words[idx];
-      el.classList.remove('exit');
-      el.classList.add('enter');
-    }, 400);
-  }, 2800);
+  var canvas = document.getElementById('heroCanvas');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W, H, particles = [];
+  var PARTICLE_COUNT = 60;
+  var MAX_DIST = 140;
+
+  function resize(){
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+
+  function Particle(){
+    this.x = Math.random() * W;
+    this.y = Math.random() * H;
+    this.vx = (Math.random() - 0.5) * 0.4;
+    this.vy = (Math.random() - 0.5) * 0.4;
+    this.r = Math.random() * 1.5 + 0.5;
+  }
+
+  Particle.prototype.update = function(){
+    this.x += this.vx;
+    this.y += this.vy;
+    if(this.x < 0 || this.x > W) this.vx *= -1;
+    if(this.y < 0 || this.y > H) this.vy *= -1;
+  };
+
+  function init(){
+    particles = [];
+    for(var i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
+  }
+
+  function draw(){
+    ctx.clearRect(0, 0, W, H);
+
+    for(var i = 0; i < particles.length; i++){
+      var p = particles[i];
+      p.update();
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(147,197,253,0.5)';
+      ctx.fill();
+
+      for(var j = i + 1; j < particles.length; j++){
+        var q = particles[j];
+        var dx = p.x - q.x;
+        var dy = p.y - q.y;
+        var dist = Math.sqrt(dx*dx + dy*dy);
+        if(dist < MAX_DIST){
+          var alpha = (1 - dist / MAX_DIST) * 0.18;
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = 'rgba(147,197,253,' + alpha + ')';
+          ctx.lineWidth = 0.6;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  init();
+  draw();
+  window.addEventListener('resize', function(){ resize(); init(); });
 })();
+
 
 // SCROLL REVEAL
 (function(){
