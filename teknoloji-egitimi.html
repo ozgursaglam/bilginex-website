@@ -497,8 +497,8 @@
     <h1 class="hero-title">Ekibinizi <span>teknoloji ile</span> güçlendiriyoruz</h1>
     <p class="hero-sub">Canlı eğitimler, online kurslar ve kurumsal sertifika programlarıyla ekiplerinizi güncel teknolojilere hazırlıyoruz.</p>
     <div class="hero-actions">
-      <a href="#" class="btn-hero">Eğitim Planla →</a>
-      <a href="#" class="btn-hero-ghost">Demo İzle ▶</a>
+      <a href="#" class="btn-hero" onclick="document.getElementById('modalGorusme').classList.add('open');document.body.style.overflow='hidden';return false;">Eğitim Planla →</a>
+      <a href="#" class="btn-hero-ghost" onclick="openDemoModal();return false;">Demo İzle ▶</a>
     </div>
   </div>
 </section>
@@ -639,7 +639,7 @@
   <h2 class="cta-title">Kurumsal eğitim programınızı tasarlayalım</h2>
   <p class="cta-sub">İlk adımı atalım — ihtiyaçlarınızı anlayalım, ücretsiz bir keşif görüşmesi planlayalım.</p>
   <div class="cta-actions">
-    <a href="#" class="btn-lg-primary">Ücretsiz Görüşme Al →</a>
+    <a href="#" class="btn-lg-primary" onclick="document.getElementById('modalGorusme').classList.add('open');document.body.style.overflow='hidden';return false;">Ücretsiz Görüşme Al →</a>
     <a href="hizmetler.html" class="btn-lg-ghost">← Tüm Hizmetler</a>
   </div>
 </section>

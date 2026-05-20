@@ -497,8 +497,8 @@
     <h1 class="hero-title">Doğru <span>teknik uzmanı</span> hızla kadronuza katın</h1>
     <p class="hero-sub">Kıdemli yazılımcılar, veri bilimciler, DevOps uzmanları ve teknoloji mimarlarını esnek modellerle ekibinize dahil ediyoruz.</p>
     <div class="hero-actions">
-      <a href="#" class="btn-hero">Uzman Talep Et →</a>
-      <a href="#" class="btn-hero-ghost">Demo İzle ▶</a>
+      <a href="#" class="btn-hero" onclick="document.getElementById('modalGorusme').classList.add('open');document.body.style.overflow='hidden';return false;">Uzman Talep Et →</a>
+      <a href="#" class="btn-hero-ghost" onclick="openDemoModal();return false;">Demo İzle ▶</a>
     </div>
   </div>
 </section>
@@ -639,7 +639,7 @@
   <h2 class="cta-title">İhtiyacınıza uygun uzmanı birlikte bulalım</h2>
   <p class="cta-sub">İlk adımı atalım — ihtiyaçlarınızı anlayalım, ücretsiz bir keşif görüşmesi planlayalım.</p>
   <div class="cta-actions">
-    <a href="#" class="btn-lg-primary">Ücretsiz Görüşme Al →</a>
+    <a href="#" class="btn-lg-primary" onclick="document.getElementById('modalGorusme').classList.add('open');document.body.style.overflow='hidden';return false;">Ücretsiz Görüşme Al →</a>
     <a href="hizmetler.html" class="btn-lg-ghost">← Tüm Hizmetler</a>
   </div>
 </section>
