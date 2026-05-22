@@ -750,5 +750,262 @@
 })();
 </script>
 
-</body>
+<!-- Görüşme Modal -->
+<div class="modal-overlay" id="modalGorusme" style="position:fixed;inset:0;background:rgba(10,15,40,0.75);backdrop-filter:blur(6px);z-index:1000;display:none;align-items:center;justify-content:center;">
+  <div style="background:#fff;border-radius:20px;padding:44px;width:100%;max-width:520px;position:relative;box-shadow:0 24px 80px rgba(10,15,40,0.3);animation:modalIn 0.3s ease;margin:20px;">
+    <button onclick="document.getElementById('modalGorusme').classList.remove('open');document.body.style.overflow='';" style="position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;border:1px solid #e5e7eb;background:transparent;cursor:pointer;font-size:16px;color:#9099b5;display:flex;align-items:center;justify-content:center;">✕</button>
+    <div id="gorusmeForm">
+      <div style="font-family:'IBM Plex Sans',sans-serif;font-size:22px;font-weight:700;color:#0e1628;margin-bottom:6px;">Ücretsiz Görüşme Talep Et</div>
+      <div style="font-size:14px;color:#485070;margin-bottom:28px;font-weight:300;">Ekibimiz 1 iş günü içinde sizinle iletişime geçecek.</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+        <div>
+          <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">Ad</label>
+          <input type="text" placeholder="Adınız" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
+        </div>
+        <div>
+          <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">Soyad</label>
+          <input type="text" placeholder="Soyadınız" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
+        </div>
+      </div>
+      <div style="margin-bottom:14px;">
+        <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">E-posta</label>
+        <input type="email" placeholder="ornek@sirket.com" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
+      </div>
+      <div style="margin-bottom:14px;">
+        <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">Telefon</label>
+        <input type="tel" placeholder="+90 5XX XXX XX XX" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
+      </div>
+      <div style="margin-bottom:14px;">
+        <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">Şirket</label>
+        <input type="text" placeholder="Şirket adı" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
+      </div>
+      <div style="margin-bottom:20px;">
+        <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">Görüşmek istediğiniz konu</label>
+        <select style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;">
+          <option>AI Entegrasyonu</option>
+          <option>Dijital Dönüşüm</option>
+          <option>Teknoloji Eğitimleri</option>
+          <option>Uzman Kaynak Kiralama</option>
+          <option>Diğer</option>
+        </select>
+      </div>
+      <button onclick="var inputs=document.querySelectorAll('#gorusmeForm input,#gorusmeForm select');var valid=true;inputs.forEach(function(inp){if(!inp.value.trim()){inp.style.borderColor='#ef4444';inp.style.background='#fef2f2';valid=false;}else{inp.style.borderColor='#d1d5db';inp.style.background='#f7f8fa';}});if(valid){document.getElementById('gorusmeForm').style.display='none';document.getElementById('gorusmeSuccess').style.display='block';}" style="width:100%;padding:14px;background:#2563eb;border:none;color:#fff;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;border-radius:10px;cursor:pointer;box-shadow:0 4px 20px rgba(37,99,235,0.25);">Görüşme Talebini Gönder →</button>
+      <div style="text-align:center;font-size:12px;color:#9099b5;margin-top:12px;">Görüşme tamamen ücretsiz ve taahhütsüz</div>
+    </div>
+    <div id="gorusmeSuccess" style="display:none;text-align:center;padding:20px 0;">
+      <div style="font-size:52px;margin-bottom:16px;">✅</div>
+      <div style="font-family:'IBM Plex Sans',sans-serif;font-size:22px;font-weight:700;color:#0e1628;margin-bottom:8px;">Talebiniz alındı!</div>
+      <div style="font-size:14px;color:#485070;font-weight:300;">Ekibimiz 1 iş günü içinde sizinle iletişime geçecek. Teşekkürler!</div>
+    </div>
+  </div>
+</div>
+
+<!-- Demo Modal -->
+<div class="demo-overlay" id="demoOverlay" onclick="if(event.target===this)closeDemoModal()">
+  <div class="demo-modal">
+    <div class="demo-modal-header">
+      <div class="demo-modal-title"><span></span> Bilginex Platform Turu</div>
+      <button class="demo-close" onclick="closeDemoModal()">✕</button>
+    </div>
+    <div class="demo-progress"><div class="demo-progress-bar" id="demoProgress" style="width:0%"></div></div>
+    <div class="demo-screen">
+      <div class="demo-slide active" style="background:linear-gradient(135deg,#0a0f2e,#1a1060);">
+        <div class="demo-slide-tag">AI Entegrasyonu</div>
+        <div class="demo-slide-num">01 / 05</div>
+        <h2>Yapay zekayı işinize <span>entegre edin</span></h2>
+        <p>Kurumsal süreçlerinize özel büyük dil modelleri, otomasyon sistemleri ve akıllı karar destek araçları geliştiriyoruz.</p>
+        <div class="demo-slide-features">
+          <span class="demo-feature">LLM Entegrasyonu</span>
+          <span class="demo-feature">AI Chatbot</span>
+          <span class="demo-feature">RAG Sistemleri</span>
+          <span class="demo-feature">Süreç Otomasyonu</span>
+        </div>
+      </div>
+      <div class="demo-slide" style="background:linear-gradient(135deg,#062350,#073d3a);">
+        <div class="demo-slide-tag">Dijital Dönüşüm</div>
+        <div class="demo-slide-num">02 / 05</div>
+        <h2>İş süreçlerinizi <span>dönüştürün</span></h2>
+        <p>Mevcut iş süreçlerinizi analiz ederek kapsamlı dijital dönüşüm yol haritaları hazırlıyor, cloud geçişinden ERP entegrasyonuna kadar tüm süreci yönetiyoruz.</p>
+        <div class="demo-slide-features">
+          <span class="demo-feature">Cloud Migration</span>
+          <span class="demo-feature">ERP/CRM</span>
+          <span class="demo-feature">DevOps</span>
+          <span class="demo-feature">Change Management</span>
+        </div>
+      </div>
+      <div class="demo-slide" style="background:linear-gradient(135deg,#1a0a2e,#2d1060);">
+        <div class="demo-slide-tag">Teknoloji Eğitimleri</div>
+        <div class="demo-slide-num">03 / 05</div>
+        <h2>Ekibinizi <span>geleceğe</span> hazırlayın</h2>
+        <p>Canlı eğitimler, on-demand kurslar ve sertifika programlarıyla ekiplerinizi gelecekteki teknolojilere hazırlıyoruz. 350+ uygulamalı içerik.</p>
+        <div class="demo-slide-features">
+          <span class="demo-feature">Canlı Bootcamp</span>
+          <span class="demo-feature">Sertifikasyon</span>
+          <span class="demo-feature">E-Learning</span>
+          <span class="demo-feature">Mentorluk</span>
+        </div>
+      </div>
+      <div class="demo-slide" style="background:linear-gradient(135deg,#0c0a05,#2d1a04);">
+        <div class="demo-slide-tag">Uzman Kaynak Kiralama</div>
+        <div class="demo-slide-num">04 / 05</div>
+        <h2>Doğru uzmanı <span>doğru anda</span> bulun</h2>
+        <p>Projenizin ihtiyacına göre kıdemli yazılımcılar, veri bilimciler ve teknoloji mimarlarını esnek modellerle ekibinize katıyoruz.</p>
+        <div class="demo-slide-features">
+          <span class="demo-feature">Staff Augmentation</span>
+          <span class="demo-feature">Dedicated Team</span>
+          <span class="demo-feature">CTO-as-a-Service</span>
+          <span class="demo-feature">350+ Uzman</span>
+        </div>
+      </div>
+      <div class="demo-slide" style="background:linear-gradient(135deg,#0a0f2e,#0d2060);">
+        <div class="demo-slide-tag">Sektörel Çözümler</div>
+        <div class="demo-slide-num">05 / 05</div>
+        <h2>Her sektöre <span>özel çözüm</span></h2>
+        <p>Kamu, savunma, finans, sağlık, eğitim, telekom ve enerji sektörlerine özel teknoloji dönüşüm programları ve danışmanlık hizmetleri sunuyoruz.</p>
+        <div class="demo-slide-features">
+          <span class="demo-feature">Kamu & Devlet</span>
+          <span class="demo-feature">Savunma</span>
+          <span class="demo-feature">Finans</span>
+          <span class="demo-feature">Sağlık</span>
+          <span class="demo-feature">+3 Sektör</span>
+        </div>
+      </div>
+    </div>
+    <div class="demo-footer">
+      <div class="demo-dots">
+        <button class="demo-dot active" onclick="goSlide(0)"></button>
+        <button class="demo-dot" onclick="goSlide(1)"></button>
+        <button class="demo-dot" onclick="goSlide(2)"></button>
+        <button class="demo-dot" onclick="goSlide(3)"></button>
+        <button class="demo-dot" onclick="goSlide(4)"></button>
+      </div>
+      <div class="demo-nav">
+        <button class="demo-btn demo-btn-ghost" onclick="prevSlide()">← Geri</button>
+        <button class="demo-btn demo-btn-primary" id="demoNextBtn" onclick="nextSlide()">İleri →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.modal-overlay.open { display: flex !important; }
+@keyframes modalIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+.demo-overlay { display:none; position:fixed; inset:0; background:rgba(5,10,30,0.85); z-index:9999; align-items:center; justify-content:center; backdrop-filter:blur(8px); }
+.demo-overlay.active { display:flex; }
+.demo-modal { background:#0d1525; border:1px solid rgba(56,189,248,0.2); border-radius:20px; width:90%; max-width:820px; overflow:hidden; position:relative; }
+.demo-modal-header { display:flex; align-items:center; justify-content:space-between; padding:20px 28px; border-bottom:1px solid rgba(255,255,255,0.07); }
+.demo-modal-title { font-family:var(--font-d); font-size:16px; font-weight:700; color:#fff; display:flex; align-items:center; gap:10px; }
+.demo-modal-title span { width:8px; height:8px; border-radius:50%; background:#22c55e; display:inline-block; animation:pulse 1.5s infinite; }
+.demo-close { background:transparent; border:1px solid rgba(255,255,255,0.15); color:rgba(255,255,255,0.6); width:32px; height:32px; border-radius:50%; cursor:pointer; font-size:16px; }
+.demo-progress { height:3px; background:rgba(255,255,255,0.08); }
+.demo-progress-bar { height:100%; background:linear-gradient(90deg,#2563eb,#38bdf8); transition:width 0.1s linear; }
+.demo-screen { padding:40px 48px; min-height:320px; }
+.demo-slide { display:none; padding:32px; border-radius:16px; }
+.demo-slide.active { display:block; }
+.demo-slide h2 { font-family:var(--font-d); font-size:28px; font-weight:800; color:#fff; margin:12px 0 16px; line-height:1.2; }
+.demo-slide h2 span { color:#38bdf8; }
+.demo-slide p { font-size:15px; color:rgba(255,255,255,0.7); line-height:1.7; margin-bottom:24px; }
+.demo-slide-tag { display:inline-block; font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#38bdf8; background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.2); padding:4px 12px; border-radius:100px; }
+.demo-slide-num { font-size:12px; color:rgba(255,255,255,0.3); margin-top:8px; }
+.demo-slide-features { display:flex; flex-wrap:wrap; gap:8px; }
+.demo-feature { font-size:12px; font-weight:500; color:rgba(255,255,255,0.8); background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); padding:5px 12px; border-radius:100px; }
+.demo-footer { display:flex; align-items:center; justify-content:space-between; padding:20px 28px; border-top:1px solid rgba(255,255,255,0.07); }
+.demo-dots { display:flex; gap:8px; }
+.demo-dot { width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.2); border:none; cursor:pointer; padding:0; }
+.demo-dot.active { background:#38bdf8; }
+.demo-nav { display:flex; gap:10px; }
+.demo-btn { padding:9px 20px; border-radius:8px; font-family:var(--font-b); font-size:14px; font-weight:500; cursor:pointer; }
+.demo-btn-ghost { background:transparent; border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.7); }
+.demo-btn-primary { background:#2563eb; border:none; color:#fff; }
+</style>
+
+<script>
+var demoSlide = 0;
+var demoTotal = 5;
+var demoTimer = null;
+var demoProgressTimer = null;
+var demoProgressVal = 0;
+var AUTO_DURATION = 5000;
+function openDemoModal() {
+  document.getElementById('demoOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  goSlide(0);
+  startAutoPlay();
+}
+function closeDemoModal() {
+  document.getElementById('demoOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+  stopAutoPlay();
+}
+function goSlide(n) {
+  var slides = document.querySelectorAll('.demo-slide');
+  var dots = document.querySelectorAll('.demo-dot');
+  slides.forEach(function(s){ s.classList.remove('active'); });
+  dots.forEach(function(d){ d.classList.remove('active'); });
+  demoSlide = n;
+  slides[n].classList.add('active');
+  dots[n].classList.add('active');
+  document.getElementById('demoNextBtn').textContent = n === demoTotal-1 ? 'Görüşme Al →' : 'İleri →';
+  resetProgress();
+}
+function nextSlide() {
+  if(demoSlide === demoTotal-1) { closeDemoModal(); window.location.href='iletisim.html'; return; }
+  goSlide(demoSlide + 1);
+}
+function prevSlide() { if(demoSlide > 0) goSlide(demoSlide - 1); }
+function resetProgress() {
+  clearInterval(demoProgressTimer);
+  demoProgressVal = 0;
+  document.getElementById('demoProgress').style.width = '0%';
+  demoProgressTimer = setInterval(function(){
+    demoProgressVal += 100 / (AUTO_DURATION / 100);
+    document.getElementById('demoProgress').style.width = Math.min(demoProgressVal, 100) + '%';
+  }, 100);
+}
+function startAutoPlay() {
+  stopAutoPlay();
+  demoTimer = setInterval(function(){
+    if(demoSlide < demoTotal - 1) goSlide(demoSlide + 1); else stopAutoPlay();
+  }, AUTO_DURATION);
+  resetProgress();
+}
+function stopAutoPlay() { clearInterval(demoTimer); clearInterval(demoProgressTimer); }
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeDemoModal(); });
+document.getElementById('modalGorusme').addEventListener('click', function(e) {
+  if (e.target === this) { this.classList.remove('open'); document.body.style.overflow = ''; }
+});
+</script>
+
+<script>
+(function() {
+  var grid = document.getElementById('processGrid');
+  if (!grid) return;
+  var line = document.getElementById('processLine');
+  var steps = grid.querySelectorAll('.process-step');
+  var triggered = false;
+
+  function animateProcess() {
+    if (triggered) return;
+    var rect = grid.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 80) {
+      triggered = true;
+      // 1. Draw the line
+      line.classList.add('animated');
+      // 2. Then reveal each step with delay
+      steps.forEach(function(step, i) {
+        setTimeout(function() {
+          step.classList.add('animated');
+        }, 400 + i * 280);
+      });
+    }
+  }
+
+  window.addEventListener('scroll', animateProcess, { passive: true });
+  animateProcess();
+})();
+</script>
+
+
+</html>
+
 </html>
