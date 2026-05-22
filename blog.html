@@ -226,6 +226,53 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
   .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.48); text-decoration: none; font-weight: 300; transition: color 0.2s; }
   .footer-col ul li a:hover { color: rgba(255,255,255,0.85); }
   .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; justify-content: space-between; }
+
+  .floating-help { position: fixed; bottom: 28px; right: 28px; z-index: 500; display: flex; align-items: center; gap: 0; background: #2563eb; color: #fff; border: none; border-radius: 100px; padding: 0; font-family: var(--font-b); font-size: 13px; font-weight: 500; cursor: pointer; box-shadow: 0 4px 24px rgba(37,99,235,0.45); transition: box-shadow 0.3s, transform 0.3s; overflow: hidden; max-width: 52px; }
+  .floating-help:hover { max-width: 220px; box-shadow: 0 8px 32px rgba(37,99,235,0.55); transform: translateY(-2px); }
+  .floating-help-icon { width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .floating-help-text { white-space: nowrap; overflow: hidden; opacity: 0; max-width: 0; transition: opacity 0.25s 0.1s, max-width 0.3s; padding-right: 0; }
+
+  .wizard-overlay{position:fixed;inset:0;background:rgba(10,15,40,0.7);backdrop-filter:blur(4px);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px;}
+  .wizard-overlay.open{display:flex;}
+  .wizard-modal{background:#fff;border-radius:20px;width:100%;max-width:460px;overflow:hidden;animation:wizardIn 0.3s ease;}
+  @keyframes wizardIn{from{opacity:0;transform:translateY(24px) scale(0.97);}to{opacity:1;transform:translateY(0) scale(1);}}
+  .wizard-header{background:linear-gradient(135deg,#1e3a8a,#2563eb);padding:22px 24px 18px;}
+  .wizard-header h3{font-family:var(--font-b);font-size:16px;font-weight:600;color:#fff;margin-bottom:4px;}
+  .wizard-header p{font-size:12px;color:rgba(255,255,255,0.7);font-family:var(--font-b);}
+  .wizard-header-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;}
+  .wizard-close{background:rgba(255,255,255,0.15);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;}
+  .wizard-steps{display:flex;gap:5px;margin-top:4px;}
+  .wstep{height:3px;border-radius:2px;background:rgba(255,255,255,0.25);flex:1;transition:background 0.4s;}
+  .wstep.active,.wstep.done{background:#fff;}
+  .wizard-body{padding:22px 24px;}
+  .wq-num{font-size:11px;font-weight:500;color:#9099b5;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;font-family:var(--font-b);}
+  .wq-title{font-size:16px;font-weight:600;color:#0e1628;margin-bottom:16px;font-family:var(--font-d);}
+  .wopts{display:flex;flex-direction:column;gap:8px;}
+  .wopt{display:flex;align-items:center;gap:12px;padding:11px 14px;border:1px solid rgba(15,23,60,0.1);border-radius:10px;cursor:pointer;transition:all 0.18s;font-family:var(--font-b);}
+  .wopt:hover{border-color:rgba(37,99,235,0.35);background:#f8f9ff;}
+  .wopt.selected{border-color:#2563eb;background:#eff4ff;}
+  .wopt-ic{width:34px;height:34px;border-radius:8px;background:#f4f6fb;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.18s;}
+  .wopt.selected .wopt-ic{background:#dbeafe;}
+  .wopt-label{font-size:13px;font-weight:500;color:#0e1628;}
+  .wopt-sub{font-size:11px;color:#9099b5;margin-top:1px;}
+  .wizard-foot{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;border-top:1px solid rgba(15,23,60,0.07);}
+  .wbtn-back{background:transparent;border:none;font-family:var(--font-b);font-size:13px;color:#9099b5;cursor:pointer;padding:0;}
+  .wbtn-next{padding:10px 24px;background:#2563eb;color:#fff;border:none;border-radius:9px;font-family:var(--font-b);font-size:13px;font-weight:500;cursor:pointer;transition:background 0.2s;}
+  .wbtn-next:hover{background:#1d4ed8;}
+  .wbtn-next:disabled{background:#c7d2fe;cursor:default;}
+  .wresults{display:flex;flex-direction:column;gap:10px;}
+  .wresult-card{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid rgba(15,23,60,0.1);border-radius:10px;cursor:pointer;transition:all 0.2s;text-decoration:none;}
+  .wresult-card:hover{border-color:rgba(37,99,235,0.35);box-shadow:0 4px 16px rgba(37,99,235,0.1);transform:translateY(-1px);}
+  .wresult-ic{width:38px;height:38px;border-radius:9px;background:#eff4ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .wresult-title{font-size:13px;font-weight:600;color:#0e1628;font-family:var(--font-b);}
+  .wresult-sub{font-size:11px;color:#9099b5;margin-top:2px;font-family:var(--font-b);}
+  .wresult-badge{margin-left:auto;font-size:10px;font-weight:600;padding:3px 8px;border-radius:100px;flex-shrink:0;}
+  .badge-pop{background:#fef3c7;color:#92400e;}
+  .badge-new{background:#dcfce7;color:#166534;}
+  .badge-hot{background:#fee2e2;color:#991b1b;}
+  .wcta{margin-top:14px;padding:12px 14px;background:#f8f9ff;border-radius:10px;text-align:center;border:1px solid rgba(37,99,235,0.12);}
+  .wcta p{font-size:12px;color:#485070;font-family:var(--font-b);margin-bottom:8px;}
+  .wcta button,.wcta-btn{padding:9px 20px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-family:var(--font-b);font-size:13px;font-weight:500;cursor:pointer;transition:background 0.2s;} .wcta button:hover,.wcta-btn:hover{background:#1d4ed8;}
 </style>
 </head>
 <body>
@@ -1099,8 +1146,225 @@ document.getElementById('modalGorusme').addEventListener('click', function(e) {
   animateProcess();
 })();
 </script>
+<button class="floating-help" onclick="openWizard();" title="Size uygun eğitimi bulalım">
+  <span class="floating-help-icon">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="12" y1="7" x2="12" y2="13"/></svg>
+  </span>
+  <span class="floating-help-dot"></span>
+  <span class="floating-help-text">Uzman Desteği Al</span>
+</button>
 
+<!-- EĞİTİM WİZARDI -->
+<div class="wizard-overlay" id="wizardOverlay">
+  <div class="wizard-modal" id="wizardModal">
+    <div class="wizard-header">
+      <div class="wizard-header-top">
+        <div>
+          <h3 id="wizardTitle">Size uygun eğitimi bulalım</h3>
+          <p id="wizardSubtitle">3 hızlı soruyla en iyi programı öneriyoruz</p>
+        </div>
+        <button class="wizard-close" onclick="closeWizard()">✕</button>
+      </div>
+      <div class="wizard-steps" id="wizardSteps"></div>
+    </div>
+    <div class="wizard-body" id="wizardBody"></div>
+    <div class="wizard-foot" id="wizardFoot">
+      <button class="wbtn-back" id="wBtnBack" onclick="wizardBack()">← Geri</button>
+      <button class="wbtn-next" id="wBtnNext" onclick="wizardNext()">Devam Et →</button>
+    </div>
+  </div>
+</div>
 
-</html>
+<script>
+var wizardStep=0,wizardAnswers={};
+// Hizmet bazlı dinamik soru akışı
+var wHizmetler = [
+  {icon:'ti-school',label:'Teknoloji Eğitimi',sub:'Bireysel veya kurumsal eğitim programları'},
+  {icon:'ti-robot',label:'AI Entegrasyonu',sub:'İş süreçlerine yapay zeka entegrasyonu'},
+  {icon:'ti-refresh',label:'Dijital Dönüşüm',sub:'Cloud, ERP, RPA, BPM danışmanlığı'},
+  {icon:'ti-users',label:'Uzman Kaynak Kiralama',sub:'Proje bazlı teknoloji uzmanı'},
+];
+
+var wAkisler = {
+  'Teknoloji Eğitimi': [
+    {q:'Eğitim kimin için?',opts:[
+      {icon:'ti-user',label:'Kendim için',sub:'Bireysel kariyer gelişimi'},
+      {icon:'ti-building',label:'Ekibim için',sub:'Kurumsal grup eğitimi'},
+      {icon:'ti-users',label:'Şirketim için',sub:'Tüm organizasyon'}
+    ]},
+    {q:'Hangi alanda gelişmek istiyorsunuz?',opts:[
+      {icon:'ti-code',label:'Yazılım & Geliştirme',sub:'Python, Java, .NET, Web'},
+      {icon:'ti-robot',label:'AI & Veri Bilimi',sub:'ML, ChatGPT, Analitik'},
+      {icon:'ti-cloud',label:'Cloud & Altyapı',sub:'Azure, AWS, DevOps'},
+      {icon:'ti-shield',label:'Siber Güvenlik',sub:'CEH, CISSP, SOC'},
+      {icon:'ti-table',label:'Microsoft & Office',sub:'Excel, Teams, SharePoint'},
+      {icon:'ti-chart-bar',label:'Veri & İş Analitiği',sub:'Power BI, SQL, Tableau'}
+    ]},
+    {q:'Deneyim seviyeniz nedir?',opts:[
+      {icon:'ti-seedling',label:'Başlangıç',sub:'Bu alanda yeni başlıyorum'},
+      {icon:'ti-trending-up',label:'Orta',sub:'Temel bilgim var, ilerlemek istiyorum'},
+      {icon:'ti-award',label:'İleri',sub:'Uzmanlık sertifikası hedefliyorum'}
+    ]}
+  ],
+  'AI Entegrasyonu': [
+    {q:'Kuruluşunuzun büyüklüğü nedir?',opts:[
+      {icon:'ti-user',label:'KOBİ (1-50 çalışan)',sub:'Küçük ve orta ölçekli işletme'},
+      {icon:'ti-building',label:'Orta Ölçekli (51-500)',sub:'Büyüyen kurumsal yapı'},
+      {icon:'ti-building-skyscraper',label:'Kurumsal (500+)',sub:'Büyük ölçekli organizasyon'}
+    ]},
+    {q:'Hangi süreçleri otomatikleştirmek istiyorsunuz?',opts:[
+      {icon:'ti-message',label:'Müşteri İletişimi',sub:'Chatbot, destek otomasyonu'},
+      {icon:'ti-file-text',label:'Doküman & Veri İşleme',sub:'OCR, analiz, raporlama'},
+      {icon:'ti-chart-line',label:'Karar Destek Sistemleri',sub:'Tahminleme, analitik'},
+      {icon:'ti-settings-automation',label:'İş Akışı Otomasyonu',sub:'Süreç otomasyonu, RPA'}
+    ]},
+    {q:'Ne zaman başlamayı planlıyorsunuz?',opts:[
+      {icon:'ti-rocket',label:'Hemen (1 ay içinde)',sub:'Hızlı başlamak istiyoruz'},
+      {icon:'ti-calendar',label:'Kısa vadede (3 ay)',sub:'Planlama aşamasındayız'},
+      {icon:'ti-clock',label:'Uzun vadede (6+ ay)',sub:'Araştırma yapıyoruz'}
+    ]}
+  ],
+  'Dijital Dönüşüm': [
+    {q:'Hangi dönüşüm alanında yardıma ihtiyacınız var?',opts:[
+      {icon:'ti-cloud-upload',label:'Cloud Geçişi',sub:'Azure, AWS, Google Cloud'},
+      {icon:'ti-database',label:'ERP & CRM Modernizasyonu',sub:'SAP, Dynamics, Salesforce'},
+      {icon:'ti-settings-automation',label:'Süreç Otomasyonu',sub:'RPA, BPM, iş akışları'},
+      {icon:'ti-shield-check',label:'Siber Güvenlik & Uyum',sub:'ISO 27001, KVKK, GDPR'}
+    ]},
+    {q:'Mevcut teknoloji altyapınız nasıl?',opts:[
+      {icon:'ti-alert-triangle',label:'Eski sistemler (Legacy)',sub:'10+ yıllık altyapı'},
+      {icon:'ti-git-branch',label:'Karma (Hibrit)',sub:'Eski ve yeni sistemler birlikte'},
+      {icon:'ti-cloud',label:'Modern altyapı',sub:'Cloud tabanlı, güncel sistemler'}
+    ]},
+    {q:'Projenin bütçe aralığı nedir?',opts:[
+      {icon:'ti-coin',label:'Keşif Aşaması',sub:'Önce analiz ve planlama'},
+      {icon:'ti-cash',label:'Orta ölçekli proje',sub:'Belirli süreçler için'},
+      {icon:'ti-businessplan',label:'Kapsamlı dönüşüm',sub:'Tüm organizasyon'}
+    ]}
+  ],
+  'Uzman Kaynak Kiralama': [
+    {q:'Hangi uzmanlık alanına ihtiyacınız var?',opts:[
+      {icon:'ti-code',label:'Yazılım Geliştirici',sub:'Full-stack, backend, frontend'},
+      {icon:'ti-database',label:'Veri Mühendisi / Bilimci',sub:'ML, analitik, BI'},
+      {icon:'ti-cloud',label:'Cloud / DevOps Uzmanı',sub:'Azure, AWS, Kubernetes'},
+      {icon:'ti-shield',label:'Siber Güvenlik Uzmanı',sub:'SOC, pentest, uyum'}
+    ]},
+    {q:'Ne kadar süreliğine ihtiyacınız var?',opts:[
+      {icon:'ti-calendar-event',label:'Kısa dönem (1-3 ay)',sub:'Proje bazlı'},
+      {icon:'ti-calendar',label:'Orta dönem (3-6 ay)',sub:'Belirli proje süresi'},
+      {icon:'ti-infinity',label:'Uzun dönem (6+ ay)',sub:'Sürekli kaynak ihtiyacı'}
+    ]},
+    {q:'Çalışma modeli nasıl olsun?',opts:[
+      {icon:'ti-home',label:'Uzaktan (Remote)',sub:'Tam uzaktan çalışma'},
+      {icon:'ti-building',label:'Yerinde (Onsite)',sub:'Ofisimizde çalışma'},
+      {icon:'ti-arrows-exchange',label:'Hibrit',sub:'Hem uzak hem yerinde'}
+    ]}
+  ]
+};
+
+var wQ = []; // aktif akış
+var wEgitimler={
+  'Yazılım & Geliştirme':[{t:'Python ile Veri Analizi',s:'3 Gün · Başlangıç',b:'pop'},{t:'Java SE 11 Developer',s:'5 Gün · Orta',b:'hot'},{t:'.NET Core ile Web Geliştirme',s:'4 Gün · Orta',b:''},{t:'React & Modern Frontend',s:'3 Gün · Orta',b:'new'}],
+  'AI & Veri Bilimi':[{t:'Generative AI & ChatGPT Kurumsal',s:'2 Gün · Başlangıç',b:'hot'},{t:'Machine Learning ile Tahminleme',s:'4 Gün · Orta',b:'pop'},{t:'Azure AI Foundry',s:'3 Gün · Orta',b:'new'},{t:'Power BI ile Veri Görselleştirme',s:'2 Gün · Başlangıç',b:''}],
+  'Cloud & Altyapı':[{t:'AZ-900: Azure Fundamentals',s:'2 Gün · Başlangıç',b:'pop'},{t:'AZ-104: Azure Administrator',s:'4 Gün · Orta',b:''},{t:'AWS Solutions Architect',s:'5 Gün · Orta',b:'hot'},{t:'DevOps & CI/CD Pipeline',s:'3 Gün · Orta',b:'new'}],
+  'Siber Güvenlik':[{t:'Etik Hacking & Sızma Testi',s:'5 Gün · Orta',b:'hot'},{t:'ISO 27001 & KVKK Uyum',s:'2 Gün · Başlangıç',b:'pop'},{t:'SOC Analisti Eğitimi',s:'4 Gün · Orta',b:''},{t:'CISSP Sertifika Hazırlık',s:'5 Gün · İleri',b:'new'}],
+  'Microsoft & Office':[{t:'Microsoft Excel İleri',s:'2 Gün · Orta',b:'pop'},{t:'SharePoint Online Yönetimi',s:'3 Gün · Orta',b:''},{t:'Microsoft Teams ile İşbirliği',s:'1 Gün · Başlangıç',b:'new'},{t:'Microsoft 365 Copilot',s:'1 Gün · Başlangıç',b:'hot'}],
+  'Veri & İş Analitiği':[{t:'SQL ile Veri Sorgulama',s:'3 Gün · Başlangıç',b:'pop'},{t:'Power BI Desktop',s:'2 Gün · Başlangıç',b:'hot'},{t:'Tableau Veri Analizi',s:'3 Gün · Orta',b:''},{t:'Azure HDInsight & Big Data',s:'4 Gün · İleri',b:'new'}]
+};
+
+function openWizard(){wizardStep=0;wizardAnswers={};wQ=[];document.getElementById('wizardOverlay').classList.add('open');document.body.style.overflow='hidden';renderWizard();}
+function closeWizard(){document.getElementById('wizardOverlay').classList.remove('open');document.body.style.overflow='';}
+
+function renderSteps(){
+  var s=document.getElementById('wizardSteps');s.innerHTML='';
+  var total=wQ.length+2;
+  for(var i=0;i<total;i++){var d=document.createElement('div');d.className='wstep'+(i<wizardStep?' done':'')+(i===wizardStep?' active':'');s.appendChild(d);}
+}
+
+function renderWizard(){
+  var body=document.getElementById('wizardBody');
+  var btnN=document.getElementById('wBtnNext');
+  var btnB=document.getElementById('wBtnBack');
+  renderSteps();
+  btnB.style.visibility=wizardStep===0?'hidden':'visible';
+
+  // Adım 0: Hizmet seçimi
+  if(wizardStep===0){
+    document.getElementById('wizardTitle').textContent='Nasıl yardımcı olabiliriz?';
+    document.getElementById('wizardSubtitle').textContent='Size en uygun hizmeti bulmak için birkaç soru soracağız';
+    btnN.textContent='Devam Et →';
+    btnN.disabled=wizardAnswers[0]===undefined;
+    var html='<div class="wq-num">1. Adım — Hizmet Seçimi</div><div class="wq-title">Hangi konuda destek almak istiyorsunuz?</div><div class="wopts">';
+    wHizmetler.forEach(function(o,i){
+      var sel=wizardAnswers[0]===i?' selected':'';
+      var ic=sel?'#2563eb':'#9099b5';
+      html+='<div class="wopt'+sel+'" onclick="selectHizmet('+i+')">';
+      html+='<div class="wopt-ic"><i class="ti '+o.icon+'" style="font-size:17px;color:'+ic+';" aria-hidden="true"></i></div>';
+      html+='<div><div class="wopt-label">'+o.label+'</div><div class="wopt-sub">'+o.sub+'</div></div></div>';
+    });
+    html+='</div>';
+    body.innerHTML=html;
+    return;
+  }
+
+  var qIdx = wizardStep - 1;
+  var total = wQ.length;
+
+  if(wizardStep<wQ.length+1){
+    document.getElementById('wizardTitle').textContent='Size uygun çözümü bulalım';
+    document.getElementById('wizardSubtitle').textContent=(wizardStep)+' / '+(total+1)+' — '+wQ[qIdx].q;
+    var q=wQ[qIdx];
+    btnN.textContent=wizardStep<wQ.length?'Devam Et →':'Sonuçları Gör →';
+    btnN.disabled=wizardAnswers[wizardStep]===undefined;
+    var html='<div class="wq-num">Soru '+wizardStep+' / '+wQ.length+'</div><div class="wq-title">'+q.q+'</div><div class="wopts">';
+    q.opts.forEach(function(o,i){
+      var sel=wizardAnswers[wizardStep]===i?' selected':'';
+      var ic=sel?'#2563eb':'#9099b5';
+      html+='<div class="wopt'+sel+'" onclick="selectOpt('+i+')">';
+      html+='<div class="wopt-ic"><i class="ti '+o.icon+'" style="font-size:17px;color:'+ic+';" aria-hidden="true"></i></div>';
+      html+='<div><div class="wopt-label">'+o.label+'</div><div class="wopt-sub">'+o.sub+'</div></div></div>';
+    });
+    html+='</div>';
+    body.innerHTML=html;
+  } else {
+    document.getElementById('wizardTitle').textContent='Önerilen Çözümler';
+    document.getElementById('wizardSubtitle').textContent='Seçimlerinize göre size özel öneriler';
+    btnN.textContent='Uzmanla Görüş →'; btnN.disabled=false;
+    var hizmet=wHizmetler[wizardAnswers[0]].label;
+    var alan=wQ.length>1 && wizardAnswers[2]!==undefined ? wQ[1].opts[wizardAnswers[2]].label : (wQ[0]&&wQ[0].opts[wizardAnswers[1]]?wQ[0].opts[wizardAnswers[1]].label:'');
+    var liste=wEgitimler[alan]||wEgitimler['Yazılım & Geliştirme'];
+    var html='<div class="wresults">';
+    liste.forEach(function(e){
+      var bh='';
+      if(e.b==='pop')bh='<span class="wresult-badge badge-pop">⭐ Popüler</span>';
+      else if(e.b==='new')bh='<span class="wresult-badge badge-new">✦ Yeni</span>';
+      else if(e.b==='hot')bh='<span class="wresult-badge badge-hot">🔥 Çok Tercih</span>';
+      var encodedTitle = encodeURIComponent(e.t);
+      html+='<div class="wresult-card" onclick="closeWizard();window.location.href=\'egitim-detay.html?title=\'+encodeURIComponent(\''+e.t+'\');"><div class="wresult-ic"><i class="ti ti-certificate" style="font-size:18px;color:#2563eb;" aria-hidden="true"></i></div>';
+      html+='<div style="flex:1"><div class="wresult-title">'+e.t+'</div><div class="wresult-sub">'+e.s+'</div></div>'+bh;
+      html+='<i class="ti ti-chevron-right" style="font-size:14px;color:#9099b5;flex-shrink:0;" aria-hidden="true"></i></div>';
+    });
+    html+='</div><div class="wcta"><p>Kurumsal grup indirimleri için:</p>';
+    html+='<button class="wcta-btn" onclick="closeWizard();setTimeout(function(){document.getElementById(\'modalGorusme\').classList.add(\'open\');document.body.style.overflow=\'hidden\';},200);">Uzmanla Görüş →</button></div>';
+    body.innerHTML=html;
+  }
+}
+
+function selectHizmet(i){
+  wizardAnswers[0]=i;
+  var hizmet=wHizmetler[i].label;
+  wQ=wAkisler[hizmet]||[];
+  document.getElementById('wBtnNext').disabled=false;
+  renderWizard();
+}
+function selectOpt(i){wizardAnswers[wizardStep]=i;document.getElementById('wBtnNext').disabled=false;renderWizard();}
+function wizardNext(){
+  if(wizardStep===wQ.length+1){closeWizard();setTimeout(function(){document.getElementById('modalGorusme').classList.add('open');document.body.style.overflow='hidden';},200);return;}
+  if(wizardAnswers[wizardStep]===undefined)return;
+  wizardStep++;renderWizard();
+}
+function wizardBack(){if(wizardStep>0){wizardStep--;renderWizard();}}
+document.getElementById('wizardOverlay').addEventListener('click',function(e){if(e.target===this)closeWizard();});
+</script>
 
 </html>
