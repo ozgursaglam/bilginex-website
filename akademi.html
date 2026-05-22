@@ -25,8 +25,8 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-b); fo
 
 /* NAV */
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 18px 60px; background: rgba(240,242,245,0.9); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); }
-.nav-logo { font-family: var(--font-d); font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: var(--text); text-decoration: none; }
-.nav-logo span{color:#1a56db;}
+.nav-logo { font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.5px; color: var(--text); text-decoration: none; display:inline-flex; align-items:center; }
+.nav-logo span{color:#6C6FE0;}
 .nav-links { display: flex; gap: 32px; list-style: none; }
 .nav-links a { color: var(--text2); text-decoration: none; font-size: 14px; transition: color 0.2s; }
 .nav-links a:hover, .nav-links a.active { color: var(--text); font-weight: 500; }
@@ -268,7 +268,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; a
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">Bilgi<span>nex</span></a>
+  <a href="index.html" class="nav-logo"><svg width="32" height="32" viewBox="0 0 74 74" fill="none" style="vertical-align:middle;margin-right:10px;"><circle cx="37" cy="37" r="37" fill="#6C6FE0"/><circle cx="37" cy="37" r="10" fill="none" stroke="white" stroke-width="2.5"/><circle cx="37" cy="37" r="3.5" fill="white"/><circle cx="14" cy="37" r="3.5" fill="none" stroke="white" stroke-width="2"/><line x1="17.5" y1="37" x2="27" y2="37" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="54" cy="20" r="3.5" fill="none" stroke="white" stroke-width="2"/><line x1="51.5" y1="22.5" x2="45" y2="29" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="54" cy="54" r="3.5" fill="none" stroke="white" stroke-width="2"/><line x1="51.5" y1="51.5" x2="45" y2="45" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="37" cy="60" r="3" fill="none" stroke="white" stroke-width="2"/><line x1="37" y1="57" x2="37" y2="47" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>bilgi<span>nex</span></a>
   <ul class="nav-links">
 
     <!-- HİZMETLER -->
@@ -2549,7 +2549,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; a
   <div class="cta-inner">
     <h2 class="cta-title">Kurumsal eğitim planınızı birlikte tasarlayalım</h2>
     <p class="cta-sub">Ekibinizin ihtiyaçlarına özel program oluşturalım. Özel grup indirimleri ve esnek takvim seçenekleri için bizimle iletişime geçin.</p>
-    <a href="#" class="btn-cta-white">Kurumsal Teklif Al →</a>
+    <a href="#" class="btn-cta-white" onclick="document.getElementById('modalGorusme').classList.add('open');document.body.style.overflow='hidden';return false;">Kurumsal Teklif Al →</a>
   </div>
 </section>
 
@@ -2825,8 +2825,8 @@ window.addEventListener('load', () => {
   <div style="background:#fff;border-radius:20px;padding:44px;width:100%;max-width:520px;position:relative;box-shadow:0 24px 80px rgba(10,15,40,0.3);animation:modalIn 0.3s ease;margin:20px;">
     <button onclick="document.getElementById('modalGorusme').classList.remove('open');document.body.style.overflow='';" style="position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;border:1px solid #e5e7eb;background:transparent;cursor:pointer;font-size:16px;color:#9099b5;display:flex;align-items:center;justify-content:center;">✕</button>
     <div id="gorusmeForm">
-      <div style="font-family:'IBM Plex Sans',sans-serif;font-size:22px;font-weight:700;color:#0e1628;margin-bottom:6px;">Ücretsiz Görüşme Talep Et</div>
-      <div style="font-size:14px;color:#485070;margin-bottom:28px;font-weight:300;">Ekibimiz 1 iş günü içinde sizinle iletişime geçecek.</div>
+      <div style="font-family:'IBM Plex Sans',sans-serif;font-size:22px;font-weight:700;color:#0e1628;margin-bottom:6px;">Kurumsal Eğitim Teklifi Al</div>
+      <div style="font-size:14px;color:#485070;margin-bottom:28px;font-weight:300;">Ekibinize özel eğitim programı için talebi gönderin, uzmanlarımız sizi arasın.</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
         <div>
           <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">Ad</label>
