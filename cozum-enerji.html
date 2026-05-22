@@ -214,10 +214,10 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
   .footer-col ul li a:hover { color: rgba(255,255,255,0.85); }
   .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; justify-content: space-between; }
 
-  .floating-help { position: fixed; bottom: 28px; right: 28px; z-index: 500; display: flex; align-items: center; gap: 0; background: #2563eb; color: #fff; border: none; border-radius: 100px; padding: 0; font-family: var(--font-b); font-size: 13px; font-weight: 500; cursor: pointer; box-shadow: 0 4px 24px rgba(37,99,235,0.45); transition: box-shadow 0.3s, transform 0.3s; overflow: hidden; max-width: 52px; }
+  .floating-help { position: fixed; bottom: 28px; right: 28px; z-index: 500; display: flex; align-items: center; gap: 0; background: #2563eb; color: #fff; border: none; border-radius: 100px; padding: 0 18px 0 18px; font-family: var(--font-b); font-size: 13px; font-weight: 500; cursor: pointer; box-shadow: 0 4px 24px rgba(37,99,235,0.45); transition: box-shadow 0.3s, transform 0.3s; overflow: hidden; max-width: 200px; }
   .floating-help:hover { max-width: 220px; box-shadow: 0 8px 32px rgba(37,99,235,0.55); transform: translateY(-2px); }
   .floating-help-icon { width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .floating-help-text { white-space: nowrap; overflow: hidden; opacity: 0; max-width: 0; transition: opacity 0.25s 0.1s, max-width 0.3s; padding-right: 0; }
+  .floating-help-text { white-space: nowrap; overflow: hidden; opacity: 1; max-width: 160px; transition: opacity 0.25s 0.1s, max-width 0.3s; padding-right: 0; }
 
   .wizard-overlay{position:fixed;inset:0;background:rgba(10,15,40,0.7);backdrop-filter:blur(4px);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px;}
   .wizard-overlay.open{display:flex;}
@@ -260,6 +260,17 @@ footer { background: #0d1117; padding: 64px 60px 40px; }
   .wcta{margin-top:14px;padding:12px 14px;background:#f8f9ff;border-radius:10px;text-align:center;border:1px solid rgba(37,99,235,0.12);}
   .wcta p{font-size:12px;color:#485070;font-family:var(--font-b);margin-bottom:8px;}
   .wcta button,.wcta-btn{padding:9px 20px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-family:var(--font-b);font-size:13px;font-weight:500;cursor:pointer;transition:background 0.2s;} .wcta button:hover,.wcta-btn:hover{background:#1d4ed8;}
+to{transform:rotate(360deg);}}
+50%{box-shadow:0 0 0 6px rgba(34,197,94,0);}}
+to{opacity:1;transform:translateY(0) scale(1);}}
+  .floating-help{position:fixed;bottom:28px;right:28px;z-index:500;display:inline-flex;align-items:center;gap:0;background:#2563eb;border:none;border-radius:100px;font-family:var(--font-b);font-size:13px;font-weight:600;color:#fff;cursor:pointer;box-shadow:0 4px 20px rgba(37,99,235,0.45);transition:all 0.3s cubic-bezier(0.4,0,0.2,1);animation:float-in 0.5s ease 1s both;overflow:hidden;max-width:46px;padding:0;}
+  .floating-help:hover{max-width:220px;box-shadow:0 8px 28px rgba(37,99,235,0.55);}
+  .floating-help-ic{width:46px;height:46px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .floating-help-label{white-space:nowrap;overflow:hidden;opacity:0;max-width:0;padding-right:0;transition:opacity 0.2s 0.1s,max-width 0.3s,padding-right 0.3s;}
+  .floating-help:hover .floating-help-label{opacity:1;max-width:180px;padding-right:18px;}
+  .floating-help-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;margin-right:6px;flex-shrink:0;animation:pulse-dot 2s infinite;}
+  @keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(74,222,128,0.5);}50%{box-shadow:0 0 0 5px rgba(74,222,128,0);}}
+  @keyframes float-in{from{opacity:0;transform:translateY(20px) scale(0.9);}to{opacity:1;transform:translateY(0) scale(1);}}
 </style>
 </head>
 <body>
@@ -1026,12 +1037,12 @@ document.getElementById('modalGorusme').addEventListener('click', function(e) {
   animateProcess();
 })();
 </script>
-<button class="floating-help" onclick="openWizard();" title="Size uygun eğitimi bulalım">
-  <span class="floating-help-icon">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="12" y1="7" x2="12" y2="13"/></svg>
+<button class="floating-help" onclick="openWizard();" title="Uzman Desteği Al">
+  <span class="floating-help-ic">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
   </span>
   <span class="floating-help-dot"></span>
-  <span class="floating-help-text">Uzman Desteği Al</span>
+  <span class="floating-help-label">Uzman Desteği Al</span>
 </button>
 
 <!-- EĞİTİM WİZARDI -->
