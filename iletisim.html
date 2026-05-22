@@ -1373,25 +1373,96 @@ function renderWizard(){
     html+='</div>';
     body.innerHTML=html;
   } else {
+    var hizmet=wHizmetler[wizardAnswers[0]].label;
     document.getElementById('wizardTitle').textContent='Önerilen Çözümler';
     document.getElementById('wizardSubtitle').textContent='Seçimlerinize göre size özel öneriler';
     btnN.textContent='Uzmanla Görüş →'; btnN.disabled=false;
-    var hizmet=wHizmetler[wizardAnswers[0]].label;
-    var alan=wQ.length>1 && wizardAnswers[2]!==undefined ? wQ[1].opts[wizardAnswers[2]].label : (wQ[0]&&wQ[0].opts[wizardAnswers[1]]?wQ[0].opts[wizardAnswers[1]].label:'');
-    var liste=wEgitimler[alan]||wEgitimler['Yazılım & Geliştirme'];
+
     var html='<div class="wresults">';
-    liste.forEach(function(e){
-      var bh='';
-      if(e.b==='pop')bh='<span class="wresult-badge badge-pop">⭐ Popüler</span>';
-      else if(e.b==='new')bh='<span class="wresult-badge badge-new">✦ Yeni</span>';
-      else if(e.b==='hot')bh='<span class="wresult-badge badge-hot">🔥 Çok Tercih</span>';
-      var encodedTitle = encodeURIComponent(e.t);
-      html+='<div class="wresult-card" onclick="closeWizard();window.location.href=\'egitim-detay.html?title=\'+encodeURIComponent(\''+e.t+'\');"><div class="wresult-ic"><i class="ti ti-certificate" style="font-size:18px;color:#2563eb;" aria-hidden="true"></i></div>';
-      html+='<div style="flex:1"><div class="wresult-title">'+e.t+'</div><div class="wresult-sub">'+e.s+'</div></div>'+bh;
-      html+='<i class="ti ti-chevron-right" style="font-size:14px;color:#9099b5;flex-shrink:0;" aria-hidden="true"></i></div>';
-    });
-    html+='</div><div class="wcta"><p>Kurumsal grup indirimleri için:</p>';
-    html+='<button class="wcta-btn" onclick="closeWizard();setTimeout(function(){document.getElementById(\'modalGorusme\').classList.add(\'open\');document.body.style.overflow=\'hidden\';},200);">Uzmanla Görüş →</button></div>';
+
+    if(hizmet==='Teknoloji Eğitimi'){
+      var alan=wQ[1]&&wizardAnswers[2]!==undefined?wQ[1].opts[wizardAnswers[2]].label:'Yazılım & Geliştirme';
+      var liste=wEgitimler[alan]||wEgitimler['Yazılım & Geliştirme'];
+      liste.forEach(function(e){
+        var bh='';
+        if(e.b==='pop')bh='<span class="wresult-badge badge-pop">⭐ Popüler</span>';
+        else if(e.b==='new')bh='<span class="wresult-badge badge-new">✦ Yeni</span>';
+        else if(e.b==='hot')bh='<span class="wresult-badge badge-hot">🔥 Çok Tercih</span>';
+        html+='<div class="wresult-card" onclick="closeWizard();window.location.href=\'egitim-detay.html?title=\'+encodeURIComponent(\''+e.t+'\');">';
+        html+='<div class="wresult-ic"><i class="ti ti-certificate" style="font-size:18px;color:#2563eb;" aria-hidden="true"></i></div>';
+        html+='<div style="flex:1"><div class="wresult-title">'+e.t+'</div><div class="wresult-sub">'+e.s+'</div></div>'+bh;
+        html+='<i class="ti ti-chevron-right" style="font-size:14px;color:#9099b5;" aria-hidden="true"></i></div>';
+      });
+      html+='</div><div class="wcta"><p>Kurumsal grup indirimleri için:</p>';
+      html+='<button class="wcta-btn" onclick="closeWizard();setTimeout(function(){document.getElementById(\'modalGorusme\').classList.add(\'open\');document.body.style.overflow=\'hidden\';},200);">Kurumsal Teklif Al →</button></div>';
+
+    } else if(hizmet==='AI Entegrasyonu'){
+      var sure=wQ[2]&&wizardAnswers[3]!==undefined?wQ[2].opts[wizardAnswers[3]].label:'';
+      var cozumler=[
+        {t:'Akıllı Chatbot & Müşteri Desteği Otomasyonu',s:'Kurumsal bilgi tabanına entegre AI asistan',ic:'ti-message',b:'hot',url:'ai-entegrasyon.html'},
+        {t:'Doküman Analizi & RAG Sistemi',s:'Sözleşme, rapor ve belgeleri otomatik işleme',ic:'ti-file-text',b:'pop',url:'ai-entegrasyon.html'},
+        {t:'Süreç Otomasyon & Karar Destek',s:'İş akışlarına entegre AI motorları',ic:'ti-settings-automation',b:'new',url:'ai-entegrasyon.html'},
+        {t:'Keşif Görüşmesi & İhtiyaç Analizi',s:'Ücretsiz · 1 saat · Uzman ile birebir',ic:'ti-calendar',b:'',url:'#gorusme'}
+      ];
+      cozumler.forEach(function(e){
+        var bh='';
+        if(e.b==='pop')bh='<span class="wresult-badge badge-pop">⭐ Popüler</span>';
+        else if(e.b==='new')bh='<span class="wresult-badge badge-new">✦ Yeni</span>';
+        else if(e.b==='hot')bh='<span class="wresult-badge badge-hot">🔥 Çok Tercih</span>';
+        var onclick=e.url==='#gorusme'?'closeWizard();setTimeout(function(){document.getElementById(\'modalGorusme\').classList.add(\'open\');document.body.style.overflow=\'hidden\';},200);':'closeWizard();window.location.href=\''+e.url+'\';';
+        html+='<div class="wresult-card" onclick="'+onclick+'">';
+        html+='<div class="wresult-ic" style="background:#f0f4ff"><i class="ti '+e.ic+'" style="font-size:18px;color:#2563eb;" aria-hidden="true"></i></div>';
+        html+='<div style="flex:1"><div class="wresult-title">'+e.t+'</div><div class="wresult-sub">'+e.s+'</div></div>'+bh;
+        html+='<i class="ti ti-chevron-right" style="font-size:14px;color:#9099b5;" aria-hidden="true"></i></div>';
+      });
+      html+='</div><div class="wcta"><p>AI stratejinizi birlikte belirleyelim:</p>';
+      html+='<button class="wcta-btn" onclick="closeWizard();setTimeout(function(){document.getElementById(\'modalGorusme\').classList.add(\'open\');document.body.style.overflow=\'hidden\';},200);">Ücretsiz Keşif Görüşmesi →</button></div>';
+
+    } else if(hizmet==='Dijital Dönüşüm'){
+      var alan2=wQ[0]&&wizardAnswers[1]!==undefined?wQ[0].opts[wizardAnswers[1]].label:'';
+      var cozumler2=[
+        {t:'Durum Tespiti & GAP Analizi',s:'Mevcut altyapı ve süreçlerin kapsamlı değerlendirmesi',ic:'ti-clipboard-list',b:'pop'},
+        {t:'Dijital Dönüşüm Yol Haritası',s:'12-36 aylık önceliklendirilmiş strateji planı',ic:'ti-map',b:'hot'},
+        {t:'Cloud Geçiş & Altyapı Modernizasyonu',s:'Azure, AWS, Google Cloud geçiş danışmanlığı',ic:'ti-cloud-upload',b:''},
+        {t:'ERP & Süreç Modernizasyonu',s:'SAP, Dynamics, RPA entegrasyon projeleri',ic:'ti-refresh',b:'new'}
+      ];
+      cozumler2.forEach(function(e){
+        var bh='';
+        if(e.b==='pop')bh='<span class="wresult-badge badge-pop">⭐ Popüler</span>';
+        else if(e.b==='new')bh='<span class="wresult-badge badge-new">✦ Yeni</span>';
+        else if(e.b==='hot')bh='<span class="wresult-badge badge-hot">🔥 Çok Tercih</span>';
+        html+='<div class="wresult-card" onclick="closeWizard();window.location.href=\'dijital-donusum.html\';">';
+        html+='<div class="wresult-ic" style="background:#f0fdf4"><i class="ti '+e.ic+'" style="font-size:18px;color:#16a34a;" aria-hidden="true"></i></div>';
+        html+='<div style="flex:1"><div class="wresult-title">'+e.t+'</div><div class="wresult-sub">'+e.s+'</div></div>'+bh;
+        html+='<i class="ti ti-chevron-right" style="font-size:14px;color:#9099b5;" aria-hidden="true"></i></div>';
+      });
+      html+='</div><div class="wcta"><p>Dönüşüm yolculuğunuzu birlikte başlatalım:</p>';
+      html+='<button class="wcta-btn" onclick="closeWizard();setTimeout(function(){document.getElementById(\'modalGorusme\').classList.add(\'open\');document.body.style.overflow=\'hidden\';},200);">Strateji Görüşmesi Al →</button></div>';
+
+    } else if(hizmet==='Uzman Kaynak Kiralama'){
+      var alan3=wQ[0]&&wizardAnswers[1]!==undefined?wQ[0].opts[wizardAnswers[1]].label:'';
+      var sure2=wQ[1]&&wizardAnswers[2]!==undefined?wQ[1].opts[wizardAnswers[2]].label:'';
+      var mod=wQ[2]&&wizardAnswers[3]!==undefined?wQ[2].opts[wizardAnswers[3]].label:'';
+      var uzmanlar=[
+        {t:'Yazılım Geliştirici (Full-Stack)',s:'React, Node.js, .NET · '+sure2,ic:'ti-code',b:'pop'},
+        {t:'Cloud & DevOps Mühendisi',s:'Azure, AWS, Kubernetes · '+sure2,ic:'ti-cloud',b:'hot'},
+        {t:'Veri Mühendisi / ML Uzmanı',s:'Python, Spark, ML · '+sure2,ic:'ti-database',b:''},
+        {t:'Siber Güvenlik Uzmanı',s:'SOC, Pentest, ISO 27001 · '+sure2,ic:'ti-shield',b:'new'}
+      ];
+      uzmanlar.forEach(function(e){
+        var bh='';
+        if(e.b==='pop')bh='<span class="wresult-badge badge-pop">⭐ Popüler</span>';
+        else if(e.b==='new')bh='<span class="wresult-badge badge-new">✦ Yeni</span>';
+        else if(e.b==='hot')bh='<span class="wresult-badge badge-hot">🔥 Çok Tercih</span>';
+        html+='<div class="wresult-card" onclick="closeWizard();window.location.href=\'uzman-kadro.html\';">';
+        html+='<div class="wresult-ic" style="background:#faf5ff"><i class="ti '+e.ic+'" style="font-size:18px;color:#7c3aed;" aria-hidden="true"></i></div>';
+        html+='<div style="flex:1"><div class="wresult-title">'+e.t+'</div><div class="wresult-sub">'+e.s+'</div></div>'+bh;
+        html+='<i class="ti ti-chevron-right" style="font-size:14px;color:#9099b5;" aria-hidden="true"></i></div>';
+      });
+      html+='</div><div class="wcta"><p>İhtiyacınıza özel uzman profillerini görelim:</p>';
+      html+='<button class="wcta-btn" onclick="closeWizard();setTimeout(function(){document.getElementById(\'modalGorusme\').classList.add(\'open\');document.body.style.overflow=\'hidden\';},200);">Uzman Talep Formu →</button></div>';
+    }
+
     body.innerHTML=html;
   }
 }
