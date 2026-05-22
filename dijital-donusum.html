@@ -35,9 +35,11 @@
 
   /* HERO */
   .hero { position: relative; padding: 140px 60px 100px; overflow: hidden; }
-  .hero-photo { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1600&q=80') center/cover no-repeat; }
-  .hero-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(110deg, rgba(8,18,50,0.82) 0%, rgba(6,15,45,0.65) 60%, rgba(5,12,40,0.55) 100%); }
-  .hero-inner { position: relative; z-index: 1; max-width: 700px; }
+  .hero-photo { position: absolute; inset: 0; overflow: hidden; }
+  .hero-photo::before { content: ''; position: absolute; inset: -8%; background: url('https://images.unsplash.com/photo-1639322537228-f710d846310a?w=1600&q=80') center/cover no-repeat; animation: kenburns 18s ease-in-out infinite alternate; transform-origin: center center; }
+  .hero-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(110deg, rgba(8,18,50,0.82) 0%, rgba(6,15,45,0.65) 60%, rgba(5,12,40,0.55) 100%); z-index: 1; }
+  @keyframes kenburns { 0% { transform: scale(1) translate(0, 0); } 33% { transform: scale(1.08) translate(-1.5%, 1%); } 66% { transform: scale(1.05) translate(1.5%, -1%); } 100% { transform: scale(1.1) translate(0%, 1.5%); } }
+  .hero-inner { position: relative; z-index: 2; max-width: 700px; }
   .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 24px; }
   .breadcrumb a { color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
   .breadcrumb a:hover { color: rgba(255,255,255,0.8); }
@@ -75,20 +77,28 @@
 
   /* PROCESS */
   .process-grid { margin-top: 52px; display: grid; grid-template-columns: repeat(4,1fr); gap: 0; position: relative; }
-  .process-grid::before { content: ''; position: absolute; top: 24px; left: 12.5%; right: 12.5%; height: 1px; background: var(--border2); z-index: 0; }
+  .process-line-track { position: absolute; top: 24px; left: 12.5%; right: 12.5%; height: 2px; background: var(--border2); z-index: 0; overflow: hidden; }
+  .process-line-fill { position: absolute; inset: 0; background: linear-gradient(90deg, var(--accent2), var(--teal), #9333ea, var(--orange)); width: 0; transition: width 1.4s cubic-bezier(0.4,0,0.2,1); }
+  .process-line-track.animated .process-line-fill { width: 100%; }
   .process-step { text-align: center; padding: 0 16px; position: relative; z-index: 1; }
-  .process-num { width: 48px; height: 48px; border-radius: 50%; background: var(--accent2); color: white; font-family: var(--font-d); font-size: 16px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; box-shadow: 0 0 0 4px var(--surface); }
+
+  .process-num { width: 48px; height: 48px; border-radius: 50%; background: var(--accent2); color: white; font-family: var(--font-d); font-size: 16px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; box-shadow: 0 0 0 5px var(--bg2); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+  .process-step:hover .process-num { transform: scale(1.15); box-shadow: 0 0 0 5px var(--bg2), 0 8px 24px rgba(37,99,235,0.25); }
   .process-step:nth-child(2) .process-num { background: var(--teal); }
   .process-step:nth-child(3) .process-num { background: #9333ea; }
   .process-step:nth-child(4) .process-num { background: var(--orange); }
+  .process-step:nth-child(3):hover .process-num { box-shadow: 0 0 0 5px var(--bg2), 0 8px 24px rgba(147,51,234,0.25); }
+  .process-step:nth-child(4):hover .process-num { box-shadow: 0 0 0 5px var(--bg2), 0 8px 24px rgba(234,88,12,0.25); }
+  .process-title { font-family: var(--font-d); font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+  .process-desc { font-size: 13px; color: var(--text2); line-height: 1.65; font-weight: 300; }
   .process-title { font-family: var(--font-d); font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
   .process-desc { font-size: 12px; color: var(--text2); line-height: 1.65; font-weight: 300; }
 
   /* BENEFITS */
-  .benefits-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-  .benefits-img { border-radius: 16px; overflow: hidden; }
-  .benefits-img img { width: 100%; height: 360px; object-fit: cover; display: block; }
-  .benefits-list { display: flex; flex-direction: column; gap: 20px; margin-top: 32px; }
+  .benefits-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+  .benefits-img { border-radius: 16px; overflow: hidden; flex: 1; }
+  .benefits-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .benefits-list { display: flex; flex-direction: column; gap: 12px; }
   .benefit-item { display: flex; gap: 16px; align-items: flex-start; padding: 20px; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; transition: border-color 0.2s, box-shadow 0.2s; }
   .benefit-item:hover { border-color: rgba(37,99,235,0.2); box-shadow: 0 4px 16px rgba(37,99,235,0.06); }
   .benefit-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--accentlt); border: 1px solid rgba(37,99,235,0.15); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
@@ -493,9 +503,9 @@
       <a href="hizmetler.html">Hizmetler</a> <span>›</span>
       <span>Dijital Dönüşüm</span>
     </div>
-    <div class="hero-badge"><span class="hero-badge-dot">✦</span> Dönüşüm</div>
-    <h1 class="hero-title">Süreçlerinizi <span>dijital geleceğe</span> taşıyoruz</h1>
-    <p class="hero-sub">Mevcut iş süreçlerinizi analiz ederek kapsamlı dijital dönüşüm yol haritaları hazırlıyor, cloud geçişinden ERP entegrasyonuna kadar tüm süreci yönetiyoruz.</p>
+    <div class="hero-badge"><span class="hero-badge-dot">✦</span> Dijital Dönüşüm</div>
+    <h1 class="hero-title">İşinizi <span>dijital çağa</span> taşıyoruz</h1>
+    <p class="hero-sub">Kurumunuzun mevcut yapısını analiz ediyor, uçtan uca dijital dönüşüm yol haritası hazırlıyor ve cloud geçişinden ERP entegrasyonuna kadar tüm süreci yönetiyoruz.</p>
     <div class="hero-actions">
       <a href="#" class="btn-hero" onclick="document.getElementById('modalGorusme').classList.add('open');document.body.style.overflow='hidden';return false;">Keşif Başlat →</a>
       <a href="#" class="btn-hero-ghost" onclick="openDemoModal();return false;">Demo İzle ▶</a>
@@ -505,107 +515,104 @@
 
 <!-- USE CASES -->
 <section class="section section-alt">
-  <div class="section-tag">Kullanım Alanları</div>
-  <h2 class="section-title">Hangi süreçleri dönüştürüyoruz?</h2>
-  <p class="section-sub">Her sektörde karşılaşılan operasyonel sorunlara AI ile akıllı çözümler geliştiriyoruz.</p>
+  <div class="section-tag">Dönüşüm Alanları</div>
+  <h2 class="section-title">Kurumunuzun hangi katmanlarını dönüştürüyoruz?</h2>
+  <p class="section-sub">Teknoloji altyapısından iş süreçlerine, insan kaynağından müşteri deneyimine kadar uçtan uca dönüşüm.</p>
   <div class="use-cases-grid">
     <div class="use-card">
-      <div class="use-icon">💬</div>
-      <div class="use-title">Akıllı Müşteri Desteği</div>
-      <div class="use-desc">7/24 yanıt veren, kurumsal bilgi tabanınıza entegre AI chatbotlar. Destek maliyetini %40'a kadar düşürün.</div>
+      <div class="use-title">Cloud Geçişi & Altyapı</div>
+      <div class="use-desc">Azure, AWS ve GCP üzerinde kurumsal altyapı modernizasyonu. Hibrit bulut mimarileri ve maliyet optimizasyonu ile güvenli geçiş süreçleri.</div>
     </div>
     <div class="use-card">
-      <div class="use-icon">📄</div>
-      <div class="use-title">Doküman Analizi ve Özetleme</div>
-      <div class="use-desc">Sözleşme, rapor ve belgeleri otomatik analiz eden, özetleyen ve sınıflandıran RAG tabanlı sistemler.</div>
+      <div class="use-title">ERP & CRM Modernizasyonu</div>
+      <div class="use-desc">Eski sistemlerin modern ERP ve CRM platformlarına taşınması, entegrasyon köprüleri ve iş süreci yeniden tasarımı.</div>
     </div>
     <div class="use-card">
-      <div class="use-icon">🔍</div>
-      <div class="use-title">Akıllı Arama ve Sorgulama</div>
-      <div class="use-desc">Kurumsal verilerinizi doğal dil ile sorgulayabileceğiniz semantik arama altyapıları.</div>
+      <div class="use-title">Süreç Otomasyonu & RPA</div>
+      <div class="use-desc">Tekrar eden operasyonel iş yüklerinin robotik süreç otomasyonu ile dijitalleştirilmesi; verimlilik ve doğruluk artışı.</div>
     </div>
     <div class="use-card">
-      <div class="use-icon">⚙️</div>
-      <div class="use-title">Süreç Otomasyonu</div>
-      <div class="use-desc">Tekrar eden iş süreçlerini AI ile otomatize ederek ekiplerinizin stratejik işlere odaklanmasını sağlıyoruz.</div>
+      <div class="use-title">Veri & Analitik Platformu</div>
+      <div class="use-desc">Ham kurumsal verinin stratejik içgörüye dönüştürülmesi. BI panolar, veri ambarı ve gerçek zamanlı raporlama altyapıları.</div>
     </div>
     <div class="use-card">
-      <div class="use-icon">📊</div>
-      <div class="use-title">Veri Analizi ve Raporlama</div>
-      <div class="use-desc">Ham veriden otomatik içgörü ve raporlar üretilen, karar desteği sağlayan AI analiz sistemleri.</div>
+      <div class="use-title">Dijital İş Süreçleri (BPM)</div>
+      <div class="use-desc">Kağıt tabanlı ve manuel süreçlerin uçtan uca dijitalleştirilmesi; onay akışları, e-imza ve mobil erişim entegrasyonları.</div>
     </div>
     <div class="use-card">
-      <div class="use-icon">🤝</div>
-      <div class="use-title">Satış ve CRM Entegrasyonu</div>
-      <div class="use-desc">Lead skorlaması, müşteri segmentasyonu ve kişiselleştirilmiş iletişim için AI destekli CRM araçları.</div>
+      <div class="use-title">Siber Güvenlik & Uyumluluk</div>
+      <div class="use-desc">Dijital dönüşüm süreçlerinde güvenlik mimarisi tasarımı, ISO 27001, KVKK ve GDPR uyumluluk danışmanlığı.</div>
     </div>
   </div>
 </section>
 
 <!-- PROCESS -->
 <section class="section">
-  <div class="section-tag">Sürecimiz</div>
-  <h2 class="section-title">Projelerinizi nasıl hayata geçiriyoruz?</h2>
-  <div class="process-grid">
+  <div class="section-tag">Metodolojimiz</div>
+  <h2 class="section-title">Dönüşümü nasıl yönetiyoruz?</h2>
+  <div class="process-grid" id="processGrid">
+    <div class="process-line-track" id="processLine"><div class="process-line-fill"></div></div>
     <div class="process-step">
       <div class="process-num">1</div>
-      <div class="process-title">Keşif & Analiz</div>
-      <div class="process-desc">İş süreçlerinizi, veri altyapınızı ve hedeflerinizi derinlemesine analiz ediyoruz.</div>
+      <div class="process-title">Durum Tespiti</div>
+      <div class="process-desc">Mevcut teknoloji altyapısı, iş süreçleri ve organizasyon yapısının kapsamlı analizi. GAP analizi ve olgunluk değerlendirmesi.</div>
     </div>
     <div class="process-step">
       <div class="process-num">2</div>
-      <div class="process-title">Çözüm Tasarımı</div>
-      <div class="process-desc">Size özel AI mimarisi ve entegrasyon planı hazırlıyor, POC ile doğruluyoruz.</div>
+      <div class="process-title">Strateji & Yol Haritası</div>
+      <div class="process-desc">Kuruma özel dijital dönüşüm stratejisi, önceliklendirilmiş girişimler ve 12-36 aylık uygulama takvimi.</div>
     </div>
     <div class="process-step">
       <div class="process-num">3</div>
-      <div class="process-title">Geliştirme & Entegrasyon</div>
-      <div class="process-desc">Çevik süreçle sprint bazlı geliştirme, mevcut sistemlere entegrasyon ve testler.</div>
+      <div class="process-title">Uygulama & Geçiş</div>
+      <div class="process-desc">Çevik metodoloji ile aşamalı uygulama. Mevcut sistemlerle entegrasyon, veri migrasyonu ve kalite testleri.</div>
     </div>
     <div class="process-step">
       <div class="process-num">4</div>
-      <div class="process-title">Yayınlama & Takip</div>
-      <div class="process-desc">Canlıya geçiş, ekip eğitimi, performans izleme ve sürekli optimizasyon.</div>
+      <div class="process-title">Değişim Yönetimi</div>
+      <div class="process-desc">Ekip eğitimleri, adaptasyon süreç takibi, KPI izleme ve sürekli iyileştirme döngüsü.</div>
     </div>
   </div>
 </section>
 
 <!-- BENEFITS -->
 <section class="section section-alt">
-  <div class="benefits-inner">
-    <div class="benefits-img">
-      <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80" alt="AI Teknoloji"/>
+  <div class="benefits-inner" style="align-items:end;">
+    <div style="display:flex;flex-direction:column;">
+      <div class="benefits-img" style="flex:1;">
+        <img src="https://plus.unsplash.com/premium_photo-1733342554594-102b8e2d0623?w=800&q=80&auto=format&fit=crop" alt="Big Data Dijital Dönüşüm" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:16px;"/>
+      </div>
     </div>
-    <div>
-      <div class="section-tag">Neden Bilginex AI?</div>
-      <h2 class="section-title">Sadece araç kurmuyoruz, iş değeri yaratıyoruz</h2>
+    <div style="display:flex;flex-direction:column;">
+      <div class="section-tag">Neden Bilginex?</div>
+      <h2 class="section-title" style="margin-bottom:24px;">Strateji kurar, teknolojiyi hayata geçirir, sonucu ölçeriz</h2>
       <div class="benefits-list">
         <div class="benefit-item">
-          <div class="benefit-icon">🏢</div>
+          <div class="benefit-icon" style="color:#2563eb;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3z"/><path d="M14 3h7v7h-7z"/><path d="M14 14h7v7h-7z"/><path d="M3 14h7v7H3z"/></svg></div>
           <div>
-            <div class="benefit-title">Sektör Uzmanlığı</div>
-            <div class="benefit-desc">Finans, sağlık, perakende ve lojistik sektörlerinde onlarca başarılı AI projesi deneyimi.</div>
+            <div class="benefit-title">Uçtan Uca Sahiplik</div>
+            <div class="benefit-desc">Strateji danışmanlığından teknik uygulamaya, eğitimden canlı destek sürecine kadar tek elden yönetim.</div>
           </div>
         </div>
         <div class="benefit-item">
-          <div class="benefit-icon">🔒</div>
+          <div class="benefit-icon" style="color:#0d9488;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
           <div>
-            <div class="benefit-title">Veri Güvenliği</div>
-            <div class="benefit-desc">On-premise veya private cloud seçenekleriyle kurumsal verileriniz güvende kalır.</div>
+            <div class="benefit-title">Hızlı Değer Üretimi</div>
+            <div class="benefit-desc">Aşamalı uygulama modeli sayesinde ilk sonuçlar 4-6 haftada görünür, tam dönüşüm planlı şekilde ilerler.</div>
           </div>
         </div>
         <div class="benefit-item">
-          <div class="benefit-icon">📈</div>
+          <div class="benefit-icon" style="color:#7c3aed;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
           <div>
-            <div class="benefit-title">Ölçülebilir ROI</div>
-            <div class="benefit-desc">Her proje öncesi ROI hedefleri belirleniyor, sonuçlar raporlanıyor.</div>
+            <div class="benefit-title">Ölçülebilir Sonuçlar</div>
+            <div class="benefit-desc">Her dönüşüm girişimi için önceden tanımlanan KPI'lar izlenir, ROI şeffaf biçimde raporlanır.</div>
           </div>
         </div>
         <div class="benefit-item">
-          <div class="benefit-icon">🔗</div>
+          <div class="benefit-icon" style="color:#ea580c;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
           <div>
-            <div class="benefit-title">Kolay Entegrasyon</div>
-            <div class="benefit-desc">Mevcut ERP, CRM ve iş uygulamalarınızla sorunsuz API entegrasyonu.</div>
+            <div class="benefit-title">Değişim Yönetimi Uzmanlığı</div>
+            <div class="benefit-desc">Teknoloji kadar önemli olan insan faktörü: eğitim programları, adaptasyon takibi ve organizasyonel hazırlık desteği.</div>
           </div>
         </div>
       </div>
@@ -616,8 +623,8 @@
 <!-- TECH STACK -->
 <section class="section section-dark">
   <div class="section-tag white">Teknoloji Yığını</div>
-  <h2 class="section-title white">Kullandığımız teknolojiler</h2>
-  <p class="section-sub white">En güncel AI modelleri ve framework'leriyle, ihtiyacınıza en uygun çözümü seçiyoruz.</p>
+  <h2 class="section-title white">Dönüşümde kullandığımız teknolojiler</h2>
+  <p class="section-sub white">Microsoft, AWS, Google Cloud ve lider teknoloji ortaklarımızın platformları üzerinde çalışıyoruz.</p>
   <div class="tech-grid">
     <span class="tech-item">OpenAI GPT-4o</span>
     <span class="tech-item">Anthropic Claude</span>
@@ -1009,36 +1016,49 @@ document.getElementById('modalGorusme').addEventListener('click', function(e) {
 });
 </script>
 
-<script>
-(function() {
-  var grid = document.getElementById('processGrid');
-  if (!grid) return;
-  var line = document.getElementById('processLine');
-  var steps = grid.querySelectorAll('.process-step');
-  var triggered = false;
-
-  function animateProcess() {
-    if (triggered) return;
-    var rect = grid.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 80) {
-      triggered = true;
-      // 1. Draw the line
-      line.classList.add('animated');
-      // 2. Then reveal each step with delay
-      steps.forEach(function(step, i) {
-        setTimeout(function() {
-          step.classList.add('animated');
-        }, 400 + i * 280);
-      });
-    }
-  }
-
-  window.addEventListener('scroll', animateProcess, { passive: true });
-  animateProcess();
-})();
-</script>
 
 
 </html>
+<script>
+(function(){
+  var grid = document.getElementById("processGrid");
+  if(!grid) return;
+  var line = document.getElementById("processLine");
+  var steps = Array.prototype.slice.call(grid.querySelectorAll(".process-step"));
 
+  steps.forEach(function(s){
+    s.style.cssText += ";opacity:0;transform:translateY(28px);transition:opacity 0.6s ease,transform 0.6s ease";
+  });
+
+  function run(){
+    var rect = grid.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 60){
+      if(line) line.classList.add("animated");
+      steps.forEach(function(step,i){
+        setTimeout(function(){
+          step.style.opacity="1";
+          step.style.transform="translateY(0)";
+        }, 350 + i*250);
+      });
+      window.removeEventListener("scroll",run);
+    }
+  }
+  window.addEventListener("scroll",run,{passive:true});
+  setTimeout(run,200);
+})();
+</script>
+
+<script>
+(function(){
+  function alignBenefits(){
+    var list = document.querySelector('.benefits-list');
+    var img = document.querySelector('.benefits-img img');
+    if(!list || !img) return;
+    var h = list.offsetHeight;
+    if(h > 0) img.style.height = h + 'px';
+  }
+  window.addEventListener('load', alignBenefits);
+  window.addEventListener('resize', alignBenefits);
+})();
+</script>
 </html>
