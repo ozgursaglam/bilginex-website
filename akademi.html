@@ -37,8 +37,8 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; a
 .btn-primary:hover { background: var(--accent); }
 
 /* HERO */
-.hero { position: relative; padding: 140px 60px 80px; overflow: hidden; }
-.hero-bg { position: absolute; inset: 0; overflow: hidden; }
+.hero { position: relative; padding: 140px 60px 80px; }
+.hero-bg { position: absolute; inset: 0; overflow: hidden; border-radius: 0; }
 .hero-bg::before { content: ''; position: absolute; inset: -8%; background: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1600&q=80') center/cover no-repeat; animation: kenburnsAkademi 18s ease-in-out infinite alternate; transform-origin: center center; }
 .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(10,15,46,0.88) 0%, rgba(26,16,96,0.78) 40%, rgba(13,32,96,0.82) 100%); z-index: 1; }
 @keyframes kenburnsAkademi { 0% { transform: scale(1) translate(0,0); } 33% { transform: scale(1.07) translate(-1%,1%); } 66% { transform: scale(1.05) translate(1.5%,-0.5%); } 100% { transform: scale(1.1) translate(0,1%); } }
@@ -59,7 +59,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; a
 .hero-stat-label { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 4px; }
 
 /* SEARCH & FILTER */
-.search-section { background: var(--surface); border-bottom: 1px solid var(--border); padding: 28px 60px; position: sticky; top: 61px; z-index: 100; box-shadow: 0 4px 20px rgba(15,23,60,0.06); }
+.search-section { background: var(--surface); border-bottom: 1px solid var(--border); padding: 20px 60px; position: sticky; top: 61px; z-index: 200; box-shadow: 0 4px 20px rgba(15,23,60,0.06); }
 .search-row { display: flex; gap: 16px; align-items: center; }
 .search-box { position: relative; flex: 1; max-width: 420px; }
 .search-box input { width: 100%; padding: 11px 16px 11px 42px; border: 1px solid var(--border2); border-radius: 8px; font-family: var(--font-b); font-size: 14px; color: var(--text); background: var(--bg); outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
@@ -72,7 +72,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; a
 .results-count { font-size: 13px; color: var(--text3); white-space: nowrap; }
 
 /* CATEGORY SECTIONS */
-.catalog { padding: 48px 60px 80px; }
+.catalog { padding: 48px 60px 80px; position: relative; z-index: 1; }
 .cat-section { margin-bottom: 56px; }
 .cat-header { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
 .cat-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
@@ -230,7 +230,6 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; a
   .tech-count { font-size: 12px; color: var(--text3); font-weight: 400; }
   .tech-section.hidden { display: none; }
   .cat-section.hidden { display: none; }
-  .filter-btn.tech-filter { background: var(--bg2); font-size: 11px; padding: 6px 12px; }
 
   /* mega-col-title hover */
 
@@ -379,6 +378,51 @@ to{opacity:1;transform:translateY(0) scale(1);}}
   .floating-help-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;margin-right:6px;flex-shrink:0;animation:pulse-dot 2s infinite;}
   @keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(74,222,128,0.5);}50%{box-shadow:0 0 0 5px rgba(74,222,128,0);}}
   @keyframes float-in{from{opacity:0;transform:translateY(20px) scale(0.9);}to{opacity:1;transform:translateY(0) scale(1);}}
+  .filter-row { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .filter-row-label { font-size:12px; font-weight:600; color:var(--text2); letter-spacing:0.04em; text-transform:uppercase; min-width:80px; flex-shrink:0; }
+  .filter-chips { display:flex; gap:6px; flex-wrap:wrap; align-items:center; }
+  .filter-chips.tech-chips { display:grid; grid-template-columns:repeat(8, 1fr); gap:6px; width:100%; } .filter-chips.tech-chips .filter-btn { width:100%; justify-content:space-between; }
+  .filter-btn { display:inline-flex; align-items:center; gap:5px; padding:0 14px; border:1px solid var(--border); background:var(--bg); border-radius:100px; font-family:var(--font-b); font-size:12px; font-weight:500; color:var(--text2); cursor:pointer; transition:all 0.18s; white-space:nowrap; height:34px; box-sizing:border-box; }
+  .filter-btn:hover { border-color:rgba(37,99,235,0.4); color:var(--text); }
+  .filter-btn.active { background:#eff4ff; border-color:#2563eb; color:#2563eb; }
+  .filter-btn.tech-filter { font-size:11px; justify-content:space-between; width:100%; }
+  .fbadge { font-size:10px; font-weight:600; color:var(--text3); }
+  .fbadge::before { content:"  |  "; color:var(--border2); font-weight:300; }
+  .filter-btn.active .fbadge { color:#2563eb; opacity:0.8; }
+  .fbadge { display:inline-flex; align-items:center; justify-content:center; height:18px; padding:0 8px; background:rgba(15,23,60,0.07); color:#9099b5; font-size:10px; font-weight:600; border-radius:100px; white-space:nowrap; }
+  .filter-btn.active .fbadge { background:#dbeafe; color:#2563eb; }
+
+
+  .filter-trigger { display:inline-flex; align-items:center; gap:6px; padding:0 14px; border:1px solid rgba(37,99,235,0.25); background:#fff; border-radius:100px; font-family:var(--font-b); font-size:12px; font-weight:500; color:#2563eb; cursor:pointer; transition:all 0.18s; height:34px; box-sizing:border-box; width:100; }
+  .filter-trigger:hover { background:#eff4ff; border-color:#2563eb; }
+  .filter-trigger.has-filter { background:#eff4ff; border-color:#2563eb; }
+  .filter-trigger .ft-badge { display:inline-flex; align-items:center; justify-content:center; width:16px; height:16px; background:#2563eb; color:#fff; border-radius:50%; font-size:9px; font-weight:700; }
+  .filter-drawer-overlay { position:fixed; inset:0; background:rgba(10,15,40,0.4); z-index:800; display:none; }
+  .filter-drawer-overlay.open { display:block; }
+  .filter-drawer { position:fixed; right:0; top:0; bottom:0; width:340px; background:#fff; z-index:801; box-shadow:-8px 0 40px rgba(10,15,40,0.15); display:flex; flex-direction:column; transform:translateX(100%); transition:transform 0.3s cubic-bezier(0.4,0,0.2,1); }
+  .filter-drawer.open { transform:translateX(0); }
+  .fd-head { display:flex; align-items:center; justify-content:space-between; padding:20px 24px; border-bottom:1px solid var(--border); }
+  .fd-head h3 { font-family:var(--font-d); font-size:16px; font-weight:600; color:var(--text); }
+  .fd-close { width:32px; height:32px; border:none; background:var(--bg2); border-radius:8px; cursor:pointer; font-size:16px; color:var(--text2); display:flex; align-items:center; justify-content:center; }
+  .fd-body { flex:1; overflow-y:auto; padding:20px 24px; display:flex; flex-direction:column; gap:24px; }
+  .fd-group { display:flex; flex-direction:column; gap:10px; min-width:180px; }
+  .fd-group-label { font-size:11px; font-weight:600; color:var(--text3); letter-spacing:0.08em; text-transform:uppercase; }
+  .fd-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .fd-opt { display:inline-flex; align-items:center; gap:6px; padding:7px 14px; border:1px solid rgba(15,23,60,0.12); background:#fff; border-radius:8px; font-family:var(--font-b); font-size:12px; font-weight:500; color:#485070; cursor:pointer; transition:all 0.18s; }
+  .fd-opt:hover { border-color:rgba(37,99,235,0.35); color:#0e1628; }
+  .fd-opt.active { background:#eff4ff; border-color:#2563eb; color:#2563eb; font-weight:600; }
+  .fd-opt .fd-opt-badge { font-size:10px; font-weight:600; padding:1px 6px; border-radius:100px; background:rgba(15,23,60,0.07); color:#9099b5; }
+  .fd-opt.active .fd-opt-badge { background:#dbeafe; color:#2563eb; }
+  .fd-foot { padding:16px 24px; border-top:1px solid var(--border); display:flex; gap:10px; }
+  .fd-apply { flex:1; padding:11px; background:#2563eb; color:#fff; border:none; border-radius:9px; font-family:var(--font-b); font-size:13px; font-weight:600; cursor:pointer; transition:background 0.2s; }
+  .fd-apply:hover { background:#1d4ed8; }
+  .fd-reset { padding:11px 16px; background:transparent; border:1px solid var(--border); border-radius:9px; font-family:var(--font-b); font-size:13px; color:var(--text2); cursor:pointer; }
+  .fd-reset:hover { border-color:rgba(37,99,235,0.3); color:#dc2626; }
+
+  .course-grid .course-card:nth-child(n+9) { display: none; }
+  .tech-section.expanded .course-grid .course-card { display: flex !important; }
+  .tech-section.expanded .course-grid .course-card:nth-child(n+17) { display: none !important; }
+  .tech-section.expanded2 .course-grid .course-card { display: flex !important; }
 </style>
 </head>
 <body>
@@ -653,37 +697,109 @@ to{opacity:1;transform:translateY(0) scale(1);}}
 </section>
 
 <!-- SEARCH & FILTER -->
-<div class="search-section">
-  <div class="search-row">
+<div class="search-section" id="searchSection">
+  <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
     <div class="search-box">
       <span class="search-icon">🔍</span>
       <input type="text" id="searchInput" placeholder="Eğitim ara... (React, Azure, Python...)" oninput="filterCourses()"/>
     </div>
-    <div class="filters" style="flex-wrap:wrap;">
-      <button class="filter-btn active" onclick="setFilter('all', this)">Tümü</button>
-      <button class="filter-btn" onclick="setFilter('Yazılım Hizmetleri', this)">Yazılım</button>
-      <button class="filter-btn" onclick="setFilter('Veri ve İş Yönetimi Çözümleri', this)">Veri</button>
-      <button class="filter-btn" onclick="setFilter('Teknoloji Servisleri', this)">Teknoloji</button>
-      <button class="filter-btn tech-filter" onclick="setFilter('Bulut Bilişim', this)">Bulut Bilişim</button>
-      <button class="filter-btn tech-filter" onclick="setFilter('SharePoint', this)">SharePoint</button>
-      <button class="filter-btn tech-filter" onclick="setFilter('Yazılım Geliştirme', this)">Yazılım Geliştirme</button>
-      <button class="filter-btn tech-filter" onclick="setFilter('Big Data', this)">Big Data</button>
-      <button class="filter-btn tech-filter" onclick="setFilter('Dijital Tasarım', this)">Dijital Tasarım</button>
-      <button class="filter-btn tech-filter" onclick="setFilter('Kişisel Gelişim ve Vizyon', this)">Kişisel Gelişim ve Vizyon</button>
-      <button class="filter-btn tech-filter" onclick="setFilter('Microsoft Office', this)">Microsoft Office</button>
-      <button class="filter-btn tech-filter" onclick="setFilter('Sosyal Medya', this)">Sosyal Medya</button>
-      <button class="filter-btn tech-filter" onclick="setFilter('Veri Yönetimi Çözümleri', this)">Veri Yönetimi Çözümleri</button>
-      <button class="filter-btn tech-filter" onclick="setFilter('İş Yönetimi Çözümleri', this)">İş Yönetimi Çözümleri</button>
-      <button class="filter-btn tech-filter" onclick="setFilter('BT Hizmet Yönetimi', this)">BT Hizmet Yönetimi</button>
-      <button class="filter-btn tech-filter" onclick="setFilter('Bilgi Güvenliği', this)">Bilgi Güvenliği</button>
-      <button class="filter-btn tech-filter" onclick="setFilter('Linux', this)">Linux</button>
-      <button class="filter-btn tech-filter" onclick="setFilter('Sanallaştırma', this)">Sanallaştırma</button>
-      <button class="filter-btn tech-filter" onclick="setFilter('Sistem Yönetimi', this)">Sistem Yönetimi</button>
-    </div>
-    <span class="results-count" id="resultsCount">350+ eğitim</span>
   </div>
+  <div style="display:flex;flex-direction:column;gap:10px;">
+    <div class="filter-row">
+      <span class="filter-row-label">Kategori</span>
+      <div class="filter-chips">
+        <button class="filter-btn active" onclick="setFilter('all', this)">Tümü <span class="fbadge">350 Eğitim</span></button>
+        <button class="filter-btn" onclick="setFilter('AI & Yapay Zeka', this)">AI & Yapay Zeka <span class="fbadge">27 Eğitim</span></button>
+        <button class="filter-btn" onclick="setFilter('Yazılım Hizmetleri', this)">Yazılım <span class="fbadge">114 Eğitim</span></button>
+        <button class="filter-btn" onclick="setFilter('Veri ve İş Yönetimi Çözümleri', this)">Veri <span class="fbadge">148 Eğitim</span></button>
+        <button class="filter-btn" onclick="setFilter('Teknoloji Servisleri', this)">Teknoloji <span class="fbadge">88 Eğitim</span></button>
+      </div>
+    </div>
+    <div class="filter-row" style="position:relative;">
+      <span class="filter-row-label">Teknoloji</span>
+      <div class="filter-chips tech-chips" style="flex:1;">
+        <button class="filter-btn tech-filter" onclick="setFilter('Bulut Bilişim', this)">Bulut Bilişim <span class="fbadge">22 Eğitim</span></button>
+        <button class="filter-btn tech-filter" onclick="setFilter('SharePoint', this)">SharePoint <span class="fbadge">2 Eğitim</span></button>
+        <button class="filter-btn tech-filter" onclick="setFilter('Yazılım Geliştirme', this)">Yazılım Geliştirme <span class="fbadge">111 Eğitim</span></button>
+        <button class="filter-btn tech-filter" onclick="setFilter('Big Data', this)">Big Data <span class="fbadge">3 Eğitim</span></button>
+        <button class="filter-btn tech-filter" onclick="setFilter('Dijital Tasarım', this)">Dijital Tasarım <span class="fbadge">9 Eğitim</span></button>
+        <button class="filter-btn tech-filter" onclick="setFilter('Kişisel Gelişim ve Vizyon', this)">Kişisel Gelişim ve Vizyon <span class="fbadge">27 Eğitim</span></button>
+        <button class="filter-btn tech-filter" onclick="setFilter('Microsoft Office', this)">Microsoft Office <span class="fbadge">44 Eğitim</span></button>
+        <button class="filter-btn tech-filter" onclick="setFilter('Sosyal Medya', this)">Sosyal Medya <span class="fbadge">3 Eğitim</span></button>
+
+        <button class="filter-btn tech-filter" onclick="setFilter('Veri Yönetimi Çözümleri', this)">Veri Yönetimi <span class="fbadge">42 Eğitim</span></button>
+        <button class="filter-btn tech-filter" onclick="setFilter('İş Yönetimi Çözümleri', this)">İş Yönetimi <span class="fbadge">26 Eğitim</span></button>
+        <button class="filter-btn tech-filter" onclick="setFilter('BT Hizmet Yönetimi', this)">BT Hizmet Yönetimi <span class="fbadge">15 Eğitim</span></button>
+        <button class="filter-btn tech-filter" onclick="setFilter('Bilgi Güvenliği', this)">Bilgi Güvenliği <span class="fbadge">24 Eğitim</span></button>
+        <button class="filter-btn tech-filter" onclick="setFilter('Linux', this)">Linux <span class="fbadge">11 Eğitim</span></button>
+        <button class="filter-btn tech-filter" onclick="setFilter('Sanallaştırma', this)">Sanallaştırma <span class="fbadge">2 Eğitim</span></button>
+        <button class="filter-btn tech-filter" onclick="setFilter('Sistem Yönetimi', this)">Sistem Yönetimi <span class="fbadge">26 Eğitim</span></button>
+      </div>
+      <button class="filter-trigger" id="filterTrigger" onclick="openFilterDrawer()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+        Filtrele
+        <span class="ft-badge" id="filterBadge" style="display:none">0</span>
+      </button>
+
+    </div>
+  </div>
+  <span class="results-count" id="resultsCount" style="display:none;">350 eğitim</span>
 </div>
 
+<!-- FILTER DRAWER -->
+<div class="filter-drawer-overlay" id="filterOverlay" onclick="closeFilterDrawer()"></div>
+<div class="filter-drawer" id="filterDrawer">
+  <div class="fd-head">
+    <h3>Filtrele</h3>
+    <button class="fd-close" onclick="closeFilterDrawer()">✕</button>
+  </div>
+  <div class="fd-body">
+    <div class="fd-group">
+      <div class="fd-group-label">Seviye</div>
+      <div class="fd-options">
+        <button class="fd-opt active" data-filter-type="level" data-filter-val="all" onclick="toggleFdOpt(this)">Tümü</button>
+        <button class="fd-opt" data-filter-type="level" data-filter-val="Başlangıç" onclick="toggleFdOpt(this)">Başlangıç</button>
+        <button class="fd-opt" data-filter-type="level" data-filter-val="Orta" onclick="toggleFdOpt(this)">Orta</button>
+        <button class="fd-opt" data-filter-type="level" data-filter-val="İleri" onclick="toggleFdOpt(this)">İleri</button>
+      </div>
+    </div>
+    <div class="fd-group">
+      <div class="fd-group-label">Süre</div>
+      <div class="fd-options">
+        <button class="fd-opt active" data-filter-type="duration" data-filter-val="all" onclick="toggleFdOpt(this)">Tümü</button>
+        <button class="fd-opt" data-filter-type="duration" data-filter-val="1" onclick="toggleFdOpt(this)">1 Gün</button>
+        <button class="fd-opt" data-filter-type="duration" data-filter-val="2-3" onclick="toggleFdOpt(this)">2–3 Gün</button>
+        <button class="fd-opt" data-filter-type="duration" data-filter-val="4+" onclick="toggleFdOpt(this)">4+ Gün</button>
+      </div>
+    </div>
+    <div class="fd-group">
+      <div class="fd-group-label">Teknoloji</div>
+      <div class="fd-options">
+        <button class="fd-opt active" data-filter-type="tech" data-filter-val="all" onclick="toggleFdOpt(this)">Tümü</button>
+        <button class="fd-opt" data-filter-type="tech" data-filter-val="AI & Yapay Zeka" onclick="toggleFdOpt(this)">AI & Yapay Zeka<span class="fd-opt-badge">27</span></button>
+        <button class="fd-opt" data-filter-type="tech" data-filter-val="Bulut Bilişim" onclick="toggleFdOpt(this)">Bulut Bilişim<span class="fd-opt-badge">22</span></button>
+        <button class="fd-opt" data-filter-type="tech" data-filter-val="SharePoint" onclick="toggleFdOpt(this)">SharePoint<span class="fd-opt-badge">2</span></button>
+        <button class="fd-opt" data-filter-type="tech" data-filter-val="Yazılım Geliştirme" onclick="toggleFdOpt(this)">Yazılım Geliştirme<span class="fd-opt-badge">111</span></button>
+        <button class="fd-opt" data-filter-type="tech" data-filter-val="Big Data" onclick="toggleFdOpt(this)">Big Data<span class="fd-opt-badge">3</span></button>
+        <button class="fd-opt" data-filter-type="tech" data-filter-val="Dijital Tasarım" onclick="toggleFdOpt(this)">Dijital Tasarım<span class="fd-opt-badge">9</span></button>
+        <button class="fd-opt" data-filter-type="tech" data-filter-val="Kişisel Gelişim ve Vizyon" onclick="toggleFdOpt(this)">Kişisel Gelişim ve Vizyon<span class="fd-opt-badge">27</span></button>
+        <button class="fd-opt" data-filter-type="tech" data-filter-val="Microsoft Office" onclick="toggleFdOpt(this)">Microsoft Office<span class="fd-opt-badge">44</span></button>
+        <button class="fd-opt" data-filter-type="tech" data-filter-val="Sosyal Medya" onclick="toggleFdOpt(this)">Sosyal Medya<span class="fd-opt-badge">3</span></button>
+        <button class="fd-opt" data-filter-type="tech" data-filter-val="Veri Yönetimi Çözümleri" onclick="toggleFdOpt(this)">Veri Yönetimi Çözümleri<span class="fd-opt-badge">42</span></button>
+        <button class="fd-opt" data-filter-type="tech" data-filter-val="İş Yönetimi Çözümleri" onclick="toggleFdOpt(this)">İş Yönetimi Çözümleri<span class="fd-opt-badge">26</span></button>
+        <button class="fd-opt" data-filter-type="tech" data-filter-val="BT Hizmet Yönetimi" onclick="toggleFdOpt(this)">BT Hizmet Yönetimi<span class="fd-opt-badge">15</span></button>
+        <button class="fd-opt" data-filter-type="tech" data-filter-val="Bilgi Güvenliği" onclick="toggleFdOpt(this)">Bilgi Güvenliği<span class="fd-opt-badge">24</span></button>
+        <button class="fd-opt" data-filter-type="tech" data-filter-val="Linux" onclick="toggleFdOpt(this)">Linux<span class="fd-opt-badge">11</span></button>
+        <button class="fd-opt" data-filter-type="tech" data-filter-val="Sanallaştırma" onclick="toggleFdOpt(this)">Sanallaştırma<span class="fd-opt-badge">2</span></button>
+        <button class="fd-opt" data-filter-type="tech" data-filter-val="Sistem Yönetimi" onclick="toggleFdOpt(this)">Sistem Yönetimi<span class="fd-opt-badge">26</span></button>
+      </div>
+    </div>
+  </div>
+  <div class="fd-foot">
+    <button class="fd-reset" onclick="resetFilters()">Sıfırla</button>
+    <button class="fd-apply" onclick="applyFilters()">Uygula</button>
+  </div>
+</div>
 <!-- CATALOG -->
 <div class="catalog" id="catalog">
 
@@ -709,12 +825,12 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">AZ-204 Developing Solutions for Microsoft Azure</div>
           <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-bb-002'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Başlangıç" data-tech="Bulut Bilişim">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=yh-bb-002'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Başlangıç" data-tech="Bulut Bilişim">
           <div class="course-tech">Bulut Bilişim</div>
           <div class="course-title">Copilot ile AI Temellerini Keşfet</div>
           <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-bb-003'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Başlangıç" data-tech="Bulut Bilişim">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=yh-bb-003'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Başlangıç" data-tech="Bulut Bilişim">
           <div class="course-tech">Bulut Bilişim</div>
           <div class="course-title">MS - 4007: Copilot for Microsoft 365 User Enablement Specialist</div>
           <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
@@ -796,7 +912,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">Functional Programming with Java 8</div>
           <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-mid">Orta</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-011'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=yh-yg-011'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
           <div class="course-tech">Yazılım Geliştirme</div>
           <div class="course-title">Hibernate Training</div>
           <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-mid">Orta</span></div>
@@ -876,7 +992,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">SOA with Java</div>
           <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-027'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=yh-yg-027'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
           <div class="course-tech">Yazılım Geliştirme</div>
           <div class="course-title">Spring Core Framework Training</div>
           <div class="course-meta"><span class="course-duration">4 Gün</span><span class="course-level level-mid">Orta</span></div>
@@ -966,7 +1082,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">OpenShift</div>
           <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-045'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=yh-yg-045'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
           <div class="course-tech">Yazılım Geliştirme</div>
           <div class="course-title">Python ile Makine Öğrenmesi</div>
           <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
@@ -986,7 +1102,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">React Native Eğitimi</div>
           <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-049'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="İleri" data-tech="Yazılım Geliştirme">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=yh-yg-049'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="İleri" data-tech="Yazılım Geliştirme">
           <div class="course-tech">Yazılım Geliştirme</div>
           <div class="course-title">UiPath - Robotic Process Automation Development (Foundation, Orchestrator, Advanced Training)</div>
           <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-adv">İleri</span></div>
@@ -1006,7 +1122,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">Azure Cloud Services</div>
           <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-mid">Orta</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-053'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="İleri" data-tech="Yazılım Geliştirme">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=yh-yg-053'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="İleri" data-tech="Yazılım Geliştirme">
           <div class="course-tech">Yazılım Geliştirme</div>
           <div class="course-title">High Availability for Web Applications (Web Uygulamaları için Yüksek Erişilebilirlik)</div>
           <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-adv">İleri</span></div>
@@ -1086,7 +1202,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">Integration Eğitimi ASP.NET Identity Development Eğitimi</div>
           <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-069'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Başlangıç" data-tech="Yazılım Geliştirme">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=yh-yg-069'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Başlangıç" data-tech="Yazılım Geliştirme">
           <div class="course-tech">Yazılım Geliştirme</div>
           <div class="course-title">Blockchain Eğitimi (Ethereum ve Bitcoin Geliştirme) Temel Seviye</div>
           <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
@@ -1101,7 +1217,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">Docker ve RabbitMQ ile Spring Boot Rest Servisi Geliştirme</div>
           <div class="course-meta"><span class="course-duration">4 Gün</span><span class="course-level level-mid">Orta</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-072'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="İleri" data-tech="Yazılım Geliştirme">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=yh-yg-072'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="İleri" data-tech="Yazılım Geliştirme">
           <div class="course-tech">Yazılım Geliştirme</div>
           <div class="course-title">Domain Driven Design</div>
           <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-adv">İleri</span></div>
@@ -1271,17 +1387,17 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">MS 55031A SharePoint 2013 End User</div>
           <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-start">Başlangıç</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-106'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Başlangıç" data-tech="Yazılım Geliştirme">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=yh-yg-106'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Başlangıç" data-tech="Yazılım Geliştirme">
           <div class="course-tech">Yazılım Geliştirme</div>
           <div class="course-title">AI 3016 Develop generative AI apps in Azure AI Foundry</div>
           <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-107'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=yh-yg-107'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
           <div class="course-tech">Yazılım Geliştirme</div>
           <div class="course-title">Azure HDInsight ve Büyük Veri Analitiği</div>
           <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-108'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Başlangıç" data-tech="Yazılım Geliştirme">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=yh-yg-108'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Başlangıç" data-tech="Yazılım Geliştirme">
           <div class="course-tech">Yazılım Geliştirme</div>
           <div class="course-title">PL-7008: Create agents in Microsoft Copilot Studio</div>
           <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
@@ -1317,7 +1433,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
         <span class="tech-count">2 eğitim</span>
       </div>
       <div class="course-grid">
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-bd-001'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Big Data">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=viy-bd-001'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Big Data">
           <div class="course-tech">Big Data</div>
           <div class="course-title">Python ile Big Data</div>
           <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
@@ -1338,7 +1454,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
         <span class="tech-count">1 eğitim</span>
       </div>
       <div class="course-grid">
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-bb-001'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="İleri" data-tech="Bulut Bilişim">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=viy-bb-001'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="İleri" data-tech="Bulut Bilişim">
           <div class="course-tech">Bulut Bilişim</div>
           <div class="course-title">AI-102T00: Designing and Implementing a Microsoft Azure AI Solution</div>
           <div class="course-meta"><span class="course-duration">4 Gün</span><span class="course-level level-adv">İleri</span></div>
@@ -1495,7 +1611,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">Süreç Yönetimi</div>
           <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-mid">Orta</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-kgv-019'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Kişisel Gelişim ve Vizyon">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=viy-kgv-019'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Kişisel Gelişim ve Vizyon">
           <div class="course-tech">Kişisel Gelişim ve Vizyon</div>
           <div class="course-title">İşe Alım Süreçlerinde Yapay Zeka</div>
           <div class="course-meta"><span class="course-duration">2 Saat</span><span class="course-level level-mid">Orta</span></div>
@@ -1581,7 +1697,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">Excel’de PowerPivot ile İş Zekası Uygulamaları</div>
           <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-mid">Orta</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-mo-008'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Başlangıç" data-tech="Microsoft Office">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=viy-mo-008'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Başlangıç" data-tech="Microsoft Office">
           <div class="course-tech">Microsoft Office</div>
           <div class="course-title">MS-4018-A: Draft, Analyze, And Present With Microsoft 365 Copilot</div>
           <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
@@ -1611,7 +1727,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">Visio ile Süreç ve Organizasyon Tasarımı</div>
           <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-mo-014'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Başlangıç" data-tech="Microsoft Office">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=viy-mo-014'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Başlangıç" data-tech="Microsoft Office">
           <div class="course-tech">Microsoft Office</div>
           <div class="course-title">Microsoft Copilot (Yapay Zeka ile Ofis Hayatınızı Dönüştürün!)</div>
           <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
@@ -1711,12 +1827,12 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">Microsoft Office İşe Alım Programı</div>
           <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-mo-034'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Başlangıç" data-tech="Microsoft Office">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=viy-mo-034'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Başlangıç" data-tech="Microsoft Office">
           <div class="course-tech">Microsoft Office</div>
           <div class="course-title">MS - 4005-Craft Effective Prompts for Copilot for Microsoft 365</div>
           <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-mo-035'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Başlangıç" data-tech="Microsoft Office">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=viy-mo-035'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Başlangıç" data-tech="Microsoft Office">
           <div class="course-tech">Microsoft Office</div>
           <div class="course-title">MS-4006-Copilot for Microsoft 365 for Administrators Course</div>
           <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
@@ -1746,7 +1862,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">Finansçılar için Excel ile Finans</div>
           <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-mid">Orta</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-mo-041'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Başlangıç" data-tech="Microsoft Office">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=viy-mo-041'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Başlangıç" data-tech="Microsoft Office">
           <div class="course-tech">Microsoft Office</div>
           <div class="course-title">Copilot ile Excel Eğitimi</div>
           <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
@@ -1798,12 +1914,12 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">DP-100T01-A: Designing and Implementing a Data Science Solution on Azure</div>
           <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-adv">İleri</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-vyc-002'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="İleri" data-tech="Veri Yönetimi Çözümleri">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=viy-vyc-002'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="İleri" data-tech="Veri Yönetimi Çözümleri">
           <div class="course-tech">Veri Yönetimi Çözümleri</div>
           <div class="course-title">AI-100T01-A: Designing and Implementing an Azure AI Solution</div>
           <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-adv">İleri</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-vyc-003'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="İleri" data-tech="Veri Yönetimi Çözümleri">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=viy-vyc-003'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="İleri" data-tech="Veri Yönetimi Çözümleri">
           <div class="course-tech">Veri Yönetimi Çözümleri</div>
           <div class="course-title">Büyük Veri Analitiği ve İş Hayatına Etkileri</div>
           <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-adv">İleri</span></div>
@@ -1823,7 +1939,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">DP-300T00-A: Administering Relational Databases on Microsoft Azure</div>
           <div class="course-meta"><span class="course-duration">4 Gün</span><span class="course-level level-mid">Orta</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-vyc-007'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Veri Yönetimi Çözümleri">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=viy-vyc-007'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Veri Yönetimi Çözümleri">
           <div class="course-tech">Veri Yönetimi Çözümleri</div>
           <div class="course-title">Herkes İçin Makine Öğrenmesi</div>
           <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-mid">Orta</span></div>
@@ -1838,7 +1954,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">Qlik Sense Son Kullanıcı (End User)</div>
           <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-start">Başlangıç</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-vyc-010'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Veri Yönetimi Çözümleri">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=viy-vyc-010'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Veri Yönetimi Çözümleri">
           <div class="course-tech">Veri Yönetimi Çözümleri</div>
           <div class="course-title">Microsoft Azure Machine Learning</div>
           <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-mid">Orta</span></div>
@@ -1958,7 +2074,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">MS 20773 Analyzing Big Data with Microsoft R</div>
           <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-mid">Orta</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-vyc-034'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Veri Yönetimi Çözümleri">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=viy-vyc-034'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Veri Yönetimi Çözümleri">
           <div class="course-tech">Veri Yönetimi Çözümleri</div>
           <div class="course-title">MS 20774 Perform Cloud Data Science with Azure Machine Learning</div>
           <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
@@ -2630,7 +2746,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">Installation, Storage and Compute with Windows Server 2022</div>
           <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-sy-022'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="Başlangıç" data-tech="Sistem Yönetimi">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=ts-sy-022'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="Başlangıç" data-tech="Sistem Yönetimi">
           <div class="course-tech">Sistem Yönetimi</div>
           <div class="course-title">Introduction to Containers with Docker</div>
           <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-start">Başlangıç</span></div>
@@ -2645,7 +2761,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">Kubernetes Administration</div>
           <div class="course-meta"><span class="course-duration">4 Gün</span><span class="course-level level-adv">İleri</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-sy-025'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="Orta" data-tech="Sistem Yönetimi">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=ts-sy-025'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="Orta" data-tech="Sistem Yönetimi">
           <div class="course-tech">Sistem Yönetimi</div>
           <div class="course-title">Docker Container ve Kubernetes ile Orkestrasyon</div>
           <div class="course-meta"><span class="course-duration">4 Gün</span><span class="course-level level-mid">Orta</span></div>
@@ -2747,14 +2863,16 @@ function filterCourses() {
     const cardLevel = card.dataset.level || '';
     const cardTech = card.dataset.tech || '';
 
-    const matchSearch = !query || title.includes(query) || tech.includes(query);
+    const cardTechExtra = card.dataset.techExtra || '';
     let matchFilter = true;
     if (activeFilter !== 'all') {
       matchFilter = (cardCat === activeFilter || cardTech === activeFilter ||
-                     cardLevel === activeFilter);
+                     cardLevel === activeFilter || cardTechExtra === activeFilter);
     }
+    const matchSearch = !query || title.includes(query) || tech.includes(query);
+    const matchAll = matchSearch && matchFilter && matchLevel && matchDuration && matchTechFilter;
 
-    if (matchSearch && matchFilter) {
+    if (matchAll) {
       card.style.display = '';
       visible++;
     } else {
@@ -2777,6 +2895,7 @@ function filterCourses() {
   document.getElementById('resultsCount').textContent = visible + ' eğitim';
   const noResults = document.getElementById('noResults');
   noResults.classList.toggle('show', visible === 0);
+
 }
 </script>
 
@@ -3055,7 +3174,7 @@ function startAutoPlay() {
 }
 function stopAutoPlay() { clearInterval(demoTimer); clearInterval(demoProgressTimer); }
 document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeDemoModal(); });
-document.getElementById('modalGorusme').addEventListener('click', function(e) {
+var _mg=document.getElementById('modalGorusme'); if(_mg) _mg.addEventListener('click', function(e) {
   if (e.target === this) { this.classList.remove('open'); document.body.style.overflow = ''; }
 });
 </script>
@@ -3381,6 +3500,127 @@ function wizardNext(){
 }
 function wizardBack(){if(wizardStep>0){wizardStep--;renderWizard();}}
 document.getElementById('wizardOverlay').addEventListener('click',function(e){if(e.target===this)closeWizard();});
+// FILTER DRAWER
+// pendingFilters: Set'ler ile çoklu seçim
+var pendingFilters = { level: new Set(['all']), duration: new Set(['all']), tech: new Set(['all']) };
+var activeAdvFilters = { level: new Set(['all']), duration: new Set(['all']), tech: new Set(['all']) };
+
+function cloneFilters(f) {
+  return { level: new Set(f.level), duration: new Set(f.duration), tech: new Set(f.tech) };
+}
+
+function openFilterDrawer() {
+  pendingFilters = cloneFilters(activeAdvFilters);
+  document.querySelectorAll('.fd-opt').forEach(function(btn) {
+    var type = btn.dataset.filterType;
+    var val = btn.dataset.filterVal;
+    btn.classList.toggle('active', pendingFilters[type].has(val));
+  });
+  document.getElementById('filterOverlay').classList.add('open');
+  document.getElementById('filterDrawer').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeFilterDrawer() {
+  document.getElementById('filterOverlay').classList.remove('open');
+  document.getElementById('filterDrawer').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function toggleFdOpt(btn) {
+  var type = btn.dataset.filterType;
+  var val = btn.dataset.filterVal;
+  var set = pendingFilters[type];
+
+  if(val === 'all') {
+    // Tümü seçilince diğerlerini temizle
+    set.clear();
+    set.add('all');
+  } else {
+    // Tümü'yü kaldır
+    set.delete('all');
+    if(set.has(val)) {
+      set.delete(val);
+      if(set.size === 0) set.add('all'); // hepsi kaldırılınca Tümü'ye dön
+    } else {
+      set.add(val);
+    }
+  }
+
+  // Görünümü güncelle
+  btn.closest('.fd-options').querySelectorAll('.fd-opt').forEach(function(b) {
+    b.classList.toggle('active', set.has(b.dataset.filterVal));
+  });
+}
+
+function resetFilters() {
+  pendingFilters = { level: new Set(['all']), duration: new Set(['all']), tech: new Set(['all']) };
+  document.querySelectorAll('.fd-opt').forEach(function(btn) {
+    btn.classList.toggle('active', btn.dataset.filterVal === 'all');
+  });
+}
+
+function applyFilters() {
+  activeAdvFilters = cloneFilters(pendingFilters);
+  var count = 0;
+  ['level','duration','tech'].forEach(function(k){
+    if(!activeAdvFilters[k].has('all')) count += activeAdvFilters[k].size;
+  });
+  var badge = document.getElementById('filterBadge');
+  var trigger = document.getElementById('filterTrigger');
+  badge.style.display = count > 0 ? 'inline-flex' : 'none';
+  badge.textContent = count;
+  trigger.classList.toggle('has-filter', count > 0);
+  closeFilterDrawer();
+  filterCourses();
+}
+
 </script>
 
+<script>
+(function(){
+  document.querySelectorAll('.tech-section').forEach(function(section){
+    var grid = section.querySelector('.course-grid');
+    if(!grid) return;
+    var total = grid.querySelectorAll('.course-card').length;
+    if(total <= 8) return;
+
+    var wrap = document.createElement('div');
+    wrap.className = 'btn-load-more-wrap';
+    var btn = document.createElement('button');
+    btn.className = 'btn-load-more';
+    var level = 0; // 0=8 shown, 1=16 shown, 2=all shown
+
+    function render(){
+      var remaining = total - (level===0?8 : level===1?16 : total);
+      if(remaining < 0) remaining = 0;
+      if(level >= 2 || remaining === 0){
+        btn.innerHTML = '<span class="btn-left"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg><span>Daha az göster</span></span>';
+        btn.classList.add('open');
+      } else {
+        btn.innerHTML = '<span class="btn-left"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg><span>Daha fazla göster</span></span><span class="btn-divider"></span><span class="btn-badge" style="padding:0 16px;font-size:12px;font-weight:600;color:#2563eb;display:flex;align-items:center;">+'+remaining+'</span>';
+        btn.classList.remove('open');
+      }
+    }
+
+    btn.addEventListener('click', function(){
+      if(btn.classList.contains('open')){
+        level = 0;
+        section.classList.remove('expanded','expanded2');
+        section.scrollIntoView({behavior:'smooth',block:'start'});
+      } else {
+        level++;
+        section.classList.remove('expanded','expanded2');
+        if(level===1) section.classList.add('expanded');
+        else { section.classList.add('expanded2'); level=2; }
+      }
+      render();
+    });
+
+    render();
+    wrap.appendChild(btn);
+    section.appendChild(wrap);
+  });
+})();
+</script>
 </html>
