@@ -24,7 +24,7 @@ html { scroll-behavior: smooth; }
 body { background: var(--bg); color: var(--text); font-family: var(--font-b); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
 
 /* NAV */
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 18px 60px; background: rgba(240,242,245,0.9); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 18px 60px; background: rgba(240,242,245,0.9); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); }
 .nav-logo { font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.5px; color: var(--text); text-decoration: none; display:inline-flex; align-items:center; }
 .nav-logo span{color:#6C6FE0;}
 .nav-links { display: flex; gap: 32px; list-style: none; }
@@ -59,7 +59,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; a
 .hero-stat-label { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 4px; }
 
 /* SEARCH & FILTER */
-.search-section { background: var(--surface); border-bottom: 1px solid var(--border); padding: 20px 60px; position: sticky; top: 61px; z-index: 200; box-shadow: 0 4px 20px rgba(15,23,60,0.06); }
+.search-section { background: var(--surface); border-bottom: 1px solid var(--border); padding: 20px 60px; position: sticky; top: 61px; z-index: 90; box-shadow: 0 4px 20px rgba(15,23,60,0.06); }
 .search-row { display: flex; gap: 16px; align-items: center; }
 .search-box { position: relative; flex: 1; max-width: 420px; }
 .search-box input { width: 100%; padding: 11px 16px 11px 42px; border: 1px solid var(--border2); border-radius: 8px; font-family: var(--font-b); font-size: 14px; color: var(--text); background: var(--bg); outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
@@ -137,7 +137,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; a
 /* ── MEGA MENU ── */
   .nav-links li { position: relative; }
   .nav-links li.has-mega > a::after { content: ' ▾'; font-size: 10px; opacity: 0.6; }
-  .mega-menu {
+  .mega-menu { z-index: 1100; z-index: 600;
     position: fixed;
     top: auto;
     left: 0;
@@ -162,7 +162,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; a
     height: 20px;
   }
   .nav-links li.has-mega:hover .mega-menu,
-  .nav-links li.has-mega:focus-within .mega-menu {
+  .nav-links li.has-mega:focus-within .mega-menu { z-index: 1100; z-index: 600;
     opacity: 1; visibility: visible; pointer-events: all;
     transform: translateY(0);
     transition: opacity 0.15s, transform 0.15s, visibility 0s;
@@ -249,7 +249,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; a
   .mega-col-title { font-size: 13px !important; font-weight: 700 !important; letter-spacing: 0.06em !important; text-transform: uppercase !important; color: var(--text2) !important; margin-bottom: 12px !important; padding-bottom: 0 !important; border-bottom: none !important; white-space: nowrap !important; }
   .mega-col-title a { color: var(--text2) !important; }
   .mega-col-title a:hover { color: var(--text) !important; }
-  .mega-menu { padding: 32px 36px !important; }
+  .mega-menu { z-index: 1100; z-index: 600; padding: 32px 36px !important; }
   .mega-footer { margin-top: 24px !important; padding-top: 16px !important; }
   .mega-footer-text { font-size: 13px !important; }
   .mega-footer-link { font-size: 13px !important; font-weight: 600 !important; }
@@ -397,9 +397,9 @@ to{opacity:1;transform:translateY(0) scale(1);}}
   .filter-trigger:hover { background:#eff4ff; border-color:#2563eb; }
   .filter-trigger.has-filter { background:#eff4ff; border-color:#2563eb; }
   .filter-trigger .ft-badge { display:inline-flex; align-items:center; justify-content:center; width:16px; height:16px; background:#2563eb; color:#fff; border-radius:50%; font-size:9px; font-weight:700; }
-  .filter-drawer-overlay { position:fixed; inset:0; background:rgba(10,15,40,0.4); z-index:800; display:none; }
+  .filter-drawer-overlay { position:fixed; inset:0; background:rgba(10,15,40,0.4); z-index:1100; display:none; }
   .filter-drawer-overlay.open { display:block; }
-  .filter-drawer { position:fixed; right:0; top:0; bottom:0; width:340px; background:#fff; z-index:801; box-shadow:-8px 0 40px rgba(10,15,40,0.15); display:flex; flex-direction:column; transform:translateX(100%); transition:transform 0.3s cubic-bezier(0.4,0,0.2,1); }
+  .filter-drawer { position:fixed; right:0; top:0; bottom:0; width:340px; background:#fff; z-index:1200; box-shadow:-8px 0 40px rgba(10,15,40,0.15); display:flex; flex-direction:column; transform:translateX(100%); transition:transform 0.3s cubic-bezier(0.4,0,0.2,1); }
   .filter-drawer.open { transform:translateX(0); }
   .fd-head { display:flex; align-items:center; justify-content:space-between; padding:20px 24px; border-bottom:1px solid var(--border); }
   .fd-head h3 { font-family:var(--font-d); font-size:16px; font-weight:600; color:var(--text); }
@@ -419,10 +419,6 @@ to{opacity:1;transform:translateY(0) scale(1);}}
   .fd-reset { padding:11px 16px; background:transparent; border:1px solid var(--border); border-radius:9px; font-family:var(--font-b); font-size:13px; color:var(--text2); cursor:pointer; }
   .fd-reset:hover { border-color:rgba(37,99,235,0.3); color:#dc2626; }
 
-  .course-grid .course-card:nth-child(n+9) { display: none; }
-  .tech-section.expanded .course-grid .course-card { display: flex !important; }
-  .tech-section.expanded .course-grid .course-card:nth-child(n+17) { display: none !important; }
-  .tech-section.expanded2 .course-grid .course-card { display: flex !important; }
 </style>
 </head>
 <body>
@@ -2842,60 +2838,107 @@ to{opacity:1;transform:translateY(0) scale(1);}}
 
 
 <script>
-let activeFilter = 'all';
+var activeFilter = 'all';
+var activeAdvFilters = { level: new Set(['all']), duration: new Set(['all']), tech: new Set(['all']) };
 
 function setFilter(filter, btn) {
   activeFilter = filter;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
   btn.classList.add('active');
+  // lmShown sıfırla
+  document.querySelectorAll('.tech-section').forEach(function(s){ s.dataset.lmShown = '8'; });
   filterCourses();
 }
 
 function filterCourses() {
-  const query = document.getElementById('searchInput').value.toLowerCase().trim();
-  const cards = document.querySelectorAll('.course-card');
-  let visible = 0;
+  var query = document.getElementById('searchInput').value.toLowerCase().trim();
+  var cards = document.querySelectorAll('.course-card');
+  var visible = 0;
 
-  cards.forEach(card => {
-    const title = card.querySelector('.course-title').textContent.toLowerCase();
-    const tech = card.querySelector('.course-tech').textContent.toLowerCase();
-    const cardCat = card.dataset.cat || '';
-    const cardLevel = card.dataset.level || '';
-    const cardTech = card.dataset.tech || '';
+  cards.forEach(function(card) {
+    var title = card.querySelector('.course-title') ? card.querySelector('.course-title').textContent.toLowerCase() : '';
+    var tech = card.querySelector('.course-tech') ? card.querySelector('.course-tech').textContent.toLowerCase() : '';
+    var cardCat = card.dataset.cat || '';
+    var cardLevel = card.dataset.level || '';
+    var cardTech = card.dataset.tech || '';
+    var cardTechExtra = card.dataset.techExtra || '';
 
-    const cardTechExtra = card.dataset.techExtra || '';
-    let matchFilter = true;
+    // Ana filtre
+    var matchFilter = true;
     if (activeFilter !== 'all') {
       matchFilter = (cardCat === activeFilter || cardTech === activeFilter ||
                      cardLevel === activeFilter || cardTechExtra === activeFilter);
     }
-    const matchSearch = !query || title.includes(query) || tech.includes(query);
-    const matchAll = matchSearch && matchFilter && matchLevel && matchDuration && matchTechFilter;
+
+    // Arama
+    var matchSearch = !query || title.includes(query) || tech.includes(query);
+
+    // Gelişmiş filtreler
+    var matchLevel = activeAdvFilters.level.has('all') || activeAdvFilters.level.has(cardLevel);
+
+    var durationEl = card.querySelector('.course-duration');
+    var durationNum = durationEl ? parseInt(durationEl.textContent) || 0 : 0;
+    var matchDuration = activeAdvFilters.duration.has('all');
+    if (!matchDuration) {
+      if (activeAdvFilters.duration.has('1')) matchDuration = matchDuration || durationNum === 1;
+      if (activeAdvFilters.duration.has('2-3')) matchDuration = matchDuration || (durationNum >= 2 && durationNum <= 3);
+      if (activeAdvFilters.duration.has('4+')) matchDuration = matchDuration || durationNum >= 4;
+    }
+
+    var matchTechFilter = activeAdvFilters.tech.has('all');
+    if (!matchTechFilter) {
+      activeAdvFilters.tech.forEach(function(t) {
+        if (cardTech === t || cardTechExtra === t || title.includes(t.toLowerCase())) matchTechFilter = true;
+      });
+    }
+
+    var matchAll = matchSearch && matchFilter && matchLevel && matchDuration && matchTechFilter;
 
     if (matchAll) {
-      card.style.display = '';
+      card.dataset.filterOk = '1';
       visible++;
     } else {
+      card.dataset.filterOk = '0';
       card.style.display = 'none';
     }
   });
 
-  // Tech section'ları güncelle
-  document.querySelectorAll('.tech-section').forEach(section => {
-    const visibleCards = section.querySelectorAll('.course-card:not([style*="display: none"])').length;
-    section.style.display = visibleCards === 0 ? 'none' : '';
+  // Tech section'ları güncelle + load more uygula
+  document.querySelectorAll('.tech-section').forEach(function(section) {
+    var okCards = Array.from(section.querySelectorAll('.course-card[data-filter-ok="1"]'));
+    var shown = parseInt(section.dataset.lmShown || '8');
+
+    // Kartları göster/gizle
+    okCards.forEach(function(c, i) { c.style.display = i < shown ? '' : 'none'; });
+    section.style.display = okCards.length === 0 ? 'none' : '';
+
+    // Load more buton güncelle
+    var wrap = section.querySelector('.btn-load-more-wrap');
+    if (wrap) {
+      var rem = okCards.length - shown;
+      if (okCards.length <= 8) { wrap.style.display = 'none'; return; }
+      wrap.style.display = '';
+      var btn = wrap.querySelector('.btn-load-more');
+      if (rem <= 0) {
+        btn.innerHTML = '<span class="btn-left"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg><span>Daha az göster</span></span>';
+        btn.classList.add('open');
+      } else {
+        btn.innerHTML = '<span class="btn-left"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg><span>Daha fazla göster</span></span><span class="btn-divider"></span><span class="btn-badge" style="padding:0 16px;font-size:12px;font-weight:600;color:#2563eb;display:flex;align-items:center;">+' + rem + '</span>';
+        btn.classList.remove('open');
+      }
+    }
   });
 
   // Cat section'ları güncelle
-  document.querySelectorAll('.cat-section').forEach(section => {
-    const visibleSections = section.querySelectorAll('.tech-section:not([style*="display: none"])').length;
-    section.style.display = visibleSections === 0 ? 'none' : '';
+  document.querySelectorAll('.cat-section').forEach(function(section) {
+    var vis = section.querySelectorAll('.tech-section:not([style*="display: none"])').length;
+    section.style.display = vis === 0 ? 'none' : '';
   });
 
-  document.getElementById('resultsCount').textContent = visible + ' eğitim';
-  const noResults = document.getElementById('noResults');
-  noResults.classList.toggle('show', visible === 0);
-
+  var rc = document.getElementById('resultsCount');
+  if (rc) rc.textContent = visible + ' eğitim';
+  var nr = document.getElementById('noResults');
+  if (nr) nr.classList.toggle('show', visible === 0);
 }
 </script>
 
@@ -3577,50 +3620,39 @@ function applyFilters() {
 
 </script>
 
+
 <script>
 (function(){
-  document.querySelectorAll('.tech-section').forEach(function(section){
-    var grid = section.querySelector('.course-grid');
-    if(!grid) return;
-    var total = grid.querySelectorAll('.course-card').length;
-    if(total <= 8) return;
-
+  function init(section) {
+    if(section._lm) return;
+    section._lm = true;
+    var cards = Array.from(section.querySelectorAll('.course-card'));
+    if(cards.length <= 8) return;
+    section.dataset.lmShown = '8';
     var wrap = document.createElement('div');
     wrap.className = 'btn-load-more-wrap';
     var btn = document.createElement('button');
     btn.className = 'btn-load-more';
-    var level = 0; // 0=8 shown, 1=16 shown, 2=all shown
-
-    function render(){
-      var remaining = total - (level===0?8 : level===1?16 : total);
-      if(remaining < 0) remaining = 0;
-      if(level >= 2 || remaining === 0){
-        btn.innerHTML = '<span class="btn-left"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg><span>Daha az göster</span></span>';
-        btn.classList.add('open');
-      } else {
-        btn.innerHTML = '<span class="btn-left"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg><span>Daha fazla göster</span></span><span class="btn-divider"></span><span class="btn-badge" style="padding:0 16px;font-size:12px;font-weight:600;color:#2563eb;display:flex;align-items:center;">+'+remaining+'</span>';
-        btn.classList.remove('open');
-      }
-    }
-
+    btn.innerHTML = '<span class="btn-left"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg><span>Daha fazla göster</span></span><span class="btn-divider"></span><span class="btn-badge" style="padding:0 16px;font-size:12px;font-weight:600;color:#2563eb;display:flex;align-items:center;">+' + (cards.length - 8) + '</span>';
     btn.addEventListener('click', function(){
+      var okCards = Array.from(section.querySelectorAll('.course-card[data-filter-ok="1"]'));
+      if(!okCards.length) okCards = cards;
+      var shown = parseInt(section.dataset.lmShown || '8');
       if(btn.classList.contains('open')){
-        level = 0;
-        section.classList.remove('expanded','expanded2');
-        section.scrollIntoView({behavior:'smooth',block:'start'});
+        section.dataset.lmShown = '8';
+        section.scrollIntoView({behavior:'smooth', block:'start'});
       } else {
-        level++;
-        section.classList.remove('expanded','expanded2');
-        if(level===1) section.classList.add('expanded');
-        else { section.classList.add('expanded2'); level=2; }
+        section.dataset.lmShown = Math.min(shown + 8, okCards.length);
       }
-      render();
+      filterCourses();
     });
-
-    render();
     wrap.appendChild(btn);
     section.appendChild(wrap);
-  });
+  }
+  setTimeout(function(){
+    document.querySelectorAll('.tech-section').forEach(init);
+    filterCourses();
+  }, 100);
 })();
 </script>
 </html>
