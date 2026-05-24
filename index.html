@@ -40,11 +40,8 @@
     backdrop-filter: blur(24px);
     border-bottom: 1px solid var(--border);
   }
-
-  .lang-switcher { display:flex; align-items:center; gap:4px; background:var(--bg2); border:1px solid var(--border); border-radius:8px; padding:3px; margin-right:8px; }
-  .lang-btn { display:flex; align-items:center; gap:5px; padding:4px 10px; border:none; background:transparent; border-radius:6px; font-family:var(--font-b); font-size:12px; font-weight:500; color:var(--text2); cursor:pointer; transition:all 0.2s; }
-  .lang-btn.active { background:#fff; color:var(--text); box-shadow:0 1px 4px rgba(0,0,0,0.1); }
-  .lang-btn img { width:16px; height:12px; border-radius:2px; object-fit:cover; }
+  
+  
   .nav-logo { font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.5px; color: var(--text); text-decoration: none; display:inline-flex; align-items:center; }
   .nav-logo span{color:#6C6FE0;}
   .nav-links { display: flex; gap: 32px; list-style: none; }
@@ -526,7 +523,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
 
     <!-- HİZMETLER -->
     <li class="has-mega">
-      <a href="hizmetler.html" data-tr="Hizmetler" data-en="Services">Hizmetler</a>
+      <a href="hizmetler.html">Hizmetler</a>
       <div class="mega-menu"><div class="mega-arrow"></div>
         <div class="mega-grid mega-grid-4">
           <div class="mega-col">
@@ -590,7 +587,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
 
     <!-- AKADEMİ -->
     <li class="has-mega">
-      <a href="akademi.html" data-tr="Akademi" data-en="Academy">Akademi</a>
+      <a href="akademi.html">Akademi</a>
       <div class="mega-menu" style="min-width:900px;"><div class="mega-arrow"></div>
         <div class="mega-grid mega-grid-3">
           <div class="mega-col">
@@ -654,6 +651,19 @@ to{opacity:1;transform:translateY(0) scale(1);}}
             </a>
           </div>
         </div>
+        <!-- Avantaj Paketleri alt bant -->
+        <div style="background:linear-gradient(135deg,#f0f4ff,#ede9fe);border-top:1px solid #e0e7ff;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;border-radius:0 0 14px 14px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="background:linear-gradient(135deg,#2563eb,#7c3aed);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div>
+              <div style="font-size:12px;font-weight:700;color:#0e1628;">Kurumsal Eğitim Avantaj Paketleri</div>
+              <div style="font-size:11px;color:#6b7280;">%20'den %35'e varan indirimlerle yıllık eğitim paketi</div>
+            </div>
+          </div>
+          <a href="akademi.html#avantaj-paketleri" style="font-size:12px;font-weight:700;color:#2563eb;text-decoration:none;white-space:nowrap;padding:7px 14px;background:#fff;border:1.5px solid #2563eb;border-radius:8px;transition:all 0.2s;" onmouseover="this.style.background='#2563eb';this.style.color='#fff'" onmouseout="this.style.background='#fff';this.style.color='#2563eb'">Paketleri İncele →</a>
+        </div>
         <div class="mega-footer">
           <span class="mega-footer-text">350 eğitim programı mevcut</span>
           <a href="akademi.html" class="mega-footer-link">Tüm Eğitimler →</a>
@@ -663,7 +673,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
 
         <!-- ÇÖZÜMLER -->
     <li class="has-mega">
-      <a href="cozumler.html" data-tr="Çözümler" data-en="Solutions">Çözümler</a>
+      <a href="cozumler.html">Çözümler</a>
       <div class="mega-menu"><div class="mega-arrow"></div>
         <div class="mega-grid mega-grid-3">
           <div class="mega-col">
@@ -672,7 +682,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
               <span><span class="mega-link-name">Kamu & Devlet</span><span class="mega-link-desc">Dijital dönüşüm ve yetkinlik</span></span>
             </a>
             <a href="cozum-savunma.html" class="mega-link">
-              <span><span class="mega-link-name">Savunma Sanayi</span><span class="mega-link-desc">Kritik <span data-tr="teknoloji" data-en="technology">teknoloji</span> yetkinliği</span></span>
+              <span><span class="mega-link-name">Savunma Sanayi</span><span class="mega-link-desc">Kritik <span>teknoloji</span> yetkinliği</span></span>
             </a>
             <a href="cozum-saglik.html" class="mega-link">
               <span><span class="mega-link-name">Sağlık</span><span class="mega-link-desc">Dijital sağlık ekosistemi</span></span>
@@ -706,10 +716,10 @@ to{opacity:1;transform:translateY(0) scale(1);}}
         </div>
       </div>
     </li>
-    <li><a href="uzman-kadro.html" data-tr="Uzman Kadro" data-en="Expert Staff">Uzman Kadro</a></li>
+    <li><a href="uzman-kadro.html">Uzman Kadro</a></li>
         <!-- HAKKIMIZDA -->
     <li class="has-mega">
-      <a href="hakkimizda.html" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
       <div class="mega-menu"><div class="mega-arrow"></div>
         <div class="mega-grid mega-grid-3">
           <div class="mega-col">
@@ -755,15 +765,11 @@ to{opacity:1;transform:translateY(0) scale(1);}}
         </div>
       </div>
     </li>
-    <li><a href="blog.html" data-tr="Blog" data-en="Blog">Blog</a></li>
+    <li><a href="blog.html">Blog</a></li>
   </ul>
   <div class="nav-cta">
-    <div class="lang-switcher">
-      <button class="lang-btn active" id="btnTR" onclick="setLang('tr')">🇹🇷 TR</button>
-      <button class="lang-btn" id="btnEN" onclick="setLang('en')">🇬🇧 EN</button>
-    </div>
-    <a href="#" class="btn-ghost" data-tr="Giriş Yap" data-en="Sign In">Giriş Yap</a>
-    <a href="#" class="btn-primary" onclick="document.getElementById('modalGorusme').classList.add('open');document.body.style.overflow='hidden';return false;" data-tr="Demo Talep Et →" data-en="Request Demo →">Demo Talep Et →</a>
+    <a href="#" class="btn-ghost">Giriş Yap</a>
+    <a href="#" class="btn-primary" onclick="document.getElementById('modalGorusme').classList.add('open');document.body.style.overflow='hidden';return false;">Demo Talep Et →</a>
   </div>
 </nav>
 
@@ -774,19 +780,19 @@ to{opacity:1;transform:translateY(0) scale(1);}}
   <div class="hero-content">
     <div class="hero-badge">
       <span class="hero-badge-dot">✦</span>
-      Türkiye'nin Teknoloji Dönüşüm Ortağı
+      <span>Türkiye'nin Teknoloji Dönüşüm Ortağı</span>
     </div>
     <h1 class="hero-title">
-      <span data-tr="Geleceği inşa eden" data-en="Building the future with">Geleceği inşa eden</span><br/>
-      <span class="accent">teknoloji</span> ile<br/>
+      <span>Geleceği inşa eden</span><br/>
+      <span class="accent">teknoloji</span><span> ile</span><br/>
       <span class="teal">büyüyün.</span>
     </h1>
     <p class="hero-sub">
-      <span data-tr="AI entegrasyonu, dijital dönüşüm, teknoloji eğitimleri ve uzman kaynak kiralama hizmetleriyle şirketinizi bir üst seviyeye taşıyoruz." data-en="We elevate your business with AI integration, digital transformation, technology training and expert resource rental services.">AI entegrasyonu, dijital dönüşüm, teknoloji eğitimleri ve uzman kaynak kiralama hizmetleriyle şirketinizi bir üst seviyeye taşıyoruz.</span>
+      <span>AI entegrasyonu, dijital dönüşüm, teknoloji eğitimleri ve uzman kaynak kiralama hizmetleriyle şirketinizi bir üst seviyeye taşıyoruz.</span>
     </p>
     <div class="hero-actions">
-      <a href="hizmetler.html" class="btn-hero"><span data-tr="Hizmetleri Keşfet →" data-en="Explore Services →">Hizmetleri Keşfet →</span></a>
-      <button class="btn-hero-ghost" onclick="openDemoModal()" style="cursor:pointer;border:none;font-family:var(--font-b);">▶ Demo İzle</button>
+      <a href="hizmetler.html" class="btn-hero"><span>Hizmetleri Keşfet →</span></a>
+      <button class="btn-hero-ghost" onclick="openDemoModal()" style="cursor:pointer;border:none;font-family:var(--font-b);"><span>▶ Demo İzle</span></button>
     </div>
     <div class="hero-scroll">
       <div class="scroll-line"></div>
@@ -866,8 +872,8 @@ to{opacity:1;transform:translateY(0) scale(1);}}
 <!-- WHY BILGINEX -->
 <div class="why">
   <div>
-    <div class="section-tag reveal" data-tr="Neden Bilginex?" data-en="Why Bilginex?">Neden Bilginex?</div>
-    <h2 class="section-title reveal" data-tr="Doğru teknolojiyi, doğru noktada işinize entegre ediyoruz." data-en="We integrate the right technology at the right point into your business.">Doğru teknolojiyi, doğru noktada işinize entegre ediyoruz.</h2>
+    <div class="section-tag reveal">Neden Bilginex?</div>
+    <h2 class="section-title reveal">Doğru teknolojiyi, doğru noktada işinize entegre ediyoruz.</h2>
     <p class="section-sub">Strateji kurar, teknolojiyi hayata geçirir, sonuçları ölçeriz. Dönüşüm bir proje değil — ortaklıktır.</p>
     <div class="why-points">
       <div class="why-point reveal delay-1">
@@ -940,8 +946,8 @@ to{opacity:1;transform:translateY(0) scale(1);}}
   <div class="akademi-photo"></div>
   <div class="akademi-content">
     <div>
-      <div class="section-tag light" data-tr="Bilginex Akademi" data-en="Bilginex Academy">Bilginex Akademi</div>
-      <h2 class="section-title white reveal" data-tr="Ekibinizi geleceğe hazırlayın" data-en="Prepare your team for the future">Ekibinizi geleceğe hazırlayın</h2>
+      <div class="section-tag light">Bilginex Akademi</div>
+      <h2 class="section-title white reveal">Ekibinizi geleceğe hazırlayın</h2>
       <p class="section-sub white">Sektör uzmanları tarafından tasarlanan, pratiğe odaklı eğitim programlarıyla teknik yetkinlikleri geliştirin.</p>
       <div class="akademi-checklist">
         <div class="check-item"><span class="tick">✓</span> 350+ aktif kurs ve sertifika programı</div>
@@ -1226,7 +1232,7 @@ document.addEventListener('keydown', function(e){
   <div class="footer-grid">
     <div class="footer-brand">
       <a href="index.html" class="footer-logo"><svg width="28" height="28" viewBox="0 0 74 74" fill="none" style="vertical-align:middle;margin-right:10px;"><circle cx="37" cy="37" r="37" fill="white" stroke="white" stroke-width="1"/><circle cx="37" cy="37" r="10" fill="none" stroke="#111" stroke-width="2.5"/><circle cx="37" cy="37" r="3.5" fill="#111"/><circle cx="14" cy="37" r="3.5" fill="none" stroke="#111" stroke-width="2"/><line x1="17.5" y1="37" x2="27" y2="37" stroke="#111" stroke-width="2" stroke-linecap="round"/><circle cx="54" cy="20" r="3.5" fill="none" stroke="#111" stroke-width="2"/><line x1="51.5" y1="22.5" x2="45" y2="29" stroke="#111" stroke-width="2" stroke-linecap="round"/><circle cx="54" cy="54" r="3.5" fill="none" stroke="#111" stroke-width="2"/><line x1="51.5" y1="51.5" x2="45" y2="45" stroke="#111" stroke-width="2" stroke-linecap="round"/><circle cx="37" cy="60" r="3" fill="none" stroke="#111" stroke-width="2"/><line x1="37" y1="57" x2="37" y2="47" stroke="#111" stroke-width="2" stroke-linecap="round"/></svg>bilgi<span>nex</span></a>
-      <p data-tr="Türkiye'nin öncü teknoloji ortağı." data-en="Turkey's leading technology partner.">Türkiye'nin öncü teknoloji ortağı.</p>
+      <p>Türkiye'nin öncü teknoloji ortağı.</p>
       <div class="footer-social" style="margin-top:16px;">
         <a href="https://linkedin.com/company/bilginex" target="_blank" class="social-icon-btn li" title="LinkedIn">
           <svg viewBox="0 0 24 24" fill="#fff"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -1949,29 +1955,5 @@ document.getElementById('wizardOverlay').addEventListener('click',function(e){if
 </script>
 
 <script>
-function setLang(lang) {
-  localStorage.setItem('bnx_lang', lang);
-  document.querySelectorAll('[data-tr]').forEach(function(el) {
-    if(lang === 'en') {
-      el.textContent = el.getAttribute('data-en') || el.textContent;
-    } else {
-      el.textContent = el.getAttribute('data-tr') || el.textContent;
-    }
-  });
-  var btnTR = document.getElementById('btnTR');
-  var btnEN = document.getElementById('btnEN');
-  if(btnTR && btnEN) {
-    btnTR.classList.toggle('active', lang === 'tr');
-    btnEN.classList.toggle('active', lang === 'en');
-  }
-  // html lang attribute
-  document.documentElement.lang = lang;
-}
-
-// Sayfa açılışında tercih uygula
-(function(){
-  var saved = localStorage.getItem('bnx_lang') || 'tr';
-  if(saved === 'en') setLang('en');
-})();
 </script>
 </html>
