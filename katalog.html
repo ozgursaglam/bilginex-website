@@ -39,7 +39,7 @@ html{scroll-behavior:smooth;}
 .cover-title span{color:#5eead4;}
 .cover-year{font-family:var(--font-d);font-size:72px;font-weight:800;line-height:1;color:rgba(255,255,255,0.15);}
 .cover-desc{font-size:17px;font-weight:300;color:rgba(255,255,255,0.7);line-height:1.7;margin:24px 0 40px;}
-.cover-stats{display:flex;gap:32px;flex-wrap:wrap;}
+.cover-stats{display:flex;gap:16px;flex-wrap:nowrap;}
 .cover-stat{text-align:center;padding:20px 24px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;backdrop-filter:blur(8px);}
 .cover-stat-num{font-family:var(--font-d);font-size:36px;font-weight:800;color:#5eead4;line-height:1;}
 .cover-stat-label{font-size:12px;color:rgba(255,255,255,0.55);margin-top:6px;text-transform:uppercase;letter-spacing:0.05em;}
@@ -59,7 +59,7 @@ html{scroll-behavior:smooth;}
 .index-card{border-radius:16px;overflow:hidden;border:1px solid var(--border);}
 .index-card-header{padding:24px;color:#fff;position:relative;overflow:hidden;}
 .index-card-header::after{content:'';position:absolute;bottom:-20px;right:-20px;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,0.1);}
-.index-card-icon{font-size:28px;margin-bottom:10px;}
+.index-card-icon{width:48px;height:48px;margin-bottom:12px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.15);border-radius:12px;padding:10px;}
 .index-card-title{font-family:var(--font-d);font-size:16px;font-weight:700;margin-bottom:4px;}
 .index-card-sub{font-size:12px;opacity:0.75;line-height:1.5;}
 .index-card-body{padding:0;}
@@ -130,217 +130,220 @@ html{scroll-behavior:smooth;}
    ═══════════════════════════════════════ */
 @media print {
 
-  /* --- Page setup --- */
   @page {
     size: A4 landscape;
-    margin: 14mm 18mm 18mm 18mm;
+    margin: 10mm 12mm 12mm 12mm;
   }
-  @page :first          { margin: 0; }          /* kapak tam sayfa */
-  @page cover-back      { margin: 0; }
-  @page toc             { margin: 20mm 18mm; }
+  @page :first { margin: 0; }
 
-  /* --- Global resets --- */
+  /* ── Global ── */
   *, *::before, *::after {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
     box-shadow: none !important;
-    visibility: visible !important;
   }
-  
-  /* Ensure all major sections are visible */
-  .cover, .index-page, .section-divider, 
-  .catalog-body, .tech-block, .course-table,
-  .back-cover, .avantaj-block {
-    display: block !important;
-    visibility: visible !important;
-    overflow: visible !important;
-  }
-
-  /* --- Hide nav / buttons --- */
-  .cover-nav .cover-actions,
-  .btn-pdf, .btn-back { display: none !important; }
-
-  /* --- Body & HTML --- */
-  html { height: auto !important; overflow: visible !important; }
-  /* --- Body --- */
-  body { background: #fff !important; font-size: 10pt; overflow: visible !important; height: auto !important; }
-
-  /* ── HEADER & FOOTER on every content page ── */
-  .print-page-header {
-    display: block !important;
-    position: running(pageHeader);
-  }
-  .print-page-footer {
-    display: block !important;
-    position: running(pageFooter);
-  }
-  @page { @top-center { content: element(pageHeader); } }
-  @page { @bottom-center { content: element(pageFooter); } }
-
-  /* ── COVER: full-bleed, no margins ── */
-  .cover {
-    page-break-after: always;
-    min-height: 0 !important;
+  html, body {
+    width: 100% !important;
     height: auto !important;
-    max-height: 195mm !important;
-    width: 100%;
-    margin: 0 !important; padding: 0 !important;
-    display: block !important;
-    overflow: hidden !important;
+    overflow: visible !important;
+    background: #fff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 9pt !important;
   }
-  /* Cover bg image stretch */
-  .cover-bg-img { display: none !important; } /* external img yüklenemez, gizle */
-  .cover-grid, .cover-glow, .cover-glow2 { display: none !important; }
-  .cover-body { padding: 20px 50px !important; }
-  .cover-nav  { padding: 20px 50px !important; }
-  .cover-right { 
-    position: static !important; 
-    transform: none !important;
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 8px !important;
-    padding: 0 50px 20px !important;
-    opacity: 1 !important;
-  }
-  .cover-card-mini { min-width: 160px !important; padding: 10px 14px !important; }
-  .cover-title { font-size: 40pt !important; }
-  .cover-year  { font-size: 40pt !important; }
-  .cover-stats { gap: 16px !important; }
-  .cover-stat  { padding: 12px 16px !important; }
-  .cover-stat-num { font-size: 22pt !important; }
 
-  /* ── INDEX (İçindekiler) page ── */
+  /* ── Gizle ── */
+  .cover-nav .cover-actions,
+  .btn-pdf, .btn-back,
+  .cover-bg-img, .cover-grid, .cover-glow, .cover-glow2,
+  .section-divider-img, .section-divider-overlay { display: none !important; }
+
+  /* ── Cover ── */
+  .cover {
+    page-break-after: always !important;
+    min-height: 0 !important;
+    height: 185mm !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .cover-nav  { padding: 16px 40px !important; }
+  .cover-body { padding: 20px 40px 24px !important; }
+  .cover-title { font-size: 38pt !important; line-height: 1.1 !important; }
+  .cover-year  { font-size: 38pt !important; }
+  .cover-desc  { font-size: 9.5pt !important; max-width: 480px !important; }
+  .cover-stats { gap: 10px !important; flex-wrap: nowrap !important; }
+  .cover-stat  { padding: 10px 14px !important; }
+  .cover-stat-num { font-size: 20pt !important; }
+  .cover-stat-label { font-size: 7pt !important; }
+  .cover-right { display: none !important; }
+
+  /* ── İçindekiler ── */
   .index-page {
-    page-break-before: always;
-    page-break-after: auto;
-    padding: 12mm 14mm !important;
+    page-break-before: always !important;
+    page-break-after: auto !important;
+    padding: 10mm 12mm !important;
     background: #fff !important;
   }
-  .index-cards { grid-template-columns: repeat(3,1fr) !important; gap: 12px !important; }
-  .index-card-header { padding: 16px !important; }
-  .index-item { padding: 7px 14px !important; }
-  .index-item-name { font-size: 9pt !important; }
-  .index-item-count { font-size: 8pt !important; }
+  .index-cards { grid-template-columns: repeat(3,1fr) !important; gap: 10px !important; }
+  .index-card-header { padding: 14px !important; }
+  .index-item { padding: 6px 12px !important; font-size: 8.5pt !important; }
 
-  /* ── Section dividers ── */
+  /* ── Section divider ── */
   .section-divider {
-    page-break-before: always;
+    page-break-before: always !important;
     page-break-after: avoid !important;
     break-after: avoid !important;
-    height: 100px !important;
+    height: 80px !important;
+    min-height: 0 !important;
     display: flex !important;
+    align-items: center !important;
+    overflow: hidden !important;
+    padding: 0 20px !important;
   }
-  .section-divider-title { font-size: 22pt !important; }
-  .section-divider-num   { font-size: 72pt !important; }
+  .section-divider-inner {
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+  }
+  .section-divider-label { font-size: 7pt !important; }
+  .section-divider-title { font-size: 18pt !important; }
+  .section-divider-desc  { font-size: 8pt !important; }
+  .section-divider-num   { font-size: 48pt !important; opacity: 0.15 !important; }
 
   /* ── Catalog body ── */
-  .catalog-body { 
-    padding: 4mm 0 6mm !important; 
-    background: #fff !important;
+  .catalog-body {
+    padding: 6mm 0 4mm !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
     page-break-before: avoid !important;
     break-before: avoid !important;
-    page-break-after: auto !important;
-    break-after: auto !important;
   }
 
-  /* ── Tech blocks ── */
-  .tech-block {
-    page-break-inside: auto;   /* büyük tablolar bölünebilir */
-    break-inside: auto;
-    margin-bottom: 8pt !important;
-  }
-  /* Sadece küçük bloklar (class="small-block") bölünmesin */
-  .tech-block.small-block {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-  /* Header satırı sonraki içerikten ayrılmasın */
-  .tech-header-row {
-    page-break-after: avoid !important;
-    break-after: avoid !important;
-    padding: 8px 14px !important;
-    margin-bottom: 0 !important;
-    border-radius: 6px 6px 0 0 !important;
-    border-bottom: none !important;
-  }
-  .tech-header-name { font-size: 11pt !important; }
-  .tech-header-count { font-size: 8pt !important; }
-
-  /* ── Tables ── */
-  .course-table {
-    border-radius: 0 !important;
-    border-top: none !important;
-    font-size: 8.5pt !important;
-    width: 100% !important;
-    table-layout: fixed !important;
-    margin-bottom: 0 !important;
-    page-break-before: avoid;
-    break-before: avoid;
-  }
-  .course-table thead { background: #f0f2f8 !important; }
-  .course-table th {
-    padding: 5px 10px !important;
-    font-size: 7pt !important;
-    border-bottom: 1px solid #d0d4e8 !important;
-  }
-  .course-table td {
-    padding: 5px 10px !important;
-    font-size: 8.5pt !important;
-    border-bottom: 1px solid #eef0f8 !important;
-    vertical-align: middle !important;
-  }
-  .course-table tr { page-break-inside: avoid; break-inside: avoid; }
-  .course-table thead { display: table-header-group; } /* thead her sayfada tekrarlar */
-
-  /* Column widths in print */
-  .course-table td:nth-child(1),
-  .course-table th:nth-child(1) { width: 38pt !important; text-align: center !important; }
-  .course-table td:nth-child(3),
-  .course-table th:nth-child(3) { width: 52pt !important; text-align: center !important; white-space: nowrap; }
-  .course-table td:nth-child(4),
-  .course-table th:nth-child(4) { width: 60pt !important; text-align: center !important; }
-
-  .td-num   { font-size: 7.5pt !important; }
-  .td-title { font-size: 8.5pt !important; line-height: 1.3 !important; }
-  .td-dur   { font-size: 8pt !important; }
-  .lvl-badge { font-size: 7pt !important; padding: 2px 6px !important; }
-
-  /* ── Avantaj paketleri block ── */
-  .avantaj-block {
-    page-break-before: always;
-    padding: 10mm 8mm !important;
-  }
-  .avantaj-block > div { max-width: 100% !important; }
-  /* 4'lü paket grid'i print'te de 4 kolon */
-  .avantaj-block [style*="grid-template-columns:repeat(4"] {
-    display: grid !important;
-    grid-template-columns: repeat(4,1fr) !important;
-    gap: 10px !important;
-  }
-  .avantaj-block [style*="grid-template-columns:repeat(4"] > div {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-
-  /* ── Back cover ── */
-  .back-cover {
-    page-break-before: always;
-    padding: 40mm 30mm !important;
-  }
-  .back-cover-title { font-size: 26pt !important; }
-  .back-cover-sub   { font-size: 11pt !important; }
-
-  /* ── Inline header/footer elements (shown every page) ── */
+  /* ── Print header strip ── */
   .print-header-strip {
     display: flex !important;
     align-items: center;
     justify-content: space-between;
-    padding: 0 0 6px 0;
+    padding: 0 0 5px 0;
     border-bottom: 1.5px solid #2563eb;
-    margin-bottom: 10px;
-    font-size: 7.5pt;
+    margin-bottom: 8px;
+    font-size: 7pt;
     color: #485070;
   }
+
+  /* ── Tech blocks ── */
+  .tech-block {
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+    margin-bottom: 10pt !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .tech-block.small-block {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+  .tech-header-row {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    padding: 6px 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+  .tech-header-name  { font-size: 10pt !important; }
+  .tech-header-count { font-size: 7.5pt !important; }
+
+  /* ── Tablolar ── */
+  .course-table {
+    width: 100% !important;
+    max-width: 100% !important;
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    font-size: 0 !important; /* sıfırla, td'de ayarla */
+    page-break-before: avoid !important;
+    break-before: avoid !important;
+    box-sizing: border-box !important;
+  }
+  /* Sütun genişlikleri — A4 landscape ~221mm kullanılabilir */
+  .course-table col.col-num   { width: 28pt !important; }
+  .course-table col.col-title { width: auto !important; }
+  .course-table col.col-dur   { width: 40pt !important; }
+  .course-table col.col-lvl   { width: 50pt !important; }
+
+  .course-table thead {
+    display: table-header-group !important;
+    background: #edf0f8 !important;
+  }
+  .course-table th {
+    font-size: 6pt !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    padding: 4px 7px !important;
+    border-bottom: 1.5px solid #c5cbe0 !important;
+    color: #445 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+  }
+  .course-table td {
+    font-size: 7.5pt !important;
+    padding: 3.5px 7px !important;
+    border-bottom: 0.5pt solid #e8eaf2 !important;
+    vertical-align: middle !important;
+    overflow: hidden !important;
+    word-break: break-word !important;
+    line-height: 1.3 !important;
+  }
+  .course-table tr { page-break-inside: avoid !important; break-inside: avoid !important; }
+  .course-table tr:last-child td { border-bottom: none !important; }
+
+  /* Sütun hizalamaları */
+  .course-table th:nth-child(1),
+  .course-table td:nth-child(1) { text-align: center !important; color: #888 !important; font-size: 6.5pt !important; }
+  .course-table th:nth-child(2),
+  .course-table td:nth-child(2) { text-align: left !important; }
+  .course-table th:nth-child(3),
+  .course-table td:nth-child(3) { text-align: center !important; white-space: nowrap !important; }
+  .course-table th:nth-child(4),
+  .course-table td:nth-child(4) { text-align: center !important; }
+
+  .td-num   { font-size: 6.5pt !important; color: #999 !important; }
+  .td-title { font-size: 7.5pt !important; line-height: 1.3 !important; }
+  .td-dur   { font-size: 7pt !important; white-space: nowrap !important; }
+  .lvl-badge {
+    font-size: 6pt !important;
+    padding: 1.5px 5px !important;
+    border-radius: 3px !important;
+    display: inline-block !important;
+    line-height: 1.5 !important;
+    white-space: nowrap !important;
+  }
+
+  /* ── Avantaj Paketleri ── */
+  .avantaj-block {
+    page-break-before: always !important;
+    padding: 10mm 8mm !important;
+  }
+  .avantaj-block > div { max-width: 100% !important; }
+
+  /* ── Back cover ── */
+  .back-cover {
+    page-break-before: always !important;
+    padding: 30mm 20mm !important;
+  }
+  .back-cover-title { font-size: 22pt !important; }
+  .back-cover-sub   { font-size: 10pt !important; }
+
+  /* ── Footer strip ── */
   .print-footer-strip {
     display: flex !important;
     align-items: center;
@@ -352,6 +355,7 @@ html{scroll-behavior:smooth;}
     color: #9099b5;
   }
 }
+
 
 /* Hide print strips on screen */
 .print-header-strip, .print-footer-strip { display: none; }
@@ -400,40 +404,15 @@ function doPrint() {
       <div class="cover-year">2026</div>
       <div class="cover-desc">350'den fazla uygulamalı eğitim programıyla ekiplerinizi ve kendinizi güncel teknolojilere hazırlayın. Yazılım, bulut, veri, güvenlik ve daha fazlası.</div>
       <div class="cover-stats">
-        <div class="cover-stat"><div class="cover-stat-num">350+</div><div class="cover-stat-label">Eğitim</div></div>
-        <div class="cover-stat"><div class="cover-stat-num">15</div><div class="cover-stat-label">Alan</div></div>
-        <div class="cover-stat"><div class="cover-stat-num">25+</div><div class="cover-stat-label">Ortak</div></div>
-        <div class="cover-stat"><div class="cover-stat-num">%100</div><div class="cover-stat-label">Uygulamalı</div></div>
+        <div class="cover-stat"><div class="cover-stat-num">350+</div><div class="cover-stat-label">Uygulamalı İçerik</div></div>
+        <div class="cover-stat"><div class="cover-stat-num">%100</div><div class="cover-stat-label">Memnuniyet Garantisi</div></div>
+        <div class="cover-stat"><div class="cover-stat-num">25</div><div class="cover-stat-label">Global Teknoloji Ekosistemi</div></div>
+        <div class="cover-stat"><div class="cover-stat-num">12</div><div class="cover-stat-label">Kişilik Özel Gruplar</div></div>
       </div>
     </div>
   </div>
 
-  <div class="cover-right">
-    <div class="cover-card-mini">
-      <div class="ccm-cat">Yazılım Geliştirme</div>
-      <div class="ccm-title">Java SE 11 Developer Certification</div>
-      <div class="ccm-meta">
-        <span class="ccm-badge" style="background:#2563eb;color:#fff;">5 Gün</span>
-        <span class="ccm-badge" style="background:#d97706;color:#fff;">Orta</span>
-      </div>
-    </div>
-    <div class="cover-card-mini">
-      <div class="ccm-cat">Bulut Bilişim</div>
-      <div class="ccm-title">AZ-900: Azure Fundamentals</div>
-      <div class="ccm-meta">
-        <span class="ccm-badge" style="background:#0891b2;color:#fff;">2 Gün</span>
-        <span class="ccm-badge" style="background:#16a34a;color:#fff;">Başlangıç</span>
-      </div>
-    </div>
-    <div class="cover-card-mini">
-      <div class="ccm-cat">Bilgi Güvenliği</div>
-      <div class="ccm-title">CEH: Certified Ethical Hacker</div>
-      <div class="ccm-meta">
-        <span class="ccm-badge" style="background:#dc2626;color:#fff;">5 Gün</span>
-        <span class="ccm-badge" style="background:#d97706;color:#fff;">Orta</span>
-      </div>
-    </div>
-  </div>
+
 </div>
 
 <!-- INDEX PAGE -->
@@ -443,7 +422,7 @@ function doPrint() {
   <div class="index-cards">
     <div class="index-card">
       <div class="index-card-header" style="background:linear-gradient(135deg,#1e40af,#2563eb);">
-        <div class="index-card-icon">💻</div>
+        <div class="index-card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
         <div class="index-card-title">Yazılım Hizmetleri</div>
         <div class="index-card-sub">Bulut, SharePoint, Yazılım Geliştirme</div>
       </div>
@@ -455,7 +434,7 @@ function doPrint() {
     </div>
     <div class="index-card">
       <div class="index-card-header" style="background:linear-gradient(135deg,#0f766e,#0d9488);">
-        <div class="index-card-icon">📊</div>
+        <div class="index-card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div>
         <div class="index-card-title">Veri & İş Yönetimi</div>
         <div class="index-card-sub">Big Data, MS Office, Veri ve İş Çözümleri</div>
       </div>
@@ -471,7 +450,7 @@ function doPrint() {
     </div>
     <div class="index-card">
       <div class="index-card-header" style="background:linear-gradient(135deg,#6d28d9,#7c3aed);">
-        <div class="index-card-icon">🔒</div>
+        <div class="index-card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <div class="index-card-title">Teknoloji Servisleri</div>
         <div class="index-card-sub">BT Yönetimi, Güvenlik, Sistem, Linux</div>
       </div>
