@@ -33,7 +33,7 @@
 
   /* ── NAV ── */
   nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
     display: flex; align-items: center; justify-content: space-between;
     padding: 18px 60px;
     background: rgba(240,242,245,0.88);
@@ -330,7 +330,7 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    z-index: 299;
+    z-index: 10000;
     transform: translateY(-6px);
     transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s 0.18s;
   }
