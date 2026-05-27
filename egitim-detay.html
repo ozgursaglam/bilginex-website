@@ -152,106 +152,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .footer-links{display:flex;gap:24px;}
 .footer-links a{font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;}
 .footer-links a:hover{color:rgba(255,255,255,0.8);}
-/* ── MEGA MENU ── */
-  .nav-links li { position: relative; }
-  .nav-links li.has-mega > a::after { content: ' ▾'; font-size: 10px; opacity: 0.6; }
-  .mega-menu {
-    position: fixed;
-    top: auto;
-    left: 0;
-    transform: none;
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    box-shadow: 0 20px 60px rgba(15,23,60,0.12);
-    padding: 32px 36px;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    z-index: 300;
-    transition: none;
+/* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 60px;
+    background: rgba(240,242,245,0.88);
+    backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--border);
   }
-  .mega-menu::after {
-    content: '';
-    position: absolute;
-    top: -20px;
-    left: 0;
-    right: 0;
-    height: 20px;
-  }
-  .nav-links li.has-mega:hover .mega-menu,
-  .nav-links li.has-mega:focus-within .mega-menu {
-    opacity: 1; visibility: visible; pointer-events: all;
-    transform: translateY(0);
-    transition: opacity 0.15s, transform 0.15s, visibility 0s;
-  }
-  .mega-arrow {
-    position: absolute; top: -6px; left: 50%;
-    width: 12px; height: 12px; background: #fff;
-    border-left: 1px solid var(--border); border-top: 1px solid var(--border);
-    transform: translateX(-50%) rotate(45deg);
-    pointer-events: none;
-  }
-  /* Görünmez köprü — mouse gap'ten geçerken menüyü açık tutar */
-  .mega-menu::after {
-    content: ''; position: absolute; top: -20px; left: 0; right: 0; height: 20px;
-  }
-  .mega-grid { display: grid; gap: 0; align-items: start; }
-  .mega-grid-4 { grid-template-columns: repeat(4, 1fr); }
-  .mega-grid-3 { grid-template-columns: repeat(3, 1fr); }
-  .mega-col { padding: 0 28px; border-right: 1px solid var(--border); }
-  .mega-col:first-child { padding-left: 0; }
-  .mega-col:last-child { border-right: none; }
-  .mega-col-title {
-    font-family: var(--font-d); font-size:19px; font-weight: 700;
-    color: var(--text); letter-spacing: -0.2px; margin-bottom: 16px;
-    padding-bottom: 12px; border-bottom: 2px solid var(--border);
-  }
-  .mega-col-title span { color: #38bdf8; }
-  .mega-link {
-    display: flex; align-items: flex-start; gap: 10px;
-    padding: 8px 0; text-decoration: none;
-    transition: all 0.15s; border-radius: 6px;
-  }
-  .mega-link:hover .mega-link-name { color: var(--accent2); }
-  .mega-link-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-  .mega-link-name { font-size: 15px; font-weight: 400; color: var(--text2); display: block; line-height: 1.25; }
-  .mega-link-desc { font-size: 13px; color: var(--text3); display: block; margin-top: 0; font-weight: 300; line-height: 1.3; }
-  .mega-footer {
-    margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border);
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  .mega-footer-text { font-size: 14px; color: var(--text3); font-weight: 300; }
-  .mega-footer-link {
-    font-size: 14px; font-weight: 500; color: var(--accent2);
-    text-decoration: none; transition: color 0.2s;
-  }
-  .mega-footer-link:hover { color: var(--accent); }
-  /* Mega menu için nav overflow visible */
-  nav { overflow: visible !important; }
-
-  /* mega-col-title hover */
-
-  .mega-col-title a { color: inherit; text-decoration: none; }
-  .mega-col-title a:hover { color: var(--accent2); }
-  .mega-link { padding: 3px 0 !important; }
-  .mega-link-name { font-size: 15px !important; line-height: 1.2 !important; }
-  .mega-link-desc { font-size: 12px !important; line-height: 1.2 !important; margin-top: 0 !important; }
-  .mega-col { padding: 0 20px !important; }
-  .mega-col-title { margin-bottom: 10px !important; padding-bottom: 8px !important; }
-
-  /* mega-spacing-fix */
-  .mega-link { padding: 8px 0 !important; }
-  .mega-link-name { font-size: 15px !important; font-weight: 500 !important; line-height: 1.4 !important; color: var(--text) !important; }
-  .mega-link-desc { font-size: 12px !important; line-height: 1.4 !important; margin-top: 2px !important; color: var(--text3) !important; }
-  .mega-col { padding: 0 28px !important; }
-  .mega-col-title { font-size: 13px !important; font-weight: 700 !important; letter-spacing: 0.06em !important; text-transform: uppercase !important; color: var(--text2) !important; margin-bottom: 12px !important; padding-bottom: 0 !important; border-bottom: none !important; white-space: nowrap !important; }
-  .mega-col-title a { color: var(--text2) !important; }
-  .mega-col-title a:hover { color: var(--text) !important; }
-  .mega-menu { padding: 32px 36px !important; }
-  .mega-footer { margin-top: 24px !important; padding-top: 16px !important; }
-  .mega-footer-text { font-size: 13px !important; }
-  .mega-footer-link { font-size: 13px !important; font-weight: 600 !important; }
+  .nav-logo { font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.5px; color: var(--text); text-decoration: none; display:inline-flex; align-items:center; }
+  .nav-logo span{color:#6C6FE0;}
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { color: var(--text2); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta { display: flex; gap: 10px; }
+  .btn-ghost { padding: 9px 20px; border: 1px solid var(--border2); background: transparent; color: var(--text); font-family: var(--font-b); font-size: 13px; font-weight: 500; border-radius: 7px; cursor: pointer; transition: background 0.2s; text-decoration: none; }
+  .btn-ghost:hover { background: var(--surface); }
+  .btn-primary { padding: 9px 22px; background: var(--accent2); border: none; color: #fff; font-family: var(--font-b); font-size: 13px; font-weight: 500; border-radius: 7px; cursor: pointer; transition: background 0.2s; text-decoration: none; }
+  .btn-primary:hover { background: var(--accent); }
 
   /* SOSYAL MEDYA İKONLARI */
   .footer-social{display:flex;align-items:center;gap:10px;}
@@ -331,63 +250,87 @@ to{opacity:1;transform:translateY(0) scale(1);}}
     <!-- HİZMETLER -->
     <li class="has-mega">
       <a href="hizmetler.html">Hizmetler</a>
-      <div class="mega-menu"><div class="mega-arrow"></div>
-        <div class="mega-grid mega-grid-4">
-          <div class="mega-col">
-            <div class="mega-col-title"><a href="ai-entegrasyon.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">AI Entegrasyonu</a></div>
-            <a href="ai-entegrasyon.html" class="mega-link">
-              <span><span class="mega-link-name">LLM & Chatbot Geliştirme</span><span class="mega-link-desc">Kurumsal AI asistanları</span></span>
-            </a>
-            <a href="ai-entegrasyon.html" class="mega-link">
-              <span><span class="mega-link-name">Süreç Otomasyonu</span><span class="mega-link-desc">RPA ve AI ile verimlilik</span></span>
-            </a>
-            <a href="ai-entegrasyon.html" class="mega-link">
-              <span><span class="mega-link-name">RAG & Veri Sistemleri</span><span class="mega-link-desc">Kurumsal veri entegrasyonu</span></span>
-            </a>
-          </div>
-          <div class="mega-col">
-            <div class="mega-col-title"><a href="dijital-donusum.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Dijital Dönüşüm</a></div>
-            <a href="dijital-donusum.html" class="mega-link">
-              <span><span class="mega-link-name">Dijital Yol Haritası</span><span class="mega-link-desc">Strateji ve planlama</span></span>
-            </a>
-            <a href="dijital-donusum.html" class="mega-link">
-              <span><span class="mega-link-name">Cloud Migration</span><span class="mega-link-desc">Azure, AWS, GCP geçişleri</span></span>
-            </a>
-            <a href="dijital-donusum.html" class="mega-link">
-              <span><span class="mega-link-name">ERP/CRM Entegrasyonu</span><span class="mega-link-desc">Sistem birleştirme ve optimizasyon</span></span>
+      <div class="mega-menu">
+        <div class="mega-inner">
+          <!-- Sol panel -->
+          <div class="mega-panel-left">
+            <div>
+              <div class="mega-panel-eyebrow">Hizmetlerimiz</div>
+              <div class="mega-panel-title">Teknolojinin her katmanında yanınızdayız</div>
+              <div class="mega-panel-desc">AI entegrasyonundan dijital dönüşüme, uzman kadrodan eğitime kadar uçtan uca çözümler.</div>
+            </div>
+            <a href="hizmetler.html" class="mega-panel-cta">
+              Tüm hizmetler
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
           </div>
-                              <div class="mega-col">
-            <div class="mega-col-title"><a href="akademi.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#0e1628'" onmouseout="this.style.color='inherit'">Teknoloji Eğitimleri</a></div>
-            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Yapay Zeka')" class="mega-link">
-              <span><span class="mega-link-name" style="color:#38bdf8;font-weight:600;">Yapay Zeka</span><span class="mega-link-desc">Copilot, Azure AI, ML, Generative AI</span></span>
-            </a>
-            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Yazılım Geliştirme')" class="mega-link">
-              <span><span class="mega-link-name">Yazılım Geliştirme</span><span class="mega-link-desc">Java, Python, React, .NET</span></span>
-            </a>
-            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Bulut Bilişim')" class="mega-link">
-              <span><span class="mega-link-name">Bulut & Güvenlik</span><span class="mega-link-desc">Azure, AWS, CISSP, ISO 27001</span></span>
-            </a>
-            <a href="akademi.html" onclick="sessionStorage.setItem('filter','İş Yönetimi Çözümleri')" class="mega-link">
-              <span><span class="mega-link-name">İş Yönetimi</span><span class="mega-link-desc">PMP, Scrum, Agile, ITIL</span></span>
-            </a>
-          </div>
-          <div class="mega-col">
-            <div class="mega-col-title"><a href="uzman-kadro.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Uzman Kaynak Kiralama</a></div>
-            <a href="uzman-kadro.html" class="mega-link">
-              <span><span class="mega-link-name">Staff Augmentation</span><span class="mega-link-desc">Projeye özel uzman desteği</span></span>
-            </a>
-            <a href="uzman-kadro.html" class="mega-link">
-              <span><span class="mega-link-name">Dedicated Team</span><span class="mega-link-desc">Tam zamanlı ekip kurulumu</span></span>
-            </a>
-            <a href="uzman-kadro.html" class="mega-link">
-              <span><span class="mega-link-name">CTO-as-a-Service</span><span class="mega-link-desc">Teknoloji liderliği hizmeti</span></span>
-            </a>
+          <!-- Sağ panel -->
+          <div class="mega-panel-right mega-cols-4">
+            <div class="mega-col">
+              <div class="mega-col-title"><a href="ai-entegrasyon.html">AI Entegrasyonu</a></div>
+              <a href="ai-entegrasyon.html" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M12 11V7"/><circle cx="12" cy="5" r="2"/><path d="M8 11V9a4 4 0 0 1 8 0v2"/><line x1="8" y1="15" x2="8" y2="15.01"/><line x1="12" y1="15" x2="12" y2="15.01"/><line x1="16" y1="15" x2="16" y2="15.01"/></svg></div>
+                <div><span class="mega-link-name">LLM & Chatbot</span><span class="mega-link-desc">Kurumsal AI asistanları</span></div>
+              </a>
+              <a href="ai-entegrasyon.html" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg></div>
+                <div><span class="mega-link-name">Süreç Otomasyonu</span><span class="mega-link-desc">RPA ve AI ile verimlilik</span></div>
+              </a>
+              <a href="ai-entegrasyon.html" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+                <div><span class="mega-link-name">RAG & Veri Sistemleri</span><span class="mega-link-desc">Kurumsal veri entegrasyonu</span></div>
+              </a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-col-title"><a href="dijital-donusum.html">Dijital Dönüşüm</a></div>
+              <a href="dijital-donusum.html" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                <div><span class="mega-link-name">Dijital Yol Haritası</span><span class="mega-link-desc">Strateji ve planlama</span></div>
+              </a>
+              <a href="dijital-donusum.html" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
+                <div><span class="mega-link-name">Cloud Migration</span><span class="mega-link-desc">Azure, AWS, GCP geçişleri</span></div>
+              </a>
+              <a href="dijital-donusum.html" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+                <div><span class="mega-link-name">ERP/CRM Entegrasyonu</span><span class="mega-link-desc">Sistem optimizasyonu</span></div>
+              </a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-col-title"><a href="akademi.html">Teknoloji Eğitimi</a></div>
+              <a href="akademi.html" onclick="sessionStorage.setItem('filter','Yapay Zeka')" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                <div><span class="mega-link-name highlight">Yapay Zeka</span><span class="mega-link-desc">Copilot, Azure AI, ML</span></div>
+              </a>
+              <a href="akademi.html" onclick="sessionStorage.setItem('filter','Yazılım Geliştirme')" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><span class="mega-link-name">Yazılım Geliştirme</span><span class="mega-link-desc">Java, Python, React, .NET</span></div>
+              </a>
+              <a href="akademi.html" onclick="sessionStorage.setItem('filter','Bulut Bilişim')" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><span class="mega-link-name">Bulut & Güvenlik</span><span class="mega-link-desc">Azure, CISSP, ISO 27001</span></div>
+              </a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-col-title"><a href="uzman-kadro.html">Uzman Kadro</a></div>
+              <a href="uzman-kadro.html" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <div><span class="mega-link-name">Staff Augmentation</span><span class="mega-link-desc">Projeye özel uzman</span></div>
+              </a>
+              <a href="uzman-kadro.html" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
+                <div><span class="mega-link-name">Dedicated Team</span><span class="mega-link-desc">Tam zamanlı ekip</span></div>
+              </a>
+              <a href="uzman-kadro.html" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+                <div><span class="mega-link-name">CTO-as-a-Service</span><span class="mega-link-desc">Teknoloji liderliği</span></div>
+              </a>
+            </div>
           </div>
         </div>
         <div class="mega-footer">
-          <span class="mega-footer-text">Tüm hizmetlerimizi keşfedin</span>
-          <a href="hizmetler.html" class="mega-footer-link">Tüm Hizmetler →</a>
+          <span class="mega-footer-text">4 temel hizmet alanında uçtan uca teknoloji çözümleri</span>
+          <a href="hizmetler.html" class="mega-footer-link">Tüm hizmetleri keşfet <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
       </div>
     </li>
@@ -395,85 +338,91 @@ to{opacity:1;transform:translateY(0) scale(1);}}
     <!-- AKADEMİ -->
     <li class="has-mega">
       <a href="akademi.html">Akademi</a>
-      <div class="mega-menu" style="min-width:900px;"><div class="mega-arrow"></div>
-        <div class="mega-grid mega-grid-3">
-          <div class="mega-col">
-            <div class="mega-col-title"><a href="akademi.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Yazılım Hizmetleri</a></div>
-            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Bulut Bilişim')" class="mega-link">
-              <span><span class="mega-link-name">Bulut Bilişim</span><span class="mega-link-desc">3 eğitim</span></span>
-            </a>
-            <a href="akademi.html" onclick="sessionStorage.setItem('filter','SharePoint')" class="mega-link">
-              <span><span class="mega-link-name">SharePoint</span><span class="mega-link-desc">1 eğitim</span></span>
-            </a>
-            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Yazılım Geliştirme')" class="mega-link">
-              <span><span class="mega-link-name">Yazılım Geliştirme</span><span class="mega-link-desc">110 eğitim</span></span>
-            </a>
-          </div>
-          <div class="mega-col">
-            <div class="mega-col-title"><a href="akademi.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Veri ve İş Yönetimi</a></div>
-            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Big Data')" class="mega-link">
-              <span><span class="mega-link-name">Big Data</span><span class="mega-link-desc">2 eğitim</span></span>
-            </a>
-            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Bulut Bilişim')" class="mega-link">
-              <span><span class="mega-link-name">Bulut Bilişim</span><span class="mega-link-desc">1 eğitim</span></span>
-            </a>
-            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Dijital Tasarım')" class="mega-link">
-              <span><span class="mega-link-name">Dijital Tasarım</span><span class="mega-link-desc">8 eğitim</span></span>
-            </a>
-            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Kişisel Gelişim ve Vizyon')" class="mega-link">
-              <span><span class="mega-link-name">Kişisel Gelişim ve Vizyon</span><span class="mega-link-desc">26 eğitim</span></span>
-            </a>
-            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Microsoft Office')" class="mega-link">
-              <span><span class="mega-link-name">Microsoft Office</span><span class="mega-link-desc">43 eğitim</span></span>
-            </a>
-            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Sosyal Medya')" class="mega-link">
-              <span><span class="mega-link-name">Sosyal Medya</span><span class="mega-link-desc">2 eğitim</span></span>
-            </a>
-            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Veri Yönetimi Çözümleri')" class="mega-link">
-              <span><span class="mega-link-name">Veri Yönetimi Çözümleri</span><span class="mega-link-desc">41 eğitim</span></span>
-            </a>
-            <a href="akademi.html" onclick="sessionStorage.setItem('filter','İş Yönetimi Çözümleri')" class="mega-link">
-              <span><span class="mega-link-name">İş Yönetimi Çözümleri</span><span class="mega-link-desc">25 eğitim</span></span>
+      <div class="mega-menu">
+        <div class="mega-inner">
+          <div class="mega-panel-left">
+            <div>
+              <div class="mega-panel-eyebrow">Bilginex Akademi</div>
+              <div class="mega-panel-title">350+ Eğitim Programı</div>
+              <div class="mega-panel-desc">Yazılım geliştirmeden siber güvenliğe, veri biliminden liderliğe — sektörün en güncel kataloğu.</div>
+            </div>
+            <a href="katalog.html" class="mega-panel-cta">
+              Kataloğu İndir
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             </a>
           </div>
-          <div class="mega-col">
-            <div class="mega-col-title"><a href="akademi.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Teknoloji Servisleri</a></div>
-            <a href="akademi.html" onclick="sessionStorage.setItem('filter','BT Hizmet Yönetimi')" class="mega-link">
-              <span><span class="mega-link-name">BT Hizmet Yönetimi</span><span class="mega-link-desc">14 eğitim</span></span>
-            </a>
-            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Bilgi Güvenliği')" class="mega-link">
-              <span><span class="mega-link-name">Bilgi Güvenliği</span><span class="mega-link-desc">23 eğitim</span></span>
-            </a>
-            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Bulut Bilişim')" class="mega-link">
-              <span><span class="mega-link-name">Bulut Bilişim</span><span class="mega-link-desc">15 eğitim</span></span>
-            </a>
-            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Linux')" class="mega-link">
-              <span><span class="mega-link-name">Linux</span><span class="mega-link-desc">10 eğitim</span></span>
-            </a>
-            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Sanallaştırma')" class="mega-link">
-              <span><span class="mega-link-name">Sanallaştırma</span><span class="mega-link-desc">1 eğitim</span></span>
-            </a>
-            <a href="akademi.html" onclick="sessionStorage.setItem('filter','Sistem Yönetimi')" class="mega-link">
-              <span><span class="mega-link-name">Sistem Yönetimi</span><span class="mega-link-desc">25 eğitim</span></span>
-            </a>
+          <div class="mega-panel-right mega-cols-3">
+            <div class="mega-col">
+              <div class="mega-col-title">Yazılım Hizmetleri</div>
+              <a href="akademi.html" onclick="sessionStorage.setItem('filter','Yazılım Geliştirme')" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div><span class="mega-link-name">Yazılım Geliştirme</span><span class="mega-link-desc">110 eğitim · Java, Python, React</span></div>
+              </a>
+              <a href="akademi.html" onclick="sessionStorage.setItem('filter','Bulut Bilişim')" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
+                <div><span class="mega-link-name">Bulut Bilişim</span><span class="mega-link-desc">3 eğitim · Azure, AWS</span></div>
+              </a>
+              <a href="akademi.html" onclick="sessionStorage.setItem('filter','SharePoint')" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M9 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-3"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></div>
+                <div><span class="mega-link-name">SharePoint</span><span class="mega-link-desc">1 eğitim</span></div>
+              </a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-col-title">Veri & İş Yönetimi</div>
+              <a href="akademi.html" onclick="sessionStorage.setItem('filter','Microsoft Office')" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div>
+                <div><span class="mega-link-name">Microsoft Office</span><span class="mega-link-desc">43 eğitim · Excel, Power BI</span></div>
+              </a>
+              <a href="akademi.html" onclick="sessionStorage.setItem('filter','Veri Yönetimi Çözümleri')" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+                <div><span class="mega-link-name">Veri Yönetimi</span><span class="mega-link-desc">41 eğitim · SQL, Oracle, Azure</span></div>
+              </a>
+              <a href="akademi.html" onclick="sessionStorage.setItem('filter','İş Yönetimi Çözümleri')" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                <div><span class="mega-link-name">İş Yönetimi</span><span class="mega-link-desc">25 eğitim · PMP, Scrum, Agile</span></div>
+              </a>
+              <a href="akademi.html" onclick="sessionStorage.setItem('filter','Kişisel Gelişim ve Vizyon')" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C12 7 7 4 3 6c0 5 4 8 9 6"/><path d="M12 12c0-5 5-8 9-6c0 5-4 8-9 6"/></svg></div>
+                <div><span class="mega-link-name">Kişisel Gelişim</span><span class="mega-link-desc">26 eğitim · Liderlik, İletişim</span></div>
+              </a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-col-title">Teknoloji Servisleri</div>
+              <a href="akademi.html" onclick="sessionStorage.setItem('filter','Bilgi Güvenliği')" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><span class="mega-link-name">Bilgi Güvenliği</span><span class="mega-link-desc">23 eğitim · CISSP, CEH, ISO</span></div>
+              </a>
+              <a href="akademi.html" onclick="sessionStorage.setItem('filter','Sistem Yönetimi')" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                <div><span class="mega-link-name">Sistem Yönetimi</span><span class="mega-link-desc">25 eğitim · Windows, Azure</span></div>
+              </a>
+              <a href="akademi.html" onclick="sessionStorage.setItem('filter','Linux')" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ca8a04" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div>
+                <div><span class="mega-link-name">Linux</span><span class="mega-link-desc">10 eğitim · Red Hat, Shell</span></div>
+              </a>
+              <a href="akademi.html" onclick="sessionStorage.setItem('filter','BT Hizmet Yönetimi')" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg></div>
+                <div><span class="mega-link-name">BT Hizmet Yönetimi</span><span class="mega-link-desc">14 eğitim · ITIL, DevOps</span></div>
+              </a>
+            </div>
           </div>
         </div>
-        <!-- Avantaj Paketleri alt bant -->
-        <div style="background:linear-gradient(135deg,#f0f4ff,#ede9fe);border-top:1px solid #e0e7ff;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;border-radius:0 0 14px 14px;">
-          <div style="display:flex;align-items:center;gap:10px;">
-            <div style="background:linear-gradient(135deg,#2563eb,#7c3aed);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <!-- Avantaj Paketleri bandı -->
+        <div style="background:linear-gradient(135deg,#eff4ff,#f5f3ff);border-top:1px solid #e0e7ff;padding:13px 40px 13px 300px;display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:32px;height:32px;background:linear-gradient(135deg,#4f46e5,#7c3aed);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
             </div>
             <div>
-              <div style="font-size:12px;font-weight:700;color:#0e1628;">Kurumsal Eğitim Avantaj Paketleri</div>
+              <div style="font-size:12px;font-weight:700;color:#1e1b4b;">Kurumsal Eğitim Avantaj Paketleri</div>
               <div style="font-size:11px;color:#6b7280;">%20'den %35'e varan indirimlerle yıllık eğitim paketi</div>
             </div>
           </div>
-          <a href="akademi.html#avantaj-paketleri" style="font-size:12px;font-weight:700;color:#2563eb;text-decoration:none;white-space:nowrap;padding:7px 14px;background:#fff;border:1.5px solid #2563eb;border-radius:8px;transition:all 0.2s;" onmouseover="this.style.background='#2563eb';this.style.color='#fff'" onmouseout="this.style.background='#fff';this.style.color='#2563eb'">Paketleri İncele →</a>
+          <a href="akademi.html#avantaj-paketleri" style="font-size:12px;font-weight:600;color:#4f46e5;text-decoration:none;padding:7px 14px;background:#fff;border:1.5px solid #c7d2fe;border-radius:8px;transition:all 0.2s;white-space:nowrap;" onmouseover="this.style.background='#4f46e5';this.style.color='#fff';this.style.borderColor='#4f46e5'" onmouseout="this.style.background='#fff';this.style.color='#4f46e5';this.style.borderColor='#c7d2fe'">Paketleri İncele →</a>
         </div>
         <div class="mega-footer">
-          <span class="mega-footer-text">350 eğitim programı mevcut</span>
-          <a href="akademi.html" class="mega-footer-link">Tüm Eğitimler →</a>
+          <span class="mega-footer-text">350 eğitim · Sertifikalı eğitmenler · Kuruma özel içerik</span>
+          <a href="akademi.html" class="mega-footer-link">Tüm Eğitimler <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
       </div>
     </li>
@@ -481,45 +430,66 @@ to{opacity:1;transform:translateY(0) scale(1);}}
         <!-- ÇÖZÜMLER -->
     <li class="has-mega">
       <a href="cozumler.html">Çözümler</a>
-      <div class="mega-menu"><div class="mega-arrow"></div>
-        <div class="mega-grid mega-grid-3">
-          <div class="mega-col">
-            <div class="mega-col-title">Kamu & Güvenlik</div>
-            <a href="cozum-kamu.html" class="mega-link">
-              <span><span class="mega-link-name">Kamu & Devlet</span><span class="mega-link-desc">Dijital dönüşüm ve yetkinlik</span></span>
-            </a>
-            <a href="cozum-savunma.html" class="mega-link">
-              <span><span class="mega-link-name">Savunma Sanayi</span><span class="mega-link-desc">Kritik teknoloji yetkinliği</span></span>
-            </a>
-            <a href="cozum-saglik.html" class="mega-link">
-              <span><span class="mega-link-name">Sağlık</span><span class="mega-link-desc">Dijital sağlık ekosistemi</span></span>
-            </a>
-          </div>
-          <div class="mega-col">
-            <div class="mega-col-title">Finans & Teknoloji</div>
-            <a href="cozum-finans.html" class="mega-link">
-              <span><span class="mega-link-name">Finans & Bankacılık</span><span class="mega-link-desc">Fintech dönüşümü</span></span>
-            </a>
-            <a href="cozum-telekom.html" class="mega-link">
-              <span><span class="mega-link-name">Telekom & Teknoloji</span><span class="mega-link-desc">Telekom ekosistemi yetkinliği</span></span>
-            </a>
-            <a href="cozum-enerji.html" class="mega-link">
-              <span><span class="mega-link-name">Enerji & Sanayi</span><span class="mega-link-desc">Endüstri 4.0 dönüşümü</span></span>
+      <div class="mega-menu">
+        <div class="mega-inner">
+          <div class="mega-panel-left">
+            <div>
+              <div class="mega-panel-eyebrow">Sektörel Çözümler</div>
+              <div class="mega-panel-title">Her sektöre özel teknoloji</div>
+              <div class="mega-panel-desc">Kamu'dan finansa, savunmadan sağlığa — sektörünüze özgü dijital dönüşüm çözümleri.</div>
+            </div>
+            <a href="iletisim.html" class="mega-panel-cta">
+              Teklif Al
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
           </div>
-          <div class="mega-col">
-            <div class="mega-col-title">Diğer</div>
-            <a href="cozum-egitim.html" class="mega-link">
-              <span><span class="mega-link-name">Eğitim</span><span class="mega-link-desc">EdTech ve akademik dönüşüm</span></span>
-            </a>
-            <a href="cozumler.html" class="mega-link">
-              <span><span class="mega-link-name" style="color:#38bdf8;font-weight:600;">Tüm Çözümler</span><span class="mega-link-desc">Tüm sektörleri keşfedin</span></span>
-            </a>
+          <div class="mega-panel-right mega-cols-3">
+            <div class="mega-col">
+              <div class="mega-col-title">Kamu & Güvenlik</div>
+              <a href="cozum-kamu.html" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg></div>
+                <div><span class="mega-link-name">Kamu & Devlet</span><span class="mega-link-desc">Dijital dönüşüm ve yetkinlik</span></div>
+              </a>
+              <a href="cozum-savunma.html" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+                <div><span class="mega-link-name">Savunma Sanayi</span><span class="mega-link-desc">Kritik teknoloji yetkinliği</span></div>
+              </a>
+              <a href="cozum-saglik.html" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><line x1="12" y1="7" x2="12" y2="13"/><line x1="9" y1="10" x2="15" y2="10"/></svg></div>
+                <div><span class="mega-link-name">Sağlık</span><span class="mega-link-desc">Dijital sağlık ekosistemi</span></div>
+              </a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-col-title">Finans & Teknoloji</div>
+              <a href="cozum-finans.html" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+                <div><span class="mega-link-name">Finans & Bankacılık</span><span class="mega-link-desc">Fintech dönüşümü</span></div>
+              </a>
+              <a href="cozum-telekom.html" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6l5.5 5.5"/><path d="M3.5 3.5l5.5 5.5"/><circle cx="12" cy="12" r="2"/><path d="M12 14v7"/><path d="M17.5 6.5l-5.5 5.5"/><path d="M20.5 3.5l-5.5 5.5"/></svg></div>
+                <div><span class="mega-link-name">Telekom & Teknoloji</span><span class="mega-link-desc">Telekom ekosistemi</span></div>
+              </a>
+              <a href="cozum-enerji.html" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><span class="mega-link-name">Enerji & Sanayi</span><span class="mega-link-desc">Endüstri 4.0 dönüşümü</span></div>
+              </a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-col-title">Diğer Sektörler</div>
+              <a href="cozum-egitim.html" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+                <div><span class="mega-link-name">Eğitim Sektörü</span><span class="mega-link-desc">EdTech ve akademik dönüşüm</span></div>
+              </a>
+              <a href="cozumler.html" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div><span class="mega-link-name highlight">Tüm Çözümler</span><span class="mega-link-desc">Tüm sektörleri keşfedin</span></div>
+              </a>
+            </div>
           </div>
         </div>
         <div class="mega-footer">
-          <span class="mega-footer-text">Sektörünüze özel çözüm için</span>
-          <a href="iletisim.html" class="mega-footer-link">Görüşme Talep Et →</a>
+          <span class="mega-footer-text">Sektörünüze özel çözüm için uzmanlarımızla görüşün</span>
+          <a href="iletisim.html" class="mega-footer-link">Görüşme Talep Et <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
       </div>
     </li>
@@ -527,48 +497,66 @@ to{opacity:1;transform:translateY(0) scale(1);}}
         <!-- HAKKIMIZDA -->
     <li class="has-mega">
       <a href="hakkimizda.html">Hakkımızda</a>
-      <div class="mega-menu"><div class="mega-arrow"></div>
-        <div class="mega-grid mega-grid-3">
-          <div class="mega-col">
-            <div class="mega-col-title"><a href="hakkimizda.html" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#0e1628'" onmouseout="this.style.color='inherit'">Biz Kimiz?</a></div>
-            <a href="hakkimizda.html#hikaye" class="mega-link">
-              <span><span class="mega-link-name">Şirket Hikayemiz</span><span class="mega-link-desc">Kuruluş felsefemiz ve yolculuğumuz</span></span>
-            </a>
-            <a href="hakkimizda.html#vizyon" class="mega-link">
-              <span><span class="mega-link-name">Vizyon & Misyon</span><span class="mega-link-desc">Nereye gittiğimiz ve neden</span></span>
-            </a>
-            <a href="hakkimizda.html#degerler" class="mega-link">
-              <span><span class="mega-link-name">Değerlerimiz</span><span class="mega-link-desc">Bizi biz yapan prensipler</span></span>
-            </a>
-          </div>
-          <div class="mega-col">
-            <div class="mega-col-title"><a href="hakkimizda.html#hikaye" style="color:inherit;text-decoration:none;cursor:pointer;" onmouseover="this.style.color='#0e1628'" onmouseout="this.style.color='inherit'">Kurumsal</a></div>
-            <a href="hakkimizda.html#hikaye" class="mega-link">
-              <span><span class="mega-link-name">Kuruluş Vizyonu</span><span class="mega-link-desc">Şirketin kuruluş felsefesi</span></span>
-            </a>
-            <a href="hakkimizda.html#ekip" class="mega-link">
-              <span><span class="mega-link-name">Liderlik</span><span class="mega-link-desc">Kurucu & CEO</span></span>
-            </a>
-            <a href="hakkimizda.html#referanslar" class="mega-link">
-              <span><span class="mega-link-name">Müşteri Görüşleri</span><span class="mega-link-desc">Referanslarımız</span></span>
-            </a>
-            <a href="hakkimizda.html#sertifikalar" class="mega-link">
-              <span><span class="mega-link-name">Teknoloji Ekosistemi</span><span class="mega-link-desc">Global teknoloji markaları</span></span>
+      <div class="mega-menu">
+        <div class="mega-inner">
+          <div class="mega-panel-left">
+            <div>
+              <div class="mega-panel-eyebrow">Bilginex</div>
+              <div class="mega-panel-title">Türkiye'nin teknoloji dönüşüm ortağı</div>
+              <div class="mega-panel-desc">2015'ten bu yana kurumların dijital dönüşüm yolculuğunda güvenilir teknoloji ortağıyız.</div>
+            </div>
+            <a href="hakkimizda.html" class="mega-panel-cta">
+              Hikayemiz
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
           </div>
-          <div class="mega-col">
-            <div class="mega-col-title">Bize Ulaşın</div>
-            <a href="iletisim.html" class="mega-link">
-              <span><span class="mega-link-name">İletişim</span><span class="mega-link-desc">Görüşme talep edin</span></span>
-            </a>
-            <a href="hakkimizda.html" class="mega-link">
-              <span><span class="mega-link-name" style="color:#38bdf8;font-weight:600;">Kariyer</span><span class="mega-link-desc">Ekibimize katılın</span></span>
-            </a>
+          <div class="mega-panel-right mega-cols-3">
+            <div class="mega-col">
+              <div class="mega-col-title">Biz Kimiz?</div>
+              <a href="hakkimizda.html#hikaye" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+                <div><span class="mega-link-name">Şirket Hikayemiz</span><span class="mega-link-desc">Kuruluş felsefemiz</span></div>
+              </a>
+              <a href="hakkimizda.html#vizyon" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+                <div><span class="mega-link-name">Vizyon & Misyon</span><span class="mega-link-desc">Nereye gittiğimiz</span></div>
+              </a>
+              <a href="hakkimizda.html#degerler" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 18 3 22 9 12 22 2 9"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="12" y1="22" x2="6" y2="9"/><line x1="12" y1="22" x2="18" y2="9"/></svg></div>
+                <div><span class="mega-link-name">Değerlerimiz</span><span class="mega-link-desc">Bizi biz yapan prensipler</span></div>
+              </a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-col-title">Kurumsal</div>
+              <a href="hakkimizda.html#ekip" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div><span class="mega-link-name">Liderlik</span><span class="mega-link-desc">Kurucu & CEO</span></div>
+              </a>
+              <a href="hakkimizda.html#referanslar" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                <div><span class="mega-link-name">Müşteri Görüşleri</span><span class="mega-link-desc">Referanslarımız</span></div>
+              </a>
+              <a href="hakkimizda.html#sertifikalar" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+                <div><span class="mega-link-name">Teknoloji Ekosistemi</span><span class="mega-link-desc">Global ortaklıklar</span></div>
+              </a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-col-title">Bize Ulaşın</div>
+              <a href="iletisim.html" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg></div>
+                <div><span class="mega-link-name">İletişim</span><span class="mega-link-desc">Görüşme talep edin</span></div>
+              </a>
+              <a href="hakkimizda.html" class="mega-link">
+                <div class="mega-link-icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
+                <div><span class="mega-link-name highlight">Kariyer</span><span class="mega-link-desc">Ekibimize katılın</span></div>
+              </a>
+            </div>
           </div>
         </div>
         <div class="mega-footer">
           <span class="mega-footer-text">Bilginex hakkında daha fazla bilgi edinin</span>
-          <a href="hakkimizda.html" class="mega-footer-link">Hakkımızda →</a>
+          <a href="hakkimizda.html" class="mega-footer-link">Hakkımızda <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
       </div>
     </li>
@@ -576,7 +564,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
   </ul>
   <div class="nav-cta">
     <a href="#" class="btn-ghost">Giriş Yap</a>
-    <a href="#" class="btn-primary" onclick="openModal('register')">Kayıt Ol →</a>
+    <a href="#" class="btn-primary" onclick="document.getElementById('modalGorusme').classList.add('open');document.body.style.overflow='hidden';return false;">Demo Talep Et →</a>
   </div>
 </nav>
 
