@@ -9,27 +9,42 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
   :root {
-    --bg: #f0f2f5; --bg2: #f7f8fa; --surface: #fff;
-    --border: rgba(15,23,60,0.09); --border2: rgba(15,23,60,0.16);
-    --text: #0e1628; --text2: #485070; --text3: #9099b5;
-    --accent: #1d4ed8; --accent2: #2563eb; --accentlt: #eff4ff;
-    --orange: #ea580c;
-    --teal: #0d9488; --teallt: #f0fdfa;
-    --font-d: 'Plus Jakarta Sans', sans-serif; --font-b: 'Plus Jakarta Sans', sans-serif;
+    --bg:        #f0f2f5;
+    --bg2:       #f7f8fa;
+    --surface:   #ffffff;
+    --border:    rgba(15,23,60,0.09);
+    --border2:   rgba(15,23,60,0.16);
+    --text:      #0e1628;
+    --text2:     #485070;
+    --text3:     #9099b5;
+    --accent:    #1d4ed8;
+    --accent2:   #2563eb; --orange: #ea580c; --orangelt: #fff7ed;
+    --accentlt:  #eff4ff;
+    --teal:      #0d9488;
+    --teallt:    #f0fdfa;
+    --font-d:    'Plus Jakarta Sans', sans-serif;
+    --font-b:    'Plus Jakarta Sans', sans-serif;
   }
+
   html { scroll-behavior: smooth; }
   body { background: var(--bg); color: var(--text); font-family: var(--font-b); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
 
   /* ── NAV ── */
   nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
     display: flex; align-items: center; justify-content: space-between;
     padding: 18px 60px;
     background: linear-gradient(to right, rgba(255,255,255,0.97) 0%, rgba(242,244,247,0.92) 40%, rgba(228,231,237,0.90) 100%);
     backdrop-filter: blur(24px);
     border-bottom: 1px solid var(--border);
   }
+
+  .lang-switcher { display:flex; align-items:center; gap:4px; background:var(--bg2); border:1px solid var(--border); border-radius:8px; padding:3px; margin-right:8px; }
+  .lang-btn { display:flex; align-items:center; gap:5px; padding:4px 10px; border:none; background:transparent; border-radius:6px; font-family:var(--font-b); font-size:12px; font-weight:500; color:var(--text2); cursor:pointer; transition:all 0.2s; }
+  .lang-btn.active { background:#fff; color:var(--text); box-shadow:0 1px 4px rgba(0,0,0,0.1); }
+  .lang-btn img { width:16px; height:12px; border-radius:2px; object-fit:cover; }
   .nav-logo { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.5px; color: var(--text); text-decoration: none; display:inline-flex; align-items:center; }
   .nav-logo span{color:#6C6FE0;}
   .nav-links { display: flex; gap: 18px; list-style: none; }
@@ -40,6 +55,8 @@
   .btn-ghost:hover { background: var(--surface); }
   .btn-primary { padding: 9px 22px; background: var(--accent2); border: none; color: #fff; font-family: var(--font-b); font-size: 13px; font-weight: 500; border-radius: 7px; cursor: pointer; transition: background 0.2s; text-decoration: none; }
   .btn-primary:hover { background: var(--accent); }
+
+
   /* ══════════════════════════════════════
      MEGA MENU — full-width, dark, premium
      ══════════════════════════════════════ */
@@ -236,15 +253,96 @@
   .social-icon-btn.yt:hover{background:#FF0000;border-color:#FF0000;}
   .social-icon-btn svg{width:17px;height:17px;}
 
-  /* SOSYAL MEDYA İKONLARI */
-  .footer-social{display:flex;align-items:center;gap:10px;}
-  .social-icon-btn{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);transition:all 0.25s;text-decoration:none;flex-shrink:0;}
-  .social-icon-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,0.3);}
-  .social-icon-btn.li:hover{background:#0A66C2;border-color:#0A66C2;}
-  .social-icon-btn.tw:hover{background:#000;border-color:#333;}
-  .social-icon-btn.ig:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-color:transparent;}
-  .social-icon-btn.yt:hover{background:#FF0000;border-color:#FF0000;}
-  .social-icon-btn svg{width:17px;height:17px;}
+
+  /* ── HERO ── */
+  .hero { position: relative; padding: 140px 60px 100px; overflow: hidden; }
+  .hero-photo { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&q=90') center center / cover no-repeat; }
+  .hero-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(110deg, rgba(8,18,50,0.85) 0%, rgba(6,15,45,0.68) 55%, rgba(5,12,40,0.55) 100%); }
+  .hero-inner { position: relative; z-index: 1; max-width: 720px; }
+  .breadcrumb { display: flex; align-items: center; gap: 6px; font-size: 12px; color: rgba(255,255,255,0.45); margin-bottom: 24px; flex-wrap: wrap; }
+  .breadcrumb a { color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+  .breadcrumb a:hover { color: rgba(255,255,255,0.8); }
+  .breadcrumb span { color: rgba(255,255,255,0.25); }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 5px 14px 5px 6px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 100px; font-size: 11px; font-weight: 600; color: #bfdbfe; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 24px; }
+  .hero-badge-dot { width: 20px; height: 20px; background: var(--accent2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: white; }
+  .hero-title { font-size: clamp(42px, 5.5vw, 72px); font-weight: 700; color: #fff; line-height: 1.1; letter-spacing: -1.5px; animation: fadeUp 0.6s ease both; }
+  .hero-title span { background: linear-gradient(135deg,#60a5fa,#a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-sub { margin-top: 22px; max-width: 560px; font-size: 17px; font-weight: 300; color: rgba(255,255,255,0.72); line-height: 1.75; animation: fadeUp 0.6s ease 0.15s both; }
+  .hero-actions { margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap; animation: fadeUp 0.6s ease 0.3s both; }
+  .btn-hero { padding: 14px 30px; background: var(--accent2); border: none; color: #fff; font-family: var(--font-b); font-size: 15px; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.25s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 24px rgba(37,99,235,0.4); }
+  .btn-hero:hover { background: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,99,235,0.5); }
+  .btn-hero-ghost { padding: 14px 30px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); color: #fff; font-family: var(--font-b); font-size: 15px; font-weight: 400; border-radius: 8px; cursor: pointer; transition: all 0.25s; text-decoration: none; backdrop-filter: blur(8px); display: inline-flex; align-items: center; gap: 8px; }
+  .btn-hero-ghost:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.5); }
+
+  /* ── SECTIONS ── */
+  .section { padding: 80px 60px; }
+  .section-alt { background: var(--bg2); }
+  .section-dark { background: #0d1525; color: #fff; }
+  .section-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent2); background: var(--accentlt); padding: 4px 12px; border-radius: 100px; margin-bottom: 12px; }
+  .section-title { font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; color: var(--text); line-height: 1.15; letter-spacing: -0.8px; margin-bottom: 12px; }
+  .section-sub { font-size: 16px; color: var(--text2); max-width: 600px; line-height: 1.7; font-weight: 300; }
+  .section-dark .section-title { color: #fff; }
+  .section-dark .section-sub { color: rgba(255,255,255,0.6); }
+
+  /* ── BUTTONS ── */
+  .btn-lg-primary { padding: 14px 32px; background: var(--accent2); border: none; color: #fff; font-family: var(--font-b); font-size: 15px; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.25s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+  .btn-lg-primary:hover { background: var(--accent); transform: translateY(-2px); }
+  .btn-lg-ghost { padding: 14px 32px; border: 1px solid var(--border2); background: transparent; color: var(--text); font-family: var(--font-b); font-size: 15px; font-weight: 500; border-radius: 8px; cursor: pointer; transition: all 0.25s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+  .btn-lg-ghost:hover { background: var(--bg2); }
+
+  /* ── BENEFITS ── */
+  .benefits-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; max-width: 1200px; margin: 0 auto; }
+  .benefits-list { display: flex; flex-direction: column; gap: 28px; margin-top: 32px; }
+  .benefit-item { display: flex; gap: 16px; align-items: flex-start; }
+  .benefit-icon { width: 44px; height: 44px; background: var(--accentlt); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+  .benefit-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .benefit-desc { font-size: 14px; color: var(--text2); line-height: 1.6; font-weight: 300; }
+  .benefits-img { border-radius: 20px; overflow: hidden; aspect-ratio: 4/3; }
+  .benefits-img img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ── PROCESS ── */
+  .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; max-width: 1200px; margin: 48px auto 0; }
+  .process-step { text-align: center; padding: 32px 20px; }
+  .process-num { width: 52px; height: 52px; background: var(--accent2); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; margin: 0 auto 20px; }
+  .process-title { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+  .process-desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.6; font-weight: 300; }
+
+  /* ── USE CASES ── */
+  .use-cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1200px; margin: 48px auto 0; }
+  .use-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px; transition: all 0.25s; }
+  .use-card:hover { border-color: rgba(37,99,235,0.25); box-shadow: 0 8px 32px rgba(15,23,60,0.08); transform: translateY(-3px); }
+  .use-icon { font-size: 32px; margin-bottom: 16px; }
+  .use-title { font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+  .use-desc { font-size: 14px; color: var(--text2); line-height: 1.65; font-weight: 300; }
+
+  /* ── TECH STACK ── */
+  .tech-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  .tech-item { padding: 8px 18px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 100px; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.75); }
+
+  /* ── CTA ── */
+  .cta-section { padding: 100px 60px; background: linear-gradient(135deg,#0a0f2e 0%,#1a1060 50%,#0d1a50 100%); text-align: center; }
+  .cta-title { font-size: clamp(30px, 4vw, 52px); font-weight: 700; color: #fff; letter-spacing: -1px; margin-bottom: 16px; }
+  .cta-sub { font-size: 17px; color: rgba(255,255,255,0.6); max-width: 520px; margin: 0 auto 40px; line-height: 1.7; font-weight: 300; }
+  .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  /* ── FOOTER ── */
+  footer { background: #0a0f28; padding: 64px 60px 32px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; max-width: 1200px; margin: 0 auto; }
+  .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.38); line-height: 1.75; font-weight: 300; max-width: 260px; margin-top: 14px; }
+  .footer-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 16px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; font-weight: 300; }
+  .footer-col ul li a:hover { color: #fff; }
+  .footer-bottom { max-width: 1200px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.07); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); font-weight: 300; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: rgba(255,255,255,0.8); }
+  .white { color: #fff !important; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
 
   .floating-help { position: fixed; bottom: 28px; right: 28px; z-index: 500; display: flex; align-items: center; gap: 0; background: #2563eb; color: #fff; border: none; border-radius: 100px; padding: 0 18px 0 18px; font-family: var(--font-b); font-size: 13px; font-weight: 500; cursor: pointer; box-shadow: 0 4px 24px rgba(37,99,235,0.45); transition: box-shadow 0.3s, transform 0.3s; overflow: hidden; max-width: 200px; }
   .floating-help:hover { max-width: 220px; box-shadow: 0 8px 32px rgba(37,99,235,0.55); transform: translateY(-2px); }
@@ -707,10 +805,9 @@ to{opacity:1;transform:translateY(0) scale(1);}}
   <div class="hero-inner">
     <div class="breadcrumb">
       <a href="index.html">Ana Sayfa</a> <span>›</span>
-      <a href="hizmetler.html">Hizmetler</a> <span>›</span>
-      <span>Uzman Kaynak Kiralama</span>
+      <span>Uzman Kaynak Çözümleri</span>
     </div>
-    <div class="hero-badge"><span class="hero-badge-dot">✦</span> Kaynak Kiralama</div>
+    <div class="hero-badge"><span class="hero-badge-dot">✦</span> Uzman Kaynak</div>
     <h1 class="hero-title">Doğru <span>teknik uzmanı</span> hızla kadronuza katın</h1>
     <p class="hero-sub">Kıdemli yazılımcılar, veri bilimciler, DevOps uzmanları ve teknoloji mimarlarını esnek modellerle ekibinize dahil ediyoruz.</p>
     <div class="hero-actions">
@@ -720,109 +817,109 @@ to{opacity:1;transform:translateY(0) scale(1);}}
   </div>
 </section>
 
-<!-- USE CASES -->
+<!-- UZMANLIK ALANLARI -->
 <section class="section section-alt">
-  <div class="section-tag">Kullanım Alanları</div>
-  <h2 class="section-title">Hangi süreçleri dönüştürüyoruz?</h2>
-  <p class="section-sub">Her sektörde karşılaşılan operasyonel sorunlara AI ile akıllı çözümler geliştiriyoruz.</p>
+  <div class="section-tag">Uzman Havuzumuz</div>
+  <h2 class="section-title">Hangi alanlarda uzman sağlıyoruz?</h2>
+  <p class="section-sub">Teknoloji ekibinizin ihtiyaç duyduğu her alanda kıdemli ve deneyimli uzmanlar.</p>
   <div class="use-cases-grid">
     <div class="use-card">
-      <div class="use-icon">💬</div>
-      <div class="use-title">Akıllı Müşteri Desteği</div>
-      <div class="use-desc">7/24 yanıt veren, kurumsal bilgi tabanınıza entegre AI chatbotlar. Destek maliyetini %40'a kadar düşürün.</div>
+      <div class="use-icon">💻</div>
+      <div class="use-title">Yazılım Geliştirme</div>
+      <div class="use-desc">Full-stack, backend, frontend geliştiriciler. React, Node.js, Python, Java, .NET ve daha fazlası.</div>
     </div>
     <div class="use-card">
-      <div class="use-icon">📄</div>
-      <div class="use-title">Doküman Analizi ve Özetleme</div>
-      <div class="use-desc">Sözleşme, rapor ve belgeleri otomatik analiz eden, özetleyen ve sınıflandıran RAG tabanlı sistemler.</div>
+      <div class="use-icon">🤖</div>
+      <div class="use-title">AI / ML Mühendisliği</div>
+      <div class="use-desc">Makine öğrenmesi, derin öğrenme, NLP ve büyük dil modeli konularında uzman mühendisler.</div>
     </div>
     <div class="use-card">
-      <div class="use-icon">🔍</div>
-      <div class="use-title">Akıllı Arama ve Sorgulama</div>
-      <div class="use-desc">Kurumsal verilerinizi doğal dil ile sorgulayabileceğiniz semantik arama altyapıları.</div>
+      <div class="use-icon">🛠️</div>
+      <div class="use-title">DevOps & Cloud</div>
+      <div class="use-desc">AWS, Azure, GCP, Kubernetes, CI/CD pipeline kurulumu ve altyapı yönetimi uzmanları.</div>
     </div>
     <div class="use-card">
-      <div class="use-icon">⚙️</div>
-      <div class="use-title">Süreç Otomasyonu</div>
-      <div class="use-desc">Tekrar eden iş süreçlerini AI ile otomatize ederek ekiplerinizin stratejik işlere odaklanmasını sağlıyoruz.</div>
+      <div class="use-icon">🔒</div>
+      <div class="use-title">Siber Güvenlik</div>
+      <div class="use-desc">Penetrasyon testleri, güvenlik mimarisi ve KVKK/ISO 27001 uyumluluk danışmanlığı.</div>
     </div>
     <div class="use-card">
       <div class="use-icon">📊</div>
-      <div class="use-title">Veri Analizi ve Raporlama</div>
-      <div class="use-desc">Ham veriden otomatik içgörü ve raporlar üretilen, karar desteği sağlayan AI analiz sistemleri.</div>
+      <div class="use-title">Veri Mühendisliği</div>
+      <div class="use-desc">Veri ambarı, ETL pipeline, BI araçları ve büyük veri altyapısı kurulum uzmanları.</div>
     </div>
     <div class="use-card">
-      <div class="use-icon">🤝</div>
-      <div class="use-title">Satış ve CRM Entegrasyonu</div>
-      <div class="use-desc">Lead skorlaması, müşteri segmentasyonu ve kişiselleştirilmiş iletişim için AI destekli CRM araçları.</div>
+      <div class="use-icon">🏗️</div>
+      <div class="use-title">Yazılım Mimarisi</div>
+      <div class="use-desc">Microservice, event-driven ve domain-driven mimari tasarımı konusunda kıdemli mimarlar.</div>
     </div>
   </div>
 </section>
 
-<!-- PROCESS -->
+<!-- SÜREÇ -->
 <section class="section">
   <div class="section-tag">Sürecimiz</div>
-  <h2 class="section-title">Projelerinizi nasıl hayata geçiriyoruz?</h2>
+  <h2 class="section-title">Uzman eşleştirme süreci nasıl işler?</h2>
   <div class="process-grid">
     <div class="process-step">
       <div class="process-num">1</div>
-      <div class="process-title">Keşif & Analiz</div>
-      <div class="process-desc">İş süreçlerinizi, veri altyapınızı ve hedeflerinizi derinlemesine analiz ediyoruz.</div>
+      <div class="process-title">İhtiyaç Analizi</div>
+      <div class="process-desc">Teknik gereksinimlerinizi, ekip yapınızı ve proje hedeflerinizi birlikte değerlendiriyoruz.</div>
     </div>
     <div class="process-step">
       <div class="process-num">2</div>
-      <div class="process-title">Çözüm Tasarımı</div>
-      <div class="process-desc">Size özel AI mimarisi ve entegrasyon planı hazırlıyor, POC ile doğruluyoruz.</div>
+      <div class="process-title">Aday Eşleştirme</div>
+      <div class="process-desc">Uzman havuzumuzdan profil değerlendirmesi yaparak 48 saat içinde uygun adayları sunuyoruz.</div>
     </div>
     <div class="process-step">
       <div class="process-num">3</div>
-      <div class="process-title">Geliştirme & Entegrasyon</div>
-      <div class="process-desc">Çevik süreçle sprint bazlı geliştirme, mevcut sistemlere entegrasyon ve testler.</div>
+      <div class="process-title">Teknik Mülakat</div>
+      <div class="process-desc">Sizin ekibinizle teknik mülakat gerçekleştirip uyumu test ediyoruz.</div>
     </div>
     <div class="process-step">
       <div class="process-num">4</div>
-      <div class="process-title">Yayınlama & Takip</div>
-      <div class="process-desc">Canlıya geçiş, ekip eğitimi, performans izleme ve sürekli optimizasyon.</div>
+      <div class="process-title">Onboarding & Takip</div>
+      <div class="process-desc">Uzman işe başlar, biz performans takibi ve destek sürecini yönetiyoruz.</div>
     </div>
   </div>
 </section>
 
-<!-- BENEFITS -->
+<!-- AVANTAJLAR -->
 <section class="section section-alt">
   <div class="benefits-inner">
     <div class="benefits-img">
-      <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80" alt="AI Teknoloji"/>
+      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80" alt="Uzman Ekip"/>
     </div>
     <div>
-      <div class="section-tag">Neden Bilginex AI?</div>
-      <h2 class="section-title">Sadece araç kurmuyoruz, iş değeri yaratıyoruz</h2>
+      <div class="section-tag">Neden Bilginex?</div>
+      <h2 class="section-title">Sadece CV göndermiyoruz, doğru uyumu sağlıyoruz</h2>
       <div class="benefits-list">
         <div class="benefit-item">
-          <div class="benefit-icon">🏢</div>
+          <div class="benefit-icon">⚡</div>
           <div>
-            <div class="benefit-title">Sektör Uzmanlığı</div>
-            <div class="benefit-desc">Finans, sağlık, perakende ve lojistik sektörlerinde onlarca başarılı AI projesi deneyimi.</div>
+            <div class="benefit-title">Hızlı Kadrolama</div>
+            <div class="benefit-desc">Ortalama 5 iş günü içinde göreve hazır uzman. Kritik projelerde zaman kaybetmeden ilerleyin.</div>
           </div>
         </div>
         <div class="benefit-item">
-          <div class="benefit-icon">🔒</div>
+          <div class="benefit-icon">✅</div>
           <div>
-            <div class="benefit-title">Veri Güvenliği</div>
-            <div class="benefit-desc">On-premise veya private cloud seçenekleriyle kurumsal verileriniz güvende kalır.</div>
+            <div class="benefit-title">Ön Elemeli Uzman Havuzu</div>
+            <div class="benefit-desc">Teknik yetkinliği ve kurumsal uyumu önceden değerlendirilmiş 500+ uzman profilimiz var.</div>
           </div>
         </div>
         <div class="benefit-item">
-          <div class="benefit-icon">📈</div>
+          <div class="benefit-icon">🔄</div>
           <div>
-            <div class="benefit-title">Ölçülebilir ROI</div>
-            <div class="benefit-desc">Her proje öncesi ROI hedefleri belirleniyor, sonuçlar raporlanıyor.</div>
+            <div class="benefit-title">Esnek Çalışma Modelleri</div>
+            <div class="benefit-desc">Tam zamanlı, yarı zamanlı veya proje bazlı — ihtiyacınıza göre en uygun modeli seçin.</div>
           </div>
         </div>
         <div class="benefit-item">
-          <div class="benefit-icon">🔗</div>
+          <div class="benefit-icon">🛡️</div>
           <div>
-            <div class="benefit-title">Kolay Entegrasyon</div>
-            <div class="benefit-desc">Mevcut ERP, CRM ve iş uygulamalarınızla sorunsuz API entegrasyonu.</div>
+            <div class="benefit-title">Memnuniyet Garantisi</div>
+            <div class="benefit-desc">İlk 2 haftada memnun kalmazsanız ücretsiz değişim. Risksiz başlangıç.</div>
           </div>
         </div>
       </div>
@@ -830,36 +927,45 @@ to{opacity:1;transform:translateY(0) scale(1);}}
   </div>
 </section>
 
-<!-- TECH STACK -->
+<!-- TEKNOLOJİ -->
 <section class="section section-dark">
   <div class="section-tag white">Teknoloji Yığını</div>
-  <h2 class="section-title white">Kullandığımız teknolojiler</h2>
-  <p class="section-sub white">En güncel AI modelleri ve framework'leriyle, ihtiyacınıza en uygun çözümü seçiyoruz.</p>
+  <h2 class="section-title">Uzmanlarımızın hakim olduğu teknolojiler</h2>
+  <p class="section-sub">Geniş teknoloji portföyümüzle her proje ihtiyacına cevap veriyoruz.</p>
   <div class="tech-grid">
-    <span class="tech-item">OpenAI GPT-4o</span>
-    <span class="tech-item">Anthropic Claude</span>
-    <span class="tech-item">Google Gemini</span>
-    <span class="tech-item">Azure OpenAI</span>
-    <span class="tech-item">LangChain</span>
-    <span class="tech-item">LlamaIndex</span>
-    <span class="tech-item">Hugging Face</span>
-    <span class="tech-item">Pinecone / Weaviate</span>
-    <span class="tech-item">FastAPI</span>
-    <span class="tech-item">Python</span>
-    <span class="tech-item">AWS / Azure / GCP</span>
-    <span class="tech-item">Docker / Kubernetes</span>
+    <div class="tech-item">React / Next.js</div>
+    <div class="tech-item">Node.js</div>
+    <div class="tech-item">Python</div>
+    <div class="tech-item">Java / Spring</div>
+    <div class="tech-item">.NET / C#</div>
+    <div class="tech-item">Go</div>
+    <div class="tech-item">AWS</div>
+    <div class="tech-item">Azure</div>
+    <div class="tech-item">GCP</div>
+    <div class="tech-item">Kubernetes</div>
+    <div class="tech-item">Docker</div>
+    <div class="tech-item">Terraform</div>
+    <div class="tech-item">PostgreSQL</div>
+    <div class="tech-item">MongoDB</div>
+    <div class="tech-item">Redis</div>
+    <div class="tech-item">Elasticsearch</div>
+    <div class="tech-item">PyTorch / TensorFlow</div>
+    <div class="tech-item">LangChain</div>
+    <div class="tech-item">Kafka</div>
+    <div class="tech-item">Spark</div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta-section">
   <h2 class="cta-title">İhtiyacınıza uygun uzmanı birlikte bulalım</h2>
-  <p class="cta-sub">İlk adımı atalım — ihtiyaçlarınızı anlayalım, ücretsiz bir keşif görüşmesi planlayalım.</p>
+  <p class="cta-sub">Projenizi anlatın, 48 saat içinde size özel eşleştirilmiş uzman profillerini sunalım.</p>
   <div class="cta-actions">
-    <a href="#" class="btn-lg-primary" onclick="document.getElementById('modalGorusme').classList.add('open');document.body.style.overflow='hidden';return false;">Ücretsiz Görüşme Al →</a>
-    <a href="hizmetler.html" class="btn-lg-ghost">← Tüm Hizmetler</a>
+    <a href="#" class="btn-lg-primary" onclick="document.getElementById('modalGorusme').classList.add('open');document.body.style.overflow='hidden';return false;">Uzman Talep Et →</a>
+    <a href="hizmetler.html" class="btn-lg-ghost">Tüm Hizmetler</a>
   </div>
 </section>
+
 
 <footer>
   <div class="footer-grid">
@@ -1546,4 +1652,5 @@ function wizardBack(){if(wizardStep>0){wizardStep--;renderWizard();}}
 document.getElementById('wizardOverlay').addEventListener('click',function(e){if(e.target===this)closeWizard();});
 </script>
 
+</body>
 </html>
