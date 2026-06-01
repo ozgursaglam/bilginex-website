@@ -1125,39 +1125,42 @@ to{opacity:1;transform:translateY(0) scale(1);}}
   <!-- FORM -->
   <div class="form-card">
     <div id="contactForm">
+      <form name="iletisim" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleContactSubmit(event)">
+      <input type="hidden" name="form-name" value="iletisim"/>
+      <input type="hidden" name="bot-field" style="display:none"/>
       <div class="form-title">Bize yazın</div>
       <div class="form-sub">Tüm alanları doldurmanız yeterli — ekibimiz 1 iş günü içinde size dönüş yapacak.</div>
 
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">Ad *</label>
-          <input type="text" class="form-input" id="ad" placeholder="Adınız"/>
+          <input type="text" class="form-input" id="ad" name="ad" required placeholder="Adınız"/>
         </div>
         <div class="form-group">
           <label class="form-label">Soyad *</label>
-          <input type="text" class="form-input" id="soyad" placeholder="Soyadınız"/>
+          <input type="text" class="form-input" id="soyad" name="soyad" required placeholder="Soyadınız"/>
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">E-posta *</label>
-          <input type="email" class="form-input" id="email" placeholder="ornek@sirket.com"/>
+          <input type="email" class="form-input" id="email" name="eposta" required placeholder="ornek@sirket.com"/>
         </div>
         <div class="form-group">
           <label class="form-label">Telefon *</label>
-          <input type="tel" class="form-input" id="tel" placeholder="+90 5XX XXX XX XX"/>
+          <input type="tel" class="form-input" id="tel" name="telefon" placeholder="+90 5XX XXX XX XX"/>
         </div>
       </div>
 
       <div class="form-group">
         <label class="form-label">Şirket</label>
-        <input type="text" class="form-input" id="sirket" placeholder="Şirket adı (opsiyonel)"/>
+        <input type="text" class="form-input" id="sirket" name="sirket" placeholder="Şirket adı (opsiyonel)"/>
       </div>
 
       <div class="form-group">
         <label class="form-label">Konu *</label>
-        <select class="form-select" id="konu">
+        <select class="form-select" id="konu" name="konu" required>
           <option value="">Seçiniz...</option>
           <option>AI Entegrasyonu</option>
           <option>Dijital Dönüşüm</option>
@@ -1170,10 +1173,11 @@ to{opacity:1;transform:translateY(0) scale(1);}}
 
       <div class="form-group">
         <label class="form-label">Mesajınız *</label>
-        <textarea class="form-textarea" id="mesaj" placeholder="Projeniz, ihtiyacınız veya sorularınızı yazın..."></textarea>
+        <textarea class="form-textarea" id="mesaj" name="mesaj" required placeholder="Projeniz, ihtiyacınız veya sorularınızı yazın..."></textarea>
       </div>
 
-      <button class="btn-submit" onclick="submitForm()">Mesajı Gönder →</button>
+      <button type="submit" class="btn-submit">Mesajı Gönder →</button>
+      </form>
       <div class="form-note">Bilgileriniz gizli tutulur · Spam göndermeyiz</div>
     </div>
 
@@ -1378,16 +1382,21 @@ to{opacity:1;transform:translateY(0) scale(1);}}
 </footer>
 
 <script>
-function submitForm() {
-  const required = ['ad', 'soyad', 'email', 'tel', 'konu', 'mesaj'];
-  let valid = true;
-
-  required.forEach(id => {
-    const el = document.getElementById(id);
-    if (!el.value.trim()) {
-      el.classList.add('error');
-      valid = false;
-    } else {
+function handleContactSubmit(e) {
+  e.preventDefault();
+  var form = e.target;
+  var data = new FormData(form);
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(data).toString()
+  }).then(function() {
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  }).catch(function() {
+    alert('Bir hata oluştu, lütfen tekrar deneyin.');
+  });
+} else {
       el.classList.remove('error');
     }
   });
@@ -1490,33 +1499,36 @@ document.querySelectorAll('.form-input, .form-select, .form-textarea').forEach(e
   <div style="background:#fff;border-radius:20px;padding:44px;width:100%;max-width:520px;position:relative;box-shadow:0 24px 80px rgba(10,15,40,0.3);animation:modalIn 0.3s ease;margin:20px;">
     <button onclick="document.getElementById('modalGorusme').classList.remove('open');document.body.style.overflow='';" style="position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;border:1px solid #e5e7eb;background:transparent;cursor:pointer;font-size:16px;color:#9099b5;display:flex;align-items:center;justify-content:center;">✕</button>
     <div id="gorusmeForm">
+      <form name="gorusme-talep" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleGorusmeSubmit(event)">
+      <input type="hidden" name="form-name" value="gorusme-talep"/>
+      <input type="hidden" name="bot-field" style="display:none"/>
       <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:700;color:#0e1628;margin-bottom:6px;">Ücretsiz Görüşme Talep Et</div>
       <div style="font-size:14px;color:#485070;margin-bottom:28px;font-weight:300;">Ekibimiz 1 iş günü içinde sizinle iletişime geçecek.</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
         <div>
           <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">Ad</label>
-          <input type="text" placeholder="Adınız" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
+          <input type="text" name="ad" placeholder="Adınız" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;" required/>
         </div>
         <div>
           <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">Soyad</label>
-          <input type="text" placeholder="Soyadınız" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
+          <input type="text" name="soyad" placeholder="Soyadınız" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;" required/>
         </div>
       </div>
       <div style="margin-bottom:14px;">
         <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">E-posta</label>
-        <input type="email" placeholder="ornek@sirket.com" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
+        <input type="email" name="eposta" placeholder="ornek@sirket.com" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;" required/>
       </div>
       <div style="margin-bottom:14px;">
         <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">Telefon</label>
-        <input type="tel" placeholder="+90 5XX XXX XX XX" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
+        <input type="tel" name="telefon" placeholder="+90 5XX XXX XX XX" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
       </div>
       <div style="margin-bottom:14px;">
         <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">Şirket</label>
-        <input type="text" placeholder="Şirket adı" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
+        <input type="text" name="sirket" placeholder="Şirket adı" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
       </div>
       <div style="margin-bottom:20px;">
         <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">Görüşmek istediğiniz konu</label>
-        <select style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;">
+        <select name="konu" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;">
           <option>AI Entegrasyonu</option>
           <option>Dijital Dönüşüm</option>
           <option>Teknoloji Eğitimleri</option>
@@ -2031,4 +2043,5 @@ function wizardBack(){if(wizardStep>0){wizardStep--;renderWizard();}}
 document.getElementById('wizardOverlay').addEventListener('click',function(e){if(e.target===this)closeWizard();});
 </script>
 
+</body>
 </html>

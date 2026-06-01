@@ -1805,38 +1805,41 @@ document.addEventListener('DOMContentLoaded', initCounters);
     <button onclick="document.getElementById('modalGorusme').classList.remove('open');document.body.style.overflow='';" style="position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;border:1px solid #e5e7eb;background:transparent;cursor:pointer;font-size:16px;color:#9099b5;display:flex;align-items:center;justify-content:center;">✕</button>
     
     <div id="gorusmeForm">
+      <form name="gorusme-talep" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleGorusmeSubmit(event)">
+      <input type="hidden" name="form-name" value="gorusme-talep"/>
+      <input type="hidden" name="bot-field" style="display:none"/>
       <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:700;color:#0e1628;margin-bottom:6px;">Ücretsiz Görüşme Talep Et</div>
       <div style="font-size:14px;color:#485070;margin-bottom:28px;font-weight:300;">Ekibimiz 1 iş günü içinde sizinle iletişime geçecek.</div>
 
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
         <div>
           <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">Ad</label>
-          <input type="text" placeholder="Adınız" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
+          <input type="text" name="ad" placeholder="Adınız" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;" required/>
         </div>
         <div>
           <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">Soyad</label>
-          <input type="text" placeholder="Soyadınız" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
+          <input type="text" name="soyad" placeholder="Soyadınız" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;" required/>
         </div>
       </div>
 
       <div style="margin-bottom:14px;">
         <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">E-posta</label>
-        <input type="email" placeholder="ornek@sirket.com" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
+        <input type="email" name="eposta" placeholder="ornek@sirket.com" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;" required/>
       </div>
 
       <div style="margin-bottom:14px;">
         <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">Telefon</label>
-        <input type="tel" placeholder="+90 5XX XXX XX XX" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
+        <input type="tel" name="telefon" placeholder="+90 5XX XXX XX XX" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
       </div>
 
       <div style="margin-bottom:14px;">
         <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">Şirket</label>
-        <input type="text" placeholder="Şirket adı" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
+        <input type="text" name="sirket" placeholder="Şirket adı" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
       </div>
 
       <div style="margin-bottom:20px;">
         <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">Görüşmek istediğiniz konu</label>
-        <select style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;">
+        <select name="konu" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;">
           <option>AI Entegrasyonu</option>
           <option>Dijital Dönüşüm</option>
           <option>Teknoloji Eğitimleri</option>
@@ -1845,24 +1848,8 @@ document.addEventListener('DOMContentLoaded', initCounters);
         </select>
       </div>
 
-      <button onclick="
-  var inputs = document.querySelectorAll('#gorusmeForm input, #gorusmeForm select');
-  var valid = true;
-  inputs.forEach(function(inp) {
-    if (!inp.value.trim()) {
-      inp.style.borderColor = '#ef4444';
-      inp.style.background = '#fef2f2';
-      valid = false;
-    } else {
-      inp.style.borderColor = '#d1d5db';
-      inp.style.background = '#f7f8fa';
-    }
-  });
-  if (valid) {
-    document.getElementById('gorusmeForm').style.display='none';
-    document.getElementById('gorusmeSuccess').style.display='block';
-  }
-" style="width:100%;padding:14px;background:#2563eb;border:none;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:500;border-radius:10px;cursor:pointer;box-shadow:0 4px 20px rgba(37,99,235,0.25);">Görüşme Talebini Gönder →</button>
+      <button type="submit" style="width:100%;padding:14px;background:#2563eb;border:none;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:500;border-radius:10px;cursor:pointer;box-shadow:0 4px 20px rgba(37,99,235,0.25);">Görüşme Talebini Gönder →</button>
+      </form>
       <div style="text-align:center;font-size:12px;color:#9099b5;margin-top:12px;">İlk görüşme tamamen ücretsiz ve taahhütsüz</div>
     </div>
 
@@ -1886,6 +1873,22 @@ document.getElementById('modalGorusme').addEventListener('click', function(e) {
     document.body.style.overflow = '';
   }
 });
+
+function handleGorusmeSubmit(e) {
+  e.preventDefault();
+  var form = e.target;
+  var data = new FormData(form);
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(data).toString()
+  }).then(function() {
+    document.getElementById('gorusmeForm').style.display = 'none';
+    document.getElementById('gorusmeSuccess').style.display = 'block';
+  }).catch(function() {
+    alert('Bir hata oluştu, lütfen tekrar deneyin.');
+  });
+}
 </script>
 
 </body>
