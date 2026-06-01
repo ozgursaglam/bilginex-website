@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teşekkürler — Bilginex</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #f7f8fa;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 60px 48px;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 48px rgba(15,23,60,0.10);
+    }
+    .icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+    }
+    .icon svg { width: 40px; height: 40px; }
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #0e1628;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    p {
+      font-size: 16px;
+      color: #485070;
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 36px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      background: #2563eb;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(37,99,235,0.25);
+    }
+    .btn:hover { background: #1d4ed8; transform: translateY(-2px); }
+    .note {
+      margin-top: 24px;
+      font-size: 13px;
+      color: #9099b5;
+      font-weight: 300;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+        <polyline points="22,4 12,14.01 9,11.01"/>
+      </svg>
+    </div>
+    <h1>Talebiniz alındı!</h1>
+    <p>Ekibimiz en kısa sürede — genellikle <strong>1 iş günü</strong> içinde — sizinle iletişime geçecek.<br/>Teşekkür ederiz.</p>
+    <a href="/" class="btn">Ana Sayfaya Dön →</a>
+    <div class="note">Bilgileriniz gizli tutulur · Spam göndermeyiz</div>
+  </div>
+</body>
+</html>
