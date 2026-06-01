@@ -279,6 +279,7 @@
   .section-alt { background: var(--bg2); }
   .section-dark { background: #0d1525; color: #fff; }
   .section-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent2); background: var(--accentlt); padding: 4px 12px; border-radius: 100px; margin-bottom: 12px; }
+  .section-dark .section-tag { color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); }
   .section-title { font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; color: var(--text); line-height: 1.15; letter-spacing: -0.8px; margin-bottom: 12px; }
   .section-sub { font-size: 16px; color: var(--text2); max-width: 600px; line-height: 1.7; font-weight: 300; }
   .section-dark .section-title { color: #fff; }
@@ -287,8 +288,8 @@
   /* ── BUTTONS ── */
   .btn-lg-primary { padding: 14px 32px; background: var(--accent2); border: none; color: #fff; font-family: var(--font-b); font-size: 15px; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.25s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
   .btn-lg-primary:hover { background: var(--accent); transform: translateY(-2px); }
-  .btn-lg-ghost { padding: 14px 32px; border: 1px solid var(--border2); background: transparent; color: var(--text); font-family: var(--font-b); font-size: 15px; font-weight: 500; border-radius: 8px; cursor: pointer; transition: all 0.25s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
-  .btn-lg-ghost:hover { background: var(--bg2); }
+  .btn-lg-ghost { padding: 14px 32px; border: 1px solid rgba(255,255,255,0.35); background: transparent; color: #fff; font-family: var(--font-b); font-size: 15px; font-weight: 500; border-radius: 8px; cursor: pointer; transition: all 0.25s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+  .btn-lg-ghost:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
 
   /* ── BENEFITS ── */
   .benefits-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; max-width: 1200px; margin: 0 auto; }
@@ -301,11 +302,18 @@
   .benefits-img img { width: 100%; height: 100%; object-fit: cover; }
 
   /* ── PROCESS ── */
-  .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; max-width: 1200px; margin: 48px auto 0; }
-  .process-step { text-align: center; padding: 32px 20px; }
-  .process-num { width: 56px; height: 56px; background: linear-gradient(135deg, var(--accent2), #7c3aed); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; margin: 0 auto 20px; box-shadow: 0 8px 24px rgba(37,99,235,0.35); }
-  .process-title { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; }
-  .process-desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.6; font-weight: 300; }
+  .process-wrapper { position: relative; max-width: 1200px; margin: 48px auto 0; }
+  .process-connector { position: absolute; top: 28px; left: calc(12.5% + 28px); right: calc(12.5% + 28px); height: 2px; background: #e0e5f2; z-index: 0; overflow: hidden; }
+  .process-connector-fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--accent2), #7c3aed); transition: width 0.8s ease 0.2s; }
+  .process-connector-fill.animated { width: 100%; }
+  .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; position: relative; z-index: 1; }
+  .process-step { text-align: center; padding: 0 20px 32px; opacity: 0; transform: translateY(20px); transition: opacity 0.4s ease, transform 0.4s ease; }
+  .process-step.animated { opacity: 1; transform: translateY(0); }
+  .process-num { width: 56px; height: 56px; background: linear-gradient(135deg, var(--accent2), #7c3aed); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; margin: 0 auto 20px; box-shadow: 0 8px 24px rgba(37,99,235,0.35); position: relative; }
+  .process-step-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px 20px; margin-top: 20px; transition: all 0.25s; }
+  .process-step:hover .process-step-card { border-color: rgba(37,99,235,0.22); box-shadow: 0 8px 32px rgba(15,23,60,0.08); transform: translateY(-3px); }
+  .process-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+  .process-desc { font-size: 13.5px; color: var(--text2); line-height: 1.65; font-weight: 300; }
 
   /* ── USE CASES ── */
   .use-cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1200px; margin: 48px auto 0; }
@@ -861,26 +869,37 @@ to{opacity:1;transform:translateY(0) scale(1);}}
 <section class="section">
   <div class="section-tag">Sürecimiz</div>
   <h2 class="section-title">Uzman eşleştirme süreci nasıl işler?</h2>
-  <div class="process-grid">
-    <div class="process-step">
-      <div class="process-num">1</div>
-      <div class="process-title">İhtiyaç Analizi</div>
-      <div class="process-desc">Teknik gereksinimlerinizi, ekip yapınızı ve proje hedeflerinizi birlikte değerlendiriyoruz.</div>
-    </div>
-    <div class="process-step">
-      <div class="process-num">2</div>
-      <div class="process-title">Aday Eşleştirme</div>
-      <div class="process-desc">Uzman havuzumuzdan profil değerlendirmesi yaparak 48 saat içinde uygun adayları sunuyoruz.</div>
-    </div>
-    <div class="process-step">
-      <div class="process-num">3</div>
-      <div class="process-title">Teknik Mülakat</div>
-      <div class="process-desc">Sizin ekibinizle teknik mülakat gerçekleştirip uyumu test ediyoruz.</div>
-    </div>
-    <div class="process-step">
-      <div class="process-num">4</div>
-      <div class="process-title">Onboarding & Takip</div>
-      <div class="process-desc">Uzman işe başlar, biz performans takibi ve destek sürecini yönetiyoruz.</div>
+  <div class="process-wrapper">
+    <div class="process-connector"><div class="process-connector-fill" id="processLine"></div></div>
+    <div class="process-grid" id="processGrid">
+      <div class="process-step">
+        <div class="process-num">1</div>
+        <div class="process-step-card">
+          <div class="process-title">İhtiyaç Analizi</div>
+          <div class="process-desc">Teknik gereksinimlerinizi, ekip yapınızı ve proje hedeflerinizi birlikte değerlendiriyoruz.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">2</div>
+        <div class="process-step-card">
+          <div class="process-title">Aday Eşleştirme</div>
+          <div class="process-desc">Uzman havuzumuzdan profil değerlendirmesi yaparak 48 saat içinde uygun adayları sunuyoruz.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">3</div>
+        <div class="process-step-card">
+          <div class="process-title">Teknik Mülakat</div>
+          <div class="process-desc">Sizin ekibinizle teknik mülakat gerçekleştirip uyumu test ediyoruz.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">4</div>
+        <div class="process-step-card">
+          <div class="process-title">Onboarding & Takip</div>
+          <div class="process-desc">Uzman işe başlar, biz performans takibi ve destek sürecini yönetiyoruz.</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -899,7 +918,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="benefit-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg></div>
           <div>
             <div class="benefit-title">Hızlı Kadrolama</div>
-            <div class="benefit-desc">Ortalama 5 iş günü içinde göreve hazır uzman. Kritik projelerde zaman kaybetmeden ilerleyin.</div>
+            <div class="benefit-desc">Ortalama 15 iş günü içinde göreve hazır uzman. Kritik projelerde zaman kaybetmeden ilerleyin.</div>
           </div>
         </div>
         <div class="benefit-item">
@@ -920,7 +939,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="benefit-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9,12 11,14 15,10"/></svg></div>
           <div>
             <div class="benefit-title">Memnuniyet Garantisi</div>
-            <div class="benefit-desc">İlk 2 haftada memnun kalmazsanız ücretsiz değişim. Risksiz başlangıç.</div>
+            <div class="benefit-desc">İlk 2 ayda memnun kalmazsanız değişim garantisi.</div>
           </div>
         </div>
       </div>
@@ -930,7 +949,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
 
 <!-- TEKNOLOJİ -->
 <section class="section section-dark">
-  <div class="section-tag white">Teknoloji Yığını</div>
+  <div class="section-tag">Teknoloji Yığını</div>
   <h2 class="section-title">Uzmanlarımızın hakim olduğu teknolojiler</h2>
   <p class="section-sub">Geniş teknoloji portföyümüzle her proje ihtiyacına cevap veriyoruz.</p>
   <div class="tech-grid">
