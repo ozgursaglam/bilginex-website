@@ -444,7 +444,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-b); fo
 .hero-stat-label { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 4px; }
 
 /* SEARCH & FILTER */
-.search-section { background: var(--surface); border-bottom: 1px solid var(--border); padding: 20px 60px; position: sticky; top: 61px; z-index: 90; box-shadow: 0 4px 20px rgba(15,23,60,0.06); }
+.search-section { background: var(--surface); border-bottom: 1px solid var(--border); padding: 24px 60px; position: sticky; top: 72px; z-index: 90; box-shadow: 0 8px 32px rgba(15,23,60,0.08); border-top: 1px solid var(--border); }
 .search-row { display: flex; gap: 16px; align-items: center; }
 .search-box { position: relative; flex: 1; max-width: 420px; }
 .search-box input { width: 100%; padding: 11px 16px 11px 42px; border: 1px solid var(--border2); border-radius: 8px; font-family: var(--font-b); font-size: 14px; color: var(--text); background: var(--bg); outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
@@ -3947,6 +3947,7 @@ var _mg=document.getElementById('modalGorusme'); if(_mg) _mg.addEventListener('c
   }
 
   window.addEventListener('scroll', animateProcess, { passive: true });
+
   animateProcess();
 })();
 </script>
@@ -4354,6 +4355,8 @@ function applyFilters() {
     filterCourses();
   }, 100);
 })();
+</script>
+<script>
 </script>
 </body>
 </html>
