@@ -766,6 +766,38 @@ to{opacity:1;transform:translateY(0) scale(1);}}
     .hero-sub { font-size: 15px; }
     .hero-cta { flex-direction: column; align-items: center; gap: 12px; }
     .hero-cta a, .hero-cta button { width: 100%; max-width: 280px; text-align: center; }
+
+    /* STATS düzeltme */
+    .stats-wrap { padding: 0 12px !important; margin-top: -20px !important; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr) !important; border-radius: 12px !important; width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; }
+    .stat-item { padding: 18px 14px !important; border-right: none !important; border-bottom: 1px solid var(--border); }
+    .stat-item:nth-child(1), .stat-item:nth-child(2) { border-bottom: 1px solid var(--border); }
+    .stat-item:nth-child(3), .stat-item:nth-child(4) { border-bottom: none; }
+    .stat-number { font-size: 30px !important; letter-spacing: -1px; }
+    .stat-label { font-size: 11px; }
+
+    /* WHY bölümü — tek sütuna al */
+    .why { grid-template-columns: 1fr !important; padding: 48px 20px !important; gap: 32px !important; }
+    .why-visual { display: none !important; }
+    .why-grid { grid-template-columns: 1fr !important; }
+    .metrics-card { width: 100%; max-width: 100%; margin-top: 0; }
+
+    /* AKADEMİ — tek sütuna çevir */
+    .akademi { padding: 48px 20px !important; }
+    .akademi-content { grid-template-columns: 1fr !important; gap: 32px !important; }
+    .course-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+    .academy-grid { grid-template-columns: 1fr !important; gap: 20px; }
+    .academy-courses { display: flex !important; flex-direction: column; gap: 12px; overflow: visible; }
+    .course-card { margin-right: 0 !important; width: 100% !important; }
+
+    /* HİZMET kartları tam genişlik */
+    .service-card { min-width: 0 !important; width: 100%; }
+    .services-grid { grid-template-columns: 1fr !important; }
+
+    /* GENEL taşma engeli */
+    body { overflow-x: hidden; }
+    section, .section, .section-alt, .section-dark { overflow-x: hidden; }
+
     .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 20px 16px; }
     .stat-num { font-size: 28px; }
 
@@ -789,6 +821,8 @@ to{opacity:1;transform:translateY(0) scale(1);}}
 
     /* REFERANSLAR */
     .testimonials-grid { grid-template-columns: 1fr; gap: 16px; }
+    .test-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+    .testimonials { padding: 48px 20px !important; }
 
     /* PARTNER LOGO */
     .partner-logos { gap: 16px; flex-wrap: wrap; justify-content: center; }
