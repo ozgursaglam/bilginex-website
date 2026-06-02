@@ -627,6 +627,103 @@ to{opacity:1;transform:translateY(0) scale(1);}}
   .floating-help-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;margin-right:6px;flex-shrink:0;animation:pulse-dot 2s infinite;}
   @keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(74,222,128,0.5);}50%{box-shadow:0 0 0 5px rgba(74,222,128,0);}}
   @keyframes float-in{from{opacity:0;transform:translateY(20px) scale(0.9);}to{opacity:1;transform:translateY(0) scale(1);}}
+
+  /* ═══════════════════════════════════════════
+     RESPONSIVE — MOBİL (max-width: 768px)
+  ═══════════════════════════════════════════ */
+  @media (max-width: 768px) {
+
+    /* NAV */
+    nav { padding: 14px 20px; position: relative; }
+    .nav-links { display: none; }
+    .nav-cta .btn-ghost { display: none; }
+    .nav-cta .btn-primary { font-size: 12px; padding: 8px 14px; }
+    .lang-switcher { display: none; }
+
+    /* Hamburger */
+    .hamburger {
+      display: flex; flex-direction: column; justify-content: center;
+      gap: 5px; cursor: pointer; padding: 4px; margin-left: auto;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--text); border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      background: #fff; border-top: 1px solid var(--border);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12); z-index: 200;
+      padding: 16px 20px; flex-direction: column; gap: 4px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      display: block; padding: 12px 8px; font-size: 15px;
+      color: var(--text); text-decoration: none; border-radius: 6px;
+      font-weight: 500;
+    }
+    .mobile-menu a:hover { background: var(--bg2); }
+    .mobile-menu .mm-section { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text2); padding: 16px 8px 6px; }
+
+    /* HERO */
+    .hero { padding: 100px 24px 60px; min-height: auto; }
+    .hero-title { font-size: clamp(28px, 8vw, 44px); }
+    .hero-sub { font-size: 15px; }
+    .hero-cta { flex-direction: column; align-items: center; gap: 12px; }
+    .hero-cta a, .hero-cta button { width: 100%; max-width: 280px; text-align: center; }
+    .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 20px 16px; }
+    .stat-num { font-size: 28px; }
+
+    /* SECTION padding */
+    .section { padding: 48px 20px; }
+    .section-alt { padding: 48px 20px; }
+    .section-dark { padding: 48px 20px; }
+
+    /* HİZMETLER grid */
+    .services-grid { grid-template-columns: 1fr; gap: 16px; }
+    .service-card { padding: 24px 20px; }
+
+    /* NEDEN BİLGİNEX */
+    .why-grid { grid-template-columns: 1fr; gap: 32px; }
+    .why-items { gap: 12px; }
+    .metrics-card { padding: 20px; }
+
+    /* AKADEMİ */
+    .academy-grid { grid-template-columns: 1fr; gap: 24px; }
+    .academy-courses { display: none; }
+
+    /* REFERANSLAR */
+    .testimonials-grid { grid-template-columns: 1fr; gap: 16px; }
+
+    /* PARTNER LOGO */
+    .partner-logos { gap: 16px; flex-wrap: wrap; justify-content: center; }
+    .partner-logos span { font-size: 14px; }
+
+    /* CTA */
+    .cta-section { padding: 48px 24px; }
+    .cta-section h2 { font-size: clamp(24px, 6vw, 36px); }
+    .cta-section .hero-cta { flex-direction: column; align-items: center; }
+    .cta-stats { grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .cta-stats .stat-num { font-size: 26px; }
+
+    /* FOOTER */
+    footer { padding: 40px 20px 28px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; margin-bottom: 32px; }
+    .footer-col h4 { margin-bottom: 12px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .footer-links { gap: 16px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-stats { grid-template-columns: 1fr; }
+    .cta-stats { grid-template-columns: 1fr; }
+  }
+
 </style>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9FK726MCCJ"></script>
@@ -1028,11 +1125,31 @@ to{opacity:1;transform:translateY(0) scale(1);}}
     </li>
     <li><a href="blog.html">Blog</a></li>
   </ul>
+  <!-- Hamburger butonu (mobil) -->
+  <button class="hamburger" id="hamburger" aria-label="Menü" style="display:none;background:none;border:none;">
+    <span></span><span></span><span></span>
+  </button>
   <div class="nav-cta">
     <a href="#" class="btn-ghost">Giriş Yap</a>
     <a href="#" class="btn-primary" onclick="document.getElementById('modalGorusme').classList.add('open');document.body.style.overflow='hidden';return false;">Demo Talep Et →</a>
   </div>
 </nav>
+<!-- Mobile menü -->
+<div class="mobile-menu" id="mobileMenu">
+  <span class="mm-section">Hizmetler</span>
+  <a href="ai-entegrasyon.html">AI Entegrasyonu</a>
+  <a href="dijital-donusum.html">Dijital Dönüşüm</a>
+  <a href="teknoloji-egitimi.html">Teknoloji Eğitimleri</a>
+  <a href="uzman-kadro.html">Uzman Kaynak Çözümleri</a>
+  <span class="mm-section">Akademi</span>
+  <a href="akademi.html">Tüm Kurslar</a>
+  <span class="mm-section">Çözümler</span>
+  <a href="cozumler.html">Sektörel Çözümler</a>
+  <span class="mm-section">Şirket</span>
+  <a href="hakkimizda.html">Hakkımızda</a>
+  <a href="iletisim.html">İletişim</a>
+  <a href="blog.html">Blog</a>
+</div>
 
 <!-- HERO — Dijital dünya / uzaydan şehir ışıkları -->
 <section class="hero">
@@ -1925,6 +2042,38 @@ function handleGorusmeSubmit(e) {
 }
 </script>
 
+<script>
+(function() {
+  var btn = document.getElementById('hamburger');
+  var menu = document.getElementById('mobileMenu');
+  if (!btn || !menu) return;
+
+  // Sadece mobilde göster
+  function checkMobile() {
+    if (window.innerWidth <= 768) {
+      btn.style.display = 'flex';
+    } else {
+      btn.style.display = 'none';
+      menu.classList.remove('open');
+      btn.classList.remove('open');
+    }
+  }
+  checkMobile();
+  window.addEventListener('resize', checkMobile);
+
+  btn.addEventListener('click', function() {
+    menu.classList.toggle('open');
+    btn.classList.toggle('open');
+  });
+  // Dışarı tıklayınca kapat
+  document.addEventListener('click', function(e) {
+    if (!btn.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.remove('open');
+      btn.classList.remove('open');
+    }
+  });
+})();
+</script>
 </body>
 <button class="floating-help" onclick="openWizard();" title="Uzman Desteği Al">
   <span class="floating-help-ic">
