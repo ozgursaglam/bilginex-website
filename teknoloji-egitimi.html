@@ -788,6 +788,12 @@ to{opacity:1;transform:translateY(0) scale(1);}}
 
     /* GENEL taşma engeli */
     body { overflow-x: hidden; }
+
+    /* GENEL GRID FIX */
+    [class*="-grid"] { min-width: 0; }
+    .section, .section-alt, .section-dark { padding-left: 20px !important; padding-right: 20px !important; }
+    .features-grid { grid-template-columns: 1fr !important; }
+    .programs-grid { grid-template-columns: 1fr !important; }
     section, .section, .section-alt, .section-dark { overflow-x: hidden; }
 
     .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 20px 16px; }
