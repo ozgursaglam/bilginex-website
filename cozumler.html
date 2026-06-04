@@ -747,6 +747,15 @@ to{opacity:1;transform:translateY(0) scale(1);}}
   "areaServed": "TR"
 }
 </script>
+  <style>
+    .bilginex-newsletter-section {
+      background: linear-gradient(135deg, rgba(37,99,235,0.05) 0%, rgba(108,111,224,0.07) 100%);
+      border-top: 1px solid rgba(37,99,235,0.15);
+      border-bottom: 1px solid rgba(37,99,235,0.15);
+      padding: 4rem 1.5rem;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
 
@@ -1525,14 +1534,82 @@ to{opacity:1;transform:translateY(0) scale(1);}}
 
 </div>
 
-<!-- CTA -->
-<section class="cta">
-  <div class="cta-inner">
-    <h2 class="cta-title">Sektörünüze özel çözüm için konuşalım</h2>
-    <p class="cta-sub">İlk görüşme tamamen ücretsiz. Kurumunuzun ihtiyaçlarını birlikte değerlendirelim.</p>
-    <a href="iletisim.html" class="btn-cta-white">Görüşme Talep Et →</a>
+<!-- Brevo Newsletter Bölümü -->
+<section class="bilginex-newsletter-section">
+  <div style="max-width:540px; margin:0 auto; text-align:center; padding:0 20px;">
+    <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:28px; font-weight:700; color:#111827; margin-bottom:10px;">
+      Haftalık içerikler, doğrudan gelen kutuna
+    </p>
+    <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:16px; color:#6b7280; margin-bottom:24px;">
+      Bilginex yazılarını ve kaynaklarını kaçırma.
+    </p>
+    <div id="brevo-success-cozumler" style="display:none; background:#e7faf0; border:1px solid #13ce66; border-radius:8px; padding:14px; font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; color:#085229; margin-bottom:16px;">
+      Teşekkürler! Onay maili gönderildi, lütfen gelen kutunu kontrol et.
+    </div>
+    <div id="brevo-error-cozumler" style="display:none; background:#ffeded; border:1px solid #ff4949; border-radius:8px; padding:14px; font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; color:#661d1d; margin-bottom:16px;">
+      Bir hata oluştu. Lütfen tekrar dene.
+    </div>
+    <div id="brevo-form-cozumler" style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+      <input
+        id="brevo-email-cozumler"
+        type="email"
+        placeholder="ornek@email.com"
+        style="flex:1; min-width:200px; max-width:320px; padding:11px 16px; border:1.5px solid #d1d5db; border-radius:8px; font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; outline:none;"
+        onfocus="this.style.borderColor='#2563eb'"
+        onblur="this.style.borderColor='#d1d5db'"
+      />
+      <button
+        onclick="brevoSubscribecozumler()"
+        id="brevo-btn-cozumler"
+        style="padding:11px 32px; background:#2563eb; color:#fff; border:none; border-radius:8px; font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; font-weight:600; cursor:pointer; white-space:nowrap;"
+        onmouseover="this.style.background='#1d4ed8'"
+        onmouseout="this.style.background='#2563eb'"
+      >
+        Abone Ol
+      </button>
+    </div>
   </div>
 </section>
+<script>
+function brevoSubscribecozumler() {
+  var email = document.getElementById('brevo-email-cozumler').value.trim();
+  var btn = document.getElementById('brevo-btn-cozumler');
+  var successEl = document.getElementById('brevo-success-cozumler');
+  var errorEl = document.getElementById('brevo-error-cozumler');
+  var formArea = document.getElementById('brevo-form-cozumler');
+  if (!email || !email.includes('@')) {
+    errorEl.textContent = 'Geçerli bir email adresi girin.';
+    errorEl.style.display = 'block';
+    successEl.style.display = 'none';
+    return;
+  }
+  btn.disabled = true;
+  btn.textContent = 'Gönderiliyor...';
+  btn.style.background = '#93c5fd';
+  errorEl.style.display = 'none';
+  var formData = new FormData();
+  formData.append('EMAIL', email);
+  formData.append('locale', 'tr');
+  formData.append('email_address_check', '');
+  fetch('https://10a17e33.sibforms.com/serve/MUIFAO1fqBkvvx61zBLbCLR08g7aFYpVm3wBVMq3b_oxmmwLjpjWsNT6CNT7SP6GKdSc_7JyYJ_M-_vEoYp_ExETsm-Q-DLt_RhACrjnBUcVc6YPQ7yBzlTaFzg94qjU_qNJKFFrZ5XJ9eTkhCdYDLJOl_vgqLZCEtoZ1RDX-LeJDMgRdl8S6PWjBLnbVi47KWqhx0KfyBbGGVb7IQ==', {
+    method: 'POST', body: formData, mode: 'no-cors'
+  })
+  .then(function() {
+    formArea.style.display = 'none';
+    successEl.style.display = 'block';
+  })
+  .catch(function() {
+    errorEl.textContent = 'Bir hata oluştu. Lütfen tekrar dene.';
+    errorEl.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Abone Ol';
+    btn.style.background = '#2563eb';
+  });
+}
+document.getElementById('brevo-email-cozumler').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') brevoSubscribecozumler();
+});
+</script>
 
 <footer>
   <div class="footer-grid">
