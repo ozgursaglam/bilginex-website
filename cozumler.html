@@ -927,14 +927,14 @@ to{opacity:1;transform:translateY(0) scale(1);}}
         <div style="background:linear-gradient(135deg,#eff4ff,#f5f3ff);border-top:1px solid #e0e7ff;padding:13px 40px 13px 300px;display:flex;align-items:center;justify-content:space-between;">
           <div style="display:flex;align-items:center;gap:12px;">
             <div style="width:32px;height:32px;background:linear-gradient(135deg,#4f46e5,#7c3aed);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              <span style="font-size:13px;font-weight:800;color:#fff;letter-spacing:-0.5px;">TL</span>
             </div>
             <div>
               <div style="font-size:12px;font-weight:700;color:#1e1b4b;">Kurumsal Eğitim Avantaj Paketleri</div>
               <div style="font-size:11px;color:#6b7280;">%20'den %35'e varan indirimlerle yıllık eğitim paketi</div>
             </div>
           </div>
-          <a href="akademi.html#avantaj-paketleri" style="font-size:12px;font-weight:600;color:#4f46e5;text-decoration:none;padding:7px 14px;background:#fff;border:1.5px solid #c7d2fe;border-radius:8px;transition:all 0.2s;white-space:nowrap;" onmouseover="this.style.background='#4f46e5';this.style.color='#fff';this.style.borderColor='#4f46e5'" onmouseout="this.style.background='#fff';this.style.color='#4f46e5';this.style.borderColor='#c7d2fe'">Paketleri İncele →</a>
+          <a href="#avantaj-paketleri" style="font-size:12px;font-weight:600;color:#4f46e5;text-decoration:none;padding:7px 14px;background:#fff;border:1.5px solid #c7d2fe;border-radius:8px;transition:all 0.2s;white-space:nowrap;" onmouseover="this.style.background='#4f46e5';this.style.color='#fff';this.style.borderColor='#4f46e5'" onmouseout="this.style.background='#fff';this.style.color='#4f46e5';this.style.borderColor='#c7d2fe'">Paketleri İncele →</a>
         </div>
         <div class="mega-footer">
           <span class="mega-footer-text">350 eğitim · Sertifikalı eğitmenler · Kuruma özel içerik</span>
@@ -2296,6 +2296,21 @@ document.getElementById('wizardOverlay').addEventListener('click',function(e){if
     }
   });
 })();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.querySelector('a[href="#avantaj-paketleri"]');
+  if (btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = document.getElementById('avantaj-paketleri');
+      if (target) {
+        var top = target.getBoundingClientRect().top + window.pageYOffset - 140;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  }
+});
 </script>
 </body>
 </html>

@@ -4657,5 +4657,20 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.querySelector('a[href="#avantaj-paketleri"]');
+  if (btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = document.getElementById('avantaj-paketleri');
+      if (target) {
+        var top = target.getBoundingClientRect().top + window.pageYOffset - 140;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  }
+});
+</script>
 </body>
 </html>
