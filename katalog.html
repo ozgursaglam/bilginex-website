@@ -374,6 +374,15 @@ function doPrint() {
   setTimeout(function() { window.print(); }, 150);
 }
 </script>
+  <style>
+    .bilginex-newsletter-section {
+      background: linear-gradient(135deg, rgba(37,99,235,0.05) 0%, rgba(108,111,224,0.07) 100%);
+      border-top: 1px solid rgba(37,99,235,0.15);
+      border-bottom: 1px solid rgba(37,99,235,0.15);
+      padding: 4rem 1.5rem;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
 
@@ -1258,7 +1267,7 @@ function doPrint() {
       <input id="brevo-email-katalog" type="email" placeholder="ornek@email.com"
         style="flex:1; min-width:200px; max-width:320px; padding:11px 16px; border:1.5px solid #d1d5db; border-radius:8px; font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; outline:none;"
         onfocus="this.style.borderColor='#2563eb'" onblur="this.style.borderColor='#d1d5db'"/>
-      <button onclick="brevoSubscribekatalog()" id="brevo-btn-katalog"
+      <button onclick="brevoSubscribe_katalog()" id="brevo-btn-katalog"
         style="padding:11px 32px; background:#2563eb; color:#fff; border:none; border-radius:8px; font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; font-weight:600; cursor:pointer; white-space:nowrap;"
         onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">
         Abone Ol
@@ -1267,7 +1276,7 @@ function doPrint() {
   </div>
 </section>
 <script>
-function brevoSubscribekatalog() {
+function brevoSubscribe_katalog() {
   var email = document.getElementById('brevo-email-katalog').value.trim();
   var btn = document.getElementById('brevo-btn-katalog');
   var successEl = document.getElementById('brevo-success-katalog');
@@ -1281,7 +1290,7 @@ function brevoSubscribekatalog() {
   .then(function(){formArea.style.display='none';successEl.style.display='block';})
   .catch(function(){errorEl.textContent='Bir hata oluştu.';errorEl.style.display='block';btn.disabled=false;btn.textContent='Abone Ol';btn.style.background='#2563eb';});
 }
-document.getElementById('brevo-email-katalog').addEventListener('keypress',function(e){if(e.key==='Enter')brevoSubscribekatalog();});
+document.getElementById('brevo-email-katalog').addEventListener('keypress',function(e){if(e.key==='Enter')brevoSubscribe_katalog();});
 </script>
 </body>
 </html>
