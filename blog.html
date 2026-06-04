@@ -1435,95 +1435,87 @@ to{opacity:1;transform:translateY(0) scale(1);}}
 
 <!-- Brevo Newsletter Bölümü -->
 <section class="bilginex-newsletter-section">
-  <div class="sib-form" style="text-align:center; background-color:transparent;">
-    <div id="sib-form-container" class="sib-form-container">
-
-      <div id="error-message" class="sib-form-message-panel"
-        style="font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; color:#661d1d;
-               background-color:#ffeded; border-color:#ff4949; border-radius:8px;
-               max-width:540px; display:none;">
-        <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-          <span>Bir hata oluştu. Lütfen tekrar dene.</span>
-        </div>
-      </div>
-
-      <div id="success-message" class="sib-form-message-panel"
-        style="font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; color:#085229;
-               background-color:#e7faf0; border-color:#13ce66; border-radius:8px;
-               max-width:540px; display:none;">
-        <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-          <span>Teşekkürler! Onay maili gönderildi, lütfen gelen kutunu kontrol et.</span>
-        </div>
-      </div>
-
-      <div id="sib-container" class="sib-container--large sib-container--vertical"
-        style="text-align:center; background-color:transparent; border-width:0; direction:ltr;">
-        <form id="sib-form" method="POST"
-          action="https://10a17e33.sibforms.com/serve/MUIFAO1fqBkvvx61zBLbCLR08g7aFYpVm3wBVMq3b_oxmmwLjpjWsNT6CNT7SP6GKdSc_7JyYJ_M-_vEoYp_ExETsm-Q-DLt_RhACrjnBUcVc6YPQ7yBzlTaFzg94qjU_qNJKFFrZ5XJ9eTkhCdYDLJOl_vgqLZCEtoZ1RDX-LeJDMgRdl8S6PWjBLnbVi47KWqhx0KfyBbGGVb7IQ=="
-          data-type="subscription">
-
-          <div style="padding:0 0 8px;">
-            <div class="sib-form-block"
-              style="font-family:'Plus Jakarta Sans',sans-serif; font-size:28px; font-weight:700;
-                     text-align:center; color:#111827; background-color:transparent;">
-              <p>Haftalık içerikler, doğrudan gelen kutuna</p>
-            </div>
-          </div>
-
-          <div style="padding:4px 0 16px;">
-            <div class="sib-form-block"
-              style="font-family:'Plus Jakarta Sans',sans-serif; font-size:16px;
-                     text-align:center; color:#6b7280; background-color:transparent;">
-              <p>Bilginex yazılarını ve kaynaklarını kaçırma.</p>
-            </div>
-          </div>
-
-          <div style="padding:8px 0;">
-            <div class="sib-input sib-form-block">
-              <div class="form__entry entry_block">
-                <div class="form__label-row">
-                  <div class="entry__field">
-                    <input class="input" type="text" id="EMAIL" name="EMAIL"
-                      autocomplete="off" value="" placeholder="ornek@email.com"
-                      data-required="true" required />
-                  </div>
-                </div>
-                <label class="entry__error entry__error--primary"
-                  style="font-family:'Plus Jakarta Sans',sans-serif; font-size:14px;
-                         color:#661d1d; background-color:#ffeded; border-radius:6px; padding:4px 8px;">
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <div style="padding:8px 0;">
-            <div class="sib-form-block" style="text-align:center;">
-              <button class="sib-form-block__button sib-form-block__button-with-loader"
-                style="font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; font-weight:600;
-                       color:#ffffff; background-color:#2563eb; border-width:0; border-radius:8px;
-                       padding:11px 32px; cursor:pointer;"
-                form="sib-form" type="submit">
-                <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon"
-                  viewBox="0 0 512 512" style="width:16px;height:16px;">
-                  <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874
-                    30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676
-                    C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982
-                    83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031
-                    236.832-3.14 6.148-10.75 8.461-16.728 5.01z"/>
-                </svg>
-                Abone Ol
-              </button>
-            </div>
-          </div>
-
-          <input type="text" name="email_address_check" value="" class="input--hidden" style="display:none;">
-          <input type="hidden" name="locale" value="tr">
-
-        </form>
-      </div>
+  <div style="max-width:540px; margin:0 auto; text-align:center; padding:0 20px;">
+    <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:28px; font-weight:700; color:#111827; margin-bottom:10px;">
+      Haftalık içerikler, doğrudan gelen kutuna
+    </p>
+    <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:16px; color:#6b7280; margin-bottom:24px;">
+      Bilginex yazılarını ve kaynaklarını kaçırma.
+    </p>
+    <div id="brevo-success" style="display:none; background:#e7faf0; border:1px solid #13ce66; border-radius:8px; padding:14px; font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; color:#085229; margin-bottom:16px;">
+      Teşekkürler! Onay maili gönderildi, lütfen gelen kutunu kontrol et.
+    </div>
+    <div id="brevo-error" style="display:none; background:#ffeded; border:1px solid #ff4949; border-radius:8px; padding:14px; font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; color:#661d1d; margin-bottom:16px;">
+      Bir hata oluştu. Lütfen tekrar dene.
+    </div>
+    <div id="brevo-form-area" style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+      <input
+        id="brevo-email"
+        type="email"
+        placeholder="ornek@email.com"
+        style="flex:1; min-width:200px; max-width:320px; padding:11px 16px; border:1.5px solid #d1d5db; border-radius:8px; font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; outline:none;"
+        onFocus="this.style.borderColor='#2563eb'"
+        onBlur="this.style.borderColor='#d1d5db'"
+      />
+      <button
+        onclick="brevoSubscribe()"
+        id="brevo-btn"
+        style="padding:11px 32px; background:#2563eb; color:#fff; border:none; border-radius:8px; font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; font-weight:600; cursor:pointer; white-space:nowrap;"
+        onMouseOver="this.style.background='#1d4ed8'"
+        onMouseOut="this.style.background='#2563eb'"
+      >
+        Abone Ol
+      </button>
     </div>
   </div>
 </section>
+<script>
+function brevoSubscribe() {
+  var email = document.getElementById('brevo-email').value.trim();
+  var btn = document.getElementById('brevo-btn');
+  var successEl = document.getElementById('brevo-success');
+  var errorEl = document.getElementById('brevo-error');
+  var formArea = document.getElementById('brevo-form-area');
+
+  if (!email || !email.includes('@')) {
+    errorEl.textContent = 'Geçerli bir email adresi girin.';
+    errorEl.style.display = 'block';
+    successEl.style.display = 'none';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Gönderiliyor...';
+  btn.style.background = '#93c5fd';
+  errorEl.style.display = 'none';
+
+  var formData = new FormData();
+  formData.append('EMAIL', email);
+  formData.append('locale', 'tr');
+  formData.append('email_address_check', '');
+
+  fetch('https://10a17e33.sibforms.com/serve/MUIFAO1fqBkvvx61zBLbCLR08g7aFYpVm3wBVMq3b_oxmmwLjpjWsNT6CNT7SP6GKdSc_7JyYJ_M-_vEoYp_ExETsm-Q-DLt_RhACrjnBUcVc6YPQ7yBzlTaFzg94qjU_qNJKFFrZ5XJ9eTkhCdYDLJOl_vgqLZCEtoZ1RDX-LeJDMgRdl8S6PWjBLnbVi47KWqhx0KfyBbGGVb7IQ==', {
+    method: 'POST',
+    body: formData,
+    mode: 'no-cors'
+  })
+  .then(function() {
+    formArea.style.display = 'none';
+    successEl.style.display = 'block';
+  })
+  .catch(function() {
+    errorEl.textContent = 'Bir hata oluştu. Lütfen tekrar dene.';
+    errorEl.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Abone Ol';
+    btn.style.background = '#2563eb';
+  });
+}
+
+document.getElementById('brevo-email').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') brevoSubscribe();
+});
+</script>
 
 <footer>
   <div class="footer-grid">
@@ -2265,15 +2257,6 @@ document.getElementById('wizardOverlay').addEventListener('click',function(e){if
 })();
 </script>
 
-<!-- Brevo Form Scripts -->
-<script>
-  window.REQUIRED_CODE_ERROR_MESSAGE = 'Lütfen bir ülke kodu seçin';
-  window.LOCALE = 'tr';
-  window.EMAIL_INVALID_MESSAGE = "Geçersiz email adresi. Lütfen kontrol edip tekrar dene.";
-  window.REQUIRED_ERROR_MESSAGE = "Bu alan boş bırakılamaz.";
-  window.GENERIC_INVALID_MESSAGE = "Geçersiz bilgi. Lütfen tekrar dene.";
-  var AUTOHIDE = Boolean(0);
-</script>
 <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 </body>
 </html>
