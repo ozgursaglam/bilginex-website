@@ -312,28 +312,87 @@
 </footer>
 
 <script>
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault();
   const form = document.getElementById('contactForm');
   const success = document.getElementById('formSuccess');
+  const btn = form.querySelector('.form-submit');
 
-  // Here you would normally send to your backend / CRM
-  // For now we show success state
-  form.style.display = 'none';
-  success.style.display = 'block';
+  const firstname = document.getElementById('firstname').value.trim();
+  const lastname = document.getElementById('lastname').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const company = document.getElementById('company').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const topic = document.getElementById('topic').value;
 
-  // Optional: send to a webhook or Brevo API
-  const data = {
-    firstname: document.getElementById('firstname').value,
-    lastname: document.getElementById('lastname').value,
-    email: document.getElementById('email').value,
-    company: document.getElementById('company').value,
-    phone: document.getElementById('phone').value,
-    topic: document.getElementById('topic').value,
-    source: 'landing-page-ai-kampanya'
-  };
-  console.log('Form data:', data);
-  // fetch('/api/contact', { method: 'POST', body: JSON.stringify(data) })
+  btn.textContent = 'Gönderiliyor...';
+  btn.disabled = true;
+
+  const API_KEY = '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';
+
+  try {
+    // 1. Brevo CRM'e contact ekle
+    const contactRes = await fetch('https://api.brevo.com/v3/contacts', {
+      method: 'POST',
+      headers: {
+        'accept': 'application/json',
+        'content-type': 'application/json',
+        'api-key': API_KEY
+      },
+      body: JSON.stringify({
+        email: email,
+        firstName: firstname,
+        lastName: lastname,
+        attributes: {
+          FIRSTNAME: firstname,
+          LASTNAME: lastname,
+          COMPANY: company,
+          SMS: phone
+        },
+        listIds: [3],
+        updateEnabled: true
+      })
+    });
+    const contactData = await contactRes.json();
+    console.log('Contact API response:', contactRes.status, contactData);
+
+    // 2. fethiozgursaglam@gmail.com'a bildirim maili gönder
+    const mailRes = await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: {
+        'accept': 'application/json',
+        'content-type': 'application/json',
+        'api-key': API_KEY
+      },
+      body: JSON.stringify({
+        sender: { name: 'Bilginex Landing Page', email: 'fethiozgursaglam@gmail.com' },
+        to: [{ email: 'fethiozgursaglam@gmail.com', name: 'Bilginex' }],
+        subject: '🔔 Yeni Görüşme Talebi: ' + firstname + ' ' + lastname,
+        htmlContent: `
+          <h2>Yeni Görüşme Talebi</h2>
+          <table style="border-collapse:collapse;width:100%">
+            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">Ad Soyad</td><td style="padding:8px;border:1px solid #ddd">${firstname} ${lastname}</td></tr>
+            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">E-posta</td><td style="padding:8px;border:1px solid #ddd">${email}</td></tr>
+            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">Şirket</td><td style="padding:8px;border:1px solid #ddd">${company}</td></tr>
+            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">Telefon</td><td style="padding:8px;border:1px solid #ddd">${phone || '-'}</td></tr>
+            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">Konu</td><td style="padding:8px;border:1px solid #ddd">${topic || '-'}</td></tr>
+          </table>
+        `
+      })
+    });
+    const mailData = await mailRes.json();
+    console.log('Mail API response:', mailRes.status, mailData);
+
+    // Başarı mesajı göster
+    form.style.display = 'none';
+    success.style.display = 'block';
+
+  } catch (err) {
+    btn.textContent = 'Görüşme Talep Et →';
+    btn.disabled = false;
+    alert('Bir hata oluştu, lütfen tekrar deneyin.');
+    console.error(err);
+  }
 }
 </script>
 
