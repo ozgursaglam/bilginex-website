@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ücretsiz Strateji Görüşmesi — Bilginex</title>
+  <meta name="description" content="AI ve dijital dönüşüm yolculuğunuzda nerede olduğunuzu birlikte değerlendirin. 30 dakika, taahhütsüz.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f0f2f5; --surface: #ffffff;
+      --border: rgba(15,23,60,0.09); --border2: rgba(15,23,60,0.16);
+      --text: #0e1628; --text2: #485070; --text3: #9099b5;
+      --accent: #1d4ed8; --accent2: #2563eb;
+      --font: 'Plus Jakarta Sans', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 60px;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 36px; width: auto; }
+    .nav-back { font-size: 14px; color: var(--text2); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+    .nav-back:hover { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0a0f2e 0%, #1a1060 40%, #0d2060 100%);
+      display: flex; align-items: center;
+      padding: 120px 60px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 20%, rgba(99,102,241,0.25) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 50% at 20% 80%, rgba(14,165,233,0.18) 0%, transparent 60%);
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 100%);
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 440px; gap: 80px; align-items: center; }
+
+    /* LEFT SIDE */
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 5px 16px 5px 6px;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 100px; font-size: 12px; font-weight: 500; color: #bfdbfe;
+      margin-bottom: 28px;
+    }
+    .badge-dot { width: 20px; height: 20px; background: var(--accent2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: white; }
+    .hero-title { font-size: clamp(32px, 3.5vw, 52px); font-weight: 700; line-height: 1.1; letter-spacing: -1.5px; color: #fff; margin-bottom: 20px; }
+    .hero-title .accent { color: #93c5fd; }
+    .hero-sub { font-size: 17px; font-weight: 300; color: rgba(255,255,255,0.72); line-height: 1.8; margin-bottom: 40px; max-width: 480px; }
+    .hero-sub strong { color: #fff; font-weight: 600; }
+
+    /* PROOF POINTS */
+    .proof-list { display: flex; flex-direction: column; gap: 14px; }
+    .proof-item { display: flex; align-items: flex-start; gap: 12px; }
+    .proof-check { width: 22px; height: 22px; min-width: 22px; background: rgba(37,99,235,0.25); border: 1px solid rgba(37,99,235,0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+    .proof-check svg { width: 11px; height: 11px; stroke: #93c5fd; stroke-width: 2.5; fill: none; }
+    .proof-text { font-size: 15px; color: rgba(255,255,255,0.8); line-height: 1.6; font-weight: 300; }
+    .proof-text strong { color: #fff; font-weight: 600; }
+
+    /* RIGHT SIDE - FORM CARD */
+    .form-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+    }
+    .form-card h3 { font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 6px; letter-spacing: -0.5px; }
+    .form-card p { font-size: 14px; color: var(--text2); margin-bottom: 28px; font-weight: 300; line-height: 1.6; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 11px 14px;
+      border: 1.5px solid var(--border2); border-radius: 8px;
+      font-family: var(--font); font-size: 14px; color: var(--text);
+      background: #fff; outline: none; transition: border-color 0.2s;
+      appearance: none;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent2); }
+    .form-group textarea { resize: none; height: 80px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-submit {
+      width: 100%; padding: 14px;
+      background: var(--accent2); border: none; border-radius: 8px;
+      color: #fff; font-family: var(--font); font-size: 15px; font-weight: 600;
+      cursor: pointer; transition: background 0.2s, transform 0.15s;
+      margin-top: 4px;
+      box-shadow: 0 4px 20px rgba(37,99,235,0.35);
+    }
+    .form-submit:hover { background: var(--accent); transform: translateY(-1px); }
+    .form-note { text-align: center; margin-top: 12px; font-size: 12px; color: var(--text3); }
+    .form-success { display: none; text-align: center; padding: 20px 0; }
+    .form-success .success-icon { font-size: 48px; margin-bottom: 12px; }
+    .form-success h4 { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .form-success p { font-size: 14px; color: var(--text2); line-height: 1.6; }
+
+    /* SOCIAL PROOF STRIP */
+    .proof-strip { background: #fff; border-top: 1px solid var(--border); padding: 28px 60px; }
+    .proof-strip-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; }
+    .proof-stat { text-align: center; }
+    .proof-stat-num { font-size: 28px; font-weight: 800; color: var(--accent2); letter-spacing: -1px; }
+    .proof-stat-lbl { font-size: 12px; color: var(--text3); margin-top: 2px; letter-spacing: 0.05em; }
+    .proof-divider { width: 1px; height: 40px; background: var(--border); }
+
+    /* WHAT TO EXPECT */
+    .expect { padding: 80px 60px; max-width: 1200px; margin: 0 auto; }
+    .expect h2 { font-size: 32px; font-weight: 700; color: var(--text); margin-bottom: 8px; letter-spacing: -1px; }
+    .expect > p { font-size: 16px; color: var(--text2); margin-bottom: 48px; font-weight: 300; }
+    .expect-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .expect-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 28px; }
+    .expect-num { font-size: 13px; font-weight: 700; color: var(--accent2); letter-spacing: 0.1em; margin-bottom: 12px; }
+    .expect-card h4 { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 8px; letter-spacing: -0.3px; }
+    .expect-card p { font-size: 14px; color: var(--text2); line-height: 1.7; font-weight: 300; }
+
+    /* FOOTER */
+    footer { background: #0a0f2e; padding: 28px 60px; display: flex; align-items: center; justify-content: space-between; }
+    footer p { font-size: 13px; color: rgba(255,255,255,0.35); }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+
+    @media (max-width: 900px) {
+      nav { padding: 12px 20px; }
+      .hero { padding: 100px 20px 60px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .proof-strip { padding: 20px; }
+      .proof-strip-inner { gap: 24px; }
+      .expect { padding: 48px 20px; }
+      .expect-grid { grid-template-columns: 1fr; }
+      footer { padding: 20px; flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://bilginex.com" class="nav-logo">
+    <img src="https://i.ibb.co/Jw3T5vN5/bilginex-logo-small.png" alt="Bilginex" style="height:68px;width:auto;display:block;">
+  </a>
+  <a href="https://bilginex.com" class="nav-back">
+    ← Siteye dön
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+
+    <!-- LEFT -->
+    <div>
+      <div class="hero-badge">
+        <div class="badge-dot">✦</div>
+        Ücretsiz · Taahhütsüz · 30 Dakika
+      </div>
+      <h1 class="hero-title">
+        AI dönüşümünde<br>
+        <span class="accent">%6'nın arasına</span><br>
+        girmek için<br>
+        nereden başlamalısınız?
+      </h1>
+      <p class="hero-sub">
+        Araştırmalar şunu söylüyor: Kurumların <strong>%88'i AI kullandığını</strong> iddia ediyor, ancak sadece <strong>%6'sı</strong> gerçek kurumsal etki yaratıyor.<br><br>
+        30 dakikada kurumunuzun nerede olduğunu ve ne yapması gerektiğini birlikte değerlendirelim.
+      </p>
+      <div class="proof-list">
+        <div class="proof-item">
+          <div class="proof-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+          <div class="proof-text"><strong>Mevcut durumunuzu</strong> analiz ederiz — hangi adımda olduğunuzu netleştiririz</div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+          <div class="proof-text"><strong>Öncelikli fırsatları</strong> belirleriz — hızlı kazanım sağlayacak alanlar</div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+          <div class="proof-text"><strong>Somut bir yol haritası</strong> önerisiyle görüşmeyi tamamlarız</div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+          <div class="proof-text">Satış baskısı yok — <strong>gerçek bir değerlendirme</strong> görüşmesi</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT - FORM -->
+    <div class="form-card">
+      <h3>Görüşme Talep Edin</h3>
+      <p>Formu doldurun, size en kısa sürede ulaşalım.</p>
+
+      <form id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstname">Ad *</label>
+            <input type="text" id="firstname" name="firstname" placeholder="Ahmet" required>
+          </div>
+          <div class="form-group">
+            <label for="lastname">Soyad *</label>
+            <input type="text" id="lastname" name="lastname" placeholder="Yılmaz" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Kurumsal E-posta *</label>
+          <input type="email" id="email" name="email" placeholder="ahmet@sirket.com" required>
+        </div>
+        <div class="form-group">
+          <label for="company">Şirket / Kurum *</label>
+          <input type="text" id="company" name="company" placeholder="Şirket adı" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Telefon</label>
+          <input type="tel" id="phone" name="phone" placeholder="+90 5xx xxx xx xx">
+        </div>
+        <div class="form-group">
+          <label for="topic">Ne hakkında konuşmak istersiniz?</label>
+          <select id="topic" name="topic">
+            <option value="">Konu seçin</option>
+            <option>AI Entegrasyonu</option>
+            <option>Dijital Dönüşüm</option>
+            <option>Teknoloji Eğitimi</option>
+            <option>Uzman Kaynak</option>
+            <option>Genel Değerlendirme</option>
+          </select>
+        </div>
+        <button type="submit" class="form-submit">Görüşme Talep Et →</button>
+        <p class="form-note">🔒 Bilgileriniz güvende. Asla paylaşılmaz.</p>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">✅</div>
+        <h4>Talebiniz alındı!</h4>
+        <p>En geç 1 iş günü içinde size ulaşacağız.<br>Teşekkür ederiz.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROOF STRIP -->
+<div class="proof-strip">
+  <div class="proof-strip-inner">
+    <div class="proof-stat">
+      <div class="proof-stat-num">30+</div>
+      <div class="proof-stat-lbl">Yıl Deneyim</div>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-stat">
+      <div class="proof-stat-num">350+</div>
+      <div class="proof-stat-lbl">Eğitim Programı</div>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-stat">
+      <div class="proof-stat-num">7+</div>
+      <div class="proof-stat-lbl">Teknoloji Alanı</div>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-stat">
+      <div class="proof-stat-num">%100</div>
+      <div class="proof-stat-lbl">Memnuniyet Garantisi</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT TO EXPECT -->
+<div class="expect">
+  <h2>Görüşmede neler olacak?</h2>
+  <p>30 dakikada maksimum değer. Hazırlık gerektirmez.</p>
+  <div class="expect-grid">
+    <div class="expect-card">
+      <div class="expect-num">01 — İLK 10 DAKİKA</div>
+      <h4>Mevcut durumu anlayalım</h4>
+      <p>Kurumunuzun teknoloji olgunluk seviyesini, mevcut altyapısını ve öncelikli zorluklarını dinleriz.</p>
+    </div>
+    <div class="expect-card">
+      <div class="expect-num">02 — ORTA 10 DAKİKA</div>
+      <h4>Fırsatları birlikte görelim</h4>
+      <p>Sektörünüze ve büyüklüğünüze göre en yüksek ROI sağlayacak AI ve dijital dönüşüm fırsatlarını tartışırız.</p>
+    </div>
+    <div class="expect-card">
+      <div class="expect-num">03 — SON 10 DAKİKA</div>
+      <h4>Somut bir sonraki adım</h4>
+      <p>Görüşmeyi açık bir eylem planı önerisiyle kapatırız. Devam etmek isteyip istemediğinize tamamen siz karar verirsiniz.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <a href="https://bilginex.com">Bilginex</a> — Teknoloji Dönüşüm Ortağı</p>
+  <p><a href="https://bilginex.com/gizlilik">Gizlilik Politikası</a></p>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('formSuccess');
+
+  // Here you would normally send to your backend / CRM
+  // For now we show success state
+  form.style.display = 'none';
+  success.style.display = 'block';
+
+  // Optional: send to a webhook or Brevo API
+  const data = {
+    firstname: document.getElementById('firstname').value,
+    lastname: document.getElementById('lastname').value,
+    email: document.getElementById('email').value,
+    company: document.getElementById('company').value,
+    phone: document.getElementById('phone').value,
+    topic: document.getElementById('topic').value,
+    source: 'landing-page-ai-kampanya'
+  };
+  console.log('Form data:', data);
+  // fetch('/api/contact', { method: 'POST', body: JSON.stringify(data) })
+}
+</script>
+
+</body>
+</html>
