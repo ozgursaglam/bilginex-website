@@ -209,9 +209,9 @@
       <h3>Görüşme Talep Edin</h3>
       <p>Formu doldurun, size en kısa sürede ulaşalım.</p>
 
-      <form id="contactForm" action="https://formspree.io/f/mwvjbqbk" method="POST">
+      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="iframeLoaded()"></iframe>
+      <form id="contactForm" action="https://formspree.io/f/mwvjbqbk" method="POST" target="hidden_iframe">
         <input type="hidden" name="_subject" value="🔔 Yeni Görüşme Talebi - Bilginex">
-        <input type="hidden" name="_next" value="https://bilginex.com/tesekkurler.html">
         <div class="form-row">
           <div class="form-group">
             <label for="firstname">Ad *</label>
@@ -314,7 +314,22 @@
 </footer>
 
 <script>
-// Native form submission - no JS needed
+let formSubmitted = false;
+
+function iframeLoaded() {
+  if (formSubmitted) {
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+    window.scrollTo(0, document.querySelector('.form-card').offsetTop - 100);
+  }
+}
+
+document.getElementById('contactForm').addEventListener('submit', function() {
+  formSubmitted = true;
+  const btn = document.getElementById('submitBtn');
+  btn.textContent = 'Gönderiliyor...';
+  btn.disabled = true;
+});
 </script>
 
 </body>
