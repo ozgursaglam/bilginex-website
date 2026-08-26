@@ -1609,6 +1609,7 @@ function openBasvuru(pozisyon){
   <input type="email" name="email"/>
   <input type="tel" name="telefon"/>
   <input type="url" name="cv_link"/>
+  <input type="file" name="cv_dosya"/>
   <textarea name="mesaj"></textarea>
 </form>
 
@@ -1646,14 +1647,22 @@ function openBasvuru(pozisyon){
         <input type="tel" name="telefon" placeholder="+90 5XX XXX XX XX" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;" required/>
       </div>
       <div style="margin-bottom:14px;">
-        <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">LinkedIn / CV Bağlantısı</label>
-        <input type="url" name="cv_link" placeholder="linkedin.com/in/... veya CV linki" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;" required/>
+        <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">LinkedIn Bağlantısı</label>
+        <input type="url" name="cv_link" placeholder="linkedin.com/in/kullaniciadi" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;"/>
+      </div>
+      <div style="margin-bottom:14px;">
+        <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">CV Yükle</label>
+        <label for="basvuruCvDosya" style="display:flex;align-items:center;gap:10px;width:100%;padding:11px 14px;border:1px dashed #c7cdd6;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#485070;background:#f7f8fa;cursor:pointer;">
+          <span style="background:#eef1f6;color:#2563eb;font-weight:600;font-size:13px;padding:6px 12px;border-radius:6px;flex-shrink:0;">Dosya Seç</span>
+          <span id="basvuruCvDosyaAd" style="color:#9099b5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">PDF veya Word, en fazla 5MB</span>
+        </label>
+        <input type="file" id="basvuruCvDosya" name="cv_dosya" accept=".pdf,.doc,.docx" style="display:none" onchange="document.getElementById('basvuruCvDosyaAd').textContent=this.files[0]?this.files[0].name:'PDF veya Word, en fazla 5MB';document.getElementById('basvuruCvDosyaAd').style.color=this.files[0]?'#0e1628':'#9099b5';"/>
       </div>
       <div style="margin-bottom:20px;">
         <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">Kısaca kendinizden bahsedin (opsiyonel)</label>
         <textarea name="mesaj" rows="3" placeholder="Deneyiminiz ve neden ilgilendiğiniz hakkında birkaç cümle..." style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;resize:vertical;"></textarea>
       </div>
-      <button type="button" onclick="var inputs=document.querySelectorAll('#basvuruForm input[required]');var valid=true;inputs.forEach(function(inp){if(!inp.value.trim()){inp.style.borderColor='#ef4444';inp.style.background='#fef2f2';valid=false;}else{inp.style.borderColor='#d1d5db';inp.style.background='#f7f8fa';}});if(valid){var f=document.querySelector('#basvuruForm form');var mode=f.dataset.mode||'is';var formName=(mode==='genel')?'kariyer-basvuru-genel':'kariyer-basvuru';document.getElementById('basvuruFormName').value=formName;var fd=new FormData(f);fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd).toString()}).then(function(){document.getElementById('basvuruForm').style.display='none';document.getElementById('basvuruSuccess').style.display='block';}).catch(function(){document.getElementById('basvuruForm').style.display='none';document.getElementById('basvuruSuccess').style.display='block';});}" style="width:100%;padding:14px;background:#2563eb;border:none;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:500;border-radius:10px;cursor:pointer;box-shadow:0 4px 20px rgba(37,99,235,0.25);">Başvuruyu Gönder →</button>
+      <button type="button" onclick="var inputs=document.querySelectorAll('#basvuruForm input[required]');var valid=true;inputs.forEach(function(inp){if(!inp.value.trim()){inp.style.borderColor='#ef4444';inp.style.background='#fef2f2';valid=false;}else{inp.style.borderColor='#d1d5db';inp.style.background='#f7f8fa';}});if(valid){var f=document.querySelector('#basvuruForm form');var mode=f.dataset.mode||'is';var formName=(mode==='genel')?'kariyer-basvuru-genel':'kariyer-basvuru';document.getElementById('basvuruFormName').value=formName;var fd=new FormData(f);fetch('/',{method:'POST',body:fd}).then(function(){document.getElementById('basvuruForm').style.display='none';document.getElementById('basvuruSuccess').style.display='block';}).catch(function(){document.getElementById('basvuruForm').style.display='none';document.getElementById('basvuruSuccess').style.display='block';});}" style="width:100%;padding:14px;background:#2563eb;border:none;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:500;border-radius:10px;cursor:pointer;box-shadow:0 4px 20px rgba(37,99,235,0.25);">Başvuruyu Gönder →</button>
       <div style="text-align:center;font-size:12px;color:#9099b5;margin-top:12px;">Ya da doğrudan <a href="mailto:bilgi@bilginex.com" style="color:#2563eb;">bilgi@bilginex.com</a> adresine yazabilirsiniz</div>
       </form>
     </div>
