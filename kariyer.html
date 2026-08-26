@@ -1592,10 +1592,25 @@ document.getElementById('brevo-email-kariyer').addEventListener('keypress',funct
 <script>
 function openBasvuru(pozisyon){
   document.getElementById('basvuruPozisyon').value = pozisyon;
+  document.querySelector('#basvuruForm form').dataset.mode = (pozisyon === 'Açık Başvuru') ? 'genel' : 'is';
   document.getElementById('modalBasvuru').classList.add('open');
   document.body.style.overflow='hidden';
 }
 </script>
+
+<!-- Netlify'nin bu formu derleme sırasında tanıyabilmesi için gizli kopya (asla görüntülenmez) -->
+<form name="kariyer-basvuru-genel" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="kariyer-basvuru-genel"/>
+  <input name="bot-field"/>
+  <input type="hidden" name="subject" value="Açık Başvuru"/>
+  <input type="text" name="pozisyon"/>
+  <input type="text" name="ad"/>
+  <input type="text" name="soyad"/>
+  <input type="email" name="email"/>
+  <input type="tel" name="telefon"/>
+  <input type="url" name="cv_link"/>
+  <textarea name="mesaj"></textarea>
+</form>
 
 <!-- Kariyer Başvuru Modal -->
 <div class="modal-overlay" id="modalBasvuru" style="position:fixed;inset:0;background:rgba(10,15,40,0.75);backdrop-filter:blur(6px);z-index:1000;display:none;align-items:center;justify-content:center;">
@@ -1603,7 +1618,7 @@ function openBasvuru(pozisyon){
     <button onclick="document.getElementById('modalBasvuru').classList.remove('open');document.body.style.overflow='';" style="position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;border:1px solid #e5e7eb;background:transparent;cursor:pointer;font-size:16px;color:#9099b5;display:flex;align-items:center;justify-content:center;">✕</button>
     <div id="basvuruForm">
       <form name="kariyer-basvuru" method="POST" action="/tesekkurler" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="kariyer-basvuru"/>
+      <input type="hidden" name="form-name" id="basvuruFormName" value="kariyer-basvuru"/>
       <input name="bot-field" style="display:none" aria-hidden="true"/>
       <input type="hidden" name="subject" id="basvuruSubject" value="Yeni İş Başvurusu"/>
       <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:700;color:#0e1628;margin-bottom:6px;">İş Başvurusu</div>
@@ -1638,7 +1653,7 @@ function openBasvuru(pozisyon){
         <label style="display:block;font-size:13px;font-weight:500;color:#0e1628;margin-bottom:6px;">Kısaca kendinizden bahsedin (opsiyonel)</label>
         <textarea name="mesaj" rows="3" placeholder="Deneyiminiz ve neden ilgilendiğiniz hakkında birkaç cümle..." style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#0e1628;background:#f7f8fa;outline:none;resize:vertical;"></textarea>
       </div>
-      <button type="button" onclick="var inputs=document.querySelectorAll('#basvuruForm input[required]');var valid=true;inputs.forEach(function(inp){if(!inp.value.trim()){inp.style.borderColor='#ef4444';inp.style.background='#fef2f2';valid=false;}else{inp.style.borderColor='#d1d5db';inp.style.background='#f7f8fa';}});if(valid){var ad=document.querySelector('#basvuruForm input[name=ad]').value;var soyad=document.querySelector('#basvuruForm input[name=soyad]').value;var poz=document.getElementById('basvuruPozisyon').value;document.getElementById('basvuruSubject').value='Yeni Başvuru: '+poz+' - '+ad+' '+soyad;var f=document.querySelector('#basvuruForm form');var fd=new FormData(f);fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd).toString()}).then(function(){document.getElementById('basvuruForm').style.display='none';document.getElementById('basvuruSuccess').style.display='block';}).catch(function(){document.getElementById('basvuruForm').style.display='none';document.getElementById('basvuruSuccess').style.display='block';});}" style="width:100%;padding:14px;background:#2563eb;border:none;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:500;border-radius:10px;cursor:pointer;box-shadow:0 4px 20px rgba(37,99,235,0.25);">Başvuruyu Gönder →</button>
+      <button type="button" onclick="var inputs=document.querySelectorAll('#basvuruForm input[required]');var valid=true;inputs.forEach(function(inp){if(!inp.value.trim()){inp.style.borderColor='#ef4444';inp.style.background='#fef2f2';valid=false;}else{inp.style.borderColor='#d1d5db';inp.style.background='#f7f8fa';}});if(valid){var f=document.querySelector('#basvuruForm form');var mode=f.dataset.mode||'is';var formName=(mode==='genel')?'kariyer-basvuru-genel':'kariyer-basvuru';document.getElementById('basvuruFormName').value=formName;var fd=new FormData(f);fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd).toString()}).then(function(){document.getElementById('basvuruForm').style.display='none';document.getElementById('basvuruSuccess').style.display='block';}).catch(function(){document.getElementById('basvuruForm').style.display='none';document.getElementById('basvuruSuccess').style.display='block';});}" style="width:100%;padding:14px;background:#2563eb;border:none;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:500;border-radius:10px;cursor:pointer;box-shadow:0 4px 20px rgba(37,99,235,0.25);">Başvuruyu Gönder →</button>
       <div style="text-align:center;font-size:12px;color:#9099b5;margin-top:12px;">Ya da doğrudan <a href="mailto:bilgi@bilginex.com" style="color:#2563eb;">bilgi@bilginex.com</a> adresine yazabilirsiniz</div>
       </form>
     </div>
