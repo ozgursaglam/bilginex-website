@@ -1,0 +1,197 @@
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #f7f8fa;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 60px 48px;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 48px rgba(15,23,60,0.10);
+    }
+    .icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+    }
+    .icon svg { width: 40px; height: 40px; }
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #0e1628;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    p {
+      font-size: 16px;
+      color: #485070;
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 36px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      background: #2563eb;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(37,99,235,0.25);
+    }
+    .btn:hover { background: #1d4ed8; transform: translateY(-2px); }
+    .note {
+      margin-top: 24px;
+      font-size: 13px;
+      color: #9099b5;
+      font-weight: 300;
+    }
+  
+  /* ═══════════════════════════════════════════
+     RESPONSIVE — MOBİL (max-width: 768px)
+  ═══════════════════════════════════════════ */
+  @media (max-width: 768px) {
+
+    /* NAV */
+    nav { padding: 14px 20px; position: relative; }
+    .nav-links { display: none; }
+    .nav-cta .btn-ghost { display: none; }
+    .nav-cta .btn-primary { font-size: 12px; padding: 8px 14px; }
+    .lang-switcher { display: none; }
+
+    /* Hamburger */
+    .hamburger {
+      display: flex; flex-direction: column; justify-content: center;
+      gap: 5px; cursor: pointer; padding: 4px; margin-left: auto;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--text); border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      background: #fff; border-top: 1px solid var(--border);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12); z-index: 200;
+      padding: 16px 20px; flex-direction: column; gap: 4px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      display: block; padding: 12px 8px; font-size: 15px;
+      color: var(--text); text-decoration: none; border-radius: 6px;
+      font-weight: 500;
+    }
+    .mobile-menu a:hover { background: var(--bg2); }
+    .mobile-menu .mm-section { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text2); padding: 16px 8px 6px; }
+
+    /* HERO */
+    .hero { padding: 100px 24px 60px; min-height: auto; }
+    .hero-title { font-size: clamp(28px, 8vw, 44px); }
+    .hero-sub { font-size: 15px; }
+    .hero-cta { flex-direction: column; align-items: center; gap: 12px; }
+    .hero-cta a, .hero-cta button { width: 100%; max-width: 280px; text-align: center; }
+
+    /* STATS düzeltme */
+    .stats-wrap { padding: 0 12px !important; margin-top: -20px !important; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr) !important; border-radius: 12px !important; width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; }
+    .stat-item { padding: 18px 14px !important; border-right: none !important; border-bottom: 1px solid var(--border); }
+    .stat-item:nth-child(1), .stat-item:nth-child(2) { border-bottom: 1px solid var(--border); }
+    .stat-item:nth-child(3), .stat-item:nth-child(4) { border-bottom: none; }
+    .stat-number { font-size: 30px !important; letter-spacing: -1px; }
+    .stat-label { font-size: 11px; }
+
+    /* WHY bölümü — tek sütuna al */
+    .why { grid-template-columns: 1fr !important; padding: 48px 20px !important; gap: 32px !important; }
+    .why-visual { display: none !important; }
+    .why-grid { grid-template-columns: 1fr !important; }
+    .metrics-card { width: 100%; max-width: 100%; margin-top: 0; }
+
+    /* AKADEMİ — tek sütuna çevir */
+    .akademi { padding: 48px 20px !important; }
+    .akademi-content { grid-template-columns: 1fr !important; gap: 32px !important; }
+    .course-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+    .academy-grid { grid-template-columns: 1fr !important; gap: 20px; }
+    .academy-courses { display: flex !important; flex-direction: column; gap: 12px; overflow: visible; }
+    .course-card { margin-right: 0 !important; width: 100% !important; }
+
+    /* HİZMET kartları tam genişlik */
+    .service-card { min-width: 0 !important; width: 100%; }
+    .services-grid { grid-template-columns: 1fr !important; }
+
+    /* GENEL taşma engeli */
+    body { overflow-x: hidden; }
+    section, .section, .section-alt, .section-dark { overflow-x: hidden; }
+
+    .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 20px 16px; }
+    .stat-num { font-size: 28px; }
+
+    /* SECTION padding */
+    .section { padding: 48px 20px; }
+    .section-alt { padding: 48px 20px; }
+    .section-dark { padding: 48px 20px; }
+
+    /* HİZMETLER grid */
+    .services-grid { grid-template-columns: 1fr; gap: 16px; }
+    .service-card { padding: 24px 20px; }
+
+    /* NEDEN BİLGİNEX */
+    .why-grid { grid-template-columns: 1fr; gap: 32px; }
+    .why-items { gap: 12px; }
+    .metrics-card { padding: 20px; }
+
+    /* AKADEMİ */
+    .academy-grid { grid-template-columns: 1fr; gap: 24px; }
+    .academy-courses { display: none; }
+
+    /* REFERANSLAR */
+    .testimonials-grid { grid-template-columns: 1fr; gap: 16px; }
+    .test-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+    .testimonials { padding: 48px 20px !important; }
+
+    /* PARTNER LOGO */
+    .partner-logos { gap: 16px; flex-wrap: wrap; justify-content: center; }
+    .partner-logos span { font-size: 14px; }
+
+    /* CTA */
+    .cta-section { padding: 48px 24px; }
+    .cta-section h2 { font-size: clamp(24px, 6vw, 36px); }
+    .cta-section .hero-cta { flex-direction: column; align-items: center; }
+    .cta-stats { grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .cta-stats .stat-num { font-size: 26px; }
+
+    /* FOOTER */
+    footer { padding: 40px 20px 28px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; margin-bottom: 32px; }
+    .footer-col h4 { margin-bottom: 12px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .footer-links { gap: 16px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-stats { grid-template-columns: 1fr; }
+    .cta-stats { grid-template-columns: 1fr; }
+  }
+
