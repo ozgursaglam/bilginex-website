@@ -72,6 +72,26 @@
       .article-body { padding: 40px 20px; }
       footer { padding: 24px 20px; }
     }
+  
+.faq-section{background:var(--bg2);padding:60px;border-top:1px solid var(--border);}
+.faq-ic{max-width:820px;margin:0 auto;}
+.faq-baslik{font-size:28px;font-weight:800;color:var(--text);margin-bottom:24px;}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:14px;margin-bottom:12px;overflow:hidden;}
+.faq-item summary{padding:18px 22px;font-weight:700;color:var(--text);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:'+';font-size:22px;color:var(--accent2);font-weight:400;transition:transform .2s;flex-shrink:0;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item p{padding:0 22px 20px;color:var(--text2);line-height:1.7;margin:0;}
+@media(max-width:768px){.faq-section{padding:40px 20px;}.faq-baslik{font-size:22px;}}
+</style>
+<style>
+    .bilginex-newsletter-section {
+      background: linear-gradient(135deg, rgba(37,99,235,0.05) 0%, rgba(108,111,224,0.07) 100%);
+      border-top: 1px solid rgba(37,99,235,0.15);
+      border-bottom: 1px solid rgba(37,99,235,0.15);
+      padding: 4rem 1.5rem; margin-bottom: 2rem;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -211,6 +231,112 @@
 
 </div>
 
+
+<div class="faq-section">
+  <div class="faq-ic">
+    <h2 class="faq-baslik">Sıkça Sorulan Sorular</h2>
+    <details class="faq-item">
+      <summary>Vibe coding nedir?</summary>
+      <p>Vibe coding, yapay zeka araçlarının yardımıyla hızlı ve sezgisel şekilde kod üretme yaklaşımını ifade ediyor — geliştirici, detaylı kod yazmak yerine AI'a yönlendirme (prompt) vererek çalışan yazılım ortaya çıkarıyor.</p>
+    </details>
+    <details class="faq-item">
+      <summary>AI tarafından üretilen kod güvenli kabul edilebilir mi?</summary>
+      <p>Hayır. Yazımızda vurguladığımız gibi, 'çalışıyor' olması güvenli olduğu anlamına gelmiyor — AI üretimi kodun güvenlik açısından ayrıca gözden geçirilmesi gerekiyor.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Vibe coding ile geliştirilen projelerde KVKK uyumu nasıl sağlanır?</summary>
+      <p>KVKK uyumu, kodlama sürecinin bir parçası olarak en baştan planlanmalı; API anahtarlarının koda gömülmemesi ve gereksiz veri toplanmaması bu sürecin kritik adımlarından.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Üçüncü taraf kütüphaneler vibe coding'de neden risk oluşturuyor?</summary>
+      <p>AI araçları çoğu zaman güvenlik açısından denetlenmemiş kütüphaneleri önerebiliyor; bu kütüphaneler görünmeyen bir güvenlik riski alanı oluşturuyor.</p>
+    </details>
+  </div>
+</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Vibe coding nedir?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vibe coding, yapay zeka araçlarının yardımıyla hızlı ve sezgisel şekilde kod üretme yaklaşımını ifade ediyor — geliştirici, detaylı kod yazmak yerine AI'a yönlendirme (prompt) vererek çalışan yazılım ortaya çıkarıyor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "AI tarafından üretilen kod güvenli kabul edilebilir mi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hayır. Yazımızda vurguladığımız gibi, 'çalışıyor' olması güvenli olduğu anlamına gelmiyor — AI üretimi kodun güvenlik açısından ayrıca gözden geçirilmesi gerekiyor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vibe coding ile geliştirilen projelerde KVKK uyumu nasıl sağlanır?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "KVKK uyumu, kodlama sürecinin bir parçası olarak en baştan planlanmalı; API anahtarlarının koda gömülmemesi ve gereksiz veri toplanmaması bu sürecin kritik adımlarından."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Üçüncü taraf kütüphaneler vibe coding'de neden risk oluşturuyor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI araçları çoğu zaman güvenlik açısından denetlenmemiş kütüphaneleri önerebiliyor; bu kütüphaneler görünmeyen bir güvenlik riski alanı oluşturuyor."
+      }
+    }
+  ]
+}
+</script>
+<!-- Brevo Newsletter Bölümü -->
+<section class="bilginex-newsletter-section">
+  <div style="max-width:540px; margin:0 auto; text-align:center; padding:0 20px;">
+    <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:22px; font-weight:700; color:#111827; margin-bottom:10px; white-space:nowrap;">
+      Haftalık içerikler, doğrudan gelen kutuna
+    </p>
+    <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:16px; color:#6b7280; margin-bottom:24px;">
+      Bilginex yazılarını ve kaynaklarını kaçırma.
+    </p>
+    <div id="brevo-success-blog_vibe_coding_guvenlik_kvkk" style="display:none; background:#e7faf0; border:1px solid #13ce66; border-radius:8px; padding:14px; font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; color:#085229; margin-bottom:16px;">
+      Teşekkürler! Onay maili gönderildi, lütfen gelen kutunu kontrol et.
+    </div>
+    <div id="brevo-error-blog_vibe_coding_guvenlik_kvkk" style="display:none; background:#ffeded; border:1px solid #ff4949; border-radius:8px; padding:14px; font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; color:#661d1d; margin-bottom:16px;">
+      Bir hata oluştu. Lütfen tekrar dene.
+    </div>
+    <div id="brevo-form-blog_vibe_coding_guvenlik_kvkk" style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+      <input id="brevo-email-blog_vibe_coding_guvenlik_kvkk" type="email" placeholder="ornek@email.com"
+        style="flex:1; min-width:200px; max-width:320px; padding:11px 16px; border:1.5px solid #d1d5db; border-radius:8px; font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; outline:none;"
+        onfocus="this.style.borderColor='#2563eb'" onblur="this.style.borderColor='#d1d5db'"/>
+      <button onclick="brevoSubscribe_blog_vibe_coding_guvenlik_kvkk()" id="brevo-btn-blog_vibe_coding_guvenlik_kvkk"
+        style="padding:11px 32px; background:#2563eb; color:#fff; border:none; border-radius:8px; font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; font-weight:600; cursor:pointer; white-space:nowrap;"
+        onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">
+        Abone Ol
+      </button>
+    </div>
+  </div>
+</section>
+<script>
+function brevoSubscribe_blog_vibe_coding_guvenlik_kvkk() {
+  var email = document.getElementById('brevo-email-blog_vibe_coding_guvenlik_kvkk').value.trim();
+  var btn = document.getElementById('brevo-btn-blog_vibe_coding_guvenlik_kvkk');
+  var successEl = document.getElementById('brevo-success-blog_vibe_coding_guvenlik_kvkk');
+  var errorEl = document.getElementById('brevo-error-blog_vibe_coding_guvenlik_kvkk');
+  var formArea = document.getElementById('brevo-form-blog_vibe_coding_guvenlik_kvkk');
+  if (!email || !email.includes('@')) { errorEl.textContent='Geçerli bir email adresi girin.'; errorEl.style.display='block'; return; }
+  btn.disabled=true; btn.textContent='Gönderiliyor...'; btn.style.background='#93c5fd'; errorEl.style.display='none';
+  var fd=new FormData(); fd.append('EMAIL',email); fd.append('locale','tr'); fd.append('email_address_check','');
+  fetch('https://10a17e33.sibforms.com/serve/MUIFAO1fqBkvvx61zBLbCLR08g7aFYpVm3wBVMq3b_oxmmwLjpjWsNT6CNT7SP6GKdSc_7JyYJ_M-_vEoYp_ExETsm-Q-DLt_RhACrjnBUcVc6YPQ7yBzlTaFzg94qjU_qNJKFFrZ5XJ9eTkhCdYDLJOl_vgqLZCEtoZ1RDX-LeJDMgRdl8S6PWjBLnbVi47KWqhx0KfyBbGGVb7IQ==',
+    {method:'POST',body:fd,mode:'no-cors'})
+  .then(function(){formArea.style.display='none';successEl.style.display='block';})
+  .catch(function(){errorEl.textContent='Bir hata oluştu.';errorEl.style.display='block';btn.disabled=false;btn.textContent='Abone Ol';btn.style.background='#2563eb';});
+}
+document.getElementById('brevo-email-blog_vibe_coding_guvenlik_kvkk').addEventListener('keypress',function(e){if(e.key==='Enter')brevoSubscribe_blog_vibe_coding_guvenlik_kvkk();});
+</script>
 <footer>
 
   <p>© 2026 Bilginex Tüm hakları saklıdır.</p>

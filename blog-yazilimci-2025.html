@@ -107,6 +107,17 @@ footer{background:#0d1117;padding:64px 60px 40px;}
   footer{padding:40px 20px 28px;}
   .footer-grid{grid-template-columns:1fr;gap:32px;}
 }
+
+.faq-section{background:var(--bg2);padding:60px;border-top:1px solid var(--border);}
+.faq-ic{max-width:820px;margin:0 auto;}
+.faq-baslik{font-size:28px;font-weight:800;color:var(--text);margin-bottom:24px;}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:14px;margin-bottom:12px;overflow:hidden;}
+.faq-item summary{padding:18px 22px;font-weight:700;color:var(--text);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:'+';font-size:22px;color:var(--accent2);font-weight:400;transition:transform .2s;flex-shrink:0;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item p{padding:0 22px 20px;color:var(--text2);line-height:1.7;margin:0;}
+@media(max-width:768px){.faq-section{padding:40px 20px;}.faq-baslik{font-size:22px;}}
 </style>
   <style>
     .bilginex-newsletter-section {
@@ -287,6 +298,68 @@ footer{background:#0d1117;padding:64px 60px 40px;}
   </div>
 </div>
 
+
+<div class="faq-section">
+  <div class="faq-ic">
+    <h2 class="faq-baslik">Sıkça Sorulan Sorular</h2>
+    <details class="faq-item">
+      <summary>2025'te hangi teknolojiler yazılımcılar için en çok talep görüyor?</summary>
+      <p>Yazımızda güncel talep gören teknolojileri ve bunların öğrenme önceliğini ele alıyoruz.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Yeni bir yazılımcı için önerilen öğrenme yol haritası nedir?</summary>
+      <p>Yazıdaki öğrenme yol haritası, temel programlama becerilerinden başlayıp güncel teknolojilere doğru ilerleyen kademeli bir yaklaşım sunuyor.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Yazılımcılar AI ile çalışmayı nasıl öğrenmeli?</summary>
+      <p>AI destekli geliştirme araçlarını etkili kullanmak, günümüzde temel bir yazılımcı becerisi haline geldi; yazımızda bu konudaki önerilerimizi paylaşıyoruz.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Türkiye'de yazılımcı iş piyasası nasıl?</summary>
+      <p>Yazımızda Türkiye'deki güncel yazılımcı istihdam eğilimlerini ve öne çıkan sektörleri ele alıyoruz.</p>
+    </details>
+  </div>
+</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "2025'te hangi teknolojiler yazılımcılar için en çok talep görüyor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yazımızda güncel talep gören teknolojileri ve bunların öğrenme önceliğini ele alıyoruz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Yeni bir yazılımcı için önerilen öğrenme yol haritası nedir?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yazıdaki öğrenme yol haritası, temel programlama becerilerinden başlayıp güncel teknolojilere doğru ilerleyen kademeli bir yaklaşım sunuyor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Yazılımcılar AI ile çalışmayı nasıl öğrenmeli?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI destekli geliştirme araçlarını etkili kullanmak, günümüzde temel bir yazılımcı becerisi haline geldi; yazımızda bu konudaki önerilerimizi paylaşıyoruz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Türkiye'de yazılımcı iş piyasası nasıl?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yazımızda Türkiye'deki güncel yazılımcı istihdam eğilimlerini ve öne çıkan sektörleri ele alıyoruz."
+      }
+    }
+  ]
+}
+</script>
 <!-- Brevo Newsletter Bölümü -->
 <section class="bilginex-newsletter-section">
   <div style="max-width:540px; margin:0 auto; text-align:center; padding:0 20px;">

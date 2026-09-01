@@ -107,6 +107,17 @@ footer{background:#0d1117;padding:64px 60px 40px;}
   footer{padding:40px 20px 28px;}
   .footer-grid{grid-template-columns:1fr;gap:32px;}
 }
+
+.faq-section{background:var(--bg2);padding:60px;border-top:1px solid var(--border);}
+.faq-ic{max-width:820px;margin:0 auto;}
+.faq-baslik{font-size:28px;font-weight:800;color:var(--text);margin-bottom:24px;}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:14px;margin-bottom:12px;overflow:hidden;}
+.faq-item summary{padding:18px 22px;font-weight:700;color:var(--text);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:'+';font-size:22px;color:var(--accent2);font-weight:400;transition:transform .2s;flex-shrink:0;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item p{padding:0 22px 20px;color:var(--text2);line-height:1.7;margin:0;}
+@media(max-width:768px){.faq-section{padding:40px 20px;}.faq-baslik{font-size:22px;}}
 </style>
   <style>
     .bilginex-newsletter-section {
@@ -293,6 +304,56 @@ IAM: Kullanılmayan hesaplar ve roller temizlendi mi?</p>
   </div>
 </div>
 
+
+<div class="faq-section">
+  <div class="faq-ic">
+    <h2 class="faq-baslik">Sıkça Sorulan Sorular</h2>
+    <details class="faq-item">
+      <summary>Bulut ortamlarında en sık karşılaşılan güvenlik yapılandırma hataları neler?</summary>
+      <p>Yazımızda AWS ve Azure ortamlarında en kritik 10 yapılandırma hatasını ele alıyoruz — aşırı geniş erişim izinleri, açık bırakılan depolama alanları ve eksik günlükleme (logging) bunların başında geliyor.</p>
+    </details>
+    <details class="faq-item">
+      <summary>AWS ve Azure güvenlik yapılandırmam ne kadar sağlam, nasıl kontrol edebilirim?</summary>
+      <p>Yazıdaki hızlı kontrol listesi, en kritik on hata üzerinden ortamınızı hızlıca gözden geçirmenizi sağlıyor; detaylı bir denetim için Bilginex'in bulut güvenlik danışmanlığından da faydalanabilirsiniz.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Bulut güvenliği tek seferlik bir kurulum mu, sürekli bir süreç mi?</summary>
+      <p>Sürekli bir süreç. Bulut ortamları sık değiştiği için yapılandırmaların düzenli aralıklarla yeniden gözden geçirilmesi gerekiyor.</p>
+    </details>
+  </div>
+</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Bulut ortamlarında en sık karşılaşılan güvenlik yapılandırma hataları neler?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yazımızda AWS ve Azure ortamlarında en kritik 10 yapılandırma hatasını ele alıyoruz — aşırı geniş erişim izinleri, açık bırakılan depolama alanları ve eksik günlükleme (logging) bunların başında geliyor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "AWS ve Azure güvenlik yapılandırmam ne kadar sağlam, nasıl kontrol edebilirim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yazıdaki hızlı kontrol listesi, en kritik on hata üzerinden ortamınızı hızlıca gözden geçirmenizi sağlıyor; detaylı bir denetim için Bilginex'in bulut güvenlik danışmanlığından da faydalanabilirsiniz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bulut güvenliği tek seferlik bir kurulum mu, sürekli bir süreç mi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sürekli bir süreç. Bulut ortamları sık değiştiği için yapılandırmaların düzenli aralıklarla yeniden gözden geçirilmesi gerekiyor."
+      }
+    }
+  ]
+}
+</script>
 <!-- Brevo Newsletter Bölümü -->
 <section class="bilginex-newsletter-section">
   <div style="max-width:540px; margin:0 auto; text-align:center; padding:0 20px;">
