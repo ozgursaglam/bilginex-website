@@ -1324,6 +1324,11 @@ to{opacity:1;transform:translateY(0) scale(1);}}
   <a href="uzman-kadro.html">Uzman Kaynak Çözümleri</a>
   <span class="mm-section">Akademi</span>
   <a href="akademi.html">Tüm Kurslar</a>
+  <span class="mm-section">Kategoriler</span>
+  <a href="akademi.html" onclick="sessionStorage.setItem('filter','AI & Yapay Zeka')">Yapay Zeka</a>
+  <a href="akademi.html" onclick="sessionStorage.setItem('filter','Yazılım Hizmetleri')">Yazılım</a>
+  <a href="akademi.html" onclick="sessionStorage.setItem('filter','Veri ve İş Yönetimi Çözümleri')">Veri</a>
+  <a href="akademi.html" onclick="sessionStorage.setItem('filter','Teknoloji Servisleri')">Teknoloji Servisleri</a>
   <span class="mm-section">Çözümler</span>
   <a href="cozumler.html">Sektörel Çözümler</a>
   <span class="mm-section">Şirket</span>
@@ -1524,9 +1529,12 @@ to{opacity:1;transform:translateY(0) scale(1);}}
 <div class="map-section">
   <div class="map-card">
     <div class="map-header">
-      <div>
-        <div class="map-title">📍 Bizi Haritada Bulun</div>
-        <div class="map-address">1071 Ankara, Kızılırmak Mah. 1443 Cd. No: 25B/8 Çankaya/Ankara 06530</div>
+      <div style="display:flex; align-items:center; gap:16px;">
+        <img src="https://images.unsplash.com/photo-1778961419928-2968ddd57c05?fm=jpg&q=60&w=400&auto=format&fit=crop" alt="Bilginex ofis binası" width="72" height="72" style="width:72px;height:72px;border-radius:12px;object-fit:cover;flex-shrink:0;" loading="lazy">
+        <div>
+          <div class="map-title">📍 Bizi Haritada Bulun</div>
+          <div class="map-address">1071 Ankara, Kızılırmak Mah. 1443 Cd. No: 25B/8 Çankaya/Ankara 06530</div>
+        </div>
       </div>
       <a href="https://www.google.com/maps/search/?api=1&query=39.9101,32.8114" target="_blank" class="map-link">
         Google Maps'te Aç ↗
@@ -1658,15 +1666,6 @@ function handleContactSubmit(e) {
   }).catch(function() {
     alert('Bir hata oluştu, lütfen tekrar deneyin.');
   });
-} else {
-      el.classList.remove('error');
-    }
-  });
-
-  if (valid) {
-    document.getElementById('contactForm').style.display = 'none';
-    document.getElementById('successMsg').style.display = 'block';
-  }
 }
 
 // Error temizle

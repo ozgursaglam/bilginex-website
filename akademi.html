@@ -1408,6 +1408,11 @@ to{opacity:1;transform:translateY(0) scale(1);}}
   <a href="uzman-kadro.html">Uzman Kaynak Çözümleri</a>
   <span class="mm-section">Akademi</span>
   <a href="akademi.html">Tüm Kurslar</a>
+  <span class="mm-section">Kategoriler</span>
+  <a href="akademi.html" onclick="sessionStorage.setItem('filter','AI & Yapay Zeka')">Yapay Zeka</a>
+  <a href="akademi.html" onclick="sessionStorage.setItem('filter','Yazılım Hizmetleri')">Yazılım</a>
+  <a href="akademi.html" onclick="sessionStorage.setItem('filter','Veri ve İş Yönetimi Çözümleri')">Veri</a>
+  <a href="akademi.html" onclick="sessionStorage.setItem('filter','Teknoloji Servisleri')">Teknoloji Servisleri</a>
   <span class="mm-section">Çözümler</span>
   <a href="cozumler.html">Sektörel Çözümler</a>
   <span class="mm-section">Şirket</span>
@@ -1463,7 +1468,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
       <span class="filter-row-label">Kategori</span>
       <div class="filter-chips">
         <button class="filter-btn active" onclick="setFilter('all', this)">Tümü <span class="fbadge">356 Eğitim</span></button>
-        <button class="filter-btn" onclick="setFilter('AI & Yapay Zeka', this)">AI & Yapay Zeka <span class="fbadge">33 Eğitim</span></button>
+        <button class="filter-btn" onclick="setFilter('AI & Yapay Zeka', this)">AI & Yapay Zeka <span class="fbadge">28 Eğitim</span></button>
         <button class="filter-btn" onclick="setFilter('Yazılım Hizmetleri', this)">Yazılım <span class="fbadge">117 Eğitim</span></button>
         <button class="filter-btn" onclick="setFilter('Veri ve İş Yönetimi Çözümleri', this)">Veri <span class="fbadge">148 Eğitim</span></button>
         <button class="filter-btn" onclick="setFilter('Teknoloji Servisleri', this)">Teknoloji Servisleri <span class="fbadge">88 Eğitim</span></button>
@@ -1671,7 +1676,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">Functional Programming with Java 8</div>
           <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-mid">Orta</span></div>
         </div>
-        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=yh-yg-011'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-011'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
           <div class="course-tech">Yazılım Geliştirme</div>
           <div class="course-title">Hibernate Training</div>
           <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-mid">Orta</span></div>
@@ -1751,7 +1756,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">SOA with Java</div>
           <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
         </div>
-        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=yh-yg-027'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
+        <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-027'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Orta" data-tech="Yazılım Geliştirme">
           <div class="course-tech">Yazılım Geliştirme</div>
           <div class="course-title">Spring Core Framework Training</div>
           <div class="course-meta"><span class="course-duration">4 Gün</span><span class="course-level level-mid">Orta</span></div>
@@ -1861,7 +1866,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">React Native Eğitimi</div>
           <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
         </div>
-        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=yh-yg-049'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="İleri" data-tech="Yazılım Geliştirme">
+        <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-049'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="İleri" data-tech="Yazılım Geliştirme">
           <div class="course-tech">Yazılım Geliştirme</div>
           <div class="course-title">UiPath - Robotic Process Automation Development (Foundation, Orchestrator, Advanced Training)</div>
           <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-adv">İleri</span></div>
@@ -1881,7 +1886,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">Azure Cloud Services</div>
           <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-mid">Orta</span></div>
         </div>
-        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=yh-yg-053'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="İleri" data-tech="Yazılım Geliştirme">
+        <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-053'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="İleri" data-tech="Yazılım Geliştirme">
           <div class="course-tech">Yazılım Geliştirme</div>
           <div class="course-title">High Availability for Web Applications (Web Uygulamaları için Yüksek Erişilebilirlik)</div>
           <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-adv">İleri</span></div>
@@ -1961,7 +1966,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">Integration Eğitimi ASP.NET Identity Development Eğitimi</div>
           <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
         </div>
-        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=yh-yg-069'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Başlangıç" data-tech="Yazılım Geliştirme">
+        <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-069'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="Başlangıç" data-tech="Yazılım Geliştirme">
           <div class="course-tech">Yazılım Geliştirme</div>
           <div class="course-title">Blockchain Eğitimi (Ethereum ve Bitcoin Geliştirme) Temel Seviye</div>
           <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
@@ -1976,7 +1981,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">Docker ve RabbitMQ ile Spring Boot Rest Servisi Geliştirme</div>
           <div class="course-meta"><span class="course-duration">4 Gün</span><span class="course-level level-mid">Orta</span></div>
         </div>
-        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=yh-yg-072'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="İleri" data-tech="Yazılım Geliştirme">
+        <div class="course-card" onclick="location.href='egitim-detay.html?id=yh-yg-072'" style="cursor:pointer;" data-cat="Yazılım Hizmetleri" data-level="İleri" data-tech="Yazılım Geliştirme">
           <div class="course-tech">Yazılım Geliştirme</div>
           <div class="course-title">Domain Driven Design</div>
           <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-adv">İleri</span></div>
@@ -2683,7 +2688,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
         <span class="tech-count">41 eğitim</span>
       </div>
       <div class="course-grid">
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-vyc-001'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="İleri" data-tech="Veri Yönetimi Çözümleri">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=viy-vyc-001'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="İleri" data-tech="Veri Yönetimi Çözümleri">
           <div class="course-tech">Veri Yönetimi Çözümleri</div>
           <div class="course-title">DP-100T01-A: Designing and Implementing a Data Science Solution on Azure</div>
           <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-adv">İleri</span></div>
@@ -2778,7 +2783,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">Advanced SQL Eğitim</div>
           <div class="course-meta"><span class="course-duration">3 Gün</span><span class="course-level level-adv">İleri</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-vyc-020'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Başlangıç" data-tech="Veri Yönetimi Çözümleri">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=viy-vyc-020'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Başlangıç" data-tech="Veri Yönetimi Çözümleri">
           <div class="course-tech">Veri Yönetimi Çözümleri</div>
           <div class="course-title">DP-090T00: Microsoft Azure Databricks ile Makine Öğrenimi Çözümü Uygulama</div>
           <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
@@ -2833,7 +2838,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">Verinin Çağı Semineri</div>
           <div class="course-meta"><span class="course-duration">1 Gün</span><span class="course-level level-start">Başlangıç</span></div>
         </div>
-        <div class="course-card" onclick="location.href='egitim-detay.html?id=viy-vyc-031'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Veri Yönetimi Çözümleri">
+        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=viy-vyc-031'" style="cursor:pointer;" data-cat="Veri ve İş Yönetimi Çözümleri" data-level="Orta" data-tech="Veri Yönetimi Çözümleri">
           <div class="course-tech">Veri Yönetimi Çözümleri</div>
           <div class="course-title">Data Science for Business</div>
           <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
@@ -3530,7 +3535,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">Installation, Storage and Compute with Windows Server 2022</div>
           <div class="course-meta"><span class="course-duration">5 Gün</span><span class="course-level level-mid">Orta</span></div>
         </div>
-        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=ts-sy-022'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="Başlangıç" data-tech="Sistem Yönetimi">
+        <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-sy-022'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="Başlangıç" data-tech="Sistem Yönetimi">
           <div class="course-tech">Sistem Yönetimi</div>
           <div class="course-title">Introduction to Containers with Docker</div>
           <div class="course-meta"><span class="course-duration">2 Gün</span><span class="course-level level-start">Başlangıç</span></div>
@@ -3545,7 +3550,7 @@ to{opacity:1;transform:translateY(0) scale(1);}}
           <div class="course-title">Kubernetes Administration</div>
           <div class="course-meta"><span class="course-duration">4 Gün</span><span class="course-level level-adv">İleri</span></div>
         </div>
-        <div class="course-card" data-tech-extra="AI & Yapay Zeka" onclick="location.href='egitim-detay.html?id=ts-sy-025'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="Orta" data-tech="Sistem Yönetimi">
+        <div class="course-card" onclick="location.href='egitim-detay.html?id=ts-sy-025'" style="cursor:pointer;" data-cat="Teknoloji Servisleri" data-level="Orta" data-tech="Sistem Yönetimi">
           <div class="course-tech">Sistem Yönetimi</div>
           <div class="course-title">Docker Container ve Kubernetes ile Orkestrasyon</div>
           <div class="course-meta"><span class="course-duration">4 Gün</span><span class="course-level level-mid">Orta</span></div>
@@ -3750,7 +3755,7 @@ function paketSatinAl(paket, fiyat, kazanim, indirim) {
   document.getElementById('paketModalBadge').textContent = paket + ' Paket';
   document.getElementById('paketModalTitle').textContent = '%' + indirim + ' indirim';
   document.getElementById('paketModalOde').textContent = fiyat + ' TL';
-  document.getElementById('paketModalKazan').textContent = kazanim + ' TL'lik eğitim';
+  document.getElementById('paketModalKazan').textContent = kazanim + " TL'lik eğitim";
   document.getElementById('paketModalIndirim').innerHTML = '&#10003; ' + indirim + '% avantajlı fiyat · Yıl boyu geçerli · Esnek kullanım';
   document.getElementById('paketModalBtn').style.background = r.btn;
   const modal = document.getElementById('paketModal');
