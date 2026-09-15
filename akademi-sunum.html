@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yapay Zekâ Çağında Kurumsal Öğrenme | Bilginex Akademi</title>
+<meta name="description" content="Bilginex Akademi — Yapay Zekâ Çağında Kurumsal Öğrenme sunumu. Metodoloji, program kataloğu ve kurumsal eğitim yaklaşımı.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#131c3e;
+    --blue:#0a6bf5;
+    --pink:#f3005e;
+    --bg:#faf9f5;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--bg);font-family:Archivo,system-ui,sans-serif;color:var(--navy);}
+
+  /* ---- Top bar ---- */
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:16px; padding:14px 24px;
+    background:rgba(250,249,245,0.92); backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(19,28,62,0.1);
+  }
+  .topbar .title{
+    font-weight:700; font-size:15px; letter-spacing:0.01em;
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  }
+  .topbar .title small{
+    display:block; font-weight:500; font-size:12px; color:#666; letter-spacing:0.08em; text-transform:uppercase;
+  }
+  .pdf-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--navy); color:#fff; text-decoration:none;
+    font-weight:700; font-size:14px;
+    padding:10px 18px; border-radius:999px;
+    white-space:nowrap;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .pdf-btn:hover{ background:var(--blue); transform:translateY(-1px); }
+  .pdf-btn svg{ width:16px; height:16px; flex:none; }
+
+  /* ---- Slide deck ---- */
+  .deck{
+    max-width:1200px;
+    margin:0 auto;
+    padding:32px 16px 96px;
+    display:flex; flex-direction:column; gap:28px;
+  }
+  .slide-frame{
+    position:relative;
+    width:100%;
+    aspect-ratio:1920/1080;
+    background:#fff;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 1px 3px rgba(19,28,62,0.08), 0 12px 32px rgba(19,28,62,0.10);
+    scroll-margin-top:90px;
+  }
+  .slide-stage{
+    position:absolute; top:0; left:0;
+    width:1920px; height:1080px;
+    transform-origin:top left;
+  }
+  .slide-stage section{
+    width:1920px !important;
+    height:1080px !important;
+    margin:0 !important;
+  }
+  .slide-num{
+    position:absolute; bottom:14px; right:18px;
+    font-size:11px; font-weight:600; letter-spacing:0.08em;
+    color:rgba(19,28,62,0.35);
+    pointer-events:none;
+  }
+
+  /* ---- Side nav dots ---- */
+  .dotnav{
+    position:fixed; right:18px; top:50%; transform:translateY(-50%);
+    display:flex; flex-direction:column; gap:8px; z-index:40;
+  }
+  .dot{
+    width:8px; height:8px; border-radius:50%;
+    background:rgba(19,28,62,0.18);
+    border:none; padding:0; cursor:pointer;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .dot:hover{ background:rgba(19,28,62,0.45); }
+  .dot.active{ background:var(--blue); transform:scale(1.4); }
+
+  @media (max-width:900px){
+    .dotnav{ display:none; }
+    .deck{ padding:20px 10px 64px; gap:18px; }
+    .topbar{ padding:12px 14px; }
+    .pdf-btn{ padding:9px 14px; font-size:13px; }
+  }
+
+  @media print{
+    .topbar, .dotnav{ display:none !important; }
+    .deck{ padding:0; gap:0; max-width:none; }
+    .slide-frame{ box-shadow:none; border-radius:0; page-break-after:always; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="title">
+    Yapay Zekâ Çağında Kurumsal Öğrenme
+    <small>Bilginex Akademi</small>
+  </div>
+  <a class="pdf-btn" href="akademi-sunum.pdf" download>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+    PDF olarak indir
+  </a>
+</div>
+
+<nav class="dotnav" id="dotnav"></nav>
+
+<main class="deck" id="deck">
+
+<div class="slide-frame" id="slide-0" data-index="0">
+  <div class="slide-stage">
+<section data-dc-tpl="6" data-label="Kapak" data-screen-label="01 Kapak" data-speaker-notes="Açılış. Bilginex Akademi'nin yapay zekâ çağında kurumsal öğrenmeye bakışını ve metodolojisini anlatacağız. 20 dakika." data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="0" style="background: rgb(244, 244, 245); color: rgb(19, 28, 62); font-family: Archivo, system-ui, sans-serif; display: grid; grid-template-columns: 1120px 1fr; box-sizing: border-box;" data-deck-active="">
+  <div data-dc-tpl="7" style="padding: 88px 80px 80px 100px; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box;">
+    <img data-dc-tpl="8" src="assets/bilginex-logo.png" alt="Bilginex" style="width: 340px; height: auto;">
+    <div data-dc-tpl="9">
+      <div data-dc-tpl="10" style="font-size: 24px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(10, 107, 245);">Bilginex Akademi</div>
+      <div data-dc-tpl="11" style="height: 2px; background: rgb(19, 28, 62); margin: 28px 0px 36px;"></div>
+      <h1 data-dc-tpl="12" style="font-size: 82px; font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; margin: 0px; max-width: 980px; text-wrap: pretty;">Yapay Zekâ Çağında Kurumsal Öğrenme</h1>
+      <p data-dc-tpl="13" style="font-size: 34px; line-height: 1.4; color: rgb(90, 96, 118); margin: 36px 0px 0px; max-width: 900px;">Yeni yetkinlikler, yeni eğitim yaklaşımları — kurumsal teknoloji eğitiminde Bilginex Akademi metodolojisi</p>
+    </div>
+    <div data-dc-tpl="14" style="display: flex; gap: 64px; align-items: flex-end;">
+      <div data-dc-tpl="15">
+        <div data-dc-tpl="16" style="font-size: 24px; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(90, 96, 118);">Hazırlanan Kurum</div>
+        <div data-dc-tpl="17" style="font-size: 30px; font-weight: 600; margin-top: 10px;"><span class="sc-interp">Kurumsal Sunum</span></div>
+      </div>
+      <div data-dc-tpl="18">
+        <div data-dc-tpl="19" style="font-size: 24px; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(90, 96, 118);">Tarih</div>
+        <div data-dc-tpl="20" style="font-size: 30px; font-weight: 600; margin-top: 10px;"><span class="sc-interp">Eylül 2026</span></div>
+      </div>
+    </div>
+  </div>
+  <div data-dc-tpl="21" style="background: rgb(19, 28, 62); color: rgb(255, 255, 255); min-width: 0px; overflow: hidden; padding: 88px 72px 80px; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box;">
+    <div data-dc-tpl="22" style="font-size: 24px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(111, 166, 255);">Kurumsal Teknoloji Eğitimi</div>
+    <div data-dc-tpl="23">
+      <div data-dc-tpl="24" style="height: 2px; background: rgb(255, 255, 255); opacity: 0.9;"></div>
+      <div data-dc-tpl="25" style="font-size: 54px; font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin-top: 32px;">Öğrenmeyi işin bir parçası hâline getirmek</div>
+    </div>
+    <div data-dc-tpl="26" style="display: flex; flex-direction: column; gap: 28px;">
+      <div data-dc-tpl="27" style="display: flex; align-items: baseline; gap: 28px; border-top: 1px solid rgba(255, 255, 255, 0.35); padding-top: 24px;">
+        <span data-dc-tpl="28" style="font-size: 56px; font-weight: 800; letter-spacing: -0.03em; color: rgb(111, 166, 255); min-width: 150px;">400+</span>
+        <span data-dc-tpl="29" style="font-size: 26px; color: rgb(230, 232, 239);">Eğitim programı</span>
+      </div>
+      <div data-dc-tpl="30" style="display: flex; align-items: baseline; gap: 28px; border-top: 1px solid rgba(255, 255, 255, 0.35); padding-top: 24px;">
+        <span data-dc-tpl="31" style="font-size: 56px; font-weight: 800; letter-spacing: -0.03em; color: rgb(111, 166, 255); min-width: 150px;">25+</span>
+        <span data-dc-tpl="32" style="font-size: 26px; color: rgb(230, 232, 239);">Global teknoloji ekosistemi</span>
+      </div>
+      <div data-dc-tpl="33" style="display: flex; align-items: baseline; gap: 28px; border-top: 1px solid rgba(255, 255, 255, 0.35); padding-top: 24px;">
+        <span data-dc-tpl="34" style="font-size: 56px; font-weight: 800; letter-spacing: -0.03em; color: rgb(243, 0, 94); min-width: 150px;">%100</span>
+        <span data-dc-tpl="35" style="font-size: 26px; color: rgb(230, 232, 239);">Uygulamalı içerik</span>
+      </div>
+    </div>
+  </div></section>
+  </div>
+  <div class="slide-num">01 / 20</div>
+</div>
+<div class="slide-frame" id="slide-1" data-index="1">
+  <div class="slide-stage">
+<section data-dc-tpl="36" data-label="Gündem" data-screen-label="02 Gündem" data-speaker-notes="Dört bölüm: bağlam, metodoloji, ölçümleme, program kataloğu ve ticari çerçeve." data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="1" style="background: rgb(244, 244, 245); color: rgb(19, 28, 62); font-family: Archivo, system-ui, sans-serif; padding: 88px 100px 80px; display: flex; flex-direction: column; box-sizing: border-box;">
+  <div data-dc-tpl="37" style="font-size: 24px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(10, 107, 245);">Gündem / Agenda</div>
+  <div data-dc-tpl="38" style="height: 2px; background: rgb(19, 28, 62); margin: 28px 0px 0px;"></div>
+  <div data-dc-tpl="39" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0px 96px; margin-top: 8px;">
+    <div data-dc-tpl="40" style="display: flex; gap: 40px; align-items: baseline; padding: 40px 0px; border-bottom: 1px solid rgb(201, 202, 209);">
+      <span data-dc-tpl="41" style="font-size: 28px; font-weight: 600; color: rgb(10, 107, 245); min-width: 64px;">01</span>
+      <span data-dc-tpl="42" style="font-size: 44px; font-weight: 800; letter-spacing: -0.015em;">Beceri dönüşümünün çerçevesi</span>
+    </div>
+    <div data-dc-tpl="43" style="display: flex; gap: 40px; align-items: baseline; padding: 40px 0px; border-bottom: 1px solid rgb(201, 202, 209);">
+      <span data-dc-tpl="44" style="font-size: 28px; font-weight: 600; color: rgb(10, 107, 245); min-width: 64px;">02</span>
+      <span data-dc-tpl="45" style="font-size: 44px; font-weight: 800; letter-spacing: -0.015em;">Bilginex Akademi metodolojisi</span>
+    </div>
+    <div data-dc-tpl="46" style="display: flex; gap: 40px; align-items: baseline; padding: 40px 0px; border-bottom: 1px solid rgb(201, 202, 209);">
+      <span data-dc-tpl="47" style="font-size: 28px; font-weight: 600; color: rgb(10, 107, 245); min-width: 64px;">03</span>
+      <span data-dc-tpl="48" style="font-size: 44px; font-weight: 800; letter-spacing: -0.015em;">Üç düzeyli eğitim modeli</span>
+    </div>
+    <div data-dc-tpl="49" style="display: flex; gap: 40px; align-items: baseline; padding: 40px 0px; border-bottom: 1px solid rgb(201, 202, 209);">
+      <span data-dc-tpl="50" style="font-size: 28px; font-weight: 600; color: rgb(10, 107, 245); min-width: 64px;">04</span>
+      <span data-dc-tpl="51" style="font-size: 44px; font-weight: 800; letter-spacing: -0.015em;">Ölçümleme çerçevesi</span>
+    </div>
+    <div data-dc-tpl="52" style="display: flex; gap: 40px; align-items: baseline; padding: 40px 0px; border-bottom: 1px solid rgb(201, 202, 209);">
+      <span data-dc-tpl="53" style="font-size: 28px; font-weight: 600; color: rgb(10, 107, 245); min-width: 64px;">05</span>
+      <span data-dc-tpl="54" style="font-size: 44px; font-weight: 800; letter-spacing: -0.015em;">Program kataloğu</span>
+    </div>
+    <div data-dc-tpl="55" style="display: flex; gap: 40px; align-items: baseline; padding: 40px 0px; border-bottom: 1px solid rgb(201, 202, 209);">
+      <span data-dc-tpl="56" style="font-size: 28px; font-weight: 600; color: rgb(10, 107, 245); min-width: 64px;">06</span>
+      <span data-dc-tpl="57" style="font-size: 44px; font-weight: 800; letter-spacing: -0.015em;">Kurumsal çalışma modeli</span>
+    </div>
+  </div></section>
+  </div>
+  <div class="slide-num">02 / 20</div>
+</div>
+<div class="slide-frame" id="slide-2" data-index="2">
+  <div class="slide-stage">
+<section data-dc-tpl="58" data-label="Beceri dönüşümü" data-screen-label="03 Beceri dönüşümü" data-speaker-notes="WEF 2025 İşlerin Geleceği Raporu. Bu rakamlar yalnızca yapay zekânın değil, iş dünyasını etkileyen dönüşümlerin birlikte değerlendirildiği öngörüler." data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="2" style="background: rgb(19, 28, 62); color: rgb(255, 255, 255); font-family: Archivo, system-ui, sans-serif; padding: 88px 100px 80px; display: flex; flex-direction: column; box-sizing: border-box;">
+  <div data-dc-tpl="59" style="font-size: 24px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(111, 166, 255);">Bağlam / Context</div>
+  <h2 data-dc-tpl="60" style="font-size: 64px; font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 26px 0px 0px; max-width: 1500px;">Beceri dönüşümü, kurumsal eğitim gündemini yeniden şekillendiriyor</h2>
+  <div data-dc-tpl="61" style="height: 2px; background: rgb(255, 255, 255); margin: 44px 0px 0px; opacity: 0.9;"></div>
+  <div data-dc-tpl="62" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 72px; margin-top: 64px;">
+    <div data-dc-tpl="63">
+      <div data-dc-tpl="64" style="font-size: 132px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: rgb(111, 166, 255);">%39</div>
+      <div data-dc-tpl="65" style="font-size: 30px; line-height: 1.35; margin-top: 24px; color: rgb(230, 232, 239);">Çalışanların mevcut becerilerinin 2030'a kadar değişmesi veya güncelliğini yitirmesi bekleniyor</div>
+    </div>
+    <div data-dc-tpl="66">
+      <div data-dc-tpl="67" style="font-size: 132px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: rgb(111, 166, 255);">59<span data-dc-tpl="68" style="font-size: 72px;">/100</span></div>
+      <div data-dc-tpl="69" style="font-size: 30px; line-height: 1.35; margin-top: 24px; color: rgb(230, 232, 239);">Her 100 çalışandan 59'u beceri geliştirme veya yeniden beceri kazanma eğitimine ihtiyaç duyacak</div>
+    </div>
+    <div data-dc-tpl="70">
+      <div data-dc-tpl="71" style="font-size: 132px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: rgb(243, 0, 94);">3</div>
+      <div data-dc-tpl="72" style="font-size: 30px; line-height: 1.35; margin-top: 24px; color: rgb(230, 232, 239);">Düzeyde kurgulanan gelişim planı: Temel, İleri ve Uzmanlık</div>
+    </div>
+  </div>
+  <div data-dc-tpl="73" style="font-size: 24px; color: rgb(154, 162, 184); margin-top: auto;">Kaynak: Dünya Ekonomik Forumu, İşlerin Geleceği Raporu, 2025</div></section>
+  </div>
+  <div class="slide-num">03 / 20</div>
+</div>
+<div class="slide-frame" id="slide-3" data-index="3">
+  <div class="slide-stage">
+<section data-dc-tpl="74" data-label="Yatırım eşleşmesi" data-screen-label="04 Yatırım eşleşmesi" data-speaker-notes="Teknoloji yatırımı ile yetkinlik yatırımı birbirini tamamlamalı. Örnek: YZ destekli analiz araçlarına geçiş yapan bir kurum." data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="3" style="background: rgb(244, 244, 245); color: rgb(19, 28, 62); font-family: Archivo, system-ui, sans-serif; padding: 88px 100px 80px; display: flex; flex-direction: column; box-sizing: border-box;">
+  <div data-dc-tpl="75" style="font-size: 24px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(10, 107, 245);">Bağlam / Context</div>
+  <h2 data-dc-tpl="76" style="font-size: 64px; font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 26px 0px 0px; max-width: 1480px;">Eğitim planı, kurumun teknoloji yol haritasıyla birlikte ele alınır</h2>
+  <div data-dc-tpl="77" style="height: 2px; background: rgb(19, 28, 62); margin: 44px 0px 56px;"></div>
+  <div data-dc-tpl="78" style="display: grid; grid-template-columns: 1fr 1fr; gap: 96px;">
+    <div data-dc-tpl="79">
+      <div data-dc-tpl="80" style="font-size: 26px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgb(90, 96, 118);">Teknoloji yatırımı</div>
+      <div data-dc-tpl="81" style="display: flex; flex-direction: column; gap: 22px; margin-top: 32px;">
+        <div data-dc-tpl="82" style="font-size: 34px; line-height: 1.35;">Yeni analiz platformu devreye alınır</div>
+        <div data-dc-tpl="83" style="font-size: 34px; line-height: 1.35;">Lisanslar ve erişimler tanımlanır</div>
+        <div data-dc-tpl="84" style="font-size: 34px; line-height: 1.35;">Veri kaynakları entegre edilir</div>
+      </div>
+    </div>
+    <div data-dc-tpl="85" style="border-left: 2px solid rgb(19, 28, 62); padding-left: 72px;">
+      <div data-dc-tpl="86" style="font-size: 26px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgb(10, 107, 245);">Yetkinlik yatırımı</div>
+      <div data-dc-tpl="87" style="display: flex; flex-direction: column; gap: 22px; margin-top: 32px;">
+        <div data-dc-tpl="88" style="font-size: 34px; line-height: 1.35;">Veri okuryazarlığı ve çıktı doğrulama</div>
+        <div data-dc-tpl="89" style="font-size: 34px; line-height: 1.35;">Bilgi güvenliği ve erişim disiplini</div>
+        <div data-dc-tpl="90" style="font-size: 34px; line-height: 1.35;">Karar verme ve muhakeme becerileri</div>
+      </div>
+    </div>
+  </div>
+  <div data-dc-tpl="91" style="margin-top: auto; display: flex; align-items: center; gap: 28px; padding-top: 48px; border-top: 1px solid rgb(201, 202, 209);">
+    <div data-dc-tpl="92" style="width: 14px; height: 56px; background: rgb(243, 0, 94);"></div>
+    <div data-dc-tpl="93" style="font-size: 36px; font-weight: 600; line-height: 1.3; max-width: 1500px;">Araçlara erişim sağlanması, ekiplerin o teknolojiyle çalışmaya hazır olduğu anlamına gelmez.</div>
+  </div></section>
+  </div>
+  <div class="slide-num">04 / 20</div>
+</div>
+<div class="slide-frame" id="slide-4" data-index="4">
+  <div class="slide-stage">
+<section data-dc-tpl="94" data-label="Bölüm 01" data-screen-label="05 Bölüm 01" data-speaker-notes="Bölüm geçişi: metodoloji." data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="4" style="background: rgb(10, 107, 245); color: rgb(255, 255, 255); font-family: Archivo, system-ui, sans-serif; padding: 88px 100px 80px; display: flex; flex-direction: column; justify-content: flex-end; box-sizing: border-box;">
+  <div data-dc-tpl="95" style="font-size: 180px; font-weight: 800; line-height: 1; letter-spacing: -0.04em; opacity: 0.5;">01</div>
+  <div data-dc-tpl="96" style="height: 2px; background: rgb(255, 255, 255); margin: 36px 0px 40px;"></div>
+  <h2 data-dc-tpl="97" style="font-size: 96px; font-weight: 800; line-height: 1.02; letter-spacing: -0.03em; margin: 0px;">Metodoloji</h2>
+  <div data-dc-tpl="98" style="font-size: 40px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 20px; opacity: 0.85;">Methodology</div></section>
+  </div>
+  <div class="slide-num">05 / 20</div>
+</div>
+<div class="slide-frame" id="slide-5" data-index="5">
+  <div class="slide-stage">
+<section data-dc-tpl="99" data-label="Metodoloji akışı" data-screen-label="06 Metodoloji akışı" data-speaker-notes="Eğitim; ihtiyaç analizi, öğrenme, uygulama ve geri bildirimle devam eden bir süreç olarak tasarlanır. Başlangıç noktası kurumun hangi teknolojiye yatırım yaptığıdır." data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="5" style="background: rgb(244, 244, 245); color: rgb(19, 28, 62); font-family: Archivo, system-ui, sans-serif; padding: 88px 100px 80px; display: flex; flex-direction: column; box-sizing: border-box;">
+  <div data-dc-tpl="100" style="font-size: 24px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(10, 107, 245);">Metodoloji / Methodology</div>
+  <h2 data-dc-tpl="101" style="font-size: 64px; font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 26px 0px 0px; max-width: 1480px;">Öğrenmeyi işin bir parçası hâline getiren beş adımlı süreç</h2>
+  <div data-dc-tpl="102" style="height: 2px; background: rgb(19, 28, 62); margin: 44px 0px 0px;"></div>
+  <div data-dc-tpl="103" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0px; margin-top: 56px;">
+    <div data-dc-tpl="104" style="padding-right: 40px; border-right: 1px solid rgb(201, 202, 209);">
+      <div data-dc-tpl="105" style="font-size: 26px; font-weight: 600; color: rgb(10, 107, 245);">01</div>
+      <div data-dc-tpl="106" style="font-size: 38px; font-weight: 800; line-height: 1.15; margin-top: 20px;">İhtiyaç analizi</div>
+      <div data-dc-tpl="107" style="font-size: 26px; line-height: 1.45; color: rgb(90, 96, 118); margin-top: 20px;">Teknoloji hedefi, mevcut yetkinlik düzeyi ve uygulama koşulları</div>
+    </div>
+    <div data-dc-tpl="108" style="padding: 0px 40px; border-right: 1px solid rgb(201, 202, 209);">
+      <div data-dc-tpl="109" style="font-size: 26px; font-weight: 600; color: rgb(10, 107, 245);">02</div>
+      <div data-dc-tpl="110" style="font-size: 38px; font-weight: 800; line-height: 1.15; margin-top: 20px;">Gelişim planı</div>
+      <div data-dc-tpl="111" style="font-size: 26px; line-height: 1.45; color: rgb(90, 96, 118); margin-top: 20px;">Role ve seviyeye göre öğrenme yolları ve başarı ölçütleri</div>
+    </div>
+    <div data-dc-tpl="112" style="padding: 0px 40px; border-right: 1px solid rgb(201, 202, 209);">
+      <div data-dc-tpl="113" style="font-size: 26px; font-weight: 600; color: rgb(10, 107, 245);">03</div>
+      <div data-dc-tpl="114" style="font-size: 38px; font-weight: 800; line-height: 1.15; margin-top: 20px;">Öğrenme</div>
+      <div data-dc-tpl="115" style="font-size: 26px; line-height: 1.45; color: rgb(90, 96, 118); margin-top: 20px;">Dijital içerik, eğitmenli atölye ve uygulama laboratuvarı</div>
+    </div>
+    <div data-dc-tpl="116" style="padding: 0px 40px; border-right: 1px solid rgb(201, 202, 209);">
+      <div data-dc-tpl="117" style="font-size: 26px; font-weight: 600; color: rgb(10, 107, 245);">04</div>
+      <div data-dc-tpl="118" style="font-size: 38px; font-weight: 800; line-height: 1.15; margin-top: 20px;">İş başında uygulama</div>
+      <div data-dc-tpl="119" style="font-size: 26px; line-height: 1.45; color: rgb(90, 96, 118); margin-top: 20px;">Kurumun kendi senaryolarıyla gerçek görevler ve mentorluk</div>
+    </div>
+    <div data-dc-tpl="120" style="padding-left: 40px;">
+      <div data-dc-tpl="121" style="font-size: 26px; font-weight: 600; color: rgb(243, 0, 94);">05</div>
+      <div data-dc-tpl="122" style="font-size: 38px; font-weight: 800; line-height: 1.15; margin-top: 20px;">Geri bildirim ve ölçüm</div>
+      <div data-dc-tpl="123" style="font-size: 26px; line-height: 1.45; color: rgb(90, 96, 118); margin-top: 20px;">Çıktı kalitesi, süre ve yeniden çalışma ihtiyacındaki değişim</div>
+    </div>
+  </div>
+  <div data-dc-tpl="124" style="margin-top: auto; padding-top: 48px; border-top: 1px solid rgb(201, 202, 209); font-size: 30px; color: rgb(90, 96, 118);">Program sonunda ortaya çıkan bir analiz, test edilmiş bir otomasyon veya iyileştirilmiş bir iş akışı, öğrenmenin somut karşılığıdır.</div></section>
+  </div>
+  <div class="slide-num">06 / 20</div>
+</div>
+<div class="slide-frame" id="slide-6" data-index="6">
+  <div class="slide-stage">
+<section data-dc-tpl="125" data-label="Üç düzeyli model" data-screen-label="07 Üç düzeyli model" data-speaker-notes="Aynı teknolojiyi kullanan çalışanların sorumlulukları farklılaşıyor. Üç düzey, tek bir YZ eğitimi başlığının yerine geçer." data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="6" style="background: rgb(244, 244, 245); color: rgb(19, 28, 62); font-family: Archivo, system-ui, sans-serif; padding: 88px 100px 80px; display: flex; flex-direction: column; box-sizing: border-box;">
+  <div data-dc-tpl="126" style="font-size: 24px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(10, 107, 245);">Model / Framework</div>
+  <h2 data-dc-tpl="127" style="font-size: 64px; font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 26px 0px 0px; max-width: 1480px;">Ortak bir temel, role göre farklı gelişim yolları</h2>
+  <div data-dc-tpl="128" style="height: 2px; background: rgb(19, 28, 62); margin: 44px 0px 0px;"></div>
+  <div data-dc-tpl="129" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin-top: 56px;">
+    <div data-dc-tpl="130" style="background: rgb(233, 233, 236); padding: 52px 44px; display: flex; flex-direction: column; box-sizing: border-box;">
+      <div data-dc-tpl="131" style="font-size: 26px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(10, 107, 245);">Düzey 01</div>
+      <div data-dc-tpl="132" style="font-size: 52px; font-weight: 800; letter-spacing: -0.02em; margin-top: 18px;">Temel</div>
+      <div data-dc-tpl="133" style="height: 2px; background: rgb(19, 28, 62); margin: 28px 0px;"></div>
+      <div data-dc-tpl="134" style="font-size: 28px; line-height: 1.5;">Yapay zekâ okuryazarlığı, veri farkındalığı, güvenli kullanım ve çıktıların sorgulanması</div>
+      <div data-dc-tpl="135" style="font-size: 24px; color: rgb(90, 96, 118); margin-top: auto; padding-top: 36px;">Tüm çalışanlar · 1–2 saat modüller</div>
+    </div>
+    <div data-dc-tpl="136" style="background: rgb(233, 233, 236); padding: 52px 44px; display: flex; flex-direction: column; box-sizing: border-box;">
+      <div data-dc-tpl="137" style="font-size: 26px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(10, 107, 245);">Düzey 02</div>
+      <div data-dc-tpl="138" style="font-size: 52px; font-weight: 800; letter-spacing: -0.02em; margin-top: 18px;">İleri</div>
+      <div data-dc-tpl="139" style="height: 2px; background: rgb(19, 28, 62); margin: 28px 0px;"></div>
+      <div data-dc-tpl="140" style="font-size: 28px; line-height: 1.5;">Departmana özgü uygulamalar, analiz, otomasyon ve iş akışlarının geliştirilmesi</div>
+      <div data-dc-tpl="141" style="font-size: 24px; color: rgb(90, 96, 118); margin-top: auto; padding-top: 36px;">Teknolojiyi fiilen kullanan ekipler · 1–3 gün</div>
+    </div>
+    <div data-dc-tpl="142" style="background: rgb(19, 28, 62); color: rgb(255, 255, 255); padding: 52px 44px; display: flex; flex-direction: column; box-sizing: border-box;">
+      <div data-dc-tpl="143" style="font-size: 26px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(111, 166, 255);">Düzey 03</div>
+      <div data-dc-tpl="144" style="font-size: 52px; font-weight: 800; letter-spacing: -0.02em; margin-top: 18px;">Uzmanlık</div>
+      <div data-dc-tpl="145" style="height: 2px; background: rgb(255, 255, 255); margin: 28px 0px;"></div>
+      <div data-dc-tpl="146" style="font-size: 28px; line-height: 1.5;">Yapay zekâ çözümlerinin geliştirilmesi, entegrasyonu, değerlendirilmesi ve yönetimi</div>
+      <div data-dc-tpl="147" style="font-size: 24px; color: rgb(154, 162, 184); margin-top: auto; padding-top: 36px;">Teknik kadro ve AI Lead rolleri · 12–30 saat sertifika</div>
+    </div>
+  </div>
+  <div data-dc-tpl="148" style="margin-top: auto; padding-top: 44px; font-size: 30px; color: rgb(90, 96, 118);">Yöneticiler için yatırım önceliklendirme, ekip dönüşümü ve sonuçların ölçülmesi üzerine ayrı bir öğrenme yolu tanımlanır.</div></section>
+  </div>
+  <div class="slide-num">07 / 20</div>
+</div>
+<div class="slide-frame" id="slide-7" data-index="7">
+  <div class="slide-stage">
+<section data-dc-tpl="149" data-label="Rol bazlı yollar" data-screen-label="08 Rol bazlı yollar" data-speaker-notes="Aynı teknoloji, farklı sorumluluk. Her rol için odak ve tipik program örneği." data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="7" style="background: rgb(244, 244, 245); color: rgb(19, 28, 62); font-family: Archivo, system-ui, sans-serif; padding: 88px 100px 80px; display: flex; flex-direction: column; box-sizing: border-box;">
+  <div data-dc-tpl="150" style="font-size: 24px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(10, 107, 245);">Model / Framework</div>
+  <h2 data-dc-tpl="151" style="font-size: 64px; font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 22px 0px 0px;">Role göre gelişim yolları</h2>
+  <div data-dc-tpl="152" style="height: 2px; background: rgb(19, 28, 62); margin: 32px 0px 0px;"></div>
+  <div data-dc-tpl="153" style="display: grid; grid-template-columns: 340px 1fr 1fr; gap: 0px 56px; align-items: center; padding: 24px 0px 20px; border-bottom: 2px solid rgb(19, 28, 62);">
+    <div data-dc-tpl="154" style="font-size: 24px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgb(90, 96, 118);">Rol</div>
+    <div data-dc-tpl="155" style="font-size: 24px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgb(90, 96, 118);">Yetkinlik odağı</div>
+    <div data-dc-tpl="156" style="font-size: 24px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgb(90, 96, 118);">Örnek program</div>
+  </div>
+  <div data-dc-tpl="157" style="display: grid; grid-template-columns: 340px 1fr 1fr; gap: 0px 56px; align-items: center; padding: 22px 0px; border-bottom: 1px solid rgb(201, 202, 209);">
+    <div data-dc-tpl="158" style="font-size: 34px; font-weight: 800;">Finans</div>
+    <div data-dc-tpl="159" style="font-size: 30px; line-height: 1.35;">Veri doğruluğu ve analiz varsayımlarının değerlendirilmesi</div>
+    <div data-dc-tpl="160" style="font-size: 28px; color: rgb(90, 96, 118); line-height: 1.35;">Bütçe tahmini ve senaryo analizi · Anomali tespiti</div>
+  </div>
+  <div data-dc-tpl="161" style="display: grid; grid-template-columns: 340px 1fr 1fr; gap: 0px 56px; align-items: center; padding: 22px 0px; border-bottom: 1px solid rgb(201, 202, 209);">
+    <div data-dc-tpl="162" style="font-size: 34px; font-weight: 800;">İnsan kaynakları</div>
+    <div data-dc-tpl="163" style="font-size: 30px; line-height: 1.35;">Çalışan verisi ve YZ çıktılarında sorumlu karar</div>
+    <div data-dc-tpl="164" style="font-size: 28px; color: rgb(90, 96, 118); line-height: 1.35;">İşe alımda YZ · Performans yönetimi · Mevzuat uyumu</div>
+  </div>
+  <div data-dc-tpl="165" style="display: grid; grid-template-columns: 340px 1fr 1fr; gap: 0px 56px; align-items: center; padding: 22px 0px; border-bottom: 1px solid rgb(201, 202, 209);">
+    <div data-dc-tpl="166" style="font-size: 34px; font-weight: 800;">İş geliştirme</div>
+    <div data-dc-tpl="167" style="font-size: 30px; line-height: 1.35;">Araştırmayı doğrulanabilir fırsata dönüştürme</div>
+    <div data-dc-tpl="168" style="font-size: 28px; color: rgb(90, 96, 118); line-height: 1.35;">Kampanya optimizasyonu · CRM'de YZ entegrasyonu</div>
+  </div>
+  <div data-dc-tpl="169" style="display: grid; grid-template-columns: 340px 1fr 1fr; gap: 0px 56px; align-items: center; padding: 22px 0px; border-bottom: 1px solid rgb(201, 202, 209);">
+    <div data-dc-tpl="170" style="font-size: 34px; font-weight: 800;">Yazılım ve BT</div>
+    <div data-dc-tpl="171" style="font-size: 30px; line-height: 1.35;">Üretilen kodun güvenliği ve sürdürülebilirliği</div>
+    <div data-dc-tpl="172" style="font-size: 28px; color: rgb(90, 96, 118); line-height: 1.35;">RAG ile uygulama geliştirme · MLOps · Güvenli yazılım</div>
+  </div>
+  <div data-dc-tpl="173" style="display: grid; grid-template-columns: 340px 1fr 1fr; gap: 0px 56px; align-items: center; padding: 22px 0px; border-bottom: 1px solid rgb(201, 202, 209);">
+    <div data-dc-tpl="174" style="font-size: 34px; font-weight: 800;">Yöneticiler</div>
+    <div data-dc-tpl="175" style="font-size: 30px; line-height: 1.35;">Yatırım önceliklendirme ve sonuçların ölçülmesi</div>
+    <div data-dc-tpl="176" style="font-size: 28px; color: rgb(90, 96, 118); line-height: 1.35;">YZ stratejisi ve yol haritası · ROI ve performans ölçümü</div>
+  </div></section>
+  </div>
+  <div class="slide-num">08 / 20</div>
+</div>
+<div class="slide-frame" id="slide-8" data-index="8">
+  <div class="slide-stage">
+<section data-dc-tpl="177" data-label="Teknik temel" data-screen-label="09 Teknik temel" data-speaker-notes="Yapay zekâ çıktı üretebilir; çıktının işe uygunluğunu değerlendirmek alanın mantığını bilmeyi gerektirir. Kalıcı yetkinlik, araçlar değiştiğinde de kullanılabilen muhakemedir." data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="8" style="background: rgb(244, 244, 245); color: rgb(19, 28, 62); font-family: Archivo, system-ui, sans-serif; padding: 88px 100px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 96px; box-sizing: border-box;">
+  <div data-dc-tpl="178" style="display: flex; flex-direction: column;">
+    <div data-dc-tpl="179" style="font-size: 24px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(10, 107, 245);">Yaklaşım / Approach</div>
+    <h2 data-dc-tpl="180" style="font-size: 64px; font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 26px 0px 0px;">Teknik temeller ve insan muhakemesi birlikte gelişir</h2>
+    <div data-dc-tpl="181" style="height: 2px; background: rgb(19, 28, 62); margin: 40px 0px 36px;"></div>
+    <p data-dc-tpl="182" style="font-size: 32px; line-height: 1.45; color: rgb(90, 96, 118); margin: 0px;">Yanlış bir veri ilişkisinin raporu nasıl etkilediğini anlamadan analize güvenmek zordur. Erişim yetkileri ve test süreçleri bilinmeden üretilen bir uygulamayı kullanıma almak da mümkün olmayabilir.</p>
+    <div data-dc-tpl="183" style="margin-top: auto; display: flex; align-items: center; gap: 28px;">
+      <div data-dc-tpl="184" style="width: 14px; height: 100px; background: rgb(243, 0, 94);"></div>
+      <div data-dc-tpl="185" style="font-size: 36px; font-weight: 600; line-height: 1.3;">Kalıcı yetkinlik, araçlar değiştiğinde de kullanılabilen bilgi ve muhakemedir.</div>
+    </div>
+  </div>
+  <div data-dc-tpl="186" style="background: rgb(233, 233, 236); padding: 48px; display: flex; flex-direction: column; box-sizing: border-box;">
+    <div data-dc-tpl="187" style="font-size: 26px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(90, 96, 118);">YZ yetkinlikleriyle birlikte planlanan alanlar</div>
+    <div data-dc-tpl="188" style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 30px;">
+      <div data-dc-tpl="189" style="background: rgb(244, 244, 245); padding: 22px 26px; font-size: 30px; font-weight: 600;">SQL</div>
+      <div data-dc-tpl="190" style="background: rgb(244, 244, 245); padding: 22px 26px; font-size: 30px; font-weight: 600;">Veri modelleme</div>
+      <div data-dc-tpl="191" style="background: rgb(244, 244, 245); padding: 22px 26px; font-size: 30px; font-weight: 600;">Yazılım geliştirme</div>
+      <div data-dc-tpl="192" style="background: rgb(244, 244, 245); padding: 22px 26px; font-size: 30px; font-weight: 600;">Bulut</div>
+      <div data-dc-tpl="193" style="background: rgb(244, 244, 245); padding: 22px 26px; font-size: 30px; font-weight: 600;">DevOps</div>
+      <div data-dc-tpl="194" style="background: rgb(244, 244, 245); padding: 22px 26px; font-size: 30px; font-weight: 600;">Siber güvenlik</div>
+    </div>
+    <div data-dc-tpl="195" style="height: 1px; background: rgb(201, 202, 209); margin: 36px 0px;"></div>
+    <div data-dc-tpl="196" style="font-size: 26px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(90, 96, 118);">Eğitimin kapsamına giren davranışlar</div>
+    <div data-dc-tpl="197" style="display: flex; flex-direction: column; gap: 16px; margin-top: 24px;">
+      <div data-dc-tpl="198" style="font-size: 30px; line-height: 1.35;">Doğru soruyu sormak</div>
+      <div data-dc-tpl="199" style="font-size: 30px; line-height: 1.35;">Varsayımları değerlendirmek</div>
+      <div data-dc-tpl="200" style="font-size: 30px; line-height: 1.35;">Hataları fark etmek</div>
+      <div data-dc-tpl="201" style="font-size: 30px; line-height: 1.35;">Gerektiğinde uzman görüşüne başvurmak</div>
+    </div>
+  </div></section>
+  </div>
+  <div class="slide-num">09 / 20</div>
+</div>
+<div class="slide-frame" id="slide-9" data-index="9">
+  <div class="slide-stage">
+<section data-dc-tpl="202" data-label="Eğitim biçimleri" data-screen-label="10 Eğitim biçimleri" data-speaker-notes="Tek bir yöntem bütün ihtiyaçları karşılamaz. Yöntemler aynı gelişim planının birbirini tamamlayan parçalarıdır." data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="9" style="background: rgb(244, 244, 245); color: rgb(19, 28, 62); font-family: Archivo, system-ui, sans-serif; padding: 88px 100px 80px; display: flex; flex-direction: column; box-sizing: border-box;">
+  <div data-dc-tpl="203" style="font-size: 24px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(10, 107, 245);">Yaklaşım / Approach</div>
+  <h2 data-dc-tpl="204" style="font-size: 64px; font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 26px 0px 0px; max-width: 1480px;">Eğitim biçimini, öğrenilecek beceri belirler</h2>
+  <div data-dc-tpl="205" style="height: 2px; background: rgb(19, 28, 62); margin: 44px 0px 0px;"></div>
+  <div data-dc-tpl="206" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0px; margin-top: 56px;">
+    <div data-dc-tpl="207" style="padding-right: 44px; border-right: 1px solid rgb(201, 202, 209);">
+      <div data-dc-tpl="208" style="font-size: 40px; font-weight: 800; line-height: 1.15;">Kısa dijital içerik</div>
+      <div data-dc-tpl="209" style="font-size: 28px; line-height: 1.45; color: rgb(90, 96, 118); margin-top: 24px;">Temel hazırlık ve ortak dil; belirli bir ihtiyaca hızlı yanıt</div>
+    </div>
+    <div data-dc-tpl="210" style="padding: 0px 44px; border-right: 1px solid rgb(201, 202, 209);">
+      <div data-dc-tpl="211" style="font-size: 40px; font-weight: 800; line-height: 1.15;">Eğitmenli atölye</div>
+      <div data-dc-tpl="212" style="font-size: 28px; line-height: 1.45; color: rgb(90, 96, 118); margin-top: 24px;">Karmaşık konuların tartışılması ve anlık geri bildirim</div>
+    </div>
+    <div data-dc-tpl="213" style="padding: 0px 44px; border-right: 1px solid rgb(201, 202, 209);">
+      <div data-dc-tpl="214" style="font-size: 40px; font-weight: 800; line-height: 1.15;">Uygulama laboratuvarı</div>
+      <div data-dc-tpl="215" style="font-size: 28px; line-height: 1.45; color: rgb(90, 96, 118); margin-top: 24px;">Güvenli deneme ortamında gerçek senaryolarla çalışma</div>
+    </div>
+    <div data-dc-tpl="216" style="padding-left: 44px;">
+      <div data-dc-tpl="217" style="font-size: 40px; font-weight: 800; line-height: 1.15;">Mentorluk</div>
+      <div data-dc-tpl="218" style="font-size: 28px; line-height: 1.45; color: rgb(90, 96, 118); margin-top: 24px;">Öğrenilenlerin iş başında kullanılmasının desteklenmesi</div>
+    </div>
+  </div>
+  <div data-dc-tpl="219" style="margin-top: auto; padding-top: 52px; border-top: 1px solid rgb(201, 202, 209);">
+    <div data-dc-tpl="220" style="font-size: 26px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(90, 96, 118);">Örnek akış — otomasyon eğitimi</div>
+    <div data-dc-tpl="221" style="display: flex; align-items: center; gap: 32px; margin-top: 28px;">
+      <div data-dc-tpl="222" style="font-size: 30px; font-weight: 600;">Temel kavramlar</div>
+      <div data-dc-tpl="223" style="font-size: 30px; color: rgb(10, 107, 245);">→</div>
+      <div data-dc-tpl="224" style="font-size: 30px; font-weight: 600;">Atölyede iş akışı tasarımı</div>
+      <div data-dc-tpl="225" style="font-size: 30px; color: rgb(10, 107, 245);">→</div>
+      <div data-dc-tpl="226" style="font-size: 30px; font-weight: 600;">Deneme ortamında test</div>
+      <div data-dc-tpl="227" style="font-size: 30px; color: rgb(10, 107, 245);">→</div>
+      <div data-dc-tpl="228" style="font-size: 30px; font-weight: 600;">Uzman geri bildirimiyle kendi işine uyarlama</div>
+    </div>
+  </div></section>
+  </div>
+  <div class="slide-num">10 / 20</div>
+</div>
+<div class="slide-frame" id="slide-10" data-index="10">
+  <div class="slide-stage">
+<section data-dc-tpl="229" data-label="Eğitmenin rolü" data-screen-label="11 Eğitmenin rolü" data-speaker-notes="Doğru açıklamayı almak ile konuyu kavramak arasında fark vardır. Teknoloji desteği ile insan rehberliği birlikte planlanır." data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="10" style="background: rgb(19, 28, 62); color: rgb(255, 255, 255); font-family: Archivo, system-ui, sans-serif; padding: 88px 100px 80px; display: flex; flex-direction: column; box-sizing: border-box;">
+  <div data-dc-tpl="230" style="font-size: 24px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(111, 166, 255);">Yaklaşım / Approach</div>
+  <h2 data-dc-tpl="231" style="font-size: 64px; font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 26px 0px 0px; max-width: 1500px;">Yapay zekâ destekli öğrenmede eğitmenin rolü genişliyor</h2>
+  <div data-dc-tpl="232" style="height: 2px; background: rgb(255, 255, 255); margin: 44px 0px 56px; opacity: 0.9;"></div>
+  <div data-dc-tpl="233" style="font-size: 52px; font-weight: 600; line-height: 1.3; max-width: 1560px; text-wrap: pretty;">Doğru açıklamayı almak ile konuyu gerçekten kavramak arasında fark vardır.</div>
+  <div data-dc-tpl="234" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 56px; margin-top: auto; padding-top: 64px;">
+    <div data-dc-tpl="235">
+      <div data-dc-tpl="236" style="height: 2px; background: rgb(111, 166, 255); margin-bottom: 24px;"></div>
+      <div data-dc-tpl="237" style="font-size: 30px; line-height: 1.4; color: rgb(230, 232, 239);">Uygun problemi seçmek</div>
+    </div>
+    <div data-dc-tpl="238">
+      <div data-dc-tpl="239" style="height: 2px; background: rgb(111, 166, 255); margin-bottom: 24px;"></div>
+      <div data-dc-tpl="240" style="font-size: 30px; line-height: 1.4; color: rgb(230, 232, 239);">Katılımcının düşünme biçimini değerlendirmek</div>
+    </div>
+    <div data-dc-tpl="241">
+      <div data-dc-tpl="242" style="height: 2px; background: rgb(111, 166, 255); margin-bottom: 24px;"></div>
+      <div data-dc-tpl="243" style="font-size: 30px; line-height: 1.4; color: rgb(230, 232, 239);">Yanlış varsayımları ortaya çıkarmak</div>
+    </div>
+    <div data-dc-tpl="244">
+      <div data-dc-tpl="245" style="height: 2px; background: rgb(243, 0, 94); margin-bottom: 24px;"></div>
+      <div data-dc-tpl="246" style="font-size: 30px; line-height: 1.4; color: rgb(230, 232, 239);">Öğrenmeyi işin gerçek koşullarıyla ilişkilendirmek</div>
+    </div>
+  </div></section>
+  </div>
+  <div class="slide-num">11 / 20</div>
+</div>
+<div class="slide-frame" id="slide-11" data-index="11">
+  <div class="slide-stage">
+<section data-dc-tpl="247" data-label="Bölüm 02" data-screen-label="12 Bölüm 02" data-speaker-notes="Bölüm geçişi: ölçümleme." data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="11" style="background: rgb(10, 107, 245); color: rgb(255, 255, 255); font-family: Archivo, system-ui, sans-serif; padding: 88px 100px 80px; display: flex; flex-direction: column; justify-content: flex-end; box-sizing: border-box;">
+  <div data-dc-tpl="248" style="font-size: 180px; font-weight: 800; line-height: 1; letter-spacing: -0.04em; opacity: 0.5;">02</div>
+  <div data-dc-tpl="249" style="height: 2px; background: rgb(255, 255, 255); margin: 36px 0px 40px;"></div>
+  <h2 data-dc-tpl="250" style="font-size: 96px; font-weight: 800; line-height: 1.02; letter-spacing: -0.03em; margin: 0px;">Ölçümleme</h2>
+  <div data-dc-tpl="251" style="font-size: 40px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 20px; opacity: 0.85;">Measurement</div></section>
+  </div>
+  <div class="slide-num">12 / 20</div>
+</div>
+<div class="slide-frame" id="slide-12" data-index="12">
+  <div class="slide-stage">
+<section data-dc-tpl="252" data-label="Ölçümleme çerçevesi" data-screen-label="13 Ölçümleme çerçevesi" data-speaker-notes="Katılım ve memnuniyet programın işleyişini anlatır, yetkinliği değil. Değerlendirme eğitim öncesinden başlar, uygulama sonrasına uzanır." data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="12" style="background: rgb(244, 244, 245); color: rgb(19, 28, 62); font-family: Archivo, system-ui, sans-serif; padding: 88px 100px 80px; display: flex; flex-direction: column; box-sizing: border-box;">
+  <div data-dc-tpl="253" style="font-size: 24px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(10, 107, 245);">Ölçümleme / Measurement</div>
+  <h2 data-dc-tpl="254" style="font-size: 64px; font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 26px 0px 0px; max-width: 1480px;">Eğitimin başarısı, uygulamadaki gelişimle görünür olur</h2>
+  <div data-dc-tpl="255" style="height: 2px; background: rgb(19, 28, 62); margin: 44px 0px 0px;"></div>
+  <div data-dc-tpl="256" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0px; margin-top: 52px;">
+    <div data-dc-tpl="257" style="padding-right: 44px; border-right: 1px solid rgb(201, 202, 209);">
+      <div data-dc-tpl="258" style="font-size: 26px; font-weight: 600; color: rgb(10, 107, 245);">Eğitim öncesi</div>
+      <div data-dc-tpl="259" style="font-size: 34px; font-weight: 800; line-height: 1.2; margin-top: 20px;">Başlangıç düzeyi ve gelişim ihtiyacı</div>
+    </div>
+    <div data-dc-tpl="260" style="padding: 0px 44px; border-right: 1px solid rgb(201, 202, 209);">
+      <div data-dc-tpl="261" style="font-size: 26px; font-weight: 600; color: rgb(10, 107, 245);">Eğitim sırasında</div>
+      <div data-dc-tpl="262" style="font-size: 34px; font-weight: 800; line-height: 1.2; margin-top: 20px;">Gerçekçi görevlerle uygulama becerisi</div>
+    </div>
+    <div data-dc-tpl="263" style="padding: 0px 44px; border-right: 1px solid rgb(201, 202, 209);">
+      <div data-dc-tpl="264" style="font-size: 26px; font-weight: 600; color: rgb(10, 107, 245);">İş başında</div>
+      <div data-dc-tpl="265" style="font-size: 34px; font-weight: 800; line-height: 1.2; margin-top: 20px;">Yönetici ve uzman geri bildirimiyle izleme</div>
+    </div>
+    <div data-dc-tpl="266" style="padding-left: 44px;">
+      <div data-dc-tpl="267" style="font-size: 26px; font-weight: 600; color: rgb(243, 0, 94);">Sonuçta</div>
+      <div data-dc-tpl="268" style="font-size: 34px; font-weight: 800; line-height: 1.2; margin-top: 20px;">Kalite, süre ve yeniden çalışma ihtiyacı</div>
+    </div>
+  </div>
+  <div data-dc-tpl="269" style="display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: auto; padding-top: 56px;">
+    <div data-dc-tpl="270" style="background: rgb(233, 233, 236); padding: 44px 40px;">
+      <div data-dc-tpl="271" style="font-size: 26px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(90, 96, 118);">Tek başına yeterli değil</div>
+      <div data-dc-tpl="272" style="font-size: 32px; line-height: 1.4; margin-top: 20px;">Katılım oranı · Tamamlanan eğitim sayısı · Memnuniyet puanı</div>
+    </div>
+    <div data-dc-tpl="273" style="background: rgb(19, 28, 62); color: rgb(255, 255, 255); padding: 44px 40px;">
+      <div data-dc-tpl="274" style="font-size: 26px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(111, 166, 255);">Aranan kanıt</div>
+      <div data-dc-tpl="275" style="font-size: 32px; line-height: 1.4; margin-top: 20px;">Katılımcı bir çıktıyı üretebiliyor ve ona neden güvendiğini açıklayabiliyor</div>
+    </div>
+  </div></section>
+  </div>
+  <div class="slide-num">13 / 20</div>
+</div>
+<div class="slide-frame" id="slide-13" data-index="13">
+  <div class="slide-stage">
+<section data-dc-tpl="276" data-label="Seçim kriterleri" data-screen-label="14 Seçim kriterleri" data-speaker-notes="Konu başlığı, süre ve fiyatın ötesinde sorulması gereken sorular. Her performans sorununun kaynağı bilgi eksikliği değildir." data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="13" style="background: rgb(244, 244, 245); color: rgb(19, 28, 62); font-family: Archivo, system-ui, sans-serif; padding: 88px 100px 80px; display: flex; flex-direction: column; box-sizing: border-box;">
+  <div data-dc-tpl="277" style="font-size: 24px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(10, 107, 245);">Ölçümleme / Measurement</div>
+  <h2 data-dc-tpl="278" style="font-size: 64px; font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 26px 0px 0px; max-width: 1480px;">Kurumların eğitim sağlayıcısına sorması gereken sorular</h2>
+  <div data-dc-tpl="279" style="height: 2px; background: rgb(19, 28, 62); margin: 44px 0px 0px;"></div>
+  <div data-dc-tpl="280" style="display: flex; flex-direction: column;">
+    <div data-dc-tpl="281" style="display: flex; gap: 44px; align-items: baseline; padding: 34px 0px; border-bottom: 1px solid rgb(201, 202, 209);">
+      <span data-dc-tpl="282" style="font-size: 28px; font-weight: 600; color: rgb(10, 107, 245); min-width: 64px;">01</span>
+      <span data-dc-tpl="283" style="font-size: 40px; font-weight: 600;">Katılımcıların ön bilgi düzeyi ölçülüyor mu?</span>
+    </div>
+    <div data-dc-tpl="284" style="display: flex; gap: 44px; align-items: baseline; padding: 34px 0px; border-bottom: 1px solid rgb(201, 202, 209);">
+      <span data-dc-tpl="285" style="font-size: 28px; font-weight: 600; color: rgb(10, 107, 245); min-width: 64px;">02</span>
+      <span data-dc-tpl="286" style="font-size: 40px; font-weight: 600;">İçerik kurumun teknolojilerine ve iş senaryolarına uyarlanabiliyor mu?</span>
+    </div>
+    <div data-dc-tpl="287" style="display: flex; gap: 44px; align-items: baseline; padding: 34px 0px; border-bottom: 1px solid rgb(201, 202, 209);">
+      <span data-dc-tpl="288" style="font-size: 28px; font-weight: 600; color: rgb(10, 107, 245); min-width: 64px;">03</span>
+      <span data-dc-tpl="289" style="font-size: 40px; font-weight: 600;">Uygulama ortamı sağlanıyor mu?</span>
+    </div>
+    <div data-dc-tpl="290" style="display: flex; gap: 44px; align-items: baseline; padding: 34px 0px; border-bottom: 1px solid rgb(201, 202, 209);">
+      <span data-dc-tpl="291" style="font-size: 28px; font-weight: 600; color: rgb(10, 107, 245); min-width: 64px;">04</span>
+      <span data-dc-tpl="292" style="font-size: 40px; font-weight: 600;">Eğitim sonrasında geri bildirim ve takip nasıl yürütülüyor?</span>
+    </div>
+  </div>
+  <div data-dc-tpl="293" style="margin-top: auto; display: flex; align-items: center; gap: 28px; padding-top: 44px;">
+    <div data-dc-tpl="294" style="width: 14px; height: 88px; background: rgb(243, 0, 94);"></div>
+    <div data-dc-tpl="295" style="font-size: 34px; line-height: 1.35; max-width: 1500px; color: rgb(90, 96, 118);">Her performans sorununun kaynağı bilgi eksikliği değildir. Zaman, araç erişimi ve yönetici desteği yoksa eğitim tek başına beklenen sonucu üretmez — ihtiyaç analizi bu koşulları da kapsar.</div>
+  </div></section>
+  </div>
+  <div class="slide-num">14 / 20</div>
+</div>
+<div class="slide-frame" id="slide-14" data-index="14">
+  <div class="slide-stage">
+<section data-dc-tpl="296" data-label="Bölüm 03" data-screen-label="15 Bölüm 03" data-speaker-notes="Bölüm geçişi: program kataloğu." data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="14" style="background: rgb(10, 107, 245); color: rgb(255, 255, 255); font-family: Archivo, system-ui, sans-serif; padding: 88px 100px 80px; display: flex; flex-direction: column; justify-content: flex-end; box-sizing: border-box;">
+  <div data-dc-tpl="297" style="font-size: 180px; font-weight: 800; line-height: 1; letter-spacing: -0.04em; opacity: 0.5;">03</div>
+  <div data-dc-tpl="298" style="height: 2px; background: rgb(255, 255, 255); margin: 36px 0px 40px;"></div>
+  <h2 data-dc-tpl="299" style="font-size: 96px; font-weight: 800; line-height: 1.02; letter-spacing: -0.03em; margin: 0px;">Program Kataloğu</h2>
+  <div data-dc-tpl="300" style="font-size: 40px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 20px; opacity: 0.85;">Catalogue</div></section>
+  </div>
+  <div class="slide-num">15 / 20</div>
+</div>
+<div class="slide-frame" id="slide-15" data-index="15">
+  <div class="slide-stage">
+<section data-dc-tpl="301" data-label="Katalog" data-screen-label="16 Katalog" data-speaker-notes="400+ program, 25+ global teknoloji ekosistemi, %100 uygulamalı içerik. Kategori dağılımı." data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="15" style="background: rgb(244, 244, 245); color: rgb(19, 28, 62); font-family: Archivo, system-ui, sans-serif; padding: 88px 100px 80px; display: flex; flex-direction: column; box-sizing: border-box;">
+  <div data-dc-tpl="302" style="font-size: 24px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(10, 107, 245);">Katalog / Catalogue</div>
+  <h2 data-dc-tpl="303" style="font-size: 64px; font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 26px 0px 0px; max-width: 1480px;">400'den fazla uygulamalı eğitim programı</h2>
+  <div data-dc-tpl="304" style="height: 2px; background: rgb(19, 28, 62); margin: 40px 0px 0px;"></div>
+  <div data-dc-tpl="305" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0px; margin-top: 48px;">
+    <div data-dc-tpl="306" style="padding-right: 40px; border-right: 1px solid rgb(201, 202, 209);">
+      <div data-dc-tpl="307" style="font-size: 88px; font-weight: 800; letter-spacing: -0.03em; line-height: 1;">148</div>
+      <div data-dc-tpl="308" style="font-size: 30px; font-weight: 600; margin-top: 18px;">Veri ve İş Yönetimi</div>
+      <div data-dc-tpl="309" style="font-size: 26px; color: rgb(90, 96, 118); margin-top: 10px; line-height: 1.35;">SQL, Power BI, PMP, Agile</div>
+    </div>
+    <div data-dc-tpl="310" style="padding: 0px 40px; border-right: 1px solid rgb(201, 202, 209);">
+      <div data-dc-tpl="311" style="font-size: 88px; font-weight: 800; letter-spacing: -0.03em; line-height: 1;">117</div>
+      <div data-dc-tpl="312" style="font-size: 30px; font-weight: 600; margin-top: 18px;">Yazılım Hizmetleri</div>
+      <div data-dc-tpl="313" style="font-size: 26px; color: rgb(90, 96, 118); margin-top: 10px; line-height: 1.35;">Java, Python, React, .NET</div>
+    </div>
+    <div data-dc-tpl="314" style="padding: 0px 40px; border-right: 1px solid rgb(201, 202, 209);">
+      <div data-dc-tpl="315" style="font-size: 88px; font-weight: 800; letter-spacing: -0.03em; line-height: 1;">88</div>
+      <div data-dc-tpl="316" style="font-size: 30px; font-weight: 600; margin-top: 18px;">Teknoloji Servisleri</div>
+      <div data-dc-tpl="317" style="font-size: 26px; color: rgb(90, 96, 118); margin-top: 10px; line-height: 1.35;">Azure, CISSP, Linux, ITIL</div>
+    </div>
+    <div data-dc-tpl="318" style="padding-left: 40px;">
+      <div data-dc-tpl="319" style="font-size: 88px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; color: rgb(10, 107, 245);">72</div>
+      <div data-dc-tpl="320" style="font-size: 30px; font-weight: 600; margin-top: 18px;">AI ve Yapay Zekâ</div>
+      <div data-dc-tpl="321" style="font-size: 26px; color: rgb(90, 96, 118); margin-top: 10px; line-height: 1.35;">Copilot, Azure AI, ML, RAG</div>
+    </div>
+  </div>
+  <div data-dc-tpl="322" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; margin-top: auto; padding-top: 56px; border-top: 2px solid rgb(19, 28, 62);">
+    <div data-dc-tpl="323">
+      <div data-dc-tpl="324" style="font-size: 64px; font-weight: 800; letter-spacing: -0.03em;">400+</div>
+      <div data-dc-tpl="325" style="font-size: 28px; color: rgb(90, 96, 118); margin-top: 12px;">Aktif eğitim programı</div>
+    </div>
+    <div data-dc-tpl="326">
+      <div data-dc-tpl="327" style="font-size: 64px; font-weight: 800; letter-spacing: -0.03em;">25+</div>
+      <div data-dc-tpl="328" style="font-size: 28px; color: rgb(90, 96, 118); margin-top: 12px;">Global teknoloji ekosistemi ortaklığı</div>
+    </div>
+    <div data-dc-tpl="329">
+      <div data-dc-tpl="330" style="font-size: 64px; font-weight: 800; letter-spacing: -0.03em;">%100</div>
+      <div data-dc-tpl="331" style="font-size: 28px; color: rgb(90, 96, 118); margin-top: 12px;">Uygulamalı içerik</div>
+    </div>
+  </div></section>
+  </div>
+  <div class="slide-num">16 / 20</div>
+</div>
+<div class="slide-frame" id="slide-16" data-index="16">
+  <div class="slide-stage">
+<section data-dc-tpl="332" data-label="Kamu YZ programı" data-screen-label="17 Kamu YZ programı" data-speaker-notes="2026-2030 Ulusal YZ Eylem Planı ile uyumlu, 44 eğitimlik kamu programı. On modül grubu, rol bazlı." data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="16" style="background: rgb(19, 28, 62); color: rgb(255, 255, 255); font-family: Archivo, system-ui, sans-serif; padding: 88px 100px 80px; display: flex; flex-direction: column; box-sizing: border-box;">
+  <div data-dc-tpl="333" style="font-size: 24px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(111, 166, 255);">Katalog / Catalogue</div>
+  <h2 data-dc-tpl="334" style="font-size: 64px; font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 26px 0px 0px; max-width: 1520px;">Kamu sektörü yapay zekâ programı: 44 eğitim, 2026–2030 eylem planıyla uyumlu</h2>
+  <div data-dc-tpl="335" style="height: 2px; background: rgb(255, 255, 255); margin: 40px 0px 0px; opacity: 0.9;"></div>
+  <div data-dc-tpl="336" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; background: rgba(255, 255, 255, 0.25); margin-top: 48px;">
+    <div data-dc-tpl="337" style="background: rgb(19, 28, 62); padding: 32px 28px;"><div data-dc-tpl="338" style="font-size: 42px; font-weight: 800; color: rgb(111, 166, 255);">5</div><div data-dc-tpl="339" style="font-size: 26px; margin-top: 12px; line-height: 1.3;">Temel okuryazarlık</div></div>
+    <div data-dc-tpl="340" style="background: rgb(19, 28, 62); padding: 32px 28px;"><div data-dc-tpl="341" style="font-size: 42px; font-weight: 800; color: rgb(111, 166, 255);">4</div><div data-dc-tpl="342" style="font-size: 26px; margin-top: 12px; line-height: 1.3;">İnsan kaynakları</div></div>
+    <div data-dc-tpl="343" style="background: rgb(19, 28, 62); padding: 32px 28px;"><div data-dc-tpl="344" style="font-size: 42px; font-weight: 800; color: rgb(111, 166, 255);">4</div><div data-dc-tpl="345" style="font-size: 26px; margin-top: 12px; line-height: 1.3;">Finans ve bütçe</div></div>
+    <div data-dc-tpl="346" style="background: rgb(19, 28, 62); padding: 32px 28px;"><div data-dc-tpl="347" style="font-size: 42px; font-weight: 800; color: rgb(111, 166, 255);">4</div><div data-dc-tpl="348" style="font-size: 26px; margin-top: 12px; line-height: 1.3;">Pazarlama ve iletişim</div></div>
+    <div data-dc-tpl="349" style="background: rgb(19, 28, 62); padding: 32px 28px;"><div data-dc-tpl="350" style="font-size: 42px; font-weight: 800; color: rgb(111, 166, 255);">4</div><div data-dc-tpl="351" style="font-size: 26px; margin-top: 12px; line-height: 1.3;">Vatandaş hizmetleri</div></div>
+    <div data-dc-tpl="352" style="background: rgb(19, 28, 62); padding: 32px 28px;"><div data-dc-tpl="353" style="font-size: 42px; font-weight: 800; color: rgb(111, 166, 255);">4</div><div data-dc-tpl="354" style="font-size: 26px; margin-top: 12px; line-height: 1.3;">Hukuk, uyum ve denetim</div></div>
+    <div data-dc-tpl="355" style="background: rgb(19, 28, 62); padding: 32px 28px;"><div data-dc-tpl="356" style="font-size: 42px; font-weight: 800; color: rgb(111, 166, 255);">4</div><div data-dc-tpl="357" style="font-size: 26px; margin-top: 12px; line-height: 1.3;">BT ve sistem yönetimi</div></div>
+    <div data-dc-tpl="358" style="background: rgb(19, 28, 62); padding: 32px 28px;"><div data-dc-tpl="359" style="font-size: 42px; font-weight: 800; color: rgb(111, 166, 255);">4</div><div data-dc-tpl="360" style="font-size: 26px; margin-top: 12px; line-height: 1.3;">Yöneticiler ve karar vericiler</div></div>
+    <div data-dc-tpl="361" style="background: rgb(19, 28, 62); padding: 32px 28px;"><div data-dc-tpl="362" style="font-size: 42px; font-weight: 800; color: rgb(111, 166, 255);">4</div><div data-dc-tpl="363" style="font-size: 26px; margin-top: 12px; line-height: 1.3;">Kamu kurumlarına özel modüller</div></div>
+    <div data-dc-tpl="364" style="background: rgb(19, 28, 62); padding: 32px 28px;"><div data-dc-tpl="365" style="font-size: 42px; font-weight: 800; color: rgb(243, 0, 94);">7</div><div data-dc-tpl="366" style="font-size: 26px; margin-top: 12px; line-height: 1.3;">Uzmanlık sertifikası</div></div>
+  </div>
+  <div data-dc-tpl="367" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; margin-top: auto; padding-top: 56px;">
+    <div data-dc-tpl="368" style="font-size: 28px; line-height: 1.35; color: rgb(230, 232, 239);">AI Lead sertifika programı · 30 saat</div>
+    <div data-dc-tpl="369" style="font-size: 28px; line-height: 1.35; color: rgb(230, 232, 239);">YZ yönetişimi ve risk yönetimi · 20 saat</div>
+    <div data-dc-tpl="370" style="font-size: 28px; line-height: 1.35; color: rgb(230, 232, 239);">RAG ve kurumsal veri mimarisi · 18 saat</div>
+    <div data-dc-tpl="371" style="font-size: 28px; line-height: 1.35; color: rgb(230, 232, 239);">MLOps: model yaşam döngüsü · 20 saat</div>
+  </div></section>
+  </div>
+  <div class="slide-num">17 / 20</div>
+</div>
+<div class="slide-frame" id="slide-17" data-index="17">
+  <div class="slide-stage">
+<section data-dc-tpl="373" data-label="Avantaj paketleri" data-screen-label="18 Avantaj paketleri" data-speaker-notes="Yıllık eğitim bütçesi paketleri. 12 ay geçerli, tüm eğitimlere esnek erişim, açık eğitimlerde ek indirim." data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="17" style="background: rgb(244, 244, 245); color: rgb(19, 28, 62); font-family: Archivo, system-ui, sans-serif; padding: 88px 100px 80px; display: flex; flex-direction: column; box-sizing: border-box;">
+  <div data-dc-tpl="374" style="font-size: 24px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(10, 107, 245);">Kurumsal Model / Commercial</div>
+  <h2 data-dc-tpl="375" style="font-size: 64px; font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 26px 0px 0px;">Kurumsal eğitim avantaj paketleri</h2>
+  <div data-dc-tpl="376" style="height: 2px; background: rgb(19, 28, 62); margin: 40px 0px 0px;"></div>
+  <div data-dc-tpl="377" style="display: grid; grid-template-columns: 1fr 200px 1fr 1fr; gap: 0px 48px; align-items: center; padding: 24px 0px 20px; border-bottom: 2px solid rgb(19, 28, 62);">
+    <div data-dc-tpl="378" style="font-size: 24px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgb(90, 96, 118);">Paket</div>
+    <div data-dc-tpl="379" style="font-size: 24px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgb(90, 96, 118);">Avantaj</div>
+    <div data-dc-tpl="380" style="font-size: 24px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgb(90, 96, 118);">Ödenen tutar</div>
+    <div data-dc-tpl="381" style="font-size: 24px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgb(90, 96, 118);">Alınan eğitim değeri</div>
+  </div>
+  <div data-dc-tpl="382" style="display: grid; grid-template-columns: 1fr 200px 1fr 1fr; gap: 0px 48px; align-items: center; padding: 30px 0px; border-bottom: 1px solid rgb(201, 202, 209);">
+    <div data-dc-tpl="383" style="font-size: 38px; font-weight: 800;">Essential</div>
+    <div data-dc-tpl="384" style="font-size: 38px; font-weight: 800; color: rgb(10, 107, 245);">%20</div>
+    <div data-dc-tpl="385" style="font-size: 34px;">400.000 TL</div>
+    <div data-dc-tpl="386" style="font-size: 34px; color: rgb(90, 96, 118);">480.000 TL</div>
+  </div>
+  <div data-dc-tpl="387" style="display: grid; grid-template-columns: 1fr 200px 1fr 1fr; gap: 0px 48px; align-items: center; padding: 30px 0px; border-bottom: 1px solid rgb(201, 202, 209);">
+    <div data-dc-tpl="388" style="font-size: 38px; font-weight: 800;">Professional</div>
+    <div data-dc-tpl="389" style="font-size: 38px; font-weight: 800; color: rgb(10, 107, 245);">%25</div>
+    <div data-dc-tpl="390" style="font-size: 34px;">1.120.000 TL</div>
+    <div data-dc-tpl="391" style="font-size: 34px; color: rgb(90, 96, 118);">1.400.000 TL</div>
+  </div>
+  <div data-dc-tpl="392" style="display: grid; grid-template-columns: 1fr 200px 1fr 1fr; gap: 0px 48px; align-items: center; padding: 30px 0px; border-bottom: 1px solid rgb(201, 202, 209); background: rgb(233, 233, 236);">
+    <div data-dc-tpl="393" style="font-size: 38px; font-weight: 800; padding-left: 20px;">Executive</div>
+    <div data-dc-tpl="394" style="font-size: 38px; font-weight: 800; color: rgb(10, 107, 245);">%30</div>
+    <div data-dc-tpl="395" style="font-size: 34px;">2.000.000 TL</div>
+    <div data-dc-tpl="396" style="font-size: 34px; color: rgb(90, 96, 118);">2.600.000 TL</div>
+  </div>
+  <div data-dc-tpl="397" style="display: grid; grid-template-columns: 1fr 200px 1fr 1fr; gap: 0px 48px; align-items: center; padding: 30px 0px; border-bottom: 1px solid rgb(201, 202, 209);">
+    <div data-dc-tpl="398" style="font-size: 38px; font-weight: 800;">Elite</div>
+    <div data-dc-tpl="399" style="font-size: 38px; font-weight: 800; color: rgb(243, 0, 94);">%35</div>
+    <div data-dc-tpl="400" style="font-size: 34px;">2.960.000 TL</div>
+    <div data-dc-tpl="401" style="font-size: 34px; color: rgb(90, 96, 118);">4.000.000 TL</div>
+  </div>
+  <div data-dc-tpl="402" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; margin-top: auto; padding-top: 48px;">
+    <div data-dc-tpl="403" style="font-size: 28px; line-height: 1.35; color: rgb(90, 96, 118);">Satın alma tarihinden itibaren 12 ay geçerli</div>
+    <div data-dc-tpl="404" style="font-size: 28px; line-height: 1.35; color: rgb(90, 96, 118);">Tüm eğitimlere esnek erişim ve planlama</div>
+    <div data-dc-tpl="405" style="font-size: 28px; line-height: 1.35; color: rgb(90, 96, 118);">Açık eğitimlerde ek indirim avantajı</div>
+    <div data-dc-tpl="406" style="font-size: 28px; line-height: 1.35; color: rgb(90, 96, 118);">Eğitim danışmanı desteği</div>
+  </div></section>
+  </div>
+  <div class="slide-num">18 / 20</div>
+</div>
+<div class="slide-frame" id="slide-18" data-index="18">
+  <div class="slide-stage">
+<section data-dc-tpl="407" data-label="Çalışma modeli" data-screen-label="19 Çalışma modeli" data-speaker-notes="Kurumsal çalışma modeli: dört adımda programın kurulması. Somut bir sonraki adım teklif edin." data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="18" style="background: rgb(244, 244, 245); color: rgb(19, 28, 62); font-family: Archivo, system-ui, sans-serif; padding: 88px 100px 80px; display: grid; grid-template-columns: 1fr 720px; gap: 96px; box-sizing: border-box;">
+  <div data-dc-tpl="408" style="display: flex; flex-direction: column;">
+    <div data-dc-tpl="409" style="font-size: 24px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(10, 107, 245);">Kurumsal Model / Engagement</div>
+    <h2 data-dc-tpl="410" style="font-size: 64px; font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 26px 0px 0px;">Birlikte çalışma modeli</h2>
+    <div data-dc-tpl="411" style="height: 2px; background: rgb(19, 28, 62); margin: 40px 0px 0px;"></div>
+    <div data-dc-tpl="412" style="display: flex; gap: 36px; align-items: baseline; padding: 30px 0px; border-bottom: 1px solid rgb(201, 202, 209);">
+      <span data-dc-tpl="413" style="font-size: 26px; font-weight: 600; color: rgb(10, 107, 245); min-width: 56px;">01</span>
+      <span data-dc-tpl="414" style="font-size: 36px; font-weight: 600;">Yetkinlik ve ihtiyaç analizi çalıştayı</span>
+    </div>
+    <div data-dc-tpl="415" style="display: flex; gap: 36px; align-items: baseline; padding: 30px 0px; border-bottom: 1px solid rgb(201, 202, 209);">
+      <span data-dc-tpl="416" style="font-size: 26px; font-weight: 600; color: rgb(10, 107, 245); min-width: 56px;">02</span>
+      <span data-dc-tpl="417" style="font-size: 36px; font-weight: 600;">Role göre gelişim planı ve takvim</span>
+    </div>
+    <div data-dc-tpl="418" style="display: flex; gap: 36px; align-items: baseline; padding: 30px 0px; border-bottom: 1px solid rgb(201, 202, 209);">
+      <span data-dc-tpl="419" style="font-size: 26px; font-weight: 600; color: rgb(10, 107, 245); min-width: 56px;">03</span>
+      <span data-dc-tpl="420" style="font-size: 36px; font-weight: 600;">Kuruma özel içerik ve uygulama ortamı</span>
+    </div>
+    <div data-dc-tpl="421" style="display: flex; gap: 36px; align-items: baseline; padding: 30px 0px; border-bottom: 1px solid rgb(201, 202, 209);">
+      <span data-dc-tpl="422" style="font-size: 26px; font-weight: 600; color: rgb(10, 107, 245); min-width: 56px;">04</span>
+      <span data-dc-tpl="423" style="font-size: 36px; font-weight: 600;">Uygulama takibi ve dönemsel gözden geçirme</span>
+    </div>
+    <div data-dc-tpl="424" style="margin-top: auto; padding-top: 40px; font-size: 30px; color: rgb(90, 96, 118); line-height: 1.4;">Yapay zekâ araçları hızla değiştiği için içerik yıllık değil, kullanılan teknolojiler ve süreçler değiştikçe gözden geçirilir.</div>
+  </div>
+  <div data-dc-tpl="425" style="background: rgb(19, 28, 62); color: rgb(255, 255, 255); min-width: 0px; overflow: hidden; padding: 64px 56px; display: flex; flex-direction: column; box-sizing: border-box;">
+    <div data-dc-tpl="426" style="font-size: 24px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(111, 166, 255);">Neden Bilginex</div>
+    <div data-dc-tpl="427" style="height: 2px; background: rgb(255, 255, 255); opacity: 0.9; margin-top: 24px;"></div>
+    <div data-dc-tpl="428" style="margin-top: 48px;">
+      <div data-dc-tpl="429" style="font-size: 72px; font-weight: 800; letter-spacing: -0.03em; line-height: 1;">30 yıl</div>
+      <div data-dc-tpl="430" style="font-size: 28px; color: rgb(230, 232, 239); margin-top: 14px; line-height: 1.35;">Kurumsal teknoloji ve eğitim tecrübesi</div>
+    </div>
+    <div data-dc-tpl="431" style="height: 1px; background: rgba(255, 255, 255, 0.35); margin: 40px 0px;"></div>
+    <div data-dc-tpl="432">
+      <div data-dc-tpl="433" style="font-size: 72px; font-weight: 800; letter-spacing: -0.03em; line-height: 1;">Sertifikalı</div>
+      <div data-dc-tpl="434" style="font-size: 28px; color: rgb(230, 232, 239); margin-top: 14px; line-height: 1.35;">Sahada çalışan uzman eğitmen kadrosu</div>
+    </div>
+    <div data-dc-tpl="435" style="height: 1px; background: rgba(255, 255, 255, 0.35); margin: 40px 0px;"></div>
+    <div data-dc-tpl="436">
+      <div data-dc-tpl="437" style="font-size: 72px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; color: rgb(111, 166, 255);">Kuruma özel</div>
+      <div data-dc-tpl="438" style="font-size: 28px; color: rgb(230, 232, 239); margin-top: 14px; line-height: 1.35;">İçerik, senaryo ve uygulama ortamı kurumun sistemlerine uyarlanır</div>
+    </div>
+    <div data-dc-tpl="439" style="margin-top: auto; font-size: 26px; color: rgb(154, 162, 184);">İstanbul · Ankara · İzmir</div>
+  </div></section>
+  </div>
+  <div class="slide-num">19 / 20</div>
+</div>
+<div class="slide-frame" id="slide-19" data-index="19">
+  <div class="slide-stage">
+<section data-dc-tpl="440" data-label="Kapanış" data-screen-label="20 Kapanış" data-speaker-notes="Kapanış ve çağrı: ihtiyaç analizi çalıştayı için tarih belirleyelim." data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="19" data-deck-last-visible="" style="background: rgb(19, 28, 62); color: rgb(255, 255, 255); font-family: Archivo, system-ui, sans-serif; padding: 88px 100px 80px; display: flex; flex-direction: column; box-sizing: border-box;">
+  <div data-dc-tpl="441" style="font-size: 24px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(111, 166, 255);">Bilginex Akademi</div>
+  <div data-dc-tpl="442" style="height: 2px; background: rgb(255, 255, 255); margin: 28px 0px auto; opacity: 0.9;"></div>
+  <h2 data-dc-tpl="443" style="font-size: 76px; font-weight: 800; line-height: 1.1; letter-spacing: -0.025em; margin: 0px; max-width: 1480px; text-wrap: pretty;">Geleceğe hazırlık, çalışanların öğrendiklerini daha iyi kararlara ve güvenilir uygulamalara dönüştürebilmesiyle başlıyor.</h2>
+  <div data-dc-tpl="444" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 64px; margin-top: auto; padding-top: 72px; border-top: 2px solid rgb(255, 255, 255);">
+    <div data-dc-tpl="445">
+      <div data-dc-tpl="446" style="font-size: 24px; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(154, 162, 184);">Sonraki adım</div>
+      <div data-dc-tpl="447" style="font-size: 32px; font-weight: 600; margin-top: 14px; line-height: 1.35;">Kurumunuza özel ihtiyaç analizi çalıştayı</div>
+    </div>
+    <div data-dc-tpl="448">
+      <div data-dc-tpl="449" style="font-size: 24px; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(154, 162, 184);">İletişim</div>
+      <div data-dc-tpl="450" style="font-size: 32px; font-weight: 600; margin-top: 14px; line-height: 1.35;">bilginex.com/akademi</div>
+    </div>
+    <div data-dc-tpl="451">
+      <div data-dc-tpl="452" style="font-size: 24px; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(154, 162, 184);">Ofisler</div>
+      <div data-dc-tpl="453" style="font-size: 32px; font-weight: 600; margin-top: 14px; line-height: 1.35;">İstanbul · Ankara · İzmir</div>
+    </div>
+  </div></section>
+  </div>
+  <div class="slide-num">20 / 20</div>
+</div>
+</main>
+
+<script>
+  // Scale each 1920x1080 slide stage to fit its responsive frame width
+  function scaleSlides(){
+    document.querySelectorAll('.slide-frame').forEach(function(frame){
+      var stage = frame.querySelector('.slide-stage');
+      var scale = frame.clientWidth / 1920;
+      stage.style.transform = 'scale(' + scale + ')';
+    });
+  }
+  window.addEventListener('resize', scaleSlides);
+  window.addEventListener('load', scaleSlides);
+  scaleSlides();
+
+  // Build dot navigation
+  var deck = document.getElementById('deck');
+  var dotnav = document.getElementById('dotnav');
+  var frames = Array.from(document.querySelectorAll('.slide-frame'));
+  frames.forEach(function(frame, i){
+    var dot = document.createElement('button');
+    dot.className = 'dot';
+    dot.setAttribute('aria-label', 'Slayt ' + (i + 1));
+    dot.addEventListener('click', function(){
+      frame.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+    dotnav.appendChild(dot);
+  });
+
+  var dots = Array.from(dotnav.querySelectorAll('.dot'));
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting){
+        var idx = frames.indexOf(entry.target);
+        dots.forEach(function(d){ d.classList.remove('active'); });
+        if (dots[idx]) dots[idx].classList.add('active');
+      }
+    });
+  }, { threshold: 0.5 });
+  frames.forEach(function(f){ observer.observe(f); });
+</script>
+
+</body>
+</html>
